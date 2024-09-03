@@ -22,8 +22,8 @@ public class EnemyController : MonoBehaviour
 
     void Moving()
     {
-        Vector2 dir = PlayerController._playerPos.transform.position - this.transform.position;
-        Debug.Log(PlayerController._playerPos.transform.position);
+        Vector2 dir = PlayerController.playerPos.transform.position - this.transform.position;
+        Debug.Log(PlayerController.playerPos.transform.position);
         Quaternion rotate = this.transform.rotation;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + _angleOffset;
         rotate.eulerAngles = new Vector3(0, 0, angle);
