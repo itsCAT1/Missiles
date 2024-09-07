@@ -14,8 +14,7 @@ public class EnemyManager : MonoBehaviour
     void Spawn()
     {
         Vector3 randomDirection = Random.insideUnitCircle.normalized;
-        Vector3 enemySpawnPos = PlayerController.playerPos.transform.position + randomDirection * spawnDistance;
+        Vector3 enemySpawnPos = PlayerController.playerPos.position + randomDirection * spawnDistance;
         Instantiate(missiles, enemySpawnPos, Quaternion.identity);
     }
-
 }

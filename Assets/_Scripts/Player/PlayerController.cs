@@ -8,14 +8,14 @@ public class PlayerController : MonoBehaviour
 {
     public float speedMoving;
     public float speedRotate;
-    public static GameObject playerPos;
-    public Rigidbody2D rigid2D;
+    public static Transform playerPos;
+    Rigidbody2D rigid2D;
     public Text coinCount;
     public int coins = 0;
     void Awake()
     {
         rigid2D = this.GetComponent<Rigidbody2D>();
-        playerPos = this.GetComponent<GameObject>();
+        playerPos = this.GetComponent<Transform>();
     }
     
     void FixedUpdate()
