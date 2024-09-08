@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977e3dea20b030c4b84af6e860e2331a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angleChangingSpeed: 3
+  angleChangingSpeed: 120
   movementSpeed: 3
 --- !u!50 &5180141372740777125
 Rigidbody2D:
