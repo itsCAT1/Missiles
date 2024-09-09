@@ -9,6 +9,11 @@ public class CameraController : MonoBehaviour
     
     void Update()
     {
+        CameraFollowPlayer();
+    }
+
+    void CameraFollowPlayer()
+    {
         Vector3 pos = player.position + offSet;
         pos.z = Camera.main.transform.localPosition.z;
 
