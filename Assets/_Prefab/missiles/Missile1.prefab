@@ -13,28 +13,33 @@ GameObject:
   - component: {fileID: 1102173466646886173}
   - component: {fileID: 5180141372740777125}
   - component: {fileID: 3188412229013244015}
+  - component: {fileID: 5959438868457342958}
   m_Layer: 0
   m_Name: Missile1
-  m_TagString: Untagged
+  m_TagString: missile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7374326153326872286
-Transform:
+--- !u!224 &7374326153326872286
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1967220899907536651}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.73, y: 3.41, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1.73, y: 3.41}
+  m_SizeDelta: {x: 0.08, y: 0.16666667}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &3935104183303347040
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -101,6 +106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angleChangingSpeed: 120
   movementSpeed: 3
+  bonusCoin: 0
+  uiBonusCoin: {fileID: 0}
 --- !u!50 &5180141372740777125
 Rigidbody2D:
   serializedVersion: 4
@@ -164,7 +171,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.24, y: 0.5}
+    oldSize: {x: 0.08, y: 0.16666667}
     newSize: {x: 0.24, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -173,3 +180,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.24, y: 0.5}
   m_EdgeRadius: 0
+--- !u!222 &5959438868457342958
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967220899907536651}
+  m_CullTransparentMesh: 1

@@ -10,8 +10,6 @@ public class PlaneController : MonoBehaviour
     public float speedRotate;
     public static Transform playerPos;
     Rigidbody2D rigid2D;
-    public Text coinCount;
-    public int coins = 0;
     Animator animator;
     void Awake()
     {
@@ -58,14 +56,4 @@ public class PlaneController : MonoBehaviour
         else animator.SetBool("Rotate", false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("star"))
-        {
-            Debug.Log("Trigger");
-            coins += 1;
-            coinCount.text = coins.ToString();
-            Destroy(collision.gameObject);
-        }
-    }
 }

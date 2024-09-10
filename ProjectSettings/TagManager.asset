@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - star
+  - plane
+  - missile
+  - Star
   layers:
   - Default
   - TransparentFX

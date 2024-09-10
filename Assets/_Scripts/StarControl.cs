@@ -20,4 +20,14 @@ public class StarControl : MonoBehaviour
         rotate.eulerAngles = new Vector3(0 ,0, angle);
         transform.rotation = rotate;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("plane"))
+        {
+            GameManager.starPoint += 1;
+            Destroy(this.gameObject);
+            Debug.Log("ReceiveStar");
+        }
+    }
 }

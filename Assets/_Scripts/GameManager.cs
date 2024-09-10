@@ -1,26 +1,45 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public Text timeCount;
-    public GameObject star;
-    Vector2 oldPos = Vector2.zero;
-    private void Start()
+    public static int bonusCoin;
+    public static int starPoint;
+    int minutes;
+    int seconds;
+    int totalPoint;
+    public Text uiBonusCoin;
+    public Text uiStarPointInGame;
+    public Text uiStarPointEndGame;
+    public Text uiTimePoint;
+    public Text uiTotalPoint;
+    public Text uiYourScore;
+
+    void Start()
     {
         StartCoroutine(StartTimeCount());
-        StartCoroutine(SpawnStar());
+    }
+
+    private void Update()
+    {
+        uiBonusCoin.text = bonusCoin.ToString();
+        uiStarPointInGame.text = starPoint.ToString();
+        uiStarPointEndGame.text = "+" + starPoint*10;
+        uiTimePoint.text = "+" + seconds.ToString();
+        totalPoint = starPoint * 10 + seconds + bonusCoin;
+        uiTotalPoint.text = totalPoint.ToString();
+        uiYourScore.text = totalPoint.ToString();
     }
 
     IEnumerator StartTimeCount()
     {
         while (true)
         {
-            int minutes = Mathf.FloorToInt(Time.time / 60);
-            int seconds = Mathf.FloorToInt(Time.time % 60);
+            minutes = Mathf.FloorToInt(Time.time / 60);
+            seconds = Mathf.FloorToInt(Time.time % 60);
 
             timeCount.text = string.Format("{0}:{1:00}", minutes, seconds);
 
@@ -28,28 +47,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
-    IEnumerator SpawnStar()
+    public void PressButtonDouble()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(Random.Range(3,7));
-
-            Vector2 screenSize = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-
-            Vector2 newPos = Vector2.zero;
-            do
-            {
-                newPos.x = Random.Range(-screenSize.x - 5, screenSize.x + 5);
-                newPos.y = Random.Range(-screenSize.y - 5, screenSize.y + 5);
-            }
-            while ((newPos.x >= -screenSize.x && newPos.x <= screenSize.x) ||
-            (newPos.y >= -screenSize.y && newPos.y <= screenSize.y) ||
-            Vector2.Distance(newPos, oldPos) < 2);
-
-            oldPos = newPos;
-
-            Instantiate(star, newPos, Quaternion.identity);
-        } 
+        totalPoint *= 2;
+        Update();
     }
 }
