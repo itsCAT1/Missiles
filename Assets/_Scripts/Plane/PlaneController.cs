@@ -29,15 +29,12 @@ public class PlaneController : MonoBehaviour
 
     public void Moving()
     {
-        //Ridgid2D.velocity = new Vector3(Input.GetAxisRaw("Horizontal") * _speed, Input.GetAxisRaw("Vertical") * _speed, 0);
         Quaternion rotate = transform.rotation;
         float angle = rotate.eulerAngles.z - Input.GetAxisRaw("Horizontal") * speedRotate;
         rotate.eulerAngles = new Vector3(0, 0, angle);
         transform.rotation = rotate;
 
         rigid2D.velocity = this.transform.up * speedMoving;
-        
-        //Camera.main.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
     }
 
     public void FlipPlane()
@@ -46,7 +43,10 @@ public class PlaneController : MonoBehaviour
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
-        else transform.localScale = new Vector3(1, 1, 1);
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
     }
 
     public void UpdateAnimation()
