@@ -11,6 +11,7 @@ public class PlaneManager : MonoBehaviour
     public float moveDistance = 3.5f;
     private Camera mainCamera;
     private CameraController cameraController;
+    
     void Start()
     {
         ShowCurrentPlane();

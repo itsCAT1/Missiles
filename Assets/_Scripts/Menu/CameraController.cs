@@ -29,10 +29,4 @@ public class CameraController : MonoBehaviour
 
         mainCamera.transform.localPosition = pos;
     }
-
-    // Gọi phương thức này khi bạn muốn camera quay lại theo dõi người chơi
-    public void ResetCameraControl()
-    {
-        isCameraControlling = false;
-    }
 }

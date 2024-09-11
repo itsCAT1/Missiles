@@ -11,6 +11,7 @@ public class PlaneController : MonoBehaviour
     public static Transform playerPos;
     Rigidbody2D rigid2D;
     Animator animator;
+    public GameObject shieldReceive;
     void Awake()
     {
         rigid2D = this.GetComponent<Rigidbody2D>();
@@ -56,4 +57,24 @@ public class PlaneController : MonoBehaviour
         else animator.SetBool("Rotate", false);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("shield"))
+        {
+            Destroy(collision.gameObject);
+            shieldReceive.SetActive(true);
+            Debug.Log("nhanshield");
+        }
+        if (collision.gameObject.CompareTag("missile") && shieldReceive)
+        {
+            Destroy(collision.gameObject);
+            shieldReceive.SetActive(false);
+            Debug.Log("matshield");
+        }
+        if (collision.gameObject.CompareTag("missile") && !shieldReceive)
+        {
+            Destroy(this.gameObject);
+            Debug.Log("chuacoshield");
+        }
+    }
 }

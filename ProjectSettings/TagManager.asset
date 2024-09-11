@@ -7,7 +7,7 @@ TagManager:
   - star
   - plane
   - missile
-  - Star
+  - shield
   layers:
   - Default
   - TransparentFX

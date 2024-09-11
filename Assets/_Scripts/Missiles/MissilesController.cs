@@ -22,7 +22,7 @@ public class MissilesController : MonoBehaviour
         rigidBody.velocity = transform.up * movementSpeed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("missile"))
         {
@@ -30,5 +30,5 @@ public class MissilesController : MonoBehaviour
             Debug.Log("bonusCoin");
         }
         Destroy(this.gameObject);
-    }
+    }*/
 }
