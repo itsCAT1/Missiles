@@ -470,6 +470,8 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 0}
+  haveShield: 0
+  haveSpeedUp: 0
 --- !u!212 &21062924
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -656,7 +658,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &26863415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3405,6 +3407,8 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 0}
+  haveShield: 0
+  haveSpeedUp: 0
 --- !u!212 &129495451
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7009,6 +7013,8 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 0}
+  haveShield: 0
+  haveSpeedUp: 0
 --- !u!212 &326553455
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10834,6 +10840,8 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 0}
+  haveShield: 0
+  haveSpeedUp: 0
 --- !u!212 &602559749
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12441,6 +12449,8 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 0}
+  haveShield: 0
+  haveSpeedUp: 0
 --- !u!212 &676233682
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12596,9 +12606,9 @@ RectTransform:
   - {fileID: 926519043}
   m_Father: {fileID: 1005512796}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 762, y: -171.68}
   m_SizeDelta: {x: 342, y: 343.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &682691085
@@ -14614,6 +14624,8 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 0}
+  haveShield: 0
+  haveSpeedUp: 0
 --- !u!212 &802479801
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16122,7 +16134,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 15.5, y: -32.695}
-  m_SizeDelta: {x: 31, y: 0}
+  m_SizeDelta: {x: 31, y: 89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &908872217
 MonoBehaviour:
@@ -19079,6 +19091,8 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 0}
+  haveShield: 0
+  haveSpeedUp: 0
 --- !u!212 &1067029508
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19152,6 +19166,54 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1073668626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1073668628}
+  - component: {fileID: 1073668627}
+  m_Layer: 0
+  m_Name: SpeedUpManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1073668627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073668626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: def287ed314a9a342bb488d514c90c39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planePos: {fileID: 1365725427}
+  speedUp: {fileID: 6219171016274274270, guid: f634d7f141c1ec940b54336c925ca8b9, type: 3}
+  minSpawnDistance: 5
+  maxSpawnDistance: 7
+--- !u!4 &1073668628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073668626}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1078111717
 GameObject:
   m_ObjectHideFlags: 0
@@ -19188,7 +19250,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 24, y: -55}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 78, y: 74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1078111719
 MonoBehaviour:
@@ -19826,7 +19888,7 @@ Transform:
   m_GameObject: {fileID: 1130481441}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.026766, y: 0.09477393, z: 0.051079918}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21380,7 +21442,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -3.300003, y: 24}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -134, y: -254.35999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1209427960
 MonoBehaviour:
@@ -23676,7 +23738,7 @@ Transform:
   m_GameObject: {fileID: 1312753790}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.38487446, y: 0.8896839, z: -0.033195186}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24209,7 +24271,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 27, y: -55}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 74, y: 74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1347957051
 MonoBehaviour:
@@ -24506,6 +24568,8 @@ MonoBehaviour:
   speedMoving: 3
   speedRotate: 3
   shieldReceive: {fileID: 1029877793}
+  haveShield: 0
+  haveSpeedUp: 0
 --- !u!61 &1365725429
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25938,7 +26002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1411934444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26692,7 +26756,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 24}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -227, y: -254.35999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1491199997
 MonoBehaviour:
@@ -27197,12 +27261,12 @@ GameObject:
   - component: {fileID: 1500973205}
   - component: {fileID: 1500973206}
   m_Layer: 0
-  m_Name: Missiles
+  m_Name: MissilesManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1500973205
 Transform:
   m_ObjectHideFlags: 0
@@ -29434,6 +29498,8 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 0}
+  haveShield: 0
+  haveSpeedUp: 0
 --- !u!212 &1611156000
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -31297,6 +31363,8 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 0}
+  haveShield: 0
+  haveSpeedUp: 0
 --- !u!212 &1772706361
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32449,9 +32517,9 @@ RectTransform:
   - {fileID: 751226512}
   m_Father: {fileID: 1005512796}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 318, y: -171.68}
   m_SizeDelta: {x: 342, y: 343.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1827079173
@@ -33646,7 +33714,7 @@ GameObject:
   - component: {fileID: 1909892230}
   - component: {fileID: 1909892231}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: PlaneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36104,9 +36172,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1932516375}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 90.5, y: -32.695}
   m_SizeDelta: {x: 63, y: 63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2044546627
@@ -38150,4 +38218,5 @@ SceneRoots:
   - {fileID: 1312753792}
   - {fileID: 319510026}
   - {fileID: 1130481443}
+  - {fileID: 1073668628}
   - {fileID: 2014345113}

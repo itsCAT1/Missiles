@@ -12,6 +12,8 @@ public class PlaneController : MonoBehaviour
     Rigidbody2D rigid2D;
     Animator animator;
     public GameObject shieldReceive;
+    public bool haveShield;
+    public bool haveSpeedUp;
     void Awake()
     {
         rigid2D = this.GetComponent<Rigidbody2D>();
@@ -26,7 +28,7 @@ public class PlaneController : MonoBehaviour
         UpdateAnimation();
     }
 
-    public void Moving()
+    void Moving()
     {
         Quaternion rotate = transform.rotation;
         float angle = rotate.eulerAngles.z - Input.GetAxisRaw("Horizontal") * speedRotate;
@@ -36,7 +38,7 @@ public class PlaneController : MonoBehaviour
         rigid2D.velocity = this.transform.up * speedMoving;
     }
 
-    public void FlipPlane()
+    void FlipPlane()
     {
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
@@ -48,7 +50,7 @@ public class PlaneController : MonoBehaviour
         }
     }
 
-    public void UpdateAnimation()
+    void UpdateAnimation()
     {
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
@@ -59,22 +61,41 @@ public class PlaneController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("shield"))
+        if (collision.gameObject.CompareTag("shield") && !haveShield)
         {
             Destroy(collision.gameObject);
             shieldReceive.SetActive(true);
-            Debug.Log("nhanshield");
+            haveShield = true;
         }
-        if (collision.gameObject.CompareTag("missile") && shieldReceive)
+        else if (collision.gameObject.CompareTag("missile"))
         {
+            if (haveShield)
+            {
+                Destroy(collision.gameObject);
+                shieldReceive.SetActive(false);
+                haveShield = false;
+            }
+            else
+            {
+                this.gameObject.SetActive(false);
+            }
+        }
+
+        if (collision.gameObject.CompareTag("speedup") && !haveSpeedUp)
+        {
+            Debug.Log("speedup");
             Destroy(collision.gameObject);
-            shieldReceive.SetActive(false);
-            Debug.Log("matshield");
+            StartCoroutine(StateSpeedUp());
         }
-        if (collision.gameObject.CompareTag("missile") && !shieldReceive)
-        {
-            Destroy(this.gameObject);
-            Debug.Log("chuacoshield");
-        }
+    }
+
+    IEnumerator StateSpeedUp()
+    {
+        haveSpeedUp = true;
+        float oldSpeed = speedMoving;
+        speedMoving = oldSpeed * 2;
+        yield return new WaitForSeconds(5);
+        speedMoving = oldSpeed;
+        haveSpeedUp = false;
     }
 }
