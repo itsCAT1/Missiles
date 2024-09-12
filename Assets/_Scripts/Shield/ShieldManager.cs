@@ -7,6 +7,8 @@ public class ShieldManager : MonoBehaviour
     public Transform planePos;
     Vector3 oldSpawnShieldPos = Vector3.zero;
     public GameObject shield;
+    public List<GameObject> shieldList;
+    public int indexShield = 0;
     public float minSpawnDistance;
     public float maxSpawnDistance;
 
@@ -19,11 +21,13 @@ public class ShieldManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(5, 7));
+            yield return new WaitForSeconds(Random.Range(1, 2));
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
             Vector3 newSpawnShieldPos = planePos.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
 
             Instantiate(shield, newSpawnShieldPos, Quaternion.identity);
+            shieldList.Add(shield);
+            indexShield++;
             oldSpawnShieldPos = newSpawnShieldPos;
         }
     }

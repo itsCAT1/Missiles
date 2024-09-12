@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+public class MissilesManager : MonoBehaviour
 {
     public GameObject missiles;
     public float spawnDistance;
     void Start()
     {
-        InvokeRepeating("Spawn", 1f, 2f);
+        InvokeRepeating("Spawn", 3f, 8f);
     }
 
     void Spawn()

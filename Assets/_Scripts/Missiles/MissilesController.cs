@@ -8,7 +8,7 @@ public class MissilesController : MonoBehaviour
 {
     Rigidbody2D rigidBody;
     public float angleChangingSpeed;
-    public float movementSpeed;
+    public float speedMoving;
     private void Start()
     {
         rigidBody = this.GetComponent<Rigidbody2D>();
@@ -16,13 +16,19 @@ public class MissilesController : MonoBehaviour
 
     void FixedUpdate()
     {
+        Moving();
+    }
+
+    void Moving()
+    {
         Vector2 direction = (Vector2)PlaneController.playerPos.position - (Vector2)transform.position;
         float rotateAmount = Vector3.Cross(direction.normalized, transform.up).z;
         rigidBody.angularVelocity = -angleChangingSpeed * rotateAmount;
-        rigidBody.velocity = transform.up * movementSpeed;
+        rigidBody.velocity = transform.up * speedMoving;
+        StartCoroutine(TimeOutChasePlane());
     }
 
-    /*private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("missile"))
         {
@@ -30,5 +36,13 @@ public class MissilesController : MonoBehaviour
             Debug.Log("bonusCoin");
         }
         Destroy(this.gameObject);
-    }*/
+    }
+
+    IEnumerator TimeOutChasePlane()
+    {
+        yield return new WaitForSeconds(10);
+        angleChangingSpeed = 0;
+        yield return new WaitForSeconds(10);
+        Destroy(this.gameObject);
+    }
 }
