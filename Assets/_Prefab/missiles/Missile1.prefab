@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angleChangingSpeed: 120
-  movementSpeed: 3
+  speedMoving: 3
 --- !u!50 &5180141372740777125
 Rigidbody2D:
   serializedVersion: 4
@@ -195,7 +195,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1967220899907536651}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

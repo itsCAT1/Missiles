@@ -12,6 +12,7 @@ public class PlaneController : MonoBehaviour
     Rigidbody2D rigid2D;
     Animator animator;
     public GameObject shieldReceive;
+    public GameObject particle;
     public bool haveShield;
     public bool haveSpeedUp;
     void Awake()
@@ -77,7 +78,8 @@ public class PlaneController : MonoBehaviour
             }
             else
             {
-                this.gameObject.SetActive(false);
+                Instantiate(particle, this.transform.position, Quaternion.identity);
+                StartCoroutine(StateExplosion());
             }
         }
 
@@ -97,5 +99,11 @@ public class PlaneController : MonoBehaviour
         yield return new WaitForSeconds(5);
         speedMoving = oldSpeed;
         haveSpeedUp = false;
+    }
+
+    IEnumerator StateExplosion()
+    {
+        this.gameObject.SetActive(false);
+        yield return new WaitForSeconds(3);
     }
 }

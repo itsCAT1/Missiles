@@ -470,6 +470,7 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 0}
+  particle: {fileID: 0}
   haveShield: 0
   haveSpeedUp: 0
 --- !u!212 &21062924
@@ -658,7 +659,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &26863415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3407,6 +3408,7 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 0}
+  particle: {fileID: 0}
   haveShield: 0
   haveSpeedUp: 0
 --- !u!212 &129495451
@@ -7197,6 +7199,7 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 0}
+  particle: {fileID: 0}
   haveShield: 0
   haveSpeedUp: 0
 --- !u!212 &326553455
@@ -11024,6 +11027,7 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 0}
+  particle: {fileID: 0}
   haveShield: 0
   haveSpeedUp: 0
 --- !u!212 &602559749
@@ -12633,6 +12637,7 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 0}
+  particle: {fileID: 0}
   haveShield: 0
   haveSpeedUp: 0
 --- !u!212 &676233682
@@ -14808,6 +14813,7 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 0}
+  particle: {fileID: 0}
   haveShield: 0
   haveSpeedUp: 0
 --- !u!212 &802479801
@@ -19275,6 +19281,7 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 0}
+  particle: {fileID: 0}
   haveShield: 0
   haveSpeedUp: 0
 --- !u!212 &1067029508
@@ -20175,7 +20182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1135527328
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20192,8 +20199,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1247, y: 0}
-  m_SizeDelta: {x: 1080, y: 1920}
+  m_AnchoredPosition: {x: -1613, y: 57}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1135527329
 MonoBehaviour:
@@ -20215,7 +20222,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8a06fe1f7b090174bb06856e26189f1b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c435f250f026ff4c8f706352163cd49, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -23901,7 +23908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1312753791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24759,6 +24766,7 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 1029877793}
+  particle: {fileID: 0}
   haveShield: 0
   haveSpeedUp: 0
 --- !u!61 &1365725429
@@ -27457,7 +27465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1500973205
 Transform:
   m_ObjectHideFlags: 0
@@ -29689,6 +29697,7 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 0}
+  particle: {fileID: 0}
   haveShield: 0
   haveSpeedUp: 0
 --- !u!212 &1611156000
@@ -30689,7 +30698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1724083392
 Transform:
   m_ObjectHideFlags: 0
@@ -30717,7 +30726,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbfb43a2ed68c1e479d8d05375a24ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldPos: {fileID: 1724083392}
   indicatorShield: {fileID: 1626098672724929119, guid: 10cf3d58bead3354bbcdaf63e6bb319e, type: 3}
   indicatorShieldList: []
   indexIndicator: 0
@@ -31603,6 +31611,7 @@ MonoBehaviour:
   speedMoving: 0
   speedRotate: 3
   shieldReceive: {fileID: 0}
+  particle: {fileID: 0}
   haveShield: 0
   haveSpeedUp: 0
 --- !u!212 &1772706361
@@ -34222,7 +34231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1921519585
 RectTransform:
   m_ObjectHideFlags: 0
