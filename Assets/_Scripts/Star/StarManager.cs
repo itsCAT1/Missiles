@@ -8,25 +8,27 @@ public class StarManager : MonoBehaviour
 {
     public Transform planePos;
     Vector3 oldSpawnStarPos = Vector3.zero;
-    public GameObject star;
+    public GameObject starPrefab;
+    public List<GameObject> starList;
     public float minSpawnDistance;
     public float maxSpawnDistance;
 
     private void Start()
     {
-        StartCoroutine(RandomSpawnShield());
+        StartCoroutine(RandomSpawnStar());
     }
 
-    IEnumerator RandomSpawnShield()
+    IEnumerator RandomSpawnStar()
     {
         while (true)
         {
+            yield return new WaitForSeconds(Random.Range(5, 8));
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
             Vector3 newSpawnStarPos = planePos.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
 
-            Instantiate(star, newSpawnStarPos, Quaternion.identity);
+            GameObject newStar = Instantiate(starPrefab, newSpawnStarPos, Quaternion.identity);
+            starList.Add(newStar);
             oldSpawnStarPos = newSpawnStarPos;
-            yield return new WaitForSeconds(Random.Range(5,7));
         }
     }
 }

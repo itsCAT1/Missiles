@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MissilesManager : MonoBehaviour
 {
-    public GameObject missiles;
+    public GameObject missilesPrefab;
+    public List<GameObject> missileList;
     public float spawnDistance;
     void Start()
     {
@@ -15,6 +16,7 @@ public class MissilesManager : MonoBehaviour
     {
         Vector3 randomDirection = Random.insideUnitCircle.normalized;
         Vector3 enemySpawnPos = PlaneController.playerPos.position + randomDirection * spawnDistance;
-        Instantiate(missiles, enemySpawnPos, Quaternion.identity);
+        GameObject newMissile = Instantiate(missilesPrefab, enemySpawnPos, Quaternion.identity);
+        missileList.Add(newMissile);
     }
 }
