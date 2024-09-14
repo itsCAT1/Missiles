@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starPos: {fileID: 0}
-  speedMoving: 5
+  speedMoving: 25
   speedRotate: 2
   angleOffset: -90
 --- !u!50 &7220188470168570154

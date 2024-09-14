@@ -8,7 +8,6 @@ public class IndicatorShieldControl : MonoBehaviour
     SpriteRenderer spriteRenderer;
     public Transform shieldPos;
     public float speedMoving;
-    public float speedRotate;
     public float angleOffset;
 
     void Start()
@@ -17,7 +16,7 @@ public class IndicatorShieldControl : MonoBehaviour
         spriteRenderer = this.GetComponent<SpriteRenderer>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Moving();
     }
@@ -31,9 +30,10 @@ public class IndicatorShieldControl : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("MainCamera"))
+        if (collision.gameObject.CompareTag("topborder"))
         {
             this.spriteRenderer.enabled = true;
+            
         }
     }
 

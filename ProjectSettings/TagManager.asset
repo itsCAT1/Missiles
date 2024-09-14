@@ -9,6 +9,10 @@ TagManager:
   - missile
   - shield
   - speedup
+  - topborder
+  - bottomborder
+  - leftborder
+  - rightborder
   layers:
   - Default
   - TransparentFX

@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    public Transform planePos;
-
     void Update()
     {
-        this.transform.position = planePos.position;
+        this.transform.position = Camera.main.transform.position;
     }
 }
