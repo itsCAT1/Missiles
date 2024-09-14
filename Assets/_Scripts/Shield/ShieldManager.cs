@@ -20,7 +20,7 @@ public class ShieldManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(5, 8));
+            yield return new WaitForSeconds(Random.Range(3, 5));
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
             Vector3 newSpawnShieldPos = planePos.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
 

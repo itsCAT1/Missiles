@@ -5810,7 +5810,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 3.3125, y: 0}
+  m_Offset: {x: 3.256015, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5821,7 +5821,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 10}
+  m_Size: {x: 0.88797, y: 12}
   m_EdgeRadius: 0
 --- !u!61 &264695707
 BoxCollider2D:
@@ -5855,7 +5855,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -3.3125, y: 0}
+  m_Offset: {x: -3.270019, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5866,7 +5866,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 10}
+  m_Size: {x: 0.8599627, y: 12}
   m_EdgeRadius: 0
 --- !u!61 &264695708
 BoxCollider2D:
@@ -5900,7 +5900,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -5.5}
+  m_Offset: {x: 0, y: -5.4840226}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5911,7 +5911,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.63, y: 1}
+  m_Size: {x: 7, y: 0.9619551}
   m_EdgeRadius: 0
 --- !u!61 &264695709
 BoxCollider2D:
@@ -5945,7 +5945,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 5.5}
+  m_Offset: {x: 0, y: 5.506015}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5956,7 +5956,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.63, y: 1}
+  m_Size: {x: 7, y: 0.98797035}
   m_EdgeRadius: 0
 --- !u!1 &268593104
 GameObject:
@@ -11742,8 +11742,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1724083392}
   - {fileID: 991680206}
+  - {fileID: 1724083392}
   - {fileID: 921129486}
   m_Father: {fileID: 1130481443}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12004,7 +12004,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 04e2279754e4dd249b06382f522b9784, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 174c6a0d51621884699c921c544adc59, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -18002,7 +18002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   indicatorMissile: {fileID: 1654116957416519067, guid: 934c5e0f79c90b843bbffa0d4885a049, type: 3}
   indicatorMissileList: []
-  missilesManager: {fileID: 0}
+  missilesManager: {fileID: 1500973206}
 --- !u!1 &992614477
 GameObject:
   m_ObjectHideFlags: 0
@@ -20172,6 +20172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1130481443}
   - component: {fileID: 1130481442}
+  - component: {fileID: 1130481444}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -20219,6 +20220,19 @@ Transform:
   - {fileID: 631555169}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1130481444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130481441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1923ff3986a3bb4486dc7fbf794efd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planePos: {fileID: 1365725427}
 --- !u!1 &1134146247
 GameObject:
   m_ObjectHideFlags: 0
@@ -24037,7 +24051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1312753791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24891,7 +24905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989e306f0e575a14f840237d9e8b5086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMoving: 0
+  speedMoving: 3
   speedRotate: 3
   shieldReceive: {fileID: 1029877793}
   particle: {fileID: 0}
@@ -24968,7 +24982,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &1365725431
 Animator:
   serializedVersion: 5
@@ -27837,8 +27851,8 @@ MonoBehaviour:
   planePos: {fileID: 1365725427}
   starPrefab: {fileID: 4843400192569355719, guid: b9ad83c3642198e47b689b701e2be7d2, type: 3}
   starList: []
-  minSpawnDistance: 5
-  maxSpawnDistance: 7
+  minSpawnDistance: 6
+  maxSpawnDistance: 8
 --- !u!4 &1512128088
 Transform:
   m_ObjectHideFlags: 0
@@ -30828,7 +30842,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1724083392
 Transform:
   m_ObjectHideFlags: 0
