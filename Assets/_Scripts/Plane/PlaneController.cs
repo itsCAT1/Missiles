@@ -79,6 +79,8 @@ public class PlaneController : MonoBehaviour
             else
             {
                 this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                speedMoving = 0;
+                speedRotate = 0;
                 StartCoroutine(StateExplosion());
             }
         }

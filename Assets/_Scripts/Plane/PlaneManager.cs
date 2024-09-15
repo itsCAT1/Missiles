@@ -14,7 +14,7 @@ public class PlaneManager : MonoBehaviour
     
     void Start()
     {
-        ShowCurrentPlane();
+        //ShowCurrentPlane();
         mainCamera = Camera.main;
         cameraController = mainCamera.GetComponent<CameraController>();
     }
