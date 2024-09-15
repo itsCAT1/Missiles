@@ -19,7 +19,7 @@ public class PlaneController : MonoBehaviour
     {
         rigid2D = this.GetComponent<Rigidbody2D>();
         playerPos = this.GetComponent<Transform>();
-        animator = this.GetComponent<Animator>();
+        animator = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
     }
     
     void FixedUpdate()
@@ -78,7 +78,7 @@ public class PlaneController : MonoBehaviour
             }
             else
             {
-                Instantiate(particle, this.transform.position, Quaternion.identity);
+                this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
                 StartCoroutine(StateExplosion());
             }
         }
@@ -103,7 +103,9 @@ public class PlaneController : MonoBehaviour
 
     IEnumerator StateExplosion()
     {
-        this.gameObject.SetActive(false);
-        yield return new WaitForSeconds(3);
+        this.gameObject.transform.GetChild(1).gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
     }
+
 }

@@ -11,8 +11,9 @@ public class ShieldManager : MonoBehaviour
     public List<GameObject> shieldList;
     public float minSpawnDistance;
     public float maxSpawnDistance;
-    public int indexShield = 0;
-    Camera cam;
+
+    public float angleOffset;
+    private Camera cam;
 
     private void Start()
     {
@@ -30,41 +31,49 @@ public class ShieldManager : MonoBehaviour
 
             GameObject newShield = Instantiate(shieldPrefab, newSpawnShieldPos, Quaternion.identity);
             shieldList.Add(newShield);
-            indexShield++;
             oldSpawnShieldPos = newSpawnShieldPos;
         }
     }
 
-    void IndicatorShield()
+    private void Update()
     {
-        Vector3 screenPos = cam.WorldToViewportPoint(shieldList[indexShield].transform.position);
+        UpdateTargetIndicator();
+    }
 
-        // Kiểm tra nếu đối tượng ở ngoài tầm nhìn của camera
-        if (screenPos.z < 0 || screenPos.x < 0 || screenPos.x > 1 || screenPos.y < 0 || screenPos.y > 1)
+    void UpdateTargetIndicator()
+    {
+        for (int i = 0; i < shieldList.Count; i++)
         {
-            if (!shieldList[indexShield].transform.GetChild(0))
+            Vector3 viewportPos = cam.WorldToViewportPoint(shieldList[i].transform.position);
+
+            if ((viewportPos.x < 0 || viewportPos.x > 1 || viewportPos.y < 0 || viewportPos.y > 1))
             {
-                shieldList[indexShield].transform.GetChild(0).set;
+                GameObject indicator = shieldList[i].transform.GetChild(0).gameObject;
+
+                if (!indicator.activeSelf)
+                {
+                    indicator.SetActive(true);
+                }
+
+                Vector3 direction = (shieldList[i].transform.position - cam.transform.position).normalized;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + angleOffset;
+                indicator.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+                viewportPos.x = Mathf.Clamp(viewportPos.x, 0.025f, 0.975f);
+                viewportPos.y = Mathf.Clamp(viewportPos.y, 0.014f, 0.986f);
+
+                Vector3 indicatorScreenPos = cam.ViewportToWorldPoint(viewportPos);
+
+                indicator.transform.position = indicatorScreenPos;
             }
-
-            // Xác định hướng từ player tới target
-            Vector3 direction = (shieldList[indexShield].transform.position - cam.transform.position).normalized;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + angleOffset;
-            Indicator.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
-            Vector3 targetWorldPos = Target.transform.position;
-
-            // Giới hạn vị trí của chỉ báo theo World Point (chiều ngang 5.5, chiều dọc 10)
-            targetWorldPos.x = Mathf.Clamp(targetWorldPos.x, -horizontalLimit, horizontalLimit);
-            targetWorldPos.y = Mathf.Clamp(targetWorldPos.y, -verticalLimit, verticalLimit);
-
-            Indicator.transform.position = targetWorldPos;
-        }
-        else
-        {
-            if (Indicator.activeSelf)
+            else
             {
-                Indicator.SetActive(false);
+                GameObject indicator = shieldList[i].transform.GetChild(0).gameObject;
+
+                if (indicator.activeSelf)
+                {
+                    indicator.SetActive(false);
+                }
             }
         }
     }
