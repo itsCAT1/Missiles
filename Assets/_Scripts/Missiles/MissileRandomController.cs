@@ -36,7 +36,7 @@ public class MissileRandomController : MonoBehaviour
 
     IEnumerator TimeOutMissile()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         Destroy(this.gameObject);
     }
 }

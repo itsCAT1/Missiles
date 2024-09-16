@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class StarManager : MonoBehaviour
 {
     public Transform planePos;
-    Vector3 oldSpawnStarPos = Vector3.zero;
     public GameObject starPrefab;
     public List<GameObject> starList;
     public float minSpawnDistance;
@@ -26,13 +25,12 @@ public class StarManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(3, 5));
+            yield return new WaitForSeconds(Random.Range(10, 20));
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
             Vector3 newSpawnStarPos = planePos.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
 
             GameObject newStar = Instantiate(starPrefab, newSpawnStarPos, Quaternion.identity);
             starList.Add(newStar);
-            oldSpawnStarPos = newSpawnStarPos;
         }
     }
 
@@ -45,6 +43,13 @@ public class StarManager : MonoBehaviour
     {
         for (int i = 0; i < starList.Count; i++)
         {
+            if (starList[i] == null)
+            {
+                starList.RemoveAt(i);
+                i--;
+                continue;
+            }
+
             Vector3 viewportPos = cam.WorldToViewportPoint(starList[i].transform.position);
 
             if ((viewportPos.x < 0 || viewportPos.x > 1 || viewportPos.y < 0 || viewportPos.y > 1))

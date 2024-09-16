@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Collections;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
 public class ShieldManager : MonoBehaviour
 {
     public Transform planePos;
-    Vector3 oldSpawnShieldPos = Vector3.zero;
     public GameObject shieldPrefab;
     public List<GameObject> shieldList;
     public float minSpawnDistance;
@@ -25,13 +25,12 @@ public class ShieldManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(3, 5));
+            yield return new WaitForSeconds(Random.Range(30,40));
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
             Vector3 newSpawnShieldPos = planePos.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
 
             GameObject newShield = Instantiate(shieldPrefab, newSpawnShieldPos, Quaternion.identity);
             shieldList.Add(newShield);
-            oldSpawnShieldPos = newSpawnShieldPos;
         }
     }
 
@@ -44,6 +43,13 @@ public class ShieldManager : MonoBehaviour
     {
         for (int i = 0; i < shieldList.Count; i++)
         {
+            if (shieldList[i] == null)
+            {
+                shieldList.RemoveAt(i);
+                i--;
+                continue;
+            }
+
             Vector3 viewportPos = cam.WorldToViewportPoint(shieldList[i].transform.position);
 
             if ((viewportPos.x < 0 || viewportPos.x > 1 || viewportPos.y < 0 || viewportPos.y > 1))

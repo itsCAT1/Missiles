@@ -19,7 +19,7 @@ public class SpeedUpManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(Random.Range(5, 7));
+            yield return new WaitForSeconds(Random.Range(60,80));
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
             Vector3 newSpawnSpeedUpPos = planePos.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
 

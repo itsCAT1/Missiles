@@ -9,12 +9,21 @@ public class PlaneController : MonoBehaviour
     public float speedMoving;
     public float speedRotate;
     public static Transform playerPos;
+
     Rigidbody2D rigid2D;
     Animator animator;
+
     public GameObject shieldReceive;
-    public bool haveShield;
-    public bool haveSpeedUp;
+    bool haveShield;
+    bool haveSpeedUp;
+
     public GameObject explosionPrefab;
+    public GameObject explosionMissilePrefab;
+
+    Vector2 mouPos = Vector2.zero;
+    public Transform joystickInterPos;
+    public Transform joystickExterPos;
+    public float a;
     void Awake()
     {
         rigid2D = this.GetComponent<Rigidbody2D>();
@@ -24,12 +33,13 @@ public class PlaneController : MonoBehaviour
     
     void FixedUpdate()
     {
-        Moving();
+        //MovingInput();
+        MovingJoystick();
         FlipPlane();
         UpdateAnimation();
     }
 
-    void Moving()
+    void MovingInput()
     {
         Quaternion rotate = transform.rotation;
         float angle = rotate.eulerAngles.z - Input.GetAxisRaw("Horizontal") * speedRotate;
@@ -37,6 +47,40 @@ public class PlaneController : MonoBehaviour
         transform.rotation = rotate;
 
         rigid2D.velocity = this.transform.up * speedMoving;
+    }
+
+    void MovingJoystick()
+    {
+        if(!Input.GetMouseButton(0))
+            return;
+        if (Input.GetMouseButtonUp(0))
+        {
+            joystickExterPos.localPosition = Vector2.zero;
+        }
+
+        mouPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        Debug.DrawLine(joystickExterPos.position, (Vector3)mouPos, Color.red);
+
+        Vector2 direction = (Vector3)mouPos - joystickExterPos.position;
+
+        if(direction.sqrMagnitude < a)
+        {
+            joystickInterPos.position = Input.mousePosition;
+            return;
+        }
+
+        float angle = Mathf.Atan2(direction.y, direction.x);
+        Vector2 pos;
+        pos.x = Mathf.Cos(angle) * 50;
+        pos.y = Mathf.Sin(angle) * 50;
+
+        joystickInterPos.localPosition = pos;
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(joystickExterPos.position, 0.85f);
     }
 
     void FlipPlane()
@@ -60,7 +104,7 @@ public class PlaneController : MonoBehaviour
         else animator.SetBool("Rotate", false);
     }
 
-    /*private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("shield") && !haveShield)
         {
@@ -72,6 +116,7 @@ public class PlaneController : MonoBehaviour
         {
             if (haveShield)
             {
+                StartCoroutine(StateMissileExplosion());
                 Destroy(collision.gameObject);
                 shieldReceive.SetActive(false);
                 haveShield = false;
@@ -81,6 +126,8 @@ public class PlaneController : MonoBehaviour
                 //this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
                 //speedMoving = 0;
                 //speedRotate = 0;
+                Destroy(collision.gameObject);
+                Debug.Log("Explosion!");
                 StartCoroutine(StateExplosion());
             }
         }
@@ -91,7 +138,7 @@ public class PlaneController : MonoBehaviour
             Destroy(collision.gameObject);
             StartCoroutine(StateSpeedUp());
         }
-    }*/
+    }
 
     IEnumerator StateSpeedUp()
     {
@@ -110,4 +157,10 @@ public class PlaneController : MonoBehaviour
         Destroy(explosionTemp);
     }
 
+    IEnumerator StateMissileExplosion()
+    {
+        GameObject explosionTemp = Instantiate(explosionMissilePrefab, this.transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(2f);
+        Destroy(explosionTemp);
+    }
 }

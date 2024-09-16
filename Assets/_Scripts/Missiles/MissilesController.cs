@@ -7,6 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 public class MissilesController : MonoBehaviour
 {
     Rigidbody2D rigid2D;
+    public GameObject explosionPrefab;
     public float speedRotate;
     public float speedMoving;
     private void Start()
@@ -34,15 +35,23 @@ public class MissilesController : MonoBehaviour
         {
             GameManager.bonusCoin += 15;
             Debug.Log("bonusCoin");
+            StartCoroutine(StateExplosion());
+            Destroy(this.gameObject);
         }
-        Destroy(this.gameObject);
+    }
+
+    IEnumerator StateExplosion()
+    {
+        GameObject explosionTemp = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(2f);
+        Destroy(explosionTemp);
     }
 
     IEnumerator TimeOutChasePlane()
     {
         yield return new WaitForSeconds(10);
         speedRotate = 0;
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(3);
         Destroy(this.gameObject);
     }
 }
