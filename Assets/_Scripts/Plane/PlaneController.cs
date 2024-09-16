@@ -12,9 +12,9 @@ public class PlaneController : MonoBehaviour
     Rigidbody2D rigid2D;
     Animator animator;
     public GameObject shieldReceive;
-    public GameObject particle;
     public bool haveShield;
     public bool haveSpeedUp;
+    public GameObject explosionPrefab;
     void Awake()
     {
         rigid2D = this.GetComponent<Rigidbody2D>();
@@ -60,7 +60,7 @@ public class PlaneController : MonoBehaviour
         else animator.SetBool("Rotate", false);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("shield") && !haveShield)
         {
@@ -78,9 +78,9 @@ public class PlaneController : MonoBehaviour
             }
             else
             {
-                this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                speedMoving = 0;
-                speedRotate = 0;
+                //this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                //speedMoving = 0;
+                //speedRotate = 0;
                 StartCoroutine(StateExplosion());
             }
         }
@@ -91,7 +91,7 @@ public class PlaneController : MonoBehaviour
             Destroy(collision.gameObject);
             StartCoroutine(StateSpeedUp());
         }
-    }
+    }*/
 
     IEnumerator StateSpeedUp()
     {
@@ -105,9 +105,9 @@ public class PlaneController : MonoBehaviour
 
     IEnumerator StateExplosion()
     {
-        this.gameObject.transform.GetChild(1).gameObject.SetActive(true);
+        GameObject explosionTemp = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
         yield return new WaitForSeconds(2f);
-        this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
+        Destroy(explosionTemp);
     }
 
 }
