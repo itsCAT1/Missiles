@@ -20,6 +20,7 @@ public class PlaneController : MonoBehaviour
     public GameObject explosionPrefab;
     public GameObject explosionMissilePrefab;
 
+    public JoystickController joystickController;
     void Awake()
     {
         rigid2D = this.GetComponent<Rigidbody2D>();
@@ -33,6 +34,9 @@ public class PlaneController : MonoBehaviour
         MovingInput();
         FlipPlane();
         UpdateAnimation();
+        //MovingInputJoystick();
+        //FlipPlaneJoystick();
+        //UpdateAnimationJoystick();
     }
 
     void MovingInput()
@@ -45,7 +49,36 @@ public class PlaneController : MonoBehaviour
         rigid2D.velocity = this.transform.up * speedMoving;
     }
 
-    
+    void MovingInputJoystick()
+    {
+        var directionNormalized = joystickController.direction.normalized;
+        Vector2 dir = Input.mousePosition - joystickController.transform.position;
+
+        float targetAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+
+        float currentAngle = transform.rotation.eulerAngles.z;
+
+        float newAngle = Mathf.LerpAngle(currentAngle, targetAngle, speedRotate * Time.deltaTime);
+        Debug.Log(newAngle);
+        if (newAngle != 0)
+        {
+            animator.SetBool("Rotate", true);
+            if (newAngle < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
+        else animator.SetBool("Rotate", false);
+
+        transform.rotation = Quaternion.Euler(0, 0, newAngle);
+
+        rigid2D.velocity = this.transform.up * speedMoving;
+    }
+
 
     void FlipPlane()
     {
@@ -68,6 +101,27 @@ public class PlaneController : MonoBehaviour
         else animator.SetBool("Rotate", false);
     }
 
+    void FlipPlaneJoystick()
+    {
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else 
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+
+    private void UpdateAnimationJoystick()
+    {
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            animator.SetBool("Rotate", true);
+        }
+        else animator.SetBool("Rotate", false);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("shield") && !haveShield)
@@ -80,7 +134,7 @@ public class PlaneController : MonoBehaviour
         {
             if (haveShield)
             {
-                StartCoroutine(StateMissileExplosion());
+                GameObject explosionTemp = Instantiate(explosionMissilePrefab, this.transform.position, Quaternion.identity);
                 Destroy(collision.gameObject);
                 shieldReceive.SetActive(false);
                 haveShield = false;
@@ -90,9 +144,9 @@ public class PlaneController : MonoBehaviour
                 //this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
                 //speedMoving = 0;
                 //speedRotate = 0;
-                Destroy(collision.gameObject);
                 Debug.Log("Explosion!");
-                StartCoroutine(StateExplosion());
+                GameObject explosionTemp = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
+                Destroy(collision.gameObject);
             }
         }
 
@@ -100,7 +154,6 @@ public class PlaneController : MonoBehaviour
         {
             Debug.Log("speedup");
             Destroy(collision.gameObject);
-            StartCoroutine(StateSpeedUp());
         }
     }
 
@@ -112,19 +165,5 @@ public class PlaneController : MonoBehaviour
         yield return new WaitForSeconds(5);
         speedMoving = oldSpeed;
         haveSpeedUp = false;
-    }
-
-    IEnumerator StateExplosion()
-    {
-        GameObject explosionTemp = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(2f);
-        Destroy(explosionTemp);
-    }
-
-    IEnumerator StateMissileExplosion()
-    {
-        GameObject explosionTemp = Instantiate(explosionMissilePrefab, this.transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(2f);
-        Destroy(explosionTemp);
     }
 }

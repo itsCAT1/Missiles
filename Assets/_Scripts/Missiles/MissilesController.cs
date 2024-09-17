@@ -23,10 +23,15 @@ public class MissilesController : MonoBehaviour
     void Moving()
     {
         Vector2 direction = (Vector2)PlaneController.playerPos.position - (Vector2)transform.position;
-        float rotateAmount = Vector3.Cross(direction.normalized, transform.up).z;
-        rigid2D.angularVelocity = -speedRotate * rotateAmount;
+        float cosAngle = Vector3.Dot(direction.normalized, transform.up)/Mathf.Sqrt(direction.sqrMagnitude);
+        float angleRotate = Mathf.Acos(cosAngle);
+        Debug.Log($"do dai direction {direction.sqrMagnitude}");
+        Debug.Log($"cos goc xoay {cosAngle}");
+        Debug.Log($"goc xoay {angleRotate}");
+
+        rigid2D.angularVelocity = -speedRotate * angleRotate;
         rigid2D.velocity = transform.up * speedMoving;
-        StartCoroutine(TimeOutChasePlane());
+        //StartCoroutine(TimeOutChasePlane());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,16 +40,10 @@ public class MissilesController : MonoBehaviour
         {
             GameManager.bonusCoin += 15;
             Debug.Log("bonusCoin");
-            StartCoroutine(StateExplosion());
+            GameObject explosionTemp = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
-        }
-    }
 
-    IEnumerator StateExplosion()
-    {
-        GameObject explosionTemp = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(2f);
-        Destroy(explosionTemp);
+        }
     }
 
     IEnumerator TimeOutChasePlane()
