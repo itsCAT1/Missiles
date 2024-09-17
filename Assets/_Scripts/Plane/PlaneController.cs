@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -20,21 +20,17 @@ public class PlaneController : MonoBehaviour
     public GameObject explosionPrefab;
     public GameObject explosionMissilePrefab;
 
-    Vector2 mouPos = Vector2.zero;
-    public Transform joystickInterPos;
-    public Transform joystickExterPos;
-    public float a;
     void Awake()
     {
         rigid2D = this.GetComponent<Rigidbody2D>();
         playerPos = this.GetComponent<Transform>();
         animator = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
     }
-    
+
+
     void FixedUpdate()
     {
-        //MovingInput();
-        MovingJoystick();
+        MovingInput();
         FlipPlane();
         UpdateAnimation();
     }
@@ -49,39 +45,7 @@ public class PlaneController : MonoBehaviour
         rigid2D.velocity = this.transform.up * speedMoving;
     }
 
-    void MovingJoystick()
-    {
-        if(!Input.GetMouseButton(0))
-            return;
-        if (Input.GetMouseButtonUp(0))
-        {
-            joystickExterPos.localPosition = Vector2.zero;
-        }
-
-        mouPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        Debug.DrawLine(joystickExterPos.position, (Vector3)mouPos, Color.red);
-
-        Vector2 direction = (Vector3)mouPos - joystickExterPos.position;
-
-        if(direction.sqrMagnitude < a)
-        {
-            joystickInterPos.position = Input.mousePosition;
-            return;
-        }
-
-        float angle = Mathf.Atan2(direction.y, direction.x);
-        Vector2 pos;
-        pos.x = Mathf.Cos(angle) * 50;
-        pos.y = Mathf.Sin(angle) * 50;
-
-        joystickInterPos.localPosition = pos;
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(joystickExterPos.position, 0.85f);
-    }
+    
 
     void FlipPlane()
     {
