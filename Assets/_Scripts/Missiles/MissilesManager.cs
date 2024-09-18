@@ -25,13 +25,13 @@ public class MissilesManager : MonoBehaviour
     void SetTimeSpawn()
     {
         StartCoroutine(TimeInitMissile1());
-        /*StartCoroutine(TimeInitMissile2());
+        StartCoroutine(TimeInitMissile2());
         StartCoroutine(TimeInitMissile3());
         StartCoroutine(TimeInitMissile4());
         StartCoroutine(TimeInitMissile5());
         StartCoroutine(TimeInitMissile6());
         StartCoroutine(TimeInitMissile7());
-        StartCoroutine(TimeRandomSpawnMissile());*/
+        StartCoroutine(TimeRandomSpawnMissile());
     }
 
     IEnumerator TimeInitMissile1()

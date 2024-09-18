@@ -12287,7 +12287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989e306f0e575a14f840237d9e8b5086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMoving: 0
+  speedMoving: 2
   speedRotate: 3
   shieldReceive: {fileID: 1029877793}
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}

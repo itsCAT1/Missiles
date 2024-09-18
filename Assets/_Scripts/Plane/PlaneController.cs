@@ -146,7 +146,7 @@ public class PlaneController : MonoBehaviour
                 //speedRotate = 0;
                 Debug.Log("Explosion!");
                 GameObject explosionTemp = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
-                //Destroy(collision.gameObject);
+                Destroy(collision.gameObject);
             }
         }
 
