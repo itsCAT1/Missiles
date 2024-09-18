@@ -23,12 +23,9 @@ public class MissilesController : MonoBehaviour
     void Moving()
     {
         Vector2 direction = (Vector2)PlaneController.playerPos.position - (Vector2)transform.position;
-        float cosAngle = Vector3.Dot(direction.normalized, transform.up)/Mathf.Sqrt(direction.sqrMagnitude);
+        float cosAngle = Vector3.Dot(direction, transform.up) /direction.magnitude;
         float angleRotate = Mathf.Acos(cosAngle);
-        Debug.Log($"do dai direction {direction.sqrMagnitude}");
-        Debug.Log($"cos goc xoay {cosAngle}");
-        Debug.Log($"goc xoay {angleRotate}");
-
+        
         rigid2D.angularVelocity = -speedRotate * angleRotate;
         rigid2D.velocity = transform.up * speedMoving;
         //StartCoroutine(TimeOutChasePlane());

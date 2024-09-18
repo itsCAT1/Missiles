@@ -45,10 +45,10 @@ public class PlaneController : MonoBehaviour
         float angle = rotate.eulerAngles.z - Input.GetAxisRaw("Horizontal") * speedRotate;
         rotate.eulerAngles = new Vector3(0, 0, angle);
         transform.rotation = rotate;
-
+        
         rigid2D.velocity = this.transform.up * speedMoving;
     }
-
+    
     void MovingInputJoystick()
     {
         var directionNormalized = joystickController.direction.normalized;
@@ -146,7 +146,7 @@ public class PlaneController : MonoBehaviour
                 //speedRotate = 0;
                 Debug.Log("Explosion!");
                 GameObject explosionTemp = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
-                Destroy(collision.gameObject);
+                //Destroy(collision.gameObject);
             }
         }
 
