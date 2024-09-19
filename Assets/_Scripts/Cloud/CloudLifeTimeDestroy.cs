@@ -4,19 +4,9 @@ using UnityEngine;
 
 public class CloudLifeTimeDestroy : MonoBehaviour
 {
-    public Transform planePos;
-
-    private void Start()
-    {
-        PlaneController planeController = FindObjectOfType<PlaneController>();
-        if (planeController != null)
-        {
-            planePos = planeController.transform;
-        }
-    }
     void Update()
     {
-        if (Vector3.Distance(planePos.position, this.transform.position) > 10f)
+        if (Vector3.Distance(Camera.main.transform.position, this.transform.position) > 20f)
         {
             Destroy(this.gameObject);
         }

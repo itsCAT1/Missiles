@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    void Update()
+    void FixedUpdate()
     {
-        this.transform.position = Camera.main.transform.position;
+        Vector3 pos = this.transform.position;
+        pos = Camera.main.transform.position;
+        pos.z = 0;
+        Debug.Log($"camera: {Camera.main.transform.position}");
+        Debug.Log($"pos: {pos}");
+        this.transform.position = pos;
     }
 }

@@ -8,7 +8,6 @@ public class PlaneController : MonoBehaviour
 {
     public float speedMoving;
     public float speedRotate;
-    public static Transform playerPos;
 
     Rigidbody2D rigid2D;
     Animator animator;
@@ -24,17 +23,16 @@ public class PlaneController : MonoBehaviour
     void Awake()
     {
         rigid2D = this.GetComponent<Rigidbody2D>();
-        playerPos = this.GetComponent<Transform>();
         animator = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
     }
 
 
     void FixedUpdate()
     {
-        MovingInput();
+        /*MovingInput();
         FlipPlane();
-        UpdateAnimation();
-        //MovingInputJoystick();
+        UpdateAnimation();*/
+        //MovingInputJoystickbase();
         //FlipPlaneJoystick();
         //UpdateAnimationJoystick();
     }
@@ -49,7 +47,7 @@ public class PlaneController : MonoBehaviour
         rigid2D.velocity = this.transform.up * speedMoving;
     }
     
-    void MovingInputJoystick()
+    void MovingInputJoystickbase()
     {
         var directionNormalized = joystickController.direction.normalized;
         Vector2 dir = Input.mousePosition - joystickController.transform.position;
@@ -60,19 +58,6 @@ public class PlaneController : MonoBehaviour
 
         float newAngle = Mathf.LerpAngle(currentAngle, targetAngle, speedRotate * Time.deltaTime);
         Debug.Log(newAngle);
-        if (newAngle != 0)
-        {
-            animator.SetBool("Rotate", true);
-            if (newAngle < 0)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-            else
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-            }
-        }
-        else animator.SetBool("Rotate", false);
 
         transform.rotation = Quaternion.Euler(0, 0, newAngle);
 

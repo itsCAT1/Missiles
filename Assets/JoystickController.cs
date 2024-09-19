@@ -7,13 +7,14 @@ public class JoystickController : MonoBehaviour
     Vector2 mouPos = Vector2.zero;
     public Transform joystickInterPos;
     public Vector2 direction;
+    public float a;
 
     private void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        /*if (Input.GetMouseButtonUp(0))
         {
             joystickInterPos.localPosition = Vector2.zero;
-        }
+        }*/
         /*if (Input.GetMouseButtonDown(0))
         {
             this.transform.position = Input.mousePosition;
@@ -22,7 +23,7 @@ public class JoystickController : MonoBehaviour
         if (!Input.GetMouseButton(0))
             return;
 
-        mouPos = Input.mousePosition;
+        mouPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         Debug.DrawLine(this.transform.position, mouPos, Color.red);
 
@@ -30,7 +31,7 @@ public class JoystickController : MonoBehaviour
 
         if(direction.magnitude <= 164)
         {
-            joystickInterPos.position = Input.mousePosition;
+            joystickInterPos.position = Camera.main.ScreenToWorldPoint(Input.mousePosition); ;
             return;
         }
 
@@ -41,5 +42,11 @@ public class JoystickController : MonoBehaviour
         pos.y = Mathf.Sin(angle) * 164;
 
         joystickInterPos.localPosition = pos;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(this.transform.position, a);
     }
 }

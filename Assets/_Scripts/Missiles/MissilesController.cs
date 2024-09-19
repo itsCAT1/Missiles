@@ -22,7 +22,7 @@ public class MissilesController : MonoBehaviour
 
     void Moving()
     {
-        Vector2 direction = (Vector2)PlaneController.playerPos.position - (Vector2)transform.position;
+        Vector2 direction = (Vector2)Camera.main.transform.position - (Vector2)transform.position;
         float rotateAmout = Vector3.Cross(direction.normalized, transform.up).z;
         
         rigid2D.angularVelocity = -speedRotate * rotateAmout;
@@ -34,7 +34,7 @@ public class MissilesController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("missile"))
         {
-            GameManager.bonusCoin += 15;
+            GameManager.bonusCoin += 5;
             Debug.Log("bonusCoin");
             GameObject explosionTemp = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);

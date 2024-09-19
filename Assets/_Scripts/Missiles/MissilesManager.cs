@@ -110,7 +110,7 @@ public class MissilesManager : MonoBehaviour
             newPos.x = Random.Range(camPos.x - 5, camPos.x + 5);
             newPos.y = Random.Range(camPos.y, camPos.y + 7);
         }
-        while ((newPos.x > (camPos.x - 3) && newPos.x < (camPos.x + 3)) || (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
+        while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
         GameObject newMissile1 = Instantiate(missilePrefabList[0], newPos, Quaternion.identity);
         missileList.Add(newMissile1);
     }
@@ -124,7 +124,7 @@ public class MissilesManager : MonoBehaviour
              newPos.x = Random.Range(camPos.x - 5, camPos.x + 5);
              newPos.y = Random.Range(camPos.y, camPos.y + 7);
         }
-        while((newPos.x > (camPos.x - 3) && newPos.x < (camPos.x + 3)) || (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
+        while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
         GameObject newMissile2 = Instantiate(missilePrefabList[1], newPos, Quaternion.identity);
         missileList.Add(newMissile2);
     }
@@ -138,7 +138,7 @@ public class MissilesManager : MonoBehaviour
             newPos.x = Random.Range(camPos.x - 5, camPos.x + 5);
             newPos.y = Random.Range(camPos.y, camPos.y + 7);
         }
-        while ((newPos.x > (camPos.x - 3) && newPos.x < (camPos.x + 3)) || (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
+        while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
         GameObject newMissile3 = Instantiate(missilePrefabList[2], newPos, Quaternion.identity);
         missileList.Add(newMissile3);
     }
@@ -152,7 +152,7 @@ public class MissilesManager : MonoBehaviour
             newPos.x = Random.Range(camPos.x - 5, camPos.x + 5);
             newPos.y = Random.Range(camPos.y, camPos.y + 7);
         }
-        while ((newPos.x > (camPos.x - 3) && newPos.x < (camPos.x + 3)) || (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
+        while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
         GameObject newMissile4 = Instantiate(missilePrefabList[3], newPos, Quaternion.identity);
         missileList.Add(newMissile4);
     }
@@ -166,7 +166,7 @@ public class MissilesManager : MonoBehaviour
             newPos.x = Random.Range(camPos.x - 5, camPos.x + 5);
             newPos.y = Random.Range(camPos.y, camPos.y + 7);
         }
-        while ((newPos.x > (camPos.x - 3) && newPos.x < (camPos.x + 3)) || (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
+        while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
         GameObject newMissile5 = Instantiate(missilePrefabList[4], newPos, Quaternion.identity);
         missileList.Add(newMissile5);
     }
@@ -180,7 +180,7 @@ public class MissilesManager : MonoBehaviour
             newPos.x = Random.Range(camPos.x - 5, camPos.x + 5);
             newPos.y = Random.Range(camPos.y, camPos.y + 7);
         }
-        while ((newPos.x > (camPos.x - 3) && newPos.x < (camPos.x + 3)) || (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
+        while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
         GameObject newMissile6 = Instantiate(missilePrefabList[5], newPos, Quaternion.identity);
         missileList.Add(newMissile6);
     }
@@ -194,7 +194,7 @@ public class MissilesManager : MonoBehaviour
             newPos.x = Random.Range(camPos.x - 5, camPos.x + 5);
             newPos.y = Random.Range(camPos.y, camPos.y + 7);
         }
-        while ((newPos.x > (camPos.x - 3) && newPos.x < (camPos.x + 3)) || (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
+        while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
         GameObject newMissile7 = Instantiate(missilePrefabList[6], newPos, Quaternion.identity);
         missileList.Add(newMissile7);
     }

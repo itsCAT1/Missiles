@@ -454,6 +454,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missilePrefab: {fileID: 8311446855325874687, guid: bd59d0d980526bb4e8a677358f9f6c19, type: 3}
+  missilePrefabList:
+  - {fileID: 1967220899907536651, guid: b10e7ea12ecfdb746996119a35dfbff0, type: 3}
+  - {fileID: 1967220899907536651, guid: 2aeae0746567ef842a9ebb59285fd31a, type: 3}
+  - {fileID: 1967220899907536651, guid: e95de4fcf5be2ee48b206163294e2ddd, type: 3}
+  - {fileID: 1967220899907536651, guid: e19f3b3023101ee429fdeccdc42c7705, type: 3}
+  - {fileID: 1967220899907536651, guid: 8f6f465c3b7663a48b3216171519d1ea, type: 3}
+  - {fileID: 1967220899907536651, guid: 4d6c1e0fe7293854cadda7063b16bc62, type: 3}
+  - {fileID: 1967220899907536651, guid: c0f1af5aa0d47fb41bd4ee07b33655b7, type: 3}
+  missileList: []
+  a: -2.66
+  b: 2.66
+  c: -4.89
+  d: 4.89
 --- !u!4 &2033901699
 Transform:
   m_ObjectHideFlags: 0
