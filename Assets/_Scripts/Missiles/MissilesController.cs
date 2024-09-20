@@ -20,14 +20,28 @@ public class MissilesController : MonoBehaviour
         Moving();
     }
 
-    void Moving()
+    /*void Moving()
     {
-        Vector2 direction = (Vector2)Camera.main.transform.position - (Vector2)transform.position;
+        Vector2 direction = (Vector2)PlaneController.planePos.transform.position - (Vector2)this.transform.position;
         float rotateAmout = Vector3.Cross(direction.normalized, transform.up).z;
         
         rigid2D.angularVelocity = -speedRotate * rotateAmout;
         rigid2D.velocity = transform.up * speedMoving;
-        StartCoroutine(TimeOutChasePlane());
+        //StartCoroutine(TimeOutChasePlane());
+    }*/
+
+    void Moving()
+    {
+        Vector2 direction = (Vector2)PlaneController.planePos.transform.position - (Vector2)this.transform.position;
+        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg -90;
+        Debug.Log(targetAngle);
+        //float newAngle = Mathf.LerpAngle(currentAngle, targetAngle, speedRotate * Time.deltaTime);
+        //Debug.Log($"Target Angle: {targetAngle}, Current Angle: {currentAngle}, New Angle: {newAngle}");
+
+        transform.rotation = Quaternion.Euler(0, 0, targetAngle);
+        //rigid2D.angularVelocity = -speedRotate * rotateAmout;
+        rigid2D.velocity = transform.up * speedMoving;
+        //StartCoroutine(TimeOutChasePlane());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -1,16 +1,22 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    void FixedUpdate()
+    public Camera mainCamera; 
+    public Canvas canvas;     
+
+    private void Awake()
     {
-        Vector3 pos = this.transform.position;
-        pos = Camera.main.transform.position;
+        mainCamera = Camera.main;
+    }
+
+    void Update()
+    {
+        Vector3 pos = mainCamera.transform.position;
         pos.z = 0;
-        Debug.Log($"camera: {Camera.main.transform.position}");
-        Debug.Log($"pos: {pos}");
-        this.transform.position = pos;
+        canvas.transform.position = pos;
+
     }
 }

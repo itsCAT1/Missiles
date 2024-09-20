@@ -8,6 +8,7 @@ public class PlaneController : MonoBehaviour
 {
     public float speedMoving;
     public float speedRotate;
+    public static Transform planePos;
 
     Rigidbody2D rigid2D;
     Animator animator;
@@ -24,6 +25,7 @@ public class PlaneController : MonoBehaviour
     {
         rigid2D = this.GetComponent<Rigidbody2D>();
         animator = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
+        planePos = this.transform;
     }
 
 
@@ -32,7 +34,7 @@ public class PlaneController : MonoBehaviour
         /*MovingInput();
         FlipPlane();
         UpdateAnimation();*/
-        //MovingInputJoystickbase();
+        MovingInputJoystickbase();
         //FlipPlaneJoystick();
         //UpdateAnimationJoystick();
     }
@@ -50,20 +52,28 @@ public class PlaneController : MonoBehaviour
     void MovingInputJoystickbase()
     {
         var directionNormalized = joystickController.direction.normalized;
-        Vector2 dir = Input.mousePosition - joystickController.transform.position;
 
-        float targetAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+        float targetAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
 
-        float currentAngle = transform.rotation.eulerAngles.z;
-
-        float newAngle = Mathf.LerpAngle(currentAngle, targetAngle, speedRotate * Time.deltaTime);
-        Debug.Log(newAngle);
-
-        transform.rotation = Quaternion.Euler(0, 0, newAngle);
-
+        //Debug.Log(targetAngle);
+        
+        transform.rotation = Quaternion.Euler(0, 0, targetAngle);
         rigid2D.velocity = this.transform.up * speedMoving;
     }
+    /*if (targetAngle > currentAngle)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
 
+        if (targetAngle != currentAngle)
+        {
+            animator.SetBool("Rotate", true);
+        }
+        else animator.SetBool("Rotate", false);*/
 
     void FlipPlane()
     {
@@ -88,6 +98,7 @@ public class PlaneController : MonoBehaviour
 
     void FlipPlaneJoystick()
     {
+        var directionNormalized = joystickController.direction.normalized;
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
@@ -131,7 +142,7 @@ public class PlaneController : MonoBehaviour
                 //speedRotate = 0;
                 Debug.Log("Explosion!");
                 GameObject explosionTemp = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
-                Destroy(collision.gameObject);
+                //Destroy(collision.gameObject);
             }
         }
 

@@ -4,23 +4,16 @@ using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    Rigidbody2D rigid2D;
+    public Transform plane;
     public float speedMoving;
     public float speedRotate;
 
-    private void Start()
-    {
-        rigid2D = GetComponent<Rigidbody2D>();
-    }
 
-    private void FixedUpdate()
+    void Update()
     {
-        Quaternion rotate = transform.rotation;
-        var angle = rotate.eulerAngles.z - Input.GetAxisRaw("Horizontal") * speedRotate;
-        rotate = Quaternion.Euler(0, 0, angle);
-        transform.rotation = rotate;
-
-        rigid2D.velocity = transform.up * speedMoving;
+        Vector2 direction = (Vector2)this.transform.position - (Vector2)plane.transform.position ;
+        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+        Debug.Log(targetAngle);
     }
 
 }
