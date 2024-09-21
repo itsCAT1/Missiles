@@ -20,17 +20,17 @@ public class MissilesController : MonoBehaviour
         Moving();
     }
 
-    /*void Moving()
+    void Moving()
     {
         Vector2 direction = (Vector2)PlaneController.planePos.transform.position - (Vector2)this.transform.position;
         float rotateAmout = Vector3.Cross(direction.normalized, transform.up).z;
-        
+
         rigid2D.angularVelocity = -speedRotate * rotateAmout;
         rigid2D.velocity = transform.up * speedMoving;
         //StartCoroutine(TimeOutChasePlane());
-    }*/
+    }
 
-    void Moving()
+    /*void Moving()
     {
         Vector2 direction = (Vector2)PlaneController.planePos.transform.position - (Vector2)this.transform.position;
         float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg -90;
@@ -42,7 +42,7 @@ public class MissilesController : MonoBehaviour
         //rigid2D.angularVelocity = -speedRotate * rotateAmout;
         rigid2D.velocity = transform.up * speedMoving;
         //StartCoroutine(TimeOutChasePlane());
-    }
+    }*/
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -203,6 +203,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
   explosionMissilePrefab: {fileID: 5355006515104347058, guid: 0ce3294c1d31287419d46f39e008fde2, type: 3}
   joystickController: {fileID: 0}
+  angleOffset: 0
 --- !u!1 &3862710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,6 +1086,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
   explosionMissilePrefab: {fileID: 5355006515104347058, guid: 0ce3294c1d31287419d46f39e008fde2, type: 3}
   joystickController: {fileID: 0}
+  angleOffset: 0
 --- !u!1 &48716163
 GameObject:
   m_ObjectHideFlags: 0
@@ -12293,6 +12295,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
   explosionMissilePrefab: {fileID: 5355006515104347058, guid: 0ce3294c1d31287419d46f39e008fde2, type: 3}
   joystickController: {fileID: 1994429574}
+  angleOffset: 90
 --- !u!1 &619143508
 GameObject:
   m_ObjectHideFlags: 0
@@ -21383,6 +21386,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
   explosionMissilePrefab: {fileID: 5355006515104347058, guid: 0ce3294c1d31287419d46f39e008fde2, type: 3}
   joystickController: {fileID: 0}
+  angleOffset: 0
 --- !u!1 &1177152612
 GameObject:
   m_ObjectHideFlags: 0
@@ -24529,6 +24533,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
   explosionMissilePrefab: {fileID: 5355006515104347058, guid: 0ce3294c1d31287419d46f39e008fde2, type: 3}
   joystickController: {fileID: 0}
+  angleOffset: 0
 --- !u!1 &1276615452
 GameObject:
   m_ObjectHideFlags: 0
@@ -27490,6 +27495,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
   explosionMissilePrefab: {fileID: 5355006515104347058, guid: 0ce3294c1d31287419d46f39e008fde2, type: 3}
   joystickController: {fileID: 0}
+  angleOffset: 0
 --- !u!1 &1457643354
 GameObject:
   m_ObjectHideFlags: 0
@@ -28406,7 +28412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1500973205
 Transform:
   m_ObjectHideFlags: 0
@@ -28760,6 +28766,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
   explosionMissilePrefab: {fileID: 5355006515104347058, guid: 0ce3294c1d31287419d46f39e008fde2, type: 3}
   joystickController: {fileID: 0}
+  angleOffset: 0
 --- !u!1 &1519059694
 GameObject:
   m_ObjectHideFlags: 0
@@ -34737,6 +34744,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
   explosionMissilePrefab: {fileID: 5355006515104347058, guid: 0ce3294c1d31287419d46f39e008fde2, type: 3}
   joystickController: {fileID: 0}
+  angleOffset: 0
 --- !u!1 &1865611575
 GameObject:
   m_ObjectHideFlags: 0
@@ -37672,6 +37680,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
   explosionMissilePrefab: {fileID: 5355006515104347058, guid: 0ce3294c1d31287419d46f39e008fde2, type: 3}
   joystickController: {fileID: 0}
+  angleOffset: 0
 --- !u!1 &2031347456
 GameObject:
   m_ObjectHideFlags: 0
@@ -37865,6 +37874,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
   explosionMissilePrefab: {fileID: 5355006515104347058, guid: 0ce3294c1d31287419d46f39e008fde2, type: 3}
   joystickController: {fileID: 0}
+  angleOffset: 0
 --- !u!1 &2044546625
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class PlaneController : MonoBehaviour
 {
@@ -21,11 +22,16 @@ public class PlaneController : MonoBehaviour
     public GameObject explosionMissilePrefab;
 
     public JoystickController joystickController;
+    float previousX;
+    float previousAngle = 0f;
     void Awake()
     {
         rigid2D = this.GetComponent<Rigidbody2D>();
         animator = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
         planePos = this.transform;
+        previousX = joystickController.direction.normalized.x;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+        previousAngle = 0;
     }
 
 
@@ -35,7 +41,7 @@ public class PlaneController : MonoBehaviour
         FlipPlane();
         UpdateAnimation();*/
         MovingInputJoystickbase();
-        //FlipPlaneJoystick();
+        FlipPlaneJoystick();
         //UpdateAnimationJoystick();
     }
 
@@ -51,29 +57,46 @@ public class PlaneController : MonoBehaviour
     
     void MovingInputJoystickbase()
     {
-        var directionNormalized = joystickController.direction.normalized;
+        Vector2 directionNormalized = joystickController.direction.normalized;
 
-        float targetAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
-
-        //Debug.Log(targetAngle);
-        
-        transform.rotation = Quaternion.Euler(0, 0, targetAngle);
-        rigid2D.velocity = this.transform.up * speedMoving;
-    }
-    /*if (targetAngle > currentAngle)
+        if (directionNormalized.y > 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            if (directionNormalized.x > previousX)
+            {
+                this.transform.localScale = new Vector3(1, 1, 1);
+            }
+            else if (directionNormalized.x < previousX)
+            {
+                this.transform.localScale = new Vector3(-1, 1, 1);
+            }
         }
         else
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            if (directionNormalized.x > previousX)
+            {
+                this.transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (directionNormalized.x < previousX)
+            {
+                this.transform.localScale = new Vector3(1, 1, 1);
+            }
         }
+        
+        float targetAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;  
+        float currentAngle = Mathf.LerpAngle(transform.rotation.eulerAngles.z, targetAngle, speedRotate * Time.deltaTime);
+        Debug.Log($"currentAngle: {currentAngle}, targetAngle: {targetAngle}");
+        transform.rotation = Quaternion.Euler(0, 0, currentAngle);
 
-        if (targetAngle != currentAngle)
+        if (previousAngle != (int)currentAngle)
         {
             animator.SetBool("Rotate", true);
         }
-        else animator.SetBool("Rotate", false);*/
+        else animator.SetBool("Rotate", false);
+        previousAngle = (int)currentAngle;
+        previousX = directionNormalized.x;
+
+        rigid2D.velocity = this.transform.up * speedMoving;
+    }
 
     void FlipPlane()
     {
@@ -99,14 +122,7 @@ public class PlaneController : MonoBehaviour
     void FlipPlaneJoystick()
     {
         var directionNormalized = joystickController.direction.normalized;
-        if (Input.GetAxisRaw("Horizontal") != 0)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else 
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-        }
+        
     }
 
     private void UpdateAnimationJoystick()
