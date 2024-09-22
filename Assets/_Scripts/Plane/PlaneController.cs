@@ -33,7 +33,7 @@ public class PlaneController : MonoBehaviour
         animator = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
         planePos = this.transform;
         previousX = joystickController.direction.normalized.x;
-        previousAngle = 0;
+        previousAngle = this.transform.eulerAngles.z;
     }
 
     public void MovingInputJoystickbase()
@@ -63,9 +63,6 @@ public class PlaneController : MonoBehaviour
             }
         }
 
-        float speed = speedRotate;
-        speedRotate = 0;
-        
         float targetAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
         Quaternion rotate = this.transform.rotation;
         float currentAngle = Mathf.LerpAngle(rotate.eulerAngles.z, targetAngle, speedRotate * Time.deltaTime);
@@ -74,7 +71,6 @@ public class PlaneController : MonoBehaviour
         this.transform.rotation = rotate;
 
         StartCoroutine(StateModeMoving());
-        speedRotate = speed;
 
         if (previousAngle != (int)currentAngle)
         {
@@ -114,15 +110,52 @@ public class PlaneController : MonoBehaviour
 
     public void MovingInputMoveFinger()
     {
+        if (!Input.GetMouseButton(0))
+        {
+            return;
+        }
+
         var mouPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         var directionNormalized = mouPos - this.transform.position.normalized;
 
         float targetAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
         Quaternion rotate = this.transform.rotation;
         float currentAngle = Mathf.LerpAngle(rotate.eulerAngles.z, targetAngle, speedRotate * Time.deltaTime);
-        //Debug.Log($"currentAngle: {currentAngle}, targetAngle: {targetAngle}");
+        Debug.Log($"currentAngle: {currentAngle}, targetAngle: {targetAngle}");
+
+        if(currentAngle > 0 && currentAngle < 180)
+        {
+            if(previousAngle < currentAngle)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
+        else if(currentAngle >= 180 && currentAngle <= 360)
+        {
+            if (previousAngle < currentAngle)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
+        }
+
+        if ((int)previousAngle != (int)currentAngle)
+        {
+            animator.SetBool("Rotate", true);
+        }
+        else animator.SetBool("Rotate", false);
+
         rotate = Quaternion.Euler(0, 0, currentAngle);
         this.transform.rotation = rotate;
+        previousAngle = currentAngle;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
