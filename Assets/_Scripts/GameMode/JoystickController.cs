@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class JoystickController : MonoBehaviour
 {
-    Vector2 mouPos = Vector2.zero;
     public RectTransform joystickInterPos;
     public Vector2 direction;
     public float joystickRadius;
@@ -15,19 +14,16 @@ public class JoystickController : MonoBehaviour
         {
             joystickInterPos.localPosition = Vector2.zero;
         }
-        /*if (Input.GetMouseButtonDown(0))
-        {
-            this.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        }*/
 
         if (!Input.GetMouseButton(0))
             return;
 
+        Vector2 mouPos = Vector2.zero;
         mouPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         Debug.DrawLine(this.transform.position, mouPos, Color.red);
         direction = mouPos - (Vector2)this.transform.position;
-        //Debug.Log(direction.magnitude);
+
         if (direction.magnitude <= joystickRadius)
         {
             joystickInterPos.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -41,11 +37,5 @@ public class JoystickController : MonoBehaviour
         pos.x = Mathf.Cos(angle) * joystickRadius;
         pos.y = Mathf.Sin(angle) * joystickRadius;
         joystickInterPos.localPosition = pos;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(this.transform.position, joystickRadius);
     }
 }
