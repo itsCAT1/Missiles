@@ -30,7 +30,6 @@ public class JoystickController : MonoBehaviour
             return;
         }
 
-        
         float angle = Mathf.Atan2(direction.y, direction.x);
 
         Vector2 pos;

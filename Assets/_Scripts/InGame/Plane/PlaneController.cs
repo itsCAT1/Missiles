@@ -23,9 +23,10 @@ public class PlaneController : MonoBehaviour
 
     public JoystickController joystickController;
     float previousX;
-    float previousAngle = 0f;
+    
     public ButtonArrowController buttonArrowController;
 
+    float previousAngle = 0f;
 
     void Awake()
     {
@@ -39,6 +40,11 @@ public class PlaneController : MonoBehaviour
     public void MovingInputJoystickbase()
     {
         Vector2 directionNormalized = joystickController.direction.normalized;
+
+        if (!Input.GetMouseButton(0))
+        {
+            return;
+        }
 
         if (directionNormalized.y > 0)
         {
@@ -62,15 +68,15 @@ public class PlaneController : MonoBehaviour
                 this.transform.localScale = new Vector3(1, 1, 1);
             }
         }
+        float targetAngle = this.transform.eulerAngles.z;
 
-        float targetAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
+        targetAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
         Quaternion rotate = this.transform.rotation;
         float currentAngle = Mathf.LerpAngle(rotate.eulerAngles.z, targetAngle, speedRotate * Time.deltaTime);
         //Debug.Log($"currentAngle: {currentAngle}, targetAngle: {targetAngle}");
         rotate = Quaternion.Euler(0, 0, currentAngle);
         this.transform.rotation = rotate;
 
-        StartCoroutine(StateModeMoving());
 
         if (previousAngle != (int)currentAngle)
         {
@@ -110,22 +116,24 @@ public class PlaneController : MonoBehaviour
 
     public void MovingInputMoveFinger()
     {
-        if (!Input.GetMouseButton(0))
-        {
-            return;
-        }
-
         var mouPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var directionNormalized = mouPos - this.transform.position.normalized;
+        var directionNormalized = mouPos - this.transform.position;
 
-        float targetAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
+        float targetAngle = this.transform.eulerAngles.z;
+
+        if (Input.GetMouseButton(0))
+        {
+            Debug.DrawLine(this.transform.position, mouPos, Color.red);
+            targetAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
+        }
+        
         Quaternion rotate = this.transform.rotation;
         float currentAngle = Mathf.LerpAngle(rotate.eulerAngles.z, targetAngle, speedRotate * Time.deltaTime);
-        Debug.Log($"currentAngle: {currentAngle}, targetAngle: {targetAngle}");
+        //Debug.Log($"currentAngle: {currentAngle}, targetAngle: {targetAngle}");
 
-        if(currentAngle > 0 && currentAngle < 180)
+        if (currentAngle > 0 && currentAngle < 180)
         {
-            if(previousAngle < currentAngle)
+            if (previousAngle < currentAngle)
             {
                 transform.localScale = new Vector3(-1, 1, 1);
             }
@@ -134,7 +142,7 @@ public class PlaneController : MonoBehaviour
                 transform.localScale = new Vector3(1, 1, 1);
             }
         }
-        else if(currentAngle >= 180 && currentAngle <= 360)
+        else if (currentAngle >= 180 && currentAngle <= 360)
         {
             if (previousAngle < currentAngle)
             {
@@ -155,7 +163,7 @@ public class PlaneController : MonoBehaviour
         rotate = Quaternion.Euler(0, 0, currentAngle);
         this.transform.rotation = rotate;
         previousAngle = currentAngle;
-
+        rigid2D.velocity = this.transform.up * speedMoving;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -201,10 +209,5 @@ public class PlaneController : MonoBehaviour
         yield return new WaitForSeconds(5);
         speedMoving = oldSpeed;
         haveSpeedUp = false;
-    }
-
-    IEnumerator StateModeMoving()
-    {
-        yield return new WaitForSeconds(2);
     }
 }
