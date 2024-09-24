@@ -39,13 +39,10 @@ public class PlaneController : MonoBehaviour
 
     public void MovingInputJoystickbase()
     {
+        rigid2D.velocity = this.transform.up * speedMoving;
         Vector2 directionNormalized = joystickController.direction.normalized;
 
-        if (!Input.GetMouseButton(0))
-        {
-            return;
-        }
-
+        
         if (directionNormalized.y > 0)
         {
             if (directionNormalized.x > previousX)
@@ -75,6 +72,11 @@ public class PlaneController : MonoBehaviour
         float currentAngle = Mathf.LerpAngle(rotate.eulerAngles.z, targetAngle, speedRotate * Time.deltaTime);
         //Debug.Log($"currentAngle: {currentAngle}, targetAngle: {targetAngle}");
         rotate = Quaternion.Euler(0, 0, currentAngle);
+
+        if (!Input.GetMouseButton(0))
+        {
+            return;
+        }
         this.transform.rotation = rotate;
 
 
@@ -85,8 +87,9 @@ public class PlaneController : MonoBehaviour
         else animator.SetBool("Rotate", false);
         previousAngle = (int)currentAngle;
         previousX = directionNormalized.x;
-
-        rigid2D.velocity = this.transform.up * speedMoving;
+        
+        
+        
     }
 
     public void MovingInputButtonArrow()
@@ -116,43 +119,50 @@ public class PlaneController : MonoBehaviour
 
     public void MovingInputMoveFinger()
     {
+        if (!Input.GetMouseButton(0))
+        {
+            return;
+        }
         var mouPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         var directionNormalized = mouPos - this.transform.position;
 
         float targetAngle = this.transform.eulerAngles.z;
-
-        if (Input.GetMouseButton(0))
-        {
-            Debug.DrawLine(this.transform.position, mouPos, Color.red);
-            targetAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
-        }
-        
+        Debug.DrawLine(this.transform.position, mouPos, Color.red);
+        targetAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
         Quaternion rotate = this.transform.rotation;
         float currentAngle = Mathf.LerpAngle(rotate.eulerAngles.z, targetAngle, speedRotate * Time.deltaTime);
         //Debug.Log($"currentAngle: {currentAngle}, targetAngle: {targetAngle}");
+
+        float rotateAmount = transform.localScale.x;
+        float previousRotateAmount = rotateAmount;
 
         if (currentAngle > 0 && currentAngle < 180)
         {
             if (previousAngle < currentAngle)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                rotateAmount = -1;
             }
-            else
+            else if (previousAngle > currentAngle)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                rotateAmount = 1;
             }
+            else transform.localScale = new Vector3(previousRotateAmount, 1, 1);
         }
-        else if (currentAngle >= 180 && currentAngle <= 360)
+        else if (currentAngle > 180 && currentAngle < 360)
         {
             if (previousAngle < currentAngle)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                rotateAmount = -1;
             }
-            else
+            else if (previousAngle > currentAngle)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                rotateAmount = 1;
             }
+            else transform.localScale = new Vector3(previousRotateAmount, 1, 1);
         }
+
+        transform.localScale = new Vector3(rotateAmount, 1, 1);
+
 
         if ((int)previousAngle != (int)currentAngle)
         {
@@ -160,10 +170,15 @@ public class PlaneController : MonoBehaviour
         }
         else animator.SetBool("Rotate", false);
 
+        
         rotate = Quaternion.Euler(0, 0, currentAngle);
+
         this.transform.rotation = rotate;
         previousAngle = currentAngle;
+
         rigid2D.velocity = this.transform.up * speedMoving;
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -190,7 +205,7 @@ public class PlaneController : MonoBehaviour
                 //speedRotate = 0;
                 Debug.Log("Explosion!");
                 GameObject explosionTemp = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
-                //Destroy(collision.gameObject);
+                Destroy(collision.gameObject);
             }
         }
 

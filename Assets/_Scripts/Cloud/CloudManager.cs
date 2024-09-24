@@ -25,7 +25,9 @@ public class CloudManager : MonoBehaviour
             GameObject cloudPrefab = clouds[Random.Range(0, clouds.Count)];
             if(Vector3.Distance(oldSpawnCloudPos, newSpawnCloudPos) > 3)
             {
-                Instantiate(cloudPrefab, newSpawnCloudPos, Quaternion.identity);
+                GameObject newCloud = Instantiate(cloudPrefab, newSpawnCloudPos, Quaternion.identity);
+
+                newCloud.transform.SetParent(this.transform);
             }
             oldSpawnCloudPos = newSpawnCloudPos;
             yield return new WaitForSeconds(0.5f);

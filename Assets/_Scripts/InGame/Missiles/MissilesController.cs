@@ -27,7 +27,7 @@ public class MissilesController : MonoBehaviour
 
         rigid2D.angularVelocity = -speedRotate * rotateAmount;
         rigid2D.velocity = transform.up * speedMoving;
-        //StartCoroutine(TimeOutChasePlane());
+        StartCoroutine(TimeOutChasePlane());
     }
 
     /*void Moving()

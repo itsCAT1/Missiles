@@ -25,13 +25,13 @@ public class MissilesManager : MonoBehaviour
     void SetTimeSpawn()
     {
         StartCoroutine(TimeInitMissile1());
-        /*StartCoroutine(TimeInitMissile2());
+        StartCoroutine(TimeInitMissile2());
         StartCoroutine(TimeInitMissile3());
         StartCoroutine(TimeInitMissile4());
         StartCoroutine(TimeInitMissile5());
         StartCoroutine(TimeInitMissile6());
         StartCoroutine(TimeInitMissile7());
-        StartCoroutine(TimeRandomSpawnMissile());*/
+        StartCoroutine(TimeRandomSpawnMissile());
     }
 
     IEnumerator TimeInitMissile1()
@@ -113,6 +113,7 @@ public class MissilesManager : MonoBehaviour
         while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
         GameObject newMissile1 = Instantiate(missilePrefabList[0], newPos, Quaternion.identity);
         missileList.Add(newMissile1);
+        newMissile1.transform.SetParent(this.transform);
     }
 
     void SpawnMissiles2()
@@ -127,6 +128,7 @@ public class MissilesManager : MonoBehaviour
         while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
         GameObject newMissile2 = Instantiate(missilePrefabList[1], newPos, Quaternion.identity);
         missileList.Add(newMissile2);
+        newMissile2.transform.SetParent(this.transform);
     }
 
     void SpawnMissiles3()
@@ -141,6 +143,7 @@ public class MissilesManager : MonoBehaviour
         while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
         GameObject newMissile3 = Instantiate(missilePrefabList[2], newPos, Quaternion.identity);
         missileList.Add(newMissile3);
+        newMissile3.transform.SetParent(this.transform);
     }
 
     void SpawnMissiles4()
@@ -155,6 +158,7 @@ public class MissilesManager : MonoBehaviour
         while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
         GameObject newMissile4 = Instantiate(missilePrefabList[3], newPos, Quaternion.identity);
         missileList.Add(newMissile4);
+        newMissile4.transform.SetParent(this.transform);
     }
 
     void SpawnMissiles5()
@@ -169,6 +173,7 @@ public class MissilesManager : MonoBehaviour
         while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
         GameObject newMissile5 = Instantiate(missilePrefabList[4], newPos, Quaternion.identity);
         missileList.Add(newMissile5);
+        newMissile5.transform.SetParent(this.transform);
     }
 
     void SpawnMissiles6()
@@ -183,6 +188,7 @@ public class MissilesManager : MonoBehaviour
         while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
         GameObject newMissile6 = Instantiate(missilePrefabList[5], newPos, Quaternion.identity);
         missileList.Add(newMissile6);
+        newMissile6.transform.SetParent(this.transform);
     }
 
     void SpawnMissiles7()
@@ -197,6 +203,7 @@ public class MissilesManager : MonoBehaviour
         while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
         GameObject newMissile7 = Instantiate(missilePrefabList[6], newPos, Quaternion.identity);
         missileList.Add(newMissile7);
+        newMissile7.transform.SetParent(this.transform);
     }
 
     void RandomSpawnMissile()
@@ -217,6 +224,7 @@ public class MissilesManager : MonoBehaviour
         {
             GameObject newRandomMissile = Instantiate(missilePrefabList[7], newPos, rotate);
             missileList.Add(newRandomMissile);
+            newRandomMissile.transform.SetParent(this.transform);
         }
         oldPos = newPos;
     }

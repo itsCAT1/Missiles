@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ClosePanelShop : MonoBehaviour
+public class ClosePanelOptionsMenu : MonoBehaviour
 {
-    public Animator animatorPanelShop;
-    public GameObject panelShop;
+    public Animator animatorPanelOptionsMenu;
+    public GameObject panelOptionsMenu;
 
     public void OpenPanel()
     {
-        animatorPanelShop.SetBool("Open", true);
+        animatorPanelOptionsMenu.SetBool("Open", true);
     }
 
     public void ClosePanel()
@@ -20,8 +20,8 @@ public class ClosePanelShop : MonoBehaviour
 
     IEnumerator WaitClosePanel()
     {
-        animatorPanelShop.SetBool("Open", false);
+        animatorPanelOptionsMenu.SetBool("Open", false);
         yield return new WaitForSeconds(0.4f);
-        panelShop.gameObject.SetActive(false);
+        panelOptionsMenu.gameObject.SetActive(false);
     }
 }

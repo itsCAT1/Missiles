@@ -24,7 +24,7 @@ public class PlaneManager : MonoBehaviour
         {
             currentPlaneIndex--;
             ShowCurrentPlane();
-            cameraController.isCameraControlling = true; // Kích hoạt điều khiển thủ công
+            cameraController.isCameraControlling = true; 
             mainCamera.transform.Translate(Vector3.left * moveDistance);
         }
     }
@@ -35,7 +35,7 @@ public class PlaneManager : MonoBehaviour
         {
             currentPlaneIndex++;
             ShowCurrentPlane();
-            cameraController.isCameraControlling = true; // Kích hoạt điều khiển thủ công
+            cameraController.isCameraControlling = true; 
             mainCamera.transform.Translate(Vector3.right * moveDistance);
         }
     }
