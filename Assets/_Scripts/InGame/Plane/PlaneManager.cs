@@ -14,7 +14,6 @@ public class PlaneManager : MonoBehaviour
     void Start()
     {
         //ShowCurrentPlane();
-        mainCamera = Camera.main;
         cameraController = mainCamera.GetComponent<CameraController>();
     }
 
@@ -22,10 +21,15 @@ public class PlaneManager : MonoBehaviour
     {
         if (currentPlaneIndex > 0)
         {
+            
+            //ShowCurrentPlane();
+            cameraController.isCameraControlling = true;
+            var posCamera = mainCamera.transform.position;
+            posCamera = Vector2.Lerp(planes[currentPlaneIndex].transform.position,
+                planes[currentPlaneIndex - 1].transform.position, 1);
+            posCamera.z = -10;
+            mainCamera.transform.position = posCamera;
             currentPlaneIndex--;
-            ShowCurrentPlane();
-            cameraController.isCameraControlling = true; 
-            mainCamera.transform.Translate(Vector3.left * moveDistance);
         }
     }
 
@@ -33,10 +37,15 @@ public class PlaneManager : MonoBehaviour
     {
         if (currentPlaneIndex < planes.Count - 1)
         {
+            
+            //ShowCurrentPlane();
+            cameraController.isCameraControlling = true;
+            var posCamera = mainCamera.transform.position;
+            posCamera = Vector2.Lerp(planes[currentPlaneIndex].transform.position,
+                planes[currentPlaneIndex + 1].transform.position, 1);
+            posCamera.z = -10;
+            mainCamera.transform.position = posCamera;
             currentPlaneIndex++;
-            ShowCurrentPlane();
-            cameraController.isCameraControlling = true; 
-            mainCamera.transform.Translate(Vector3.right * moveDistance);
         }
     }
 

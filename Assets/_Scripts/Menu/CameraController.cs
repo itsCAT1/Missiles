@@ -6,13 +6,7 @@ public class CameraController : MonoBehaviour
 {
     public Transform player;
     public Vector3 offSet;
-    private Camera mainCamera;
     public bool isCameraControlling = false; 
-
-    private void Start()
-    {
-        mainCamera = Camera.main;
-    }
 
     void Update()
     {
@@ -25,8 +19,8 @@ public class CameraController : MonoBehaviour
     void CameraFollowPlayer()
     {
         Vector3 pos = player.position + offSet;
-        pos.z = mainCamera.transform.localPosition.z;
+        pos.z = this.transform.localPosition.z;
 
-        mainCamera.transform.localPosition = pos;
+        this.transform.localPosition = pos;
     }
 }

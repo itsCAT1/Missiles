@@ -41,7 +41,7 @@ public class PlaneController : MonoBehaviour
     }
 
 
-    public void MovingInputJoystickbase()
+    public void MovingInputJoystick()
     {
         rigid2D.velocity = this.transform.up * speedMoving;
 

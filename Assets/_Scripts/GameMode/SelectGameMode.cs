@@ -6,30 +6,42 @@ using UnityEngine;
 public class SelectGameMode : MonoBehaviour
 {
     public PlaneController planeController;
+    public PlaneManager planeManager;
+
     public GameObject joystick;
     public GameObject buttonArrow;
     public int indexSelect = 0;
     bool firstUpdateJoystick = false;
     bool firstUpdateMoveFinger = false;
-    public bool statePause = false;
 
     void FixedUpdate()
     {
         if (indexSelect == 0)
         {
-            planeController.MovingInMenu();
+            /*for(int i = 0; i <= planeManager.planes.Count; i++)
+            {
+                var planeTemp = planeManager.planes[planeManager.currentPlaneIndex].GetComponent<PlaneController>();
+                planeTemp.MovingInMenu();
+            }*/
+
+            foreach(var plane in planeManager.planes)
+            {
+                var planeTemp = plane.GetComponent<PlaneController>();
+                planeTemp.MovingInMenu();
+            }
         }  
 
         else if (indexSelect == 1)
         {
+            firstUpdateMoveFinger = false;
             if (Input.GetMouseButton(0) && !firstUpdateJoystick)
             {
-                planeController.MovingInputJoystickbase();
+                planeController.MovingInputJoystick();
                 firstUpdateJoystick = true;
             }
             else if (firstUpdateJoystick)
             {
-                planeController.MovingInputJoystickbase();
+                planeController.MovingInputJoystick();
             }
 
             buttonArrow.gameObject.SetActive(false);
@@ -45,6 +57,7 @@ public class SelectGameMode : MonoBehaviour
 
         else if (indexSelect == 3)
         {
+            firstUpdateJoystick = false;
             if (Input.GetMouseButton(0) && !firstUpdateMoveFinger)
             {
                 planeController.MovingInputMoveFinger();
