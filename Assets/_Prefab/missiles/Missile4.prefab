@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 5355006515104347058, guid: 0ce3294c1d31287419d46f39e008fde2, type: 3}
-  speedRotate: 130
+  speedRotate: 120
   speedMoving: 3.5
 --- !u!50 &5180141372740777125
 Rigidbody2D:

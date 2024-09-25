@@ -6,6 +6,11 @@ public class ClosePanelOptionsInGame : MonoBehaviour
     public Animator animatorPanelOptionsInGame;
     public GameObject panelOptionsInGame;
 
+    void Start()
+    {
+        animatorPanelOptionsInGame.updateMode = AnimatorUpdateMode.UnscaledTime;
+    }
+
     public void OpenPanel()
     {
         animatorPanelOptionsInGame.SetBool("Open", true);

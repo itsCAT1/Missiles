@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class StatePauseGame : MonoBehaviour
 {
-
-    void Start()
+    public void PauseGame()
     {
-        
+        Time.timeScale = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ResumeGame()
     {
-        
+        Time.timeScale = 1;
     }
 }

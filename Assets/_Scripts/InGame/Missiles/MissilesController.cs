@@ -15,16 +15,17 @@ public class MissilesController : MonoBehaviour
         rigid2D = this.GetComponent<Rigidbody2D>();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         Moving();
     }
 
-    void Moving()
+    public void Moving()
     {
         Vector2 direction = (Vector2)PlaneController.planePos.transform.position - (Vector2)this.transform.position;
         float rotateAmount = Vector3.Cross(direction.normalized, transform.up).z;
 
+        //float angle = Vector2.Angle(direction, (Vector2)PlaneController.planePos.transform.position);
         rigid2D.angularVelocity = -speedRotate * rotateAmount;
         rigid2D.velocity = transform.up * speedMoving;
         StartCoroutine(TimeOutChasePlane());
@@ -43,6 +44,7 @@ public class MissilesController : MonoBehaviour
         rigid2D.velocity = transform.up * speedMoving;
         //StartCoroutine(TimeOutChasePlane());
     }*/
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

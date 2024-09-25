@@ -7,13 +7,17 @@ public class test : MonoBehaviour
     public Transform plane;
     public float speedMoving;
     public float speedRotate;
+    public Rigidbody2D rb;
 
-
-    void Update()
+    void FixedUpdate()
     {
-        Vector2 direction = (Vector2)this.transform.position - (Vector2)plane.transform.position ;
-        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-        Debug.Log(targetAngle);
+        Vector2 direction = (Vector2)plane.transform.position - (Vector2)this.transform.position;
+        Debug.DrawLine(this.transform.position, plane.transform.position, Color.red);
+        float rotateAmount = Vector3.Cross(direction.normalized, transform.up).z;
+        float angle = Vector2.Angle(direction, plane.transform.position);
+        Debug.Log(angle);
+        rb.angularVelocity = -rotateAmount * angle * speedRotate;
+        rb.velocity = transform.up * speedMoving;
     }
 
 }

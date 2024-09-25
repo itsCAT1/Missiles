@@ -22,63 +22,50 @@ public class PlaneController : MonoBehaviour
     public GameObject explosionMissilePrefab;
 
     public JoystickController joystickController;
-    float previousX;
     
     public ButtonArrowController buttonArrowController;
 
     float previousAngle = 0f;
-
+    Vector3 directionNormalized;
     void Awake()
     {
         rigid2D = this.GetComponent<Rigidbody2D>();
         animator = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
         planePos = this.transform;
-        previousX = joystickController.direction.normalized.x;
         previousAngle = this.transform.eulerAngles.z;
     }
+
+    public void MovingInMenu()
+    {
+        rigid2D.velocity = this.transform.up * 3;
+    }
+
 
     public void MovingInputJoystickbase()
     {
         rigid2D.velocity = this.transform.up * speedMoving;
+
         Vector2 directionNormalized = joystickController.direction.normalized;
 
+        float targetAngle = this.transform.eulerAngles.z;
         
-        if (directionNormalized.y > 0)
+        targetAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
+        Debug.Log($"targetAngle: {targetAngle}");
+        Quaternion rotate = this.transform.rotation;
+        
+        float currentAngle = Mathf.LerpAngle(rotate.eulerAngles.z, targetAngle, speedRotate * Time.deltaTime);
+        
+        rotate = Quaternion.Euler(0, 0, currentAngle);
+        this.transform.rotation = rotate;
+        float rotateAmount = Vector3.Cross(directionNormalized, transform.up).z;
+        if (rotateAmount > 0)
         {
-            if (directionNormalized.x > previousX)
-            {
-                this.transform.localScale = new Vector3(1, 1, 1);
-            }
-            else if (directionNormalized.x < previousX)
-            {
-                this.transform.localScale = new Vector3(-1, 1, 1);
-            }
+            this.transform.localScale = new Vector3(1, 1, 1);
         }
         else
         {
-            if (directionNormalized.x > previousX)
-            {
-                this.transform.localScale = new Vector3(-1, 1, 1);
-            }
-            else if (directionNormalized.x < previousX)
-            {
-                this.transform.localScale = new Vector3(1, 1, 1);
-            }
+            this.transform.localScale = new Vector3(-1, 1, 1);
         }
-        float targetAngle = this.transform.eulerAngles.z;
-
-        targetAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
-        Quaternion rotate = this.transform.rotation;
-        float currentAngle = Mathf.LerpAngle(rotate.eulerAngles.z, targetAngle, speedRotate * Time.deltaTime);
-        //Debug.Log($"currentAngle: {currentAngle}, targetAngle: {targetAngle}");
-        rotate = Quaternion.Euler(0, 0, currentAngle);
-
-        if (!Input.GetMouseButton(0))
-        {
-            return;
-        }
-        this.transform.rotation = rotate;
-
 
         if (previousAngle != (int)currentAngle)
         {
@@ -86,9 +73,6 @@ public class PlaneController : MonoBehaviour
         }
         else animator.SetBool("Rotate", false);
         previousAngle = (int)currentAngle;
-        previousX = directionNormalized.x;
-        
-        
         
     }
 
@@ -119,66 +103,44 @@ public class PlaneController : MonoBehaviour
 
     public void MovingInputMoveFinger()
     {
-        if (!Input.GetMouseButton(0))
-        {
-            return;
-        }
+        rigid2D.velocity = this.transform.up * speedMoving;
+
         var mouPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var directionNormalized = mouPos - this.transform.position;
 
         float targetAngle = this.transform.eulerAngles.z;
-        Debug.DrawLine(this.transform.position, mouPos, Color.red);
+        if (Input.GetMouseButton(0))
+        {
+            directionNormalized = mouPos - this.transform.position;
+        }
+
         targetAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
+        Debug.DrawLine(this.transform.position, mouPos, Color.red);
+        
         Quaternion rotate = this.transform.rotation;
         float currentAngle = Mathf.LerpAngle(rotate.eulerAngles.z, targetAngle, speedRotate * Time.deltaTime);
         //Debug.Log($"currentAngle: {currentAngle}, targetAngle: {targetAngle}");
+        
+        rotate = Quaternion.Euler(0, 0, currentAngle);
 
-        float rotateAmount = transform.localScale.x;
-        float previousRotateAmount = rotateAmount;
+        float rotateAmount = Vector3.Cross(directionNormalized, transform.up).z;
 
-        if (currentAngle > 0 && currentAngle < 180)
+        if (rotateAmount > 0)
         {
-            if (previousAngle < currentAngle)
-            {
-                rotateAmount = -1;
-            }
-            else if (previousAngle > currentAngle)
-            {
-                rotateAmount = 1;
-            }
-            else transform.localScale = new Vector3(previousRotateAmount, 1, 1);
+            this.transform.localScale = new Vector3(1, 1, 1);
         }
-        else if (currentAngle > 180 && currentAngle < 360)
+        else
         {
-            if (previousAngle < currentAngle)
-            {
-                rotateAmount = -1;
-            }
-            else if (previousAngle > currentAngle)
-            {
-                rotateAmount = 1;
-            }
-            else transform.localScale = new Vector3(previousRotateAmount, 1, 1);
+            this.transform.localScale = new Vector3(-1, 1, 1);
         }
-
-        transform.localScale = new Vector3(rotateAmount, 1, 1);
-
 
         if ((int)previousAngle != (int)currentAngle)
         {
             animator.SetBool("Rotate", true);
         }
         else animator.SetBool("Rotate", false);
-
-        
-        rotate = Quaternion.Euler(0, 0, currentAngle);
-
-        this.transform.rotation = rotate;
         previousAngle = currentAngle;
 
-        rigid2D.velocity = this.transform.up * speedMoving;
-
-        
+        this.transform.rotation = rotate;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -200,9 +162,9 @@ public class PlaneController : MonoBehaviour
             }
             else
             {
-                //this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                //speedMoving = 0;
-                //speedRotate = 0;
+                this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                speedMoving = 0;
+                speedRotate = 0;
                 Debug.Log("Explosion!");
                 GameObject explosionTemp = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
                 Destroy(collision.gameObject);
