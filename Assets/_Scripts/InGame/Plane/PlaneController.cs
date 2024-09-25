@@ -162,9 +162,9 @@ public class PlaneController : MonoBehaviour
             }
             else
             {
-                this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                speedMoving = 0;
-                speedRotate = 0;
+                //this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                //speedMoving = 0;
+                //speedRotate = 0;
                 Debug.Log("Explosion!");
                 GameObject explosionTemp = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
                 Destroy(collision.gameObject);

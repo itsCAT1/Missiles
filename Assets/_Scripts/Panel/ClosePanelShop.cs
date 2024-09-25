@@ -8,11 +8,6 @@ public class ClosePanelShop : MonoBehaviour
     public Animator animatorPanelShop;
     public GameObject panelShop;
 
-    void Start()
-    {
-        animatorPanelShop.updateMode = AnimatorUpdateMode.UnscaledTime;
-    }
-
     public void OpenPanel()
     {
         animatorPanelShop.SetBool("Open", true);

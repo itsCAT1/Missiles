@@ -10,12 +10,6 @@ public class ClosePauseGame : MonoBehaviour
     public Animator animatorButtonPauseInGame;
     public GameObject buttonPauseInGame;
 
-    void Start()
-    {
-        animatorPauseInGame.updateMode = AnimatorUpdateMode.UnscaledTime;
-        animatorButtonPauseInGame.updateMode = AnimatorUpdateMode.UnscaledTime;
-    }
-
     public void PauseGame()
     {
         animatorPauseInGame.SetBool("Pause", true);
@@ -29,7 +23,7 @@ public class ClosePauseGame : MonoBehaviour
     IEnumerator WaitClosePanel()
     {
         animatorPauseInGame.SetBool("Pause", false);
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSecondsRealtime(0.4f);
         pauseInGame.gameObject.SetActive(false);
     }
 
@@ -47,7 +41,7 @@ public class ClosePauseGame : MonoBehaviour
     IEnumerator WaitButtonPauseGame()
     {
         animatorButtonPauseInGame.SetBool("Pause", true);
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSecondsRealtime(0.4f);
         buttonPauseInGame.gameObject.SetActive(false);
     }
 }
