@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class camera : MonoBehaviour
 {
-    public Transform planePos;
+    public Transform player;
+    public Vector3 offSet;
+    public bool isCameraControlling = false;
 
     void Update()
     {
-        var camPos = planePos.position;
-        camPos.z = -10f;
-        this.transform.position = camPos;
+        if (!isCameraControlling)
+        {
+            CameraFollowPlayer();
+        }
     }
+
+    void CameraFollowPlayer()
+    {
+        Vector3 pos = player.position + offSet;
+        pos.z = this.transform.localPosition.z;
+
+        this.transform.localPosition = pos;
+    }
+
 }

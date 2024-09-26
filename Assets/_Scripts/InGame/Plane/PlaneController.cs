@@ -11,7 +11,7 @@ public class PlaneController : MonoBehaviour
     public float speedRotate;
     public static Transform planePos;
 
-    Rigidbody2D rigid2D;
+    public Rigidbody2D rigid2D;
     Animator animator;
 
     public GameObject shieldReceive;
@@ -39,7 +39,6 @@ public class PlaneController : MonoBehaviour
     {
         rigid2D.velocity = this.transform.up * 3;
     }
-
 
     public void MovingInputJoystick()
     {

@@ -5,21 +5,24 @@ using UnityEngine;
 
 public class MissilesManager : MonoBehaviour
 {
-    public Transform planePos;
+    public Transform plane;
+    public PlaneManager planeManager;
     public GameObject missilesPrefab;
     public List<GameObject> missilePrefabList;
     public List<GameObject> missileList;
     public float minSpawnDistance;
     public float maxSpawnDistance;
-
+    
     public float angleOffset;
-    private Camera cam;
 
     void Start()
     {
         SetTimeSpawn();
-
-        cam = Camera.main;
+        
+        for(int i = 0; i < planeManager.planes.Count; i++)
+        {
+            plane = planeManager.planes[planeManager.currentPlaneIndex].GetComponent<Transform>();
+        }
     }
 
     void SetTimeSpawn()
@@ -103,14 +106,14 @@ public class MissilesManager : MonoBehaviour
 
     void SpawnMissiles1()
     {
-        Vector2 camPos = cam.transform.position;
+        Vector2 planePos = plane.transform.position;
         Vector2 newPos = Vector2.zero;
         do
         {
-            newPos.x = Random.Range(camPos.x - 5, camPos.x + 5);
-            newPos.y = Random.Range(camPos.y, camPos.y + 7);
+            newPos.x = Random.Range(planePos.x - 5, planePos.x + 5);
+            newPos.y = Random.Range(planePos.y, planePos.y + 7);
         }
-        while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
+        while ((newPos.x > (planePos.x - 4) && newPos.x < (planePos.x + 4)) && (newPos.y > planePos.y && newPos.y < (planePos.y + 6)));
         GameObject newMissile1 = Instantiate(missilePrefabList[0], newPos, Quaternion.identity);
         missileList.Add(newMissile1);
         newMissile1.transform.SetParent(this.transform);
@@ -118,14 +121,14 @@ public class MissilesManager : MonoBehaviour
 
     void SpawnMissiles2()
     {
-        Vector2 camPos = cam.transform.position;
+        Vector2 planePos = plane.transform.position;
         Vector2 newPos = Vector2.zero;
         do
         {
-             newPos.x = Random.Range(camPos.x - 5, camPos.x + 5);
-             newPos.y = Random.Range(camPos.y, camPos.y + 7);
+            newPos.x = Random.Range(planePos.x - 5, planePos.x + 5);
+            newPos.y = Random.Range(planePos.y, planePos.y + 7);
         }
-        while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
+        while ((newPos.x > (planePos.x - 4) && newPos.x < (planePos.x + 4)) && (newPos.y > planePos.y && newPos.y < (planePos.y + 6)));
         GameObject newMissile2 = Instantiate(missilePrefabList[1], newPos, Quaternion.identity);
         missileList.Add(newMissile2);
         newMissile2.transform.SetParent(this.transform);
@@ -133,14 +136,14 @@ public class MissilesManager : MonoBehaviour
 
     void SpawnMissiles3()
     {
-        Vector2 camPos = cam.transform.position;
+        Vector2 planePos = plane.transform.position;
         Vector2 newPos = Vector2.zero;
         do
         {
-            newPos.x = Random.Range(camPos.x - 5, camPos.x + 5);
-            newPos.y = Random.Range(camPos.y, camPos.y + 7);
+            newPos.x = Random.Range(planePos.x - 5, planePos.x + 5);
+            newPos.y = Random.Range(planePos.y, planePos.y + 7);
         }
-        while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
+        while ((newPos.x > (planePos.x - 4) && newPos.x < (planePos.x + 4)) && (newPos.y > planePos.y && newPos.y < (planePos.y + 6)));
         GameObject newMissile3 = Instantiate(missilePrefabList[2], newPos, Quaternion.identity);
         missileList.Add(newMissile3);
         newMissile3.transform.SetParent(this.transform);
@@ -148,14 +151,14 @@ public class MissilesManager : MonoBehaviour
 
     void SpawnMissiles4()
     {
-        Vector2 camPos = cam.transform.position;
+        Vector2 planePos = plane.transform.position;
         Vector2 newPos = Vector2.zero;
         do
         {
-            newPos.x = Random.Range(camPos.x - 5, camPos.x + 5);
-            newPos.y = Random.Range(camPos.y, camPos.y + 7);
+            newPos.x = Random.Range(planePos.x - 5, planePos.x + 5);
+            newPos.y = Random.Range(planePos.y, planePos.y + 7);
         }
-        while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
+        while ((newPos.x > (planePos.x - 4) && newPos.x < (planePos.x + 4)) && (newPos.y > planePos.y && newPos.y < (planePos.y + 6)));
         GameObject newMissile4 = Instantiate(missilePrefabList[3], newPos, Quaternion.identity);
         missileList.Add(newMissile4);
         newMissile4.transform.SetParent(this.transform);
@@ -163,14 +166,14 @@ public class MissilesManager : MonoBehaviour
 
     void SpawnMissiles5()
     {
-        Vector2 camPos = cam.transform.position;
+        Vector2 planePos = plane.transform.position;
         Vector2 newPos = Vector2.zero;
         do
         {
-            newPos.x = Random.Range(camPos.x - 5, camPos.x + 5);
-            newPos.y = Random.Range(camPos.y, camPos.y + 7);
+            newPos.x = Random.Range(planePos.x - 5, planePos.x + 5);
+            newPos.y = Random.Range(planePos.y, planePos.y + 7);
         }
-        while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
+        while ((newPos.x > (planePos.x - 4) && newPos.x < (planePos.x + 4)) && (newPos.y > planePos.y && newPos.y < (planePos.y + 6)));
         GameObject newMissile5 = Instantiate(missilePrefabList[4], newPos, Quaternion.identity);
         missileList.Add(newMissile5);
         newMissile5.transform.SetParent(this.transform);
@@ -178,14 +181,14 @@ public class MissilesManager : MonoBehaviour
 
     void SpawnMissiles6()
     {
-        Vector2 camPos = cam.transform.position;
+        Vector2 planePos = plane.transform.position;
         Vector2 newPos = Vector2.zero;
         do
         {
-            newPos.x = Random.Range(camPos.x - 5, camPos.x + 5);
-            newPos.y = Random.Range(camPos.y, camPos.y + 7);
+            newPos.x = Random.Range(planePos.x - 5, planePos.x + 5);
+            newPos.y = Random.Range(planePos.y, planePos.y + 7);
         }
-        while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
+        while ((newPos.x > (planePos.x - 4) && newPos.x < (planePos.x + 4)) && (newPos.y > planePos.y && newPos.y < (planePos.y + 6)));
         GameObject newMissile6 = Instantiate(missilePrefabList[5], newPos, Quaternion.identity);
         missileList.Add(newMissile6);
         newMissile6.transform.SetParent(this.transform);
@@ -193,14 +196,14 @@ public class MissilesManager : MonoBehaviour
 
     void SpawnMissiles7()
     {
-        Vector2 camPos = cam.transform.position;
+        Vector2 planePos = plane.transform.position;
         Vector2 newPos = Vector2.zero;
         do
         {
-            newPos.x = Random.Range(camPos.x - 5, camPos.x + 5);
-            newPos.y = Random.Range(camPos.y, camPos.y + 7);
+            newPos.x = Random.Range(planePos.x - 5, planePos.x + 5);
+            newPos.y = Random.Range(planePos.y, planePos.y + 7);
         }
-        while ((newPos.x > (camPos.x - 4) && newPos.x < (camPos.x + 4)) && (newPos.y > camPos.y && newPos.y < (camPos.y + 6)));
+        while ((newPos.x > (planePos.x - 4) && newPos.x < (planePos.x + 4)) && (newPos.y > planePos.y && newPos.y < (planePos.y + 6)));
         GameObject newMissile7 = Instantiate(missilePrefabList[6], newPos, Quaternion.identity);
         missileList.Add(newMissile7);
         newMissile7.transform.SetParent(this.transform);
@@ -209,15 +212,15 @@ public class MissilesManager : MonoBehaviour
     void RandomSpawnMissile()
     {
         Vector2 oldPos = Vector2.zero;
-        Vector2 camPos = cam.transform.position;
+        Vector2 planePos = plane.transform.position;
         Vector2 newPos = Vector2.zero;
 
-        newPos.x = Random.Range(camPos.x - 3, camPos.x + 3);
-        newPos.y = camPos.y + 7;
+        newPos.x = Random.Range(planePos.x - 3, planePos.x + 3);
+        newPos.y = planePos.y + 7;
 
-        Vector2 direction = camPos - newPos;
+        Vector2 direction = planePos - newPos;
         Quaternion rotate = transform.rotation;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - Random.Range(60,80);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - Random.Range(60, 80);
         rotate.eulerAngles = new Vector3(0, 0, angle);
 
         if (Vector2.Distance(oldPos, newPos) > 3)
@@ -241,11 +244,11 @@ public class MissilesManager : MonoBehaviour
             if (missileList[i] == null)
             {
                 missileList.RemoveAt(i);
-                i--; 
+                i--;
                 continue;
             }
 
-            Vector3 viewportPos = cam.WorldToViewportPoint(missileList[i].transform.position);
+            Vector3 viewportPos = Camera.main.WorldToViewportPoint(missileList[i].transform.position);
 
             if ((viewportPos.x < 0 || viewportPos.x > 1 || viewportPos.y < 0 || viewportPos.y > 1))
             {
@@ -256,14 +259,14 @@ public class MissilesManager : MonoBehaviour
                     indicator.SetActive(true);
                 }
 
-                Vector3 direction = (missileList[i].transform.position - cam.transform.position).normalized;
+                Vector3 direction = (missileList[i].transform.position - Camera.main.transform.position).normalized;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + angleOffset;
                 indicator.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
                 viewportPos.x = Mathf.Clamp(viewportPos.x, 0.025f, 0.975f);
                 viewportPos.y = Mathf.Clamp(viewportPos.y, 0.014f, 0.986f);
 
-                Vector3 indicatorScreenPos = cam.ViewportToWorldPoint(viewportPos);
+                Vector3 indicatorScreenPos = Camera.main.ViewportToWorldPoint(viewportPos);
 
                 indicator.transform.position = indicatorScreenPos;
             }

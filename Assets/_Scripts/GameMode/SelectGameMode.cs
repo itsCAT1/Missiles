@@ -75,7 +75,7 @@ public class SelectGameMode : MonoBehaviour
 
     public void SelectControlMode()
     {
-        indexSelect = 1;
+        StartCoroutine(StateStartGame());
         indexSelect++;
         if(indexSelect > 3)
         {
@@ -86,5 +86,20 @@ public class SelectGameMode : MonoBehaviour
     public void SelectMovingInMenu()
     {
         indexSelect = 0;
+    }
+
+    IEnumerator StateStartGame()
+    {
+        for (int i = 0; i <= planeManager.planes.Count; i++)
+        {
+            var planeTemp = planeManager.planes[planeManager.currentPlaneIndex].GetComponent<PlaneController>();
+            planeTemp.rigid2D.angularVelocity = 185;
+        }
+        yield return new WaitForSeconds(1);
+        for (int i = 0; i <= planeManager.planes.Count; i++)
+        {
+            var planeTemp = planeManager.planes[planeManager.currentPlaneIndex].GetComponent<PlaneController>();
+            planeTemp.rigid2D.angularVelocity = 0;
+        }
     }
 }

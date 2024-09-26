@@ -20,7 +20,8 @@ public class CloudManager : MonoBehaviour
         while (true)
         {
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
-            Vector3 newSpawnCloudPos = planePos.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
+            Vector3 newSpawnCloudPos = Camera.main.transform.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
+            newSpawnCloudPos.z = 0;
 
             GameObject cloudPrefab = clouds[Random.Range(0, clouds.Count)];
             if(Vector3.Distance(oldSpawnCloudPos, newSpawnCloudPos) > 3)
@@ -30,7 +31,7 @@ public class CloudManager : MonoBehaviour
                 newCloud.transform.SetParent(this.transform);
             }
             oldSpawnCloudPos = newSpawnCloudPos;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.4f);
         }
     }
 }
