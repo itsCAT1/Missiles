@@ -22,10 +22,10 @@ public class MissilesController : MonoBehaviour
 
     public void Moving()
     {
-        Vector2 direction = (Vector2)PlaneController.planePos.transform.position - (Vector2)this.transform.position;
+        Vector2 planePos = (Vector2)Camera.main.transform.position + new Vector2(0, 0.84f);
+        Vector2 direction = (Vector2)planePos - (Vector2)this.transform.position;
         float rotateAmount = Vector3.Cross(direction.normalized, transform.up).z;
 
-        //float angle = Vector2.Angle(direction, (Vector2)PlaneController.planePos.transform.position);
         rigid2D.angularVelocity = -speedRotate * rotateAmount;
         rigid2D.velocity = transform.up * speedMoving;
         StartCoroutine(TimeOutChasePlane());

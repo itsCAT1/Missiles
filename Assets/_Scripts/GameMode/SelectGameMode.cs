@@ -10,13 +10,13 @@ public class SelectGameMode : MonoBehaviour
 
     public GameObject joystick;
     public GameObject buttonArrow;
-    public int indexSelect = 0;
+    public int indexSelectMode = 0;
     bool firstUpdateJoystick = false;
     bool firstUpdateMoveFinger = false;
 
     void FixedUpdate()
     {
-        if (indexSelect == 0)
+        if (indexSelectMode == 0)
         {
             /*for(int i = 0; i <= planeManager.planes.Count; i++)
             {
@@ -31,7 +31,7 @@ public class SelectGameMode : MonoBehaviour
             }
         }  
 
-        else if (indexSelect == 1)
+        else if (indexSelectMode == 1)
         {
             firstUpdateMoveFinger = false;
             if (Input.GetMouseButton(0) && !firstUpdateJoystick)
@@ -48,14 +48,14 @@ public class SelectGameMode : MonoBehaviour
             joystick.gameObject.SetActive(true);
         }
 
-        else if (indexSelect == 2)
+        else if (indexSelectMode == 2)
         {
             planeController.MovingInputButtonArrow();
             buttonArrow.gameObject.SetActive(true);
             joystick.gameObject.SetActive(false);
         }
 
-        else if (indexSelect == 3)
+        else if (indexSelectMode == 3)
         {
             firstUpdateJoystick = false;
             if (Input.GetMouseButton(0) && !firstUpdateMoveFinger)
@@ -76,16 +76,11 @@ public class SelectGameMode : MonoBehaviour
     public void SelectControlMode()
     {
         StartCoroutine(StateStartGame());
-        indexSelect++;
-        if(indexSelect > 3)
+        indexSelectMode++;
+        if (indexSelectMode > 3)
         {
-            indexSelect = 1;
+            indexSelectMode = 1;
         }
-    }
-
-    public void SelectMovingInMenu()
-    {
-        indexSelect = 0;
     }
 
     IEnumerator StateStartGame()

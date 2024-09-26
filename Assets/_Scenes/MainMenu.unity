@@ -5898,7 +5898,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 929715813}
+      - m_Target: {fileID: 1761437390}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -6295,7 +6295,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2054661096}
         m_TargetAssemblyTypeName: SelectGameMode, Assembly-CSharp
-        m_MethodName: Select
+        m_MethodName: SelectControlMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6975,7 +6975,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2054661096}
         m_TargetAssemblyTypeName: SelectGameMode, Assembly-CSharp
-        m_MethodName: Select
+        m_MethodName: SelectControlMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8614,7 +8614,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 929715813}
+      - m_Target: {fileID: 1761437390}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -9986,7 +9986,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 929715813}
+      - m_Target: {fileID: 1761437390}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -12822,6 +12822,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2054661096}
+        m_TargetAssemblyTypeName: SelectGameMode, Assembly-CSharp
+        m_MethodName: SelectControlMode
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -20569,6 +20581,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2054661096}
+        m_TargetAssemblyTypeName: SelectGameMode, Assembly-CSharp
+        m_MethodName: SelectControlMode
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -30161,7 +30185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plane: {fileID: 0}
-  planeManager: {fileID: 0}
+  planeManager: {fileID: 1909892231}
   missilesPrefab: {fileID: 1967220899907536651, guid: b10e7ea12ecfdb746996119a35dfbff0, type: 3}
   missilePrefabList:
   - {fileID: 1967220899907536651, guid: b10e7ea12ecfdb746996119a35dfbff0, type: 3}
@@ -32834,7 +32858,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 929715813}
+      - m_Target: {fileID: 1761437390}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -36557,6 +36581,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2054661096}
+        m_TargetAssemblyTypeName: SelectGameMode, Assembly-CSharp
+        m_MethodName: SelectControlMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1829101444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36941,7 +36977,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2054661096}
         m_TargetAssemblyTypeName: SelectGameMode, Assembly-CSharp
-        m_MethodName: Select
+        m_MethodName: SelectControlMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -40839,7 +40875,7 @@ MonoBehaviour:
   planeManager: {fileID: 1909892231}
   joystick: {fileID: 1994429570}
   buttonArrow: {fileID: 604711600}
-  indexSelect: 0
+  indexSelectMode: 0
 --- !u!1 &2054990562
 GameObject:
   m_ObjectHideFlags: 0

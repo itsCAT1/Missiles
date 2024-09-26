@@ -9,7 +9,6 @@ public class PlaneController : MonoBehaviour
 {
     public float speedMoving;
     public float speedRotate;
-    public static Transform planePos;
 
     public Rigidbody2D rigid2D;
     Animator animator;
@@ -31,7 +30,6 @@ public class PlaneController : MonoBehaviour
     {
         rigid2D = this.GetComponent<Rigidbody2D>();
         animator = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
-        planePos = this.transform;
         previousAngle = this.transform.eulerAngles.z;
     }
 
