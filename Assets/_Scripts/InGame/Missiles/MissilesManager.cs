@@ -1,11 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Collections;
 using UnityEngine;
 
 public class MissilesManager : MonoBehaviour
 {
-    public Transform plane;
+    Transform plane;
     public PlaneManager planeManager;
     public GameObject missilesPrefab;
     public List<GameObject> missilePrefabList;
@@ -14,15 +14,11 @@ public class MissilesManager : MonoBehaviour
     public float maxSpawnDistance;
     
     public float angleOffset;
-
+    bool isSpawning = true;
     void Start()
     {
+        plane = planeManager.planes[planeManager.currentPlaneIndex].GetComponent<Transform>();
         SetTimeSpawn();
-        
-        for(int i = 0; i < planeManager.planes.Count; i++)
-        {
-            plane = planeManager.planes[planeManager.currentPlaneIndex].GetComponent<Transform>();
-        }
     }
 
     void SetTimeSpawn()
@@ -44,62 +40,118 @@ public class MissilesManager : MonoBehaviour
     }
     IEnumerator TimeInitMissile2()
     {
-        while (true)
+        while (isSpawning)
         {
             yield return new WaitForSeconds(5);
-            SpawnMissiles2();
+            if (plane.gameObject.activeSelf)
+            {
+                SpawnMissiles2();
+            }
+            else
+            {
+                isSpawning = false;
+                yield break;
+            }
         }
     }
     IEnumerator TimeInitMissile3()
     {
-        while (true)
+        while (isSpawning)
         {
             yield return new WaitForSeconds(30);
-            SpawnMissiles3();
+            if (plane.gameObject.activeSelf)
+            {
+                SpawnMissiles3();
+            }
+            else
+            {
+                isSpawning = false;
+                yield break;
+            }
         }
     }
     IEnumerator TimeInitMissile4()
     {
-        while (true)
+        while (isSpawning)
         {
             yield return new WaitForSeconds(60);
-            SpawnMissiles4();
+            if (plane.gameObject.activeSelf)
+            {
+                SpawnMissiles4();
+            }
+            else
+            {
+                isSpawning = false;
+                yield break;
+            }
         }
     }
     IEnumerator TimeInitMissile5()
     {
-        while (true)
+        while (isSpawning)
         {
             yield return new WaitForSeconds(90);
-            SpawnMissiles5();
+            if (plane.gameObject.activeSelf)
+            {
+                SpawnMissiles5();
+            }
+            else
+            {
+                isSpawning = false;
+                yield break;
+            }
         }
     }
     IEnumerator TimeInitMissile6()
     {
-        while (true)
+        while (isSpawning)
         {
             yield return new WaitForSeconds(120);
-            SpawnMissiles6();
+            if (plane.gameObject.activeSelf)
+            {
+                SpawnMissiles6();
+            }
+            else
+            {
+                isSpawning = false;
+                yield break;
+            }
         }
     }
     IEnumerator TimeInitMissile7()
     {
-        while (true)
+        while (isSpawning)
         {
             yield return new WaitForSeconds(150);
-            SpawnMissiles7();
+            if (plane.gameObject.activeSelf)
+            {
+                SpawnMissiles7();
+            }
+            else
+            {
+                isSpawning = false;
+                yield break;
+            }
         }
     }
 
     IEnumerator TimeRandomSpawnMissile()
     {
-        while (true)
+        while (isSpawning)
         {
             yield return new WaitForSeconds(40);
             int randomTime = Random.Range(1, 4);
-            for(int i = 1; i <= randomTime; i++)
+            if (plane.gameObject.activeSelf)
             {
-                RandomSpawnMissile();
+                for (int i = 1; i <= randomTime; i++)
+                {
+                    RandomSpawnMissile();
+                }
+            }
+            else
+            {
+                isSpawning = false;
+                yield break;
             }
         }
     }
@@ -232,7 +284,7 @@ public class MissilesManager : MonoBehaviour
         oldPos = newPos;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         UpdateTargetIndicator();
     }

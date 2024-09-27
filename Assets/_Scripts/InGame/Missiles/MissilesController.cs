@@ -7,12 +7,16 @@ using static UnityEngine.GraphicsBuffer;
 public class MissilesController : MonoBehaviour
 {
     Rigidbody2D rigid2D;
+    public Transform planePos;
+    public PlaneManager planeManager;
     public GameObject explosionPrefab;
     public float speedRotate;
     public float speedMoving;
     private void Start()
     {
         rigid2D = this.GetComponent<Rigidbody2D>();
+        planeManager = GameObject.Find("PlaneManager").GetComponent<PlaneManager>();
+        planePos = planeManager.planes[planeManager.currentPlaneIndex].GetComponent<Transform>();
     }
 
     private void FixedUpdate()
@@ -22,8 +26,7 @@ public class MissilesController : MonoBehaviour
 
     public void Moving()
     {
-        Vector2 planePos = (Vector2)Camera.main.transform.position + new Vector2(0, 0.84f);
-        Vector2 direction = (Vector2)planePos - (Vector2)this.transform.position;
+        Vector2 direction = (Vector2)planePos.position - (Vector2)this.transform.position;
         float rotateAmount = Vector3.Cross(direction.normalized, transform.up).z;
 
         rigid2D.angularVelocity = -speedRotate * rotateAmount;

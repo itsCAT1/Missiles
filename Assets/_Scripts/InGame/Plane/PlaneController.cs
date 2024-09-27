@@ -26,6 +26,7 @@ public class PlaneController : MonoBehaviour
 
     float previousAngle = 0f;
     Vector3 directionNormalized;
+    public float rotate;
     void Awake()
     {
         rigid2D = this.GetComponent<Rigidbody2D>();
@@ -33,21 +34,19 @@ public class PlaneController : MonoBehaviour
         previousAngle = this.transform.eulerAngles.z;
     }
 
-    public void MovingInMenu()
+    private void FixedUpdate()
     {
-        rigid2D.velocity = this.transform.up * 3;
+        rigid2D.velocity = this.transform.up * speedMoving;
     }
 
     public void MovingInputJoystick()
     {
-        rigid2D.velocity = this.transform.up * speedMoving;
-
         Vector2 directionNormalized = joystickController.direction.normalized;
 
         float targetAngle = this.transform.eulerAngles.z;
         
         targetAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
-        Debug.Log($"targetAngle: {targetAngle}");
+        //Debug.Log($"targetAngle: {targetAngle}");
         Quaternion rotate = this.transform.rotation;
         
         float currentAngle = Mathf.LerpAngle(rotate.eulerAngles.z, targetAngle, speedRotate * Time.deltaTime);
@@ -94,14 +93,10 @@ public class PlaneController : MonoBehaviour
             animator.SetBool("Rotate", true);
         }
         else animator.SetBool("Rotate", false);
-
-        rigid2D.velocity = this.transform.up * speedMoving;
     }
 
     public void MovingInputMoveFinger()
     {
-        rigid2D.velocity = this.transform.up * speedMoving;
-
         var mouPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         float targetAngle = this.transform.eulerAngles.z;
@@ -159,9 +154,9 @@ public class PlaneController : MonoBehaviour
             }
             else
             {
-                //this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
-                //speedMoving = 0;
-                //speedRotate = 0;
+                this.gameObject.SetActive(false);
+                speedMoving = 0;
+                speedRotate = 0;
                 Debug.Log("Explosion!");
                 GameObject explosionTemp = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
                 Destroy(collision.gameObject);
