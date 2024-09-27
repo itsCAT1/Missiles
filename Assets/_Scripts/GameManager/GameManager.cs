@@ -18,16 +18,23 @@ public class GameManager : MonoBehaviour
     public Text uiTotalPoint;
     public Text uiYourScore;
 
+    public GameObject panelEndGame;
+
     void Start()
     {
         StartCoroutine(StartTimeCount());
     }
 
-    private void Update()
+    private void OnEnable()
+    {
+        UpdateUIValue();
+    }
+
+    public void UpdateUIValue()
     {
         uiBonusCoin.text = bonusCoin.ToString();
         uiStarPointInGame.text = starPoint.ToString();
-        uiStarPointEndGame.text = "+" + starPoint*10;
+        uiStarPointEndGame.text = "+" + starPoint * 10;
         uiTimePoint.text = "+" + seconds.ToString();
         totalPoint = starPoint * 10 + seconds + bonusCoin;
         uiTotalPoint.text = totalPoint.ToString();
@@ -50,6 +57,6 @@ public class GameManager : MonoBehaviour
     public void PressButtonDouble()
     {
         totalPoint *= 2;
-        Update();
+        //Update();
     }
 }

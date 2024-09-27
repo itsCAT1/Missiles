@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
 
 public class MissilesController : MonoBehaviour
 {
@@ -33,20 +32,6 @@ public class MissilesController : MonoBehaviour
         rigid2D.velocity = transform.up * speedMoving;
         StartCoroutine(TimeOutChasePlane());
     }
-
-    /*void Moving()
-    {
-        Vector2 direction = (Vector2)PlaneController.planePos.transform.position - (Vector2)this.transform.position;
-        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg -90;
-        Debug.Log(targetAngle);
-        //float newAngle = Mathf.LerpAngle(currentAngle, targetAngle, speedRotate * Time.deltaTime);
-        //Debug.Log($"Target Angle: {targetAngle}, Current Angle: {currentAngle}, New Angle: {newAngle}");
-
-        transform.rotation = Quaternion.Euler(0, 0, targetAngle);
-        //rigid2D.angularVelocity = -speedRotate * rotateAmout;
-        rigid2D.velocity = transform.up * speedMoving;
-        //StartCoroutine(TimeOutChasePlane());
-    }*/
 
 
     private void OnTriggerEnter2D(Collider2D collision)

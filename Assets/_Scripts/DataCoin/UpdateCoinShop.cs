@@ -7,12 +7,12 @@ using UnityEngine.UI;
 public class UpdateCoinShop : MonoBehaviour
 {
     public Text coinText;
-    public DataCoin dataCoin = new DataCoin(); // Khởi tạo đối tượng DataCoin
+    public DataCoin dataCoin = new DataCoin(); 
 
     private void Start()
     {
         LoadCoin();
-        UpdateUICoin(); // Cập nhật UI sau khi tải dữ liệu
+        UpdateUICoin(); 
     }
 
     private void OnApplicationQuit()
@@ -22,7 +22,7 @@ public class UpdateCoinShop : MonoBehaviour
 
     public void UpdateUICoin()
     {
-        coinText.text = dataCoin.coin.ToString(); // Sử dụng đối tượng dataCoin
+        coinText.text = dataCoin.coin.ToString();
     }
 
     public void ButtonReceive25000()
@@ -57,6 +57,6 @@ public class UpdateCoinShop : MonoBehaviour
     {
         string defaultValue = JsonUtility.ToJson(new DataCoin());
         string coinDataValueString = PlayerPrefs.GetString(nameof(dataCoin), defaultValue);
-        dataCoin = JsonUtility.FromJson<DataCoin>(coinDataValueString); // Gán lại dữ liệu sau khi giải tuần tự
+        dataCoin = JsonUtility.FromJson<DataCoin>(coinDataValueString);
     }
 }

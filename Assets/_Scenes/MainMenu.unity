@@ -13112,7 +13112,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 616362601}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1130481447}
+        m_TargetAssemblyTypeName: StateRestartGame, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &616362601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13199,7 +13211,6 @@ GameObject:
   - component: {fileID: 618443287}
   - component: {fileID: 618443290}
   - component: {fileID: 618443289}
-  - component: {fileID: 618443291}
   m_Layer: 0
   m_Name: Plane1
   m_TagString: Untagged
@@ -13272,19 +13283,6 @@ MonoBehaviour:
   joystickController: {fileID: 1994429574}
   buttonArrowController: {fileID: 604711602}
   rotate: 0
---- !u!114 &618443291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 618443286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6230668d6617a8543acd63cd032f2d85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 2105207031}
 --- !u!1 &619143508
 GameObject:
   m_ObjectHideFlags: 0
@@ -16193,8 +16191,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 618443291}
-        m_TargetAssemblyTypeName: PlaneStartGame, Assembly-CSharp
+      - m_Target: {fileID: 2105207033}
+        m_TargetAssemblyTypeName: CameraStartGame, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -22387,6 +22385,7 @@ GameObject:
   - component: {fileID: 1130481444}
   - component: {fileID: 1130481445}
   - component: {fileID: 1130481446}
+  - component: {fileID: 1130481447}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -22413,6 +22412,7 @@ MonoBehaviour:
   uiTimePoint: {fileID: 793718413}
   uiTotalPoint: {fileID: 700238997}
   uiYourScore: {fileID: 2107493045}
+  panelEndGame: {fileID: 367920887}
 --- !u!4 &1130481443
 Transform:
   m_ObjectHideFlags: 0
@@ -22473,6 +22473,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4664b8bfefd2864fab37c3c03ece39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1130481447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130481441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac30a90c8e51724ba0de7bb09bfee73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planeManager: {fileID: 1909892231}
+  panelPauseGame: {fileID: 1881471442}
 --- !u!1 &1134146247
 GameObject:
   m_ObjectHideFlags: 0
@@ -23269,18 +23283,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 214476565}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -41766,6 +41768,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2105207032}
   - component: {fileID: 2105207031}
+  - component: {fileID: 2105207033}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -41828,6 +41831,19 @@ Transform:
   - {fileID: 1800390283}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2105207033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105207030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6230668d6617a8543acd63cd032f2d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 2105207031}
 --- !u!1 &2106578280
 GameObject:
   m_ObjectHideFlags: 0
