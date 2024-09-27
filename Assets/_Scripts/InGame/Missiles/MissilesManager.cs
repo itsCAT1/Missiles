@@ -21,6 +21,7 @@ public class MissilesManager : MonoBehaviour
         SetTimeSpawn();
     }
 
+
     void SetTimeSpawn()
     {
         StartCoroutine(TimeInitMissile1());
