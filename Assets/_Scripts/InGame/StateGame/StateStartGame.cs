@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class StateStartGame : MonoBehaviour
 {
+    public DataPlaneManager dataPlaneManager;
     public PlaneManager planeManager;
-    public SelectGameMode selectGameMode;
+    public DataGameplayManager dataGameplayManager;
     public bool isStartGame = false;
 
     public Text time;
@@ -20,7 +21,7 @@ public class StateStartGame : MonoBehaviour
 
         while (true)
         {
-            if (!planeManager.planes[planeManager.currentPlaneIndex].activeSelf)
+            if (!planeManager.planes[dataPlaneManager.dataPlane.indexPlane].activeSelf)
             {
                 yield break;
             }
@@ -41,10 +42,14 @@ public class StateStartGame : MonoBehaviour
         isStartGame = true;
         for (int i = 0; i < planeManager.planes.Count; i++)
         {
-            planeManager.planes[i].SetActive(i == planeManager.currentPlaneIndex);
+            planeManager.planes[i].SetActive(i == dataPlaneManager.dataPlane.indexPlane);
         }
 
-        if (selectGameMode.gameMode == 1)
+        if (dataGameplayManager.dataGameplay.indexGameMode == 0)
+        {
+            Time.timeScale = 1f;
+        }
+        else if (dataGameplayManager.dataGameplay.indexGameMode == 1)
         {
             Time.timeScale = 1.4f;
         }
@@ -53,7 +58,7 @@ public class StateStartGame : MonoBehaviour
 
     IEnumerator WaitPlaneRotate()
     {
-        var planeTemp = planeManager.planes[planeManager.currentPlaneIndex].GetComponent<PlaneController>();
+        var planeTemp = planeManager.planes[dataPlaneManager.dataPlane.indexPlane].GetComponent<PlaneController>();
         planeTemp.rigid2D.angularVelocity = 185;
         yield return new WaitForSeconds(1);
         planeTemp.rigid2D.angularVelocity = 0;

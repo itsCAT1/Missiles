@@ -1,26 +1,19 @@
-﻿using System.Collections;
+using Cinemachine;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform player;
-    public Vector3 offSet;
-    public bool isCameraControlling = false; 
+    public CinemachineVirtualCamera virtualCamera;
 
-    void Update()
+    public void StartGame()
     {
-        if (!isCameraControlling)
-        {
-            CameraFollowPlayer();
-        }
+        virtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_XDamping = 0;
     }
 
-    void CameraFollowPlayer()
+    public void ExitGame()
     {
-        Vector3 pos = player.position + offSet;
-        pos.z = this.transform.localPosition.z;
-
-        this.transform.localPosition = pos;
+        virtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_XDamping = 1;
     }
 }

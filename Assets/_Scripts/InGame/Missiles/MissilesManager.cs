@@ -6,6 +6,7 @@ using UnityEngine;
 public class MissilesManager : MonoBehaviour
 {
     Transform plane;
+    public DataPlaneManager dataPlaneManager;
     public PlaneManager planeManager;
     public GameObject missilesPrefab;
     public List<GameObject> missilePrefabList;
@@ -17,7 +18,7 @@ public class MissilesManager : MonoBehaviour
     bool isSpawning = true;
     void Start()
     {
-        plane = planeManager.planes[planeManager.currentPlaneIndex].GetComponent<Transform>();
+        plane = planeManager.planes[dataPlaneManager.dataPlane.indexPlane].GetComponent<Transform>();
         SetTimeSpawn();
     }
 

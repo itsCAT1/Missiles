@@ -4,6 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+[Serializable]
+public class DataCoin
+{
+    public int coin;
+}
 public class DataCoinManager : MonoBehaviour
 {
     public Text coinText;
@@ -55,15 +61,9 @@ public class DataCoinManager : MonoBehaviour
 
     public void LoadCoin()
     {
-        string defaultValue = JsonUtility.ToJson(new DataCoin());
-        string coinDataValueString = PlayerPrefs.GetString(nameof(dataCoin), defaultValue);
-        dataCoin = JsonUtility.FromJson<DataCoin>(coinDataValueString);
+        string value = JsonUtility.ToJson(new DataCoin());
+        string coinValueString = PlayerPrefs.GetString(nameof(dataCoin), value);
+        dataCoin = JsonUtility.FromJson<DataCoin>(coinValueString);
     }
-}
-
-[Serializable]
-public class DataCoin
-{
-    public int coin;
 }
 

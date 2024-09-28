@@ -6847,7 +6847,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264695701}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.84, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6870,7 +6870,7 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 0
+  m_UpdateMethod: 2
   m_BlendUpdateMethod: 0
   m_DefaultBlend:
     m_Style: 1
@@ -13121,7 +13121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &612968282
 Transform:
   m_ObjectHideFlags: 0
@@ -16272,7 +16272,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2105207033}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CameraStartGame, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
@@ -21753,7 +21753,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1073668627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22424,6 +22424,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1130481443}
   - component: {fileID: 1130481442}
+  - component: {fileID: 1130481449}
+  - component: {fileID: 1130481450}
   - component: {fileID: 1130481444}
   - component: {fileID: 1130481445}
   - component: {fileID: 1130481446}
@@ -22487,7 +22489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bd4c2365aae54545910e32595787fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectGameMode: {fileID: 1921519590}
+  dataGameplayManager: {fileID: 1130481449}
   uiGameControl: {fileID: 287603371}
 --- !u!114 &1130481445
 MonoBehaviour:
@@ -22502,6 +22504,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planeManager: {fileID: 1909892231}
+  dataPlaneManager: {fileID: 1130481450}
   upBG: {fileID: 904392550}
   endGamePanel: {fileID: 367920887}
   uiGameControl: {fileID: 287603371}
@@ -22517,6 +22520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4664b8bfefd2864fab37c3c03ece39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataGameplayManager: {fileID: 1130481449}
 --- !u!114 &1130481447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22530,12 +22534,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planeManager: {fileID: 1909892231}
-  panelPauseGame: {fileID: 1881471442}
-  uiGameControl: {fileID: 287603371}
-  animatorButtonPauseInGame: {fileID: 214476570}
-  buttonPauseInGame: {fileID: 214476565}
-  panelEndGame: {fileID: 367920887}
-  stateStartGame: {fileID: 1130481448}
+  dataPlaneManager: {fileID: 1130481450}
+  dataGameplayManager: {fileID: 1130481449}
+  time: {fileID: 1534407994}
+  minutes: 0
+  seconds: 0
+  timeCount: 0
 --- !u!114 &1130481448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22548,13 +22552,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321cbaede6429614cbd167a1cd0b2000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataPlaneManager: {fileID: 1130481450}
   planeManager: {fileID: 1909892231}
-  selectGameMode: {fileID: 1921519590}
+  dataGameplayManager: {fileID: 1130481449}
   isStartGame: 0
   time: {fileID: 1534407994}
   minutes: 0
   seconds: 0
   timeCount: 0
+--- !u!114 &1130481449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130481441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eceda72c0eb8bc498f3340097ce99b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataGameplay:
+    indexGameMode: 0
+    indexGameControl: 0
+--- !u!114 &1130481450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130481441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f4fd658c261f1744b97520f6c232ce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataPlane:
+    indexPlane: 0
 --- !u!1 &1134146247
 GameObject:
   m_ObjectHideFlags: 0
@@ -26400,9 +26434,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1291270744}
-  - component: {fileID: 1291270747}
   - component: {fileID: 1291270746}
   - component: {fileID: 1291270745}
+  - component: {fileID: 1291270748}
+  - component: {fileID: 1291270747}
   m_Layer: 5
   m_Name: UISelectionCircle
   m_TagString: Untagged
@@ -26467,7 +26502,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291270743}
   m_CullTransparentMesh: 1
---- !u!95 &1291270747
+--- !u!114 &1291270747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291270743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc94a0dc3d6d1840bb664f4825b4d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataGameplayManager: {fileID: 1130481449}
+  normalMode: {fileID: 1827079172}
+  fastMode: {fileID: 682691084}
+--- !u!95 &1291270748
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -26504,7 +26554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1312753792
 Transform:
   m_ObjectHideFlags: 0
@@ -30310,7 +30360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1500973205
 Transform:
   m_ObjectHideFlags: 0
@@ -30338,6 +30388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c221aeab35e794bb4a86be84b75b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataPlaneManager: {fileID: 1130481450}
   planeManager: {fileID: 1909892231}
   missilesPrefab: {fileID: 1967220899907536651, guid: b10e7ea12ecfdb746996119a35dfbff0, type: 3}
   missilePrefabList:
@@ -30550,7 +30601,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1512128087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34816,7 +34867,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 7, y: 12}
+  m_SizeDelta: {x: 15, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1761437392
 MonoBehaviour:
@@ -36047,7 +36098,7 @@ MonoBehaviour:
   m_FollowOffset: {x: 0, y: -0.84, z: -10}
   m_XDamping: 1
   m_YDamping: 0
-  m_ZDamping: 1
+  m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -38045,7 +38096,7 @@ MonoBehaviour:
   - {fileID: 2030034992}
   - {fileID: 2038981309}
   - {fileID: 1173801010}
-  currentPlaneIndex: 0
+  dataPlaneManager: {fileID: 1130481450}
   virtualCamera: {fileID: 2105207031}
   leftArrow: {fileID: 255059517}
   rightArrow: {fileID: 1964302316}
@@ -38377,8 +38428,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbd55652f5ea1846be5e9fd928a4104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMode: 0
-  animatorSelectionCircle: {fileID: 1291270747}
+  dataGameplayManager: {fileID: 1130481449}
+  animatorSelectionCircle: {fileID: 1291270748}
 --- !u!1 &1925947526
 GameObject:
   m_ObjectHideFlags: 0
@@ -41071,12 +41122,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planeController: {fileID: 618443290}
+  dataPlaneManager: {fileID: 1130481450}
   planeManager: {fileID: 1909892231}
   joystick: {fileID: 1994429570}
   buttonArrow: {fileID: 604711600}
-  indexSelectMode: 0
   firstUpdateJoystick: 0
   firstUpdateMoveFinger: 0
+  dataGameplayManager: {fileID: 1130481449}
   stateStartGame: {fileID: 1130481448}
 --- !u!1 &2054990562
 GameObject:

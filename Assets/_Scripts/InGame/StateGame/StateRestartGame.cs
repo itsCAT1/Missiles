@@ -1,33 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StateRestartGame : MonoBehaviour
 {
     public PlaneManager planeManager;
-    public GameObject panelPauseGame;
-    public GameObject uiGameControl;
-    public Animator animatorButtonPauseInGame;
-    public GameObject buttonPauseInGame;
-    public GameObject panelEndGame;
-    public StateStartGame stateStartGame;
+    public DataPlaneManager dataPlaneManager;
+    public DataGameplayManager dataGameplayManager;
+
+    public Text time;
+    public int minutes;
+    public int seconds;
+    public int timeCount;
 
     public void RestartGame()
     {
-        var planeInGame = planeManager.planes[planeManager.currentPlaneIndex].GetComponent<Transform>();
-        planeInGame.rotation = Quaternion.Euler(0, 0, 180);
-        planeInGame.position = Vector3.zero;
+        StartCoroutine(StartTimeCount());
+        for (int i = 0; i < planeManager.planes.Count; i++)
+        {
+            planeManager.planes[i].SetActive(i == dataPlaneManager.dataPlane.indexPlane);
+        }
 
-        panelPauseGame.SetActive(false);
-        uiGameControl.SetActive(true);
+        if (dataGameplayManager.dataGameplay.indexGameMode == 0)
+        {
+            Time.timeScale = 1f;
+        }
+        else if (dataGameplayManager.dataGameplay.indexGameMode == 1)
+        {
+            Time.timeScale = 1.4f;
+        }
+    }
 
-        buttonPauseInGame.gameObject.SetActive(true);
-        panelEndGame.gameObject.SetActive(false);
-        animatorButtonPauseInGame.SetBool("Pause", false);
+    IEnumerator StartTimeCount()
+    {
+        while (true)
+        {
+            if (!planeManager.planes[dataPlaneManager.dataPlane.indexPlane].activeSelf)
+            {
+                yield break;
+            }
+            timeCount++;
+            minutes = Mathf.FloorToInt(timeCount / 60);
+            seconds = Mathf.FloorToInt(timeCount % 60);
 
-        planeInGame.gameObject.SetActive(true);
+            time.text = string.Format("{0}:{1:00}", minutes, seconds);
 
-        Time.timeScale = 1;
-        stateStartGame.timeCount = 0;
+            yield return new WaitForSecondsRealtime(1f);
+        }
     }
 }

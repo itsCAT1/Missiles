@@ -6,18 +6,15 @@ using UnityEngine;
 public class StateEndGame : MonoBehaviour
 {
     public PlaneManager planeManager;
+    public DataPlaneManager dataPlaneManager;
     Transform plane;
 
     public GameObject upBG;
     public GameObject endGamePanel;
     public GameObject uiGameControl;
-    void Start()
-    {
-        plane = planeManager.planes[planeManager.currentPlaneIndex].GetComponent<Transform>();
-    }
     private void Update()
     {
-        if (!plane.gameObject.activeSelf)
+        if (!planeManager.planes[dataPlaneManager.dataPlane.indexPlane].gameObject.activeSelf)
         {
             endGamePanel.SetActive(true);
             uiGameControl.SetActive(false);

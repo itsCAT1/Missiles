@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class PlaneManager : MonoBehaviour
 {
     public List<GameObject> planes;
-    public int currentPlaneIndex = 0;
+    public DataPlaneManager dataPlaneManager;
     public CinemachineVirtualCamera virtualCamera;
     public GameObject leftArrow;
     public GameObject rightArrow;
@@ -16,18 +16,18 @@ public class PlaneManager : MonoBehaviour
     void Start()
     {
         //ShowCurrentPlane();
-        
+        virtualCamera.Follow = planes[dataPlaneManager.dataPlane.indexPlane].transform;
     }
 
     private void Update()
     {
-        if(currentPlaneIndex == 0)
+        if(dataPlaneManager.dataPlane.indexPlane == 0)
         {
             leftArrow.SetActive(false);
         }
         else leftArrow.SetActive(true);
 
-        if (currentPlaneIndex == planes.Count - 1)
+        if (dataPlaneManager.dataPlane.indexPlane == planes.Count - 1)
         {
             rightArrow.SetActive(false);
         }
@@ -37,19 +37,19 @@ public class PlaneManager : MonoBehaviour
 
     public void SelectLeftArrow()
     {
-        if (currentPlaneIndex > 0)
+        if (dataPlaneManager.dataPlane.indexPlane > 0)
         {
-            virtualCamera.Follow = planes[currentPlaneIndex - 1].transform;
-            currentPlaneIndex--;
+            virtualCamera.Follow = planes[dataPlaneManager.dataPlane.indexPlane - 1].transform;
+            dataPlaneManager.dataPlane.indexPlane--;
         }
     }
 
     public void SelectRightArrow()
     {
-        if (currentPlaneIndex < planes.Count - 1)
+        if (dataPlaneManager.dataPlane.indexPlane < planes.Count - 1)
         {
-            virtualCamera.Follow = planes[currentPlaneIndex + 1].transform;
-            currentPlaneIndex++;
+            virtualCamera.Follow = planes[dataPlaneManager.dataPlane.indexPlane + 1].transform;
+            dataPlaneManager.dataPlane.indexPlane++;
         }
     }
 
@@ -57,7 +57,7 @@ public class PlaneManager : MonoBehaviour
     {
         for (int i = 0; i < planes.Count; i++)
         {
-            skillPlane[i].SetActive(i == currentPlaneIndex);
+            skillPlane[i].SetActive(i == dataPlaneManager.dataPlane.indexPlane);
         }
     }
 }

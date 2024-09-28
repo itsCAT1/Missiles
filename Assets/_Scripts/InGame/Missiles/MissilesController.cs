@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MissilesController : MonoBehaviour
 {
     Rigidbody2D rigid2D;
+    public DataPlaneManager dataPlaneManager;
     public Transform planePos;
     public PlaneManager planeManager;
     public GameObject explosionPrefab;
@@ -14,8 +15,9 @@ public class MissilesController : MonoBehaviour
     private void Start()
     {
         rigid2D = this.GetComponent<Rigidbody2D>();
+        dataPlaneManager = GameObject.Find("GameManager").GetComponent<DataPlaneManager>();
         planeManager = GameObject.Find("PlaneManager").GetComponent<PlaneManager>();
-        planePos = planeManager.planes[planeManager.currentPlaneIndex].GetComponent<Transform>();
+        planePos = planeManager.planes[dataPlaneManager.dataPlane.indexPlane].GetComponent<Transform>();
     }
 
     private void FixedUpdate()
