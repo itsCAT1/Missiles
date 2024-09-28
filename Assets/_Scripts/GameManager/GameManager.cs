@@ -5,11 +5,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public Text timeCount;
     public static int bonusCoin;
     public static int starPoint;
-    int minutes;
-    int seconds;
     int totalPoint;
     public Text uiBonusCoin;
     public Text uiStarPointInGame;
@@ -19,15 +16,16 @@ public class GameManager : MonoBehaviour
     public Text uiYourScore;
 
     public GameObject panelEndGame;
+    public PlaneManager planeManager;
+    public StateStartGame stateStartGame;
 
-    void Start()
-    {
-        StartCoroutine(StartTimeCount());
-    }
 
-    private void OnEnable()
+    private void Update()
     {
-        UpdateUIValue();
+        if (panelEndGame)
+        {
+            UpdateUIValue();
+        }
     }
 
     public void UpdateUIValue()
@@ -35,24 +33,12 @@ public class GameManager : MonoBehaviour
         uiBonusCoin.text = bonusCoin.ToString();
         uiStarPointInGame.text = starPoint.ToString();
         uiStarPointEndGame.text = "+" + starPoint * 10;
-        uiTimePoint.text = "+" + seconds.ToString();
-        totalPoint = starPoint * 10 + seconds + bonusCoin;
+        uiTimePoint.text = "+" + stateStartGame.seconds.ToString();
+        totalPoint = starPoint * 10 + stateStartGame.seconds + bonusCoin;
         uiTotalPoint.text = totalPoint.ToString();
         uiYourScore.text = totalPoint.ToString();
     }
 
-    IEnumerator StartTimeCount()
-    {
-        while (true)
-        {
-            minutes = Mathf.FloorToInt(Time.time / 60);
-            seconds = Mathf.FloorToInt(Time.time % 60);
-
-            timeCount.text = string.Format("{0}:{1:00}", minutes, seconds);
-
-            yield return new WaitForSeconds(1f);
-        }
-    }
 
     public void PressButtonDouble()
     {

@@ -10,6 +10,12 @@ public class SelectGameMode : MonoBehaviour
     public void SelectNormalMode()
     {
         gameMode = 0;
+        animatorSelectionCircle.SetTrigger("NormalMode");
+    }
 
+    public void SelectFastMode()
+    {
+        gameMode = 1;
+        animatorSelectionCircle.SetTrigger("FastMode");
     }
 }

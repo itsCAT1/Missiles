@@ -13,15 +13,14 @@ public class SelectControlMode : MonoBehaviour
     public GameObject buttonArrow;
 
     public int indexSelectMode = 0;
-    bool firstUpdateJoystick = false;
-    bool firstUpdateMoveFinger = false;
+    public bool firstUpdateJoystick = false;
+    public bool firstUpdateMoveFinger = false;
 
-    public bool isStartGame = false;
-
+    public StateStartGame stateStartGame;
     void FixedUpdate()
     {
         var planeInGame = planeManager.planes[planeManager.currentPlaneIndex].GetComponent<PlaneController>();
-        if (!isStartGame)
+        if (!stateStartGame.isStartGame)
         {
             foreach (var plane in planeManager.planes)
             {
@@ -125,16 +124,6 @@ public class SelectControlMode : MonoBehaviour
         
     }
 
-    public void StartGame()
-    {
-        StartCoroutine(StateStartGame());
-        isStartGame = true;
-        for (int i = 0; i < planeManager.planes.Count; i++)
-        {
-            planeManager.planes[i].SetActive(i == planeManager.currentPlaneIndex);
-        }
-    }
-
     public void SelectMode()
     {
         
@@ -143,13 +132,5 @@ public class SelectControlMode : MonoBehaviour
         {
             indexSelectMode = 0;
         }
-    }
-
-    IEnumerator StateStartGame()
-    {
-        var planeTemp = planeManager.planes[planeManager.currentPlaneIndex].GetComponent<PlaneController>();
-        planeTemp.rigid2D.angularVelocity = 185;
-        yield return new WaitForSeconds(1);
-        planeTemp.rigid2D.angularVelocity = 0;
     }
 }

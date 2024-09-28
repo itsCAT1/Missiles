@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpdateCoinShop : MonoBehaviour
+public class DataCoinManager : MonoBehaviour
 {
     public Text coinText;
     public DataCoin dataCoin = new DataCoin(); 
@@ -60,3 +60,10 @@ public class UpdateCoinShop : MonoBehaviour
         dataCoin = JsonUtility.FromJson<DataCoin>(coinDataValueString);
     }
 }
+
+[Serializable]
+public class DataCoin
+{
+    public int coin;
+}
+
