@@ -8,8 +8,8 @@ public class StateBackToMenu : MonoBehaviour
 
     public void BackToHome()
     {
-        SceneManager.LoadScene(0);
         dataGameplayManager.SaveDataGameplay();
+        SceneManager.LoadScene(0);
         dataGameplayManager.LoadDataGameplay();
         Time.timeScale = 1;
     }

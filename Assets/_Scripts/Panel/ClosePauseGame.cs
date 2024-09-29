@@ -12,7 +12,7 @@ public class ClosePauseGame : MonoBehaviour
 
     public void PauseGame()
     {
-        animatorPauseInGame.SetBool("Pause", true);
+        animatorPauseInGame.SetBool("Open", true);
     }
 
     public void ResumeGame()
@@ -22,7 +22,7 @@ public class ClosePauseGame : MonoBehaviour
 
     IEnumerator WaitClosePanel()
     {
-        animatorPauseInGame.SetBool("Pause", false);
+        animatorPauseInGame.SetBool("Open", false);
         yield return new WaitForSecondsRealtime(0.4f);
         pauseInGame.gameObject.SetActive(false);
     }

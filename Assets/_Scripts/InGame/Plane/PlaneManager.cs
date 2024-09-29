@@ -19,45 +19,5 @@ public class PlaneManager : MonoBehaviour
         virtualCamera.Follow = planes[dataPlaneManager.dataPlane.indexPlane].transform;
     }
 
-    private void Update()
-    {
-        if(dataPlaneManager.dataPlane.indexPlane == 0)
-        {
-            leftArrow.SetActive(false);
-        }
-        else leftArrow.SetActive(true);
-
-        if (dataPlaneManager.dataPlane.indexPlane == planes.Count - 1)
-        {
-            rightArrow.SetActive(false);
-        }
-        else rightArrow.SetActive(true);
-        ShowSkillPlane();
-    }
-
-    public void SelectLeftArrow()
-    {
-        if (dataPlaneManager.dataPlane.indexPlane > 0)
-        {
-            virtualCamera.Follow = planes[dataPlaneManager.dataPlane.indexPlane - 1].transform;
-            dataPlaneManager.dataPlane.indexPlane--;
-        }
-    }
-
-    public void SelectRightArrow()
-    {
-        if (dataPlaneManager.dataPlane.indexPlane < planes.Count - 1)
-        {
-            virtualCamera.Follow = planes[dataPlaneManager.dataPlane.indexPlane + 1].transform;
-            dataPlaneManager.dataPlane.indexPlane++;
-        }
-    }
-
-    public void ShowSkillPlane()
-    {
-        for (int i = 0; i < planes.Count; i++)
-        {
-            skillPlane[i].SetActive(i == dataPlaneManager.dataPlane.indexPlane);
-        }
-    }
+    
 }

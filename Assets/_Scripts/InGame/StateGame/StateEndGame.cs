@@ -19,6 +19,5 @@ public class StateEndGame : MonoBehaviour
             endGamePanel.SetActive(true);
             uiGameControl.SetActive(false);
         }
-        else endGamePanel.SetActive(false);
     }
 }

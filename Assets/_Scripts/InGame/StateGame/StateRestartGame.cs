@@ -1,53 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StateRestartGame : MonoBehaviour
 {
-    public PlaneManager planeManager;
-    public DataPlaneManager dataPlaneManager;
+    public Animator animatorPanelEndGame;
+    public Animator animatorPanelPauseGame;
     public DataGameplayManager dataGameplayManager;
 
-    public Text time;
-    public int minutes;
-    public int seconds;
-    public int timeCount;
-
-    public void RestartGame()
+    public void RestartGamePauseGame()
     {
-        StartCoroutine(StartTimeCount());
-        for (int i = 0; i < planeManager.planes.Count; i++)
-        {
-            planeManager.planes[i].SetActive(i == dataPlaneManager.dataPlane.indexPlane);
-        }
+        StartCoroutine(WaitAnimationPauseGame());
+    }
 
+    IEnumerator WaitAnimationPauseGame()
+    {
+        animatorPanelPauseGame.SetBool("Open", false);
+        yield return new WaitForSecondsRealtime(0.4f);
         if (dataGameplayManager.dataGameplay.indexGameMode == 0)
         {
-            Time.timeScale = 1f;
+            Time.timeScale = 1;
         }
         else if (dataGameplayManager.dataGameplay.indexGameMode == 1)
         {
             Time.timeScale = 1.4f;
         }
+        SceneManager.LoadScene(1);
     }
 
-    IEnumerator StartTimeCount()
+    public void RestartGameEndGame()
     {
-        while (true)
-        {
-            if (!planeManager.planes[dataPlaneManager.dataPlane.indexPlane].activeSelf)
-            {
-                yield break;
-            }
-            timeCount++;
-            minutes = Mathf.FloorToInt(timeCount / 60);
-            seconds = Mathf.FloorToInt(timeCount % 60);
+        StartCoroutine(WaitAnimationEndGame());
+    }
 
-            time.text = string.Format("{0}:{1:00}", minutes, seconds);
-
-            yield return new WaitForSecondsRealtime(1f);
-        }
+    IEnumerator WaitAnimationEndGame()
+    {
+        animatorPanelEndGame.SetBool("Open", false);
+        yield return new WaitForSeconds(0.4f);
+        SceneManager.LoadScene(1);
     }
 }
