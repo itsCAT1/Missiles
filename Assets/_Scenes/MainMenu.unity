@@ -6870,7 +6870,7 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
+  m_UpdateMethod: 0
   m_BlendUpdateMethod: 0
   m_DefaultBlend:
     m_Style: 1
@@ -7992,7 +7992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f93f6a580bfcb45b210ca6bef93dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planePos: {fileID: 618443287}
   clouds:
   - {fileID: 8079377539770562653, guid: 22d4bd4972688b34c87534291cd4e5b8, type: 3}
   - {fileID: 828869384569207603, guid: 0d660d355054aa845979037a3629b7eb, type: 3}
@@ -8003,6 +8002,8 @@ MonoBehaviour:
   - {fileID: 8457071960551320642, guid: 16a550ce8f13fa7488f112e7623dde51, type: 3}
   - {fileID: 1653390098795563437, guid: cf1a1e7b8c77b274588f48fbd9096c43, type: 3}
   - {fileID: 8535000340156552632, guid: 8cea16d7c1de5534ab6af0e19daec6bf, type: 3}
+  dataPlaneManager: {fileID: 1130481450}
+  planeManager: {fileID: 1909892231}
   minSpawnDistance: 5.5
   maxSpawnDistance: 7
 --- !u!1 &320926879
@@ -16224,18 +16225,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 26863414}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1411934443}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -16272,8 +16261,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: CameraStartGame, Assembly-CSharp
+      - m_Target: {fileID: 2105207033}
+        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -18821,6 +18810,98 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913882885}
   m_CullTransparentMesh: 1
+--- !u!1 &919739846
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 919739847}
+  - component: {fileID: 919739850}
+  - component: {fileID: 919739849}
+  - component: {fileID: 919739848}
+  m_Layer: 5
+  m_Name: UISelectionCircle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &919739847
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919739846}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1005512796}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -222, y: 0.32000732}
+  m_SizeDelta: {x: 342, y: 342}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &919739848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919739846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbc94a0dc3d6d1840bb664f4825b4d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataGameplayManager: {fileID: 1130481449}
+  normalMode: {fileID: 1827079172}
+  fastMode: {fileID: 682691084}
+  a: 0
+--- !u!114 &919739849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919739846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 46b4c17ff2a8a8e438cdb771f343ac17, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &919739850
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919739846}
+  m_CullTransparentMesh: 1
 --- !u!1 &922313106
 GameObject:
   m_ObjectHideFlags: 0
@@ -20804,6 +20885,7 @@ RectTransform:
   - {fileID: 1827079172}
   - {fileID: 682691084}
   - {fileID: 1291270744}
+  - {fileID: 919739847}
   m_Father: {fileID: 1982092328}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -21766,7 +21848,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def287ed314a9a342bb488d514c90c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planePos: {fileID: 618443287}
+  plane: {fileID: 0}
+  dataPlaneManager: {fileID: 1130481450}
+  planeManager: {fileID: 1909892231}
   speedUp: {fileID: 6219171016274274270, guid: f634d7f141c1ec940b54336c925ca8b9, type: 3}
   minSpawnDistance: 5
   maxSpawnDistance: 7
@@ -22555,6 +22639,8 @@ MonoBehaviour:
   dataPlaneManager: {fileID: 1130481450}
   planeManager: {fileID: 1909892231}
   dataGameplayManager: {fileID: 1130481449}
+  animatorPanelMenu: {fileID: 1921519589}
+  panelMenu: {fileID: 1921519584}
   isStartGame: 0
   time: {fileID: 1534407994}
   minutes: 0
@@ -26437,9 +26523,8 @@ GameObject:
   - component: {fileID: 1291270746}
   - component: {fileID: 1291270745}
   - component: {fileID: 1291270748}
-  - component: {fileID: 1291270747}
   m_Layer: 5
-  m_Name: UISelectionCircle
+  m_Name: UICircleInMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26502,21 +26587,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291270743}
   m_CullTransparentMesh: 1
---- !u!114 &1291270747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1291270743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbc94a0dc3d6d1840bb664f4825b4d37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dataGameplayManager: {fileID: 1130481449}
-  normalMode: {fileID: 1827079172}
-  fastMode: {fileID: 682691084}
 --- !u!95 &1291270748
 Animator:
   serializedVersion: 5
@@ -26582,9 +26652,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d50c27867ec0894b9cfe2318c7360b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planePos: {fileID: 618443287}
+  plane: {fileID: 0}
   shieldPrefab: {fileID: 8714116699030343719, guid: 51e8747e2ec2fe343a0eb21ceec2aaef, type: 3}
   shieldList: []
+  dataPlaneManager: {fileID: 1130481450}
+  planeManager: {fileID: 1909892231}
   minSpawnDistance: 5
   maxSpawnDistance: 8
   angleOffset: -90
@@ -30614,9 +30686,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5910fcfa0298c9448a0f8e3594e3b89b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planePos: {fileID: 618443287}
+  plane: {fileID: 0}
   starPrefab: {fileID: 4843400192569355719, guid: b9ad83c3642198e47b689b701e2be7d2, type: 3}
   starList: []
+  dataPlaneManager: {fileID: 1130481450}
+  planeManager: {fileID: 1909892231}
   minSpawnDistance: 6
   maxSpawnDistance: 8
   angleOffset: -90
@@ -31154,7 +31228,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -440, y: -7.6}
-  m_SizeDelta: {x: 418.38, y: 89}
+  m_SizeDelta: {x: 108, y: 89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1534407993
 MonoBehaviour:
@@ -40820,7 +40894,6 @@ GameObject:
   - component: {fileID: 2044546628}
   - component: {fileID: 2044546627}
   - component: {fileID: 2044546630}
-  - component: {fileID: 2044546631}
   m_Layer: 5
   m_Name: BonusCoinButton
   m_TagString: Untagged
@@ -40962,26 +41035,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2044546631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2044546625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: 83
-  m_MinHeight: -1
-  m_PreferredWidth: 83
-  m_PreferredHeight: 83
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
 --- !u!1 &2054661089
 GameObject:
   m_ObjectHideFlags: 0
@@ -42231,7 +42284,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2105207030}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6230668d6617a8543acd63cd032f2d85, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f62f28a37ea3ab43a2b0510bc3e0acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 2105207031}

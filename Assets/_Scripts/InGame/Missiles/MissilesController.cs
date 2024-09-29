@@ -33,6 +33,10 @@ public class MissilesController : MonoBehaviour
         rigid2D.angularVelocity = -speedRotate * rotateAmount;
         rigid2D.velocity = transform.up * speedMoving;
         StartCoroutine(TimeOutChasePlane());
+        if (!planePos.gameObject.activeSelf)
+        {
+            StartCoroutine(PlaneExplosion());
+        }
     }
 
 
@@ -44,7 +48,6 @@ public class MissilesController : MonoBehaviour
             Debug.Log("bonusCoin");
             GameObject explosionTemp = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
-
         }
     }
 
@@ -53,6 +56,19 @@ public class MissilesController : MonoBehaviour
         yield return new WaitForSeconds(10);
         speedRotate = 0;
         yield return new WaitForSeconds(3);
-        Destroy(this.gameObject);
+        if(Vector2.Distance(Camera.main.transform.position, this.transform.position) > 5)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    IEnumerator PlaneExplosion()
+    {
+        speedRotate = 0;
+        yield return new WaitForSeconds(3);
+        if (Vector2.Distance(Camera.main.transform.position, this.transform.position) > 5)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

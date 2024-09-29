@@ -9,6 +9,8 @@ public class StateStartGame : MonoBehaviour
     public DataPlaneManager dataPlaneManager;
     public PlaneManager planeManager;
     public DataGameplayManager dataGameplayManager;
+    public Animator animatorPanelMenu;
+    public GameObject panelMenu;
     public bool isStartGame = false;
 
     public Text time;
@@ -37,6 +39,7 @@ public class StateStartGame : MonoBehaviour
 
     public void StartGame()
     {
+        StartCoroutine(WaitClosePanel());
         StartCoroutine(WaitPlaneRotate());
         StartCoroutine(StartTimeCount());
         isStartGame = true;
@@ -62,5 +65,12 @@ public class StateStartGame : MonoBehaviour
         planeTemp.rigid2D.angularVelocity = 185;
         yield return new WaitForSeconds(1);
         planeTemp.rigid2D.angularVelocity = 0;
+    }
+
+    IEnumerator WaitClosePanel()
+    {
+        animatorPanelMenu.SetBool("Open", false);
+        yield return new WaitForSeconds(0.4f);
+        panelMenu.SetActive(false);
     }
 }

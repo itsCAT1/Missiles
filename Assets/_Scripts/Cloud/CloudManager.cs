@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class CloudManager : MonoBehaviour
 {
-    public Transform planePos;
+    Transform plane;
     Vector3 oldSpawnCloudPos = Vector3.zero;
     public List<GameObject> clouds;
+    public DataPlaneManager dataPlaneManager;
+    public PlaneManager planeManager;
     public float minSpawnDistance;
     public float maxSpawnDistance;
 
@@ -19,6 +21,12 @@ public class CloudManager : MonoBehaviour
     {
         while (true)
         {
+            plane = planeManager.planes[dataPlaneManager.dataPlane.indexPlane].GetComponent<Transform>();
+            if (!plane.gameObject.activeSelf)
+            {
+                yield break;
+            }
+
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
             Vector3 newSpawnCloudPos = Camera.main.transform.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
             newSpawnCloudPos.z = 0;
@@ -32,6 +40,7 @@ public class CloudManager : MonoBehaviour
             }
             oldSpawnCloudPos = newSpawnCloudPos;
             yield return new WaitForSeconds(0.5f);
+
         }
     }
 }

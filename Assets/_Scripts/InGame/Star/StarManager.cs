@@ -6,9 +6,13 @@ using UnityEngine.UI;
 
 public class StarManager : MonoBehaviour
 {
-    public Transform planePos;
+    public Transform plane;
     public GameObject starPrefab;
     public List<GameObject> starList;
+
+    public DataPlaneManager dataPlaneManager;
+    public PlaneManager planeManager;
+
     public float minSpawnDistance;
     public float maxSpawnDistance;
 
@@ -17,6 +21,7 @@ public class StarManager : MonoBehaviour
 
     private void Start()
     {
+        plane = planeManager.planes[dataPlaneManager.dataPlane.indexPlane].GetComponent<Transform>();
         StartCoroutine(RandomSpawnStar());
         cam = Camera.main;
     }
@@ -25,9 +30,13 @@ public class StarManager : MonoBehaviour
     {
         while (true)
         {
+            if (!plane.gameObject.activeSelf)
+            {
+                yield break;
+            }
             yield return new WaitForSeconds(Random.Range(10, 20));
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
-            Vector3 newSpawnStarPos = planePos.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
+            Vector3 newSpawnStarPos = cam.transform.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
 
             GameObject newStar = Instantiate(starPrefab, newSpawnStarPos, Quaternion.identity);
             starList.Add(newStar);
@@ -65,12 +74,11 @@ public class StarManager : MonoBehaviour
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + angleOffset;
                 indicator.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-                viewportPos.x = Mathf.Clamp(viewportPos.x, 0.025f, 0.975f);
-                viewportPos.y = Mathf.Clamp(viewportPos.y, 0.014f, 0.986f);
+                Vector2 posIndicator = starList[i].transform.position;
+                posIndicator.x = Mathf.Clamp(posIndicator.x, cam.transform.position.x - 2.67f, cam.transform.position.x + 2.67f);
+                posIndicator.y = Mathf.Clamp(posIndicator.y, cam.transform.position.y - 4.87f, cam.transform.position.y + 4.87f);
 
-                Vector3 indicatorScreenPos = cam.ViewportToWorldPoint(viewportPos);
-
-                indicator.transform.position = indicatorScreenPos;
+                indicator.transform.position = posIndicator;
             }
             else
             {
