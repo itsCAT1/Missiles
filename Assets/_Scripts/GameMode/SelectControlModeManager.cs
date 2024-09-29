@@ -4,10 +4,10 @@ using System.Numerics;
 using System.Reflection;
 using UnityEngine;
 
-public class SelectControlMode : MonoBehaviour
+public class SelectControlModeManager : MonoBehaviour
 {
     public PlaneController planeController;
-    public DataPlaneManager dataPlaneManager;
+    public DataManager dataManager;
     public PlaneManager planeManager;
 
     public GameObject joystick;
@@ -16,11 +16,10 @@ public class SelectControlMode : MonoBehaviour
     public bool firstUpdateJoystick = false;
     public bool firstUpdateMoveFinger = false;
 
-    public DataGameplayManager dataGameplayManager;
     public StateStartGame stateStartGame;
-    void FixedUpdate()
+    void Update()
     {
-        var planeInGame = planeManager.planes[dataPlaneManager.dataPlane.indexPlane].GetComponent<PlaneController>();
+        var planeInGame = planeManager.planes[dataManager.data.indexPlane].GetComponent<PlaneController>();
         if (!stateStartGame.isStartGame)
         {
             foreach (var plane in planeManager.planes)
@@ -33,53 +32,59 @@ public class SelectControlMode : MonoBehaviour
         else
         {
             SetValuePlane();
-            if (dataGameplayManager.dataGameplay.indexGameControl == 0)
-            {
-                firstUpdateMoveFinger = false;
-                if (Input.GetMouseButton(0) && !firstUpdateJoystick)
-                {
-                    planeInGame.MovingInputJoystick();
-                    firstUpdateJoystick = true;
-                }
-                else if (firstUpdateJoystick)
-                {
-                    planeInGame.MovingInputJoystick();
-                }
+            SetControlMode();
+        }
+    }
 
-                buttonArrow.gameObject.SetActive(false);
-                joystick.gameObject.SetActive(true);
+    public void SetControlMode()
+    {
+        var planeInGame = planeManager.planes[dataManager.data.indexPlane].GetComponent<PlaneController>();
+        if (dataManager.data.indexGameControl == 0)
+        {
+            firstUpdateMoveFinger = false;
+            if (Input.GetMouseButton(0) && !firstUpdateJoystick)
+            {
+                planeInGame.MovingInputJoystick();
+                firstUpdateJoystick = true;
+            }
+            else if (firstUpdateJoystick)
+            {
+                planeInGame.MovingInputJoystick();
             }
 
-            else if (dataGameplayManager.dataGameplay.indexGameControl == 1)
+            buttonArrow.gameObject.SetActive(false);
+            joystick.gameObject.SetActive(true);
+        }
+
+        else if (dataManager.data.indexGameControl == 1)
+        {
+            planeInGame.MovingInputButtonArrow();
+            buttonArrow.gameObject.SetActive(true);
+            joystick.gameObject.SetActive(false);
+        }
+
+        else if (dataManager.data.indexGameControl == 2)
+        {
+            firstUpdateJoystick = false;
+            if (Input.GetMouseButton(0) && !firstUpdateMoveFinger)
             {
-                planeInGame.MovingInputButtonArrow();
-                buttonArrow.gameObject.SetActive(true);
-                joystick.gameObject.SetActive(false);
+                planeInGame.MovingInputMoveFinger();
+                firstUpdateMoveFinger = true;
+            }
+            else if (firstUpdateMoveFinger)
+            {
+                planeInGame.MovingInputMoveFinger();
             }
 
-            else if (dataGameplayManager.dataGameplay.indexGameControl == 2)
-            {
-                firstUpdateJoystick = false;
-                if (Input.GetMouseButton(0) && !firstUpdateMoveFinger)
-                {
-                    planeInGame.MovingInputMoveFinger();
-                    firstUpdateMoveFinger = true;
-                }
-                else if (firstUpdateMoveFinger)
-                {
-                    planeInGame.MovingInputMoveFinger();
-                }
-
-                buttonArrow.gameObject.SetActive(false);
-                joystick.gameObject.SetActive(false);
-            }
+            buttonArrow.gameObject.SetActive(false);
+            joystick.gameObject.SetActive(false);
         }
     }
 
     public void SetValuePlane()
     {
-        var planeInGame = planeManager.planes[dataPlaneManager.dataPlane.indexPlane].GetComponent<PlaneController>();
-        switch (dataPlaneManager.dataPlane.indexPlane)
+        var planeInGame = planeManager.planes[dataManager.data.indexPlane].GetComponent<PlaneController>();
+        switch (dataManager.data.indexPlane)
         {
             case 0:
                 planeInGame.speedMoving = 2;
@@ -127,10 +132,10 @@ public class SelectControlMode : MonoBehaviour
 
     public void SelectMode()
     {
-        dataGameplayManager.dataGameplay.indexGameControl++;
-        if (dataGameplayManager.dataGameplay.indexGameControl > 2)
+        dataManager.data.indexGameControl++;
+        if (dataManager.data.indexGameControl > 2)
         {
-            dataGameplayManager.dataGameplay.indexGameControl = 0;
+            dataManager.data.indexGameControl = 0;
         }
     }
 }

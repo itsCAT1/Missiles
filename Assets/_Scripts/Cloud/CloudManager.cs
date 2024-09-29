@@ -7,7 +7,7 @@ public class CloudManager : MonoBehaviour
     Transform plane;
     Vector3 oldSpawnCloudPos = Vector3.zero;
     public List<GameObject> clouds;
-    public DataPlaneManager dataPlaneManager;
+    public DataManager dataManager;
     public PlaneManager planeManager;
     public float minSpawnDistance;
     public float maxSpawnDistance;
@@ -21,7 +21,7 @@ public class CloudManager : MonoBehaviour
     {
         while (true)
         {
-            plane = planeManager.planes[dataPlaneManager.dataPlane.indexPlane].GetComponent<Transform>();
+            plane = planeManager.planes[dataManager.data.indexPlane].GetComponent<Transform>();
             if (!plane.gameObject.activeSelf)
             {
                 yield break;

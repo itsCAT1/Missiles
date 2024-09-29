@@ -10,7 +10,7 @@ public class StarManager : MonoBehaviour
     public GameObject starPrefab;
     public List<GameObject> starList;
 
-    public DataPlaneManager dataPlaneManager;
+    public DataManager dataManager;
     public PlaneManager planeManager;
 
     public float minSpawnDistance;
@@ -21,7 +21,7 @@ public class StarManager : MonoBehaviour
 
     private void Start()
     {
-        plane = planeManager.planes[dataPlaneManager.dataPlane.indexPlane].GetComponent<Transform>();
+        plane = planeManager.planes[dataManager.data.indexPlane].GetComponent<Transform>();
         StartCoroutine(RandomSpawnStar());
         cam = Camera.main;
     }

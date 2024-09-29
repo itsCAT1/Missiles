@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class SelectGameMode : MonoBehaviour
 {
-    public DataGameplayManager dataGameplayManager;
+    public DataManager dataManager;
     public Animator animatorSelectionCircle;
 
     void Start()
     {
-        if (dataGameplayManager.dataGameplay.indexGameMode == 0)
+        if (dataManager.data.indexGameMode == 0)    
         {
             animatorSelectionCircle.SetFloat("Base", 0);
         }
-        else if (dataGameplayManager.dataGameplay.indexGameMode == 1)
+        else if (dataManager.data.indexGameMode == 1)
         {
             animatorSelectionCircle.SetFloat("Base", 1);
         }
@@ -21,13 +21,13 @@ public class SelectGameMode : MonoBehaviour
 
     public void SelectNormalMode()
     {
-        dataGameplayManager.dataGameplay.indexGameMode = 0;
+        dataManager.data.indexGameMode = 0;
         StartCoroutine(TimeAnimationNormalMode());
     }
 
     public void SelectFastMode()
     {
-        dataGameplayManager.dataGameplay.indexGameMode = 1;
+        dataManager.data.indexGameMode = 1;
         StartCoroutine (TimeAnimationFastMode());
     }
 

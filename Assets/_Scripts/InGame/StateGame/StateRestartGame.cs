@@ -6,7 +6,7 @@ public class StateRestartGame : MonoBehaviour
 {
     public Animator animatorPanelEndGame;
     public Animator animatorPanelPauseGame;
-    public DataGameplayManager dataGameplayManager;
+    public DataManager dataManager;
 
     public void RestartGamePauseGame()
     {
@@ -17,15 +17,17 @@ public class StateRestartGame : MonoBehaviour
     {
         animatorPanelPauseGame.SetBool("Open", false);
         yield return new WaitForSecondsRealtime(0.4f);
-        if (dataGameplayManager.dataGameplay.indexGameMode == 0)
+        if (dataManager.data.indexGameMode == 0)
         {
             Time.timeScale = 1;
         }
-        else if (dataGameplayManager.dataGameplay.indexGameMode == 1)
+        else if (dataManager.data.indexGameMode == 1)
         {
             Time.timeScale = 1.4f;
         }
+        dataManager.SaveData();
         SceneManager.LoadScene(1);
+        dataManager.LoadData();
     }
 
     public void RestartGameEndGame()
@@ -37,6 +39,8 @@ public class StateRestartGame : MonoBehaviour
     {
         animatorPanelEndGame.SetBool("Open", false);
         yield return new WaitForSeconds(0.4f);
+        dataManager.SaveData();
         SceneManager.LoadScene(1);
+        dataManager.LoadData();
     }
 }

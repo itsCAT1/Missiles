@@ -7,7 +7,7 @@ public class ShieldManager : MonoBehaviour
     public Transform plane;
     public GameObject shieldPrefab;
     public List<GameObject> shieldList;
-    public DataPlaneManager dataPlaneManager;
+    public DataManager dataManager;
     public PlaneManager planeManager;
     public float minSpawnDistance;
     public float maxSpawnDistance;
@@ -17,7 +17,7 @@ public class ShieldManager : MonoBehaviour
 
     private void Start()
     {
-        plane = planeManager.planes[dataPlaneManager.dataPlane.indexPlane].GetComponent<Transform>();
+        plane = planeManager.planes[dataManager.data.indexPlane].GetComponent<Transform>();
         StartCoroutine(RandomSpawnShield());
         cam = Camera.main;
     }

@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 2743096}
   m_Layer: 0
   m_Name: Plane5
-  m_TagString: Untagged
+  m_TagString: plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1165,7 +1165,7 @@ GameObject:
   - component: {fileID: 47808524}
   m_Layer: 0
   m_Name: Plane6
-  m_TagString: Untagged
+  m_TagString: plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8002,7 +8002,7 @@ MonoBehaviour:
   - {fileID: 8457071960551320642, guid: 16a550ce8f13fa7488f112e7623dde51, type: 3}
   - {fileID: 1653390098795563437, guid: cf1a1e7b8c77b274588f48fbd9096c43, type: 3}
   - {fileID: 8535000340156552632, guid: 8cea16d7c1de5534ab6af0e19daec6bf, type: 3}
-  dataPlaneManager: {fileID: 1130481450}
+  dataManager: {fileID: 1130481452}
   planeManager: {fileID: 1909892231}
   minSpawnDistance: 5.5
   maxSpawnDistance: 7
@@ -13346,7 +13346,7 @@ GameObject:
   - component: {fileID: 618443289}
   m_Layer: 0
   m_Name: Plane1
-  m_TagString: Untagged
+  m_TagString: plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15018,7 +15018,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 1921519590}
+        - m_Target: {fileID: 2054661097}
           m_TargetAssemblyTypeName: SelectGameMode, Assembly-CSharp
           m_MethodName: SelectFastMode
           m_Mode: 1
@@ -17565,8 +17565,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1921519588}
-        m_TargetAssemblyTypeName: UpdateCoinShop, Assembly-CSharp
+      - m_Target: {fileID: 1130481453}
+        m_TargetAssemblyTypeName: DataCoinManager, Assembly-CSharp
         m_MethodName: ButtonReceive25000
         m_Mode: 1
         m_Arguments:
@@ -18831,98 +18831,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913882885}
-  m_CullTransparentMesh: 1
---- !u!1 &919739846
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 919739847}
-  - component: {fileID: 919739850}
-  - component: {fileID: 919739849}
-  - component: {fileID: 919739848}
-  m_Layer: 5
-  m_Name: UISelectionCircle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &919739847
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919739846}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1005512796}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -222, y: 0.32000732}
-  m_SizeDelta: {x: 342, y: 342}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &919739848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919739846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbc94a0dc3d6d1840bb664f4825b4d37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dataGameplayManager: {fileID: 1130481449}
-  normalMode: {fileID: 1827079172}
-  fastMode: {fileID: 682691084}
-  a: 0
---- !u!114 &919739849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919739846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 46b4c17ff2a8a8e438cdb771f343ac17, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &919739850
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919739846}
   m_CullTransparentMesh: 1
 --- !u!1 &922313106
 GameObject:
@@ -20907,7 +20815,6 @@ RectTransform:
   - {fileID: 1827079172}
   - {fileID: 682691084}
   - {fileID: 1291270744}
-  - {fileID: 919739847}
   m_Father: {fileID: 1982092328}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -21871,7 +21778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plane: {fileID: 0}
-  dataPlaneManager: {fileID: 1130481450}
+  dataManager: {fileID: 1130481452}
   planeManager: {fileID: 1909892231}
   speedUp: {fileID: 6219171016274274270, guid: f634d7f141c1ec940b54336c925ca8b9, type: 3}
   minSpawnDistance: 5
@@ -22530,13 +22437,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1130481443}
   - component: {fileID: 1130481442}
-  - component: {fileID: 1130481449}
-  - component: {fileID: 1130481450}
+  - component: {fileID: 1130481452}
   - component: {fileID: 1130481444}
   - component: {fileID: 1130481445}
   - component: {fileID: 1130481446}
   - component: {fileID: 1130481447}
   - component: {fileID: 1130481448}
+  - component: {fileID: 1130481451}
+  - component: {fileID: 1130481453}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -22565,6 +22473,7 @@ MonoBehaviour:
   panelEndGame: {fileID: 367920887}
   planeManager: {fileID: 1909892231}
   stateStartGame: {fileID: 1130481448}
+  timeCountBegin: {fileID: 1130481451}
 --- !u!4 &1130481443
 Transform:
   m_ObjectHideFlags: 0
@@ -22595,7 +22504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bd4c2365aae54545910e32595787fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataGameplayManager: {fileID: 1130481449}
+  dataManager: {fileID: 1130481452}
   uiGameControl: {fileID: 287603371}
 --- !u!114 &1130481445
 MonoBehaviour:
@@ -22610,7 +22519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planeManager: {fileID: 1909892231}
-  dataPlaneManager: {fileID: 1130481450}
+  dataManager: {fileID: 1130481452}
   upBG: {fileID: 904392550}
   endGamePanel: {fileID: 367920887}
   uiGameControl: {fileID: 287603371}
@@ -22626,7 +22535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4664b8bfefd2864fab37c3c03ece39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataGameplayManager: {fileID: 1130481449}
+  dataManager: {fileID: 1130481452}
 --- !u!114 &1130481447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22641,7 +22550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorPanelEndGame: {fileID: 367920889}
   animatorPanelPauseGame: {fileID: 1881471444}
-  dataGameplayManager: {fileID: 1130481449}
+  dataManager: {fileID: 1130481452}
 --- !u!114 &1130481448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22654,17 +22563,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 321cbaede6429614cbd167a1cd0b2000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataPlaneManager: {fileID: 1130481450}
+  dataManager: {fileID: 1130481452}
   planeManager: {fileID: 1909892231}
-  dataGameplayManager: {fileID: 1130481449}
   animatorPanelMenu: {fileID: 1921519589}
   panelMenu: {fileID: 1921519584}
   isStartGame: 0
+  timeCountBegin: {fileID: 1130481451}
+--- !u!114 &1130481451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130481441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8729d196e66a84998765e6575551ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataManager: {fileID: 1130481452}
+  planeManager: {fileID: 1909892231}
   time: {fileID: 1534407994}
   minutes: 0
   seconds: 0
   timeCount: 0
---- !u!114 &1130481449
+--- !u!114 &1130481452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22673,13 +22596,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1130481441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eceda72c0eb8bc498f3340097ce99b1, type: 3}
+  m_Script: {fileID: 11500000, guid: a2604042b9b8a9b48a96d8db7d38870d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataGameplay:
+  data:
+    indexPlane: 0
     indexGameMode: 0
     indexGameControl: 0
---- !u!114 &1130481450
+    coin: 0
+--- !u!114 &1130481453
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22688,11 +22613,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1130481441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f4fd658c261f1744b97520f6c232ce2, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fdc0b1f26f3b3e448134c5c70635863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataPlane:
-    indexPlane: 0
+  coinText: {fileID: 908872217}
+  dataManager: {fileID: 1130481452}
 --- !u!1 &1134146247
 GameObject:
   m_ObjectHideFlags: 0
@@ -23170,7 +23095,7 @@ GameObject:
   - component: {fileID: 1173801012}
   m_Layer: 0
   m_Name: Plane10
-  m_TagString: Untagged
+  m_TagString: plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26187,7 +26112,7 @@ GameObject:
   - component: {fileID: 1273817928}
   m_Layer: 0
   m_Name: Plane4
-  m_TagString: Untagged
+  m_TagString: plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26673,7 +26598,7 @@ MonoBehaviour:
   plane: {fileID: 0}
   shieldPrefab: {fileID: 8714116699030343719, guid: 51e8747e2ec2fe343a0eb21ceec2aaef, type: 3}
   shieldList: []
-  dataPlaneManager: {fileID: 1130481450}
+  dataManager: {fileID: 1130481452}
   planeManager: {fileID: 1909892231}
   minSpawnDistance: 5
   maxSpawnDistance: 8
@@ -28810,8 +28735,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1921519588}
-        m_TargetAssemblyTypeName: UpdateCoinShop, Assembly-CSharp
+      - m_Target: {fileID: 1130481453}
+        m_TargetAssemblyTypeName: DataCoinManager, Assembly-CSharp
         m_MethodName: ButtonReceive150000
         m_Mode: 1
         m_Arguments:
@@ -29465,7 +29390,7 @@ GameObject:
   - component: {fileID: 1454975204}
   m_Layer: 0
   m_Name: Plane7
-  m_TagString: Untagged
+  m_TagString: plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30478,7 +30403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c221aeab35e794bb4a86be84b75b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataPlaneManager: {fileID: 1130481450}
+  dataManager: {fileID: 1130481452}
   planeManager: {fileID: 1909892231}
   missilesPrefab: {fileID: 1967220899907536651, guid: b10e7ea12ecfdb746996119a35dfbff0, type: 3}
   missilePrefabList:
@@ -30707,7 +30632,7 @@ MonoBehaviour:
   plane: {fileID: 0}
   starPrefab: {fileID: 4843400192569355719, guid: b9ad83c3642198e47b689b701e2be7d2, type: 3}
   starList: []
-  dataPlaneManager: {fileID: 1130481450}
+  dataManager: {fileID: 1130481452}
   planeManager: {fileID: 1909892231}
   minSpawnDistance: 6
   maxSpawnDistance: 8
@@ -30740,7 +30665,7 @@ GameObject:
   - component: {fileID: 1513485782}
   m_Layer: 0
   m_Name: Plane3
-  m_TagString: Untagged
+  m_TagString: plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36004,8 +35929,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1921519588}
-        m_TargetAssemblyTypeName: UpdateCoinShop, Assembly-CSharp
+      - m_Target: {fileID: 1130481453}
+        m_TargetAssemblyTypeName: DataCoinManager, Assembly-CSharp
         m_MethodName: ButtonReceive80000
         m_Mode: 1
         m_Arguments:
@@ -36790,7 +36715,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 1921519590}
+        - m_Target: {fileID: 2054661097}
           m_TargetAssemblyTypeName: SelectGameMode, Assembly-CSharp
           m_MethodName: SelectNormalMode
           m_Mode: 1
@@ -37588,7 +37513,7 @@ GameObject:
   - component: {fileID: 1862461511}
   m_Layer: 0
   m_Name: Plane2
-  m_TagString: Untagged
+  m_TagString: plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38189,11 +38114,8 @@ MonoBehaviour:
   - {fileID: 2030034992}
   - {fileID: 2038981309}
   - {fileID: 1173801010}
-  dataPlaneManager: {fileID: 1130481450}
+  dataManager: {fileID: 1130481452}
   virtualCamera: {fileID: 2105207031}
-  leftArrow: {fileID: 0}
-  rightArrow: {fileID: 0}
-  skillPlane: []
 --- !u!114 &1909892232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38206,11 +38128,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19bf19f590cfb234597a4b51d43a8f41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataPlaneManager: {fileID: 1130481450}
+  dataManager: {fileID: 1130481452}
   planeManager: {fileID: 1909892231}
   leftArrow: {fileID: 255059517}
   rightArrow: {fileID: 1964302316}
-  skillPlane: []
+  skillPlane:
+  - {fileID: 564307000}
+  - {fileID: 1859350689}
+  - {fileID: 619143508}
+  - {fileID: 709572038}
+  - {fileID: 821222790}
+  - {fileID: 1570861538}
+  - {fileID: 492478684}
+  - {fileID: 2031347456}
+  - {fileID: 1463533097}
+  - {fileID: 1391104535}
   virtualCamera: {fileID: 2105207031}
 --- !u!1 &1918937780
 GameObject:
@@ -38441,8 +38373,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1921519585}
   - component: {fileID: 1921519587}
-  - component: {fileID: 1921519588}
-  - component: {fileID: 1921519590}
   - component: {fileID: 1921519589}
   m_Layer: 5
   m_Name: MainMenu
@@ -38481,21 +38411,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921519584}
   m_CullTransparentMesh: 1
---- !u!114 &1921519588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1921519584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fdc0b1f26f3b3e448134c5c70635863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinText: {fileID: 908872217}
-  dataCoin:
-    coin: 0
 --- !u!95 &1921519589
 Animator:
   serializedVersion: 5
@@ -38517,20 +38432,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1921519590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1921519584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dbd55652f5ea1846be5e9fd928a4104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dataGameplayManager: {fileID: 1130481449}
-  animatorSelectionCircle: {fileID: 1291270748}
 --- !u!1 &1925947526
 GameObject:
   m_ObjectHideFlags: 0
@@ -40642,7 +40543,7 @@ GameObject:
   - component: {fileID: 2030034994}
   m_Layer: 0
   m_Name: Plane8
-  m_TagString: Untagged
+  m_TagString: plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40838,7 +40739,7 @@ GameObject:
   - component: {fileID: 2038981311}
   m_Layer: 0
   m_Name: Plane9
-  m_TagString: Untagged
+  m_TagString: plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41077,6 +40978,7 @@ GameObject:
   - component: {fileID: 2054661091}
   - component: {fileID: 2054661090}
   - component: {fileID: 2054661096}
+  - component: {fileID: 2054661097}
   m_Layer: 5
   m_Name: GameMode
   m_TagString: Untagged
@@ -41202,14 +41104,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planeController: {fileID: 618443290}
-  dataPlaneManager: {fileID: 1130481450}
+  dataManager: {fileID: 1130481452}
   planeManager: {fileID: 1909892231}
   joystick: {fileID: 1994429570}
   buttonArrow: {fileID: 604711600}
   firstUpdateJoystick: 0
   firstUpdateMoveFinger: 0
-  dataGameplayManager: {fileID: 1130481449}
   stateStartGame: {fileID: 1130481448}
+--- !u!114 &2054661097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054661089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbd55652f5ea1846be5e9fd928a4104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataManager: {fileID: 1130481452}
+  animatorSelectionCircle: {fileID: 1291270748}
 --- !u!1 &2054990562
 GameObject:
   m_ObjectHideFlags: 0
@@ -43313,7 +43228,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 264695704}
-  - {fileID: 929715817}
   - {fileID: 26863418}
   - {fileID: 1411934447}
   - {fileID: 1909892230}
@@ -43321,3 +43235,4 @@ SceneRoots:
   - {fileID: 2054661095}
   - {fileID: 2014345113}
   - {fileID: 2105207032}
+  - {fileID: 929715817}

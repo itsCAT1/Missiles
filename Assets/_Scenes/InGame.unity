@@ -4460,7 +4460,7 @@ MonoBehaviour:
   - {fileID: 8457071960551320642, guid: 16a550ce8f13fa7488f112e7623dde51, type: 3}
   - {fileID: 1653390098795563437, guid: cf1a1e7b8c77b274588f48fbd9096c43, type: 3}
   - {fileID: 8535000340156552632, guid: 8cea16d7c1de5534ab6af0e19daec6bf, type: 3}
-  dataPlaneManager: {fileID: 1130481450}
+  dataManager: {fileID: 1130481453}
   planeManager: {fileID: 1909892231}
   minSpawnDistance: 5.5
   maxSpawnDistance: 7
@@ -7445,7 +7445,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2054661096}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SelectControlMode, Assembly-CSharp
         m_MethodName: SelectMode
         m_Mode: 1
@@ -7510,7 +7510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &612968282
 Transform:
   m_ObjectHideFlags: 0
@@ -10818,7 +10818,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2054661096}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SelectGameMode, Assembly-CSharp
         m_MethodName: Select
         m_Mode: 1
@@ -11374,8 +11374,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 944633334}
-  - component: {fileID: 944633337}
-  - component: {fileID: 944633336}
   - component: {fileID: 944633335}
   - component: {fileID: 944633338}
   m_Layer: 0
@@ -11414,34 +11412,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorPanelOptionsInGame: {fileID: 406594141}
   panelOptionsInGame: {fileID: 406594139}
---- !u!114 &944633336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944633333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6987946d6f42c414cbf5e0033342f27d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animatorPanelOptionsMenu: {fileID: 0}
-  panelOptionsMenu: {fileID: 0}
---- !u!114 &944633337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 944633333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3925959e7fd958b4bab42cf4502ed1eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animatorPanelShop: {fileID: 0}
-  panelShop: {fileID: 0}
 --- !u!114 &944633338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12294,7 +12264,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2054661096}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SelectControlMode, Assembly-CSharp
         m_MethodName: SelectMode
         m_Mode: 1
@@ -12932,7 +12902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plane: {fileID: 0}
-  dataPlaneManager: {fileID: 1130481450}
+  dataManager: {fileID: 1130481453}
   planeManager: {fileID: 1909892231}
   speedUp: {fileID: 6219171016274274270, guid: f634d7f141c1ec940b54336c925ca8b9, type: 3}
   minSpawnDistance: 5
@@ -13309,13 +13279,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1130481443}
   - component: {fileID: 1130481442}
-  - component: {fileID: 1130481449}
-  - component: {fileID: 1130481450}
+  - component: {fileID: 1130481453}
   - component: {fileID: 1130481444}
   - component: {fileID: 1130481445}
   - component: {fileID: 1130481446}
   - component: {fileID: 1130481447}
-  - component: {fileID: 1130481448}
+  - component: {fileID: 1130481451}
+  - component: {fileID: 1130481452}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -13343,7 +13313,8 @@ MonoBehaviour:
   uiYourScore: {fileID: 2107493045}
   panelEndGame: {fileID: 367920887}
   planeManager: {fileID: 1909892231}
-  stateStartGame: {fileID: 1130481448}
+  stateStartGame: {fileID: 0}
+  timeCountBegin: {fileID: 1130481451}
 --- !u!4 &1130481443
 Transform:
   m_ObjectHideFlags: 0
@@ -13374,7 +13345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bd4c2365aae54545910e32595787fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataGameplayManager: {fileID: 1130481449}
+  dataManager: {fileID: 1130481453}
   uiGameControl: {fileID: 287603371}
 --- !u!114 &1130481445
 MonoBehaviour:
@@ -13389,7 +13360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   planeManager: {fileID: 1909892231}
-  dataPlaneManager: {fileID: 1130481450}
+  dataManager: {fileID: 1130481453}
   upBG: {fileID: 904392550}
   endGamePanel: {fileID: 367920887}
   uiGameControl: {fileID: 287603371}
@@ -13405,7 +13376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4664b8bfefd2864fab37c3c03ece39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataGameplayManager: {fileID: 1130481449}
+  dataManager: {fileID: 1130481453}
 --- !u!114 &1130481447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13420,8 +13391,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorPanelEndGame: {fileID: 367920889}
   animatorPanelPauseGame: {fileID: 1881471444}
-  dataGameplayManager: {fileID: 0}
---- !u!114 &1130481448
+  dataManager: {fileID: 1130481453}
+--- !u!114 &1130481451
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13430,20 +13401,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1130481441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 321cbaede6429614cbd167a1cd0b2000, type: 3}
+  m_Script: {fileID: 11500000, guid: bc8729d196e66a84998765e6575551ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataPlaneManager: {fileID: 1130481450}
+  dataManager: {fileID: 1130481453}
   planeManager: {fileID: 1909892231}
-  dataGameplayManager: {fileID: 1130481449}
-  animatorPanelMenu: {fileID: 0}
-  panelMenu: {fileID: 0}
-  isStartGame: 0
   time: {fileID: 1534407994}
   minutes: 0
   seconds: 0
   timeCount: 0
---- !u!114 &1130481449
+--- !u!114 &1130481452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13452,26 +13419,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1130481441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eceda72c0eb8bc498f3340097ce99b1, type: 3}
+  m_Script: {fileID: 11500000, guid: d148b59156a0acc42813ab8228de73b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataGameplay:
+  timeCountBegin: {fileID: 1130481451}
+--- !u!114 &1130481453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130481441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2604042b9b8a9b48a96d8db7d38870d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    indexPlane: 0
     indexGameMode: 0
     indexGameControl: 0
---- !u!114 &1130481450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1130481441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f4fd658c261f1744b97520f6c232ce2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dataPlane:
-    indexPlane: 0
+    coin: 0
 --- !u!1 &1134146247
 GameObject:
   m_ObjectHideFlags: 0
@@ -13956,7 +13924,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2054661096}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SelectGameMode, Assembly-CSharp
         m_MethodName: Select
         m_Mode: 1
@@ -16047,7 +16015,7 @@ MonoBehaviour:
   plane: {fileID: 0}
   shieldPrefab: {fileID: 8714116699030343719, guid: 51e8747e2ec2fe343a0eb21ceec2aaef, type: 3}
   shieldList: []
-  dataPlaneManager: {fileID: 1130481450}
+  dataManager: {fileID: 1130481453}
   planeManager: {fileID: 1909892231}
   minSpawnDistance: 5
   maxSpawnDistance: 8
@@ -16713,7 +16681,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2054661096}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SelectGameMode, Assembly-CSharp
         m_MethodName: Select
         m_Mode: 1
@@ -17763,7 +17731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c221aeab35e794bb4a86be84b75b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataPlaneManager: {fileID: 1130481450}
+  dataManager: {fileID: 1130481453}
   planeManager: {fileID: 1909892231}
   missilesPrefab: {fileID: 1967220899907536651, guid: b10e7ea12ecfdb746996119a35dfbff0, type: 3}
   missilePrefabList:
@@ -17992,7 +17960,7 @@ MonoBehaviour:
   plane: {fileID: 0}
   starPrefab: {fileID: 4843400192569355719, guid: b9ad83c3642198e47b689b701e2be7d2, type: 3}
   starList: []
-  dataPlaneManager: {fileID: 1130481450}
+  dataManager: {fileID: 1130481453}
   planeManager: {fileID: 1909892231}
   minSpawnDistance: 6
   maxSpawnDistance: 8
@@ -20444,7 +20412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 1
   m_FollowOffset: {x: 0, y: -0.84, z: -10}
-  m_XDamping: 1
+  m_XDamping: 0
   m_YDamping: 0
   m_ZDamping: 0
   m_AngularDampingMode: 0
@@ -20828,7 +20796,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2054661096}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SelectControlMode, Assembly-CSharp
         m_MethodName: SelectMode
         m_Mode: 1
@@ -21497,6 +21465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1909892230}
   - component: {fileID: 1909892231}
+  - component: {fileID: 1909892232}
   m_Layer: 0
   m_Name: PlaneManager
   m_TagString: Untagged
@@ -21552,21 +21521,22 @@ MonoBehaviour:
   - {fileID: 2030034992}
   - {fileID: 2038981309}
   - {fileID: 1173801010}
-  dataPlaneManager: {fileID: 1130481450}
+  dataManager: {fileID: 1130481453}
   virtualCamera: {fileID: 2105207031}
-  leftArrow: {fileID: 0}
-  rightArrow: {fileID: 0}
-  skillPlane:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+--- !u!114 &1909892232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909892229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491f4bc9c37855d4ebdad3eedbe7efdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planeManager: {fileID: 1909892231}
+  dataManager: {fileID: 1130481453}
 --- !u!1 &1919862096
 GameObject:
   m_ObjectHideFlags: 0
@@ -23139,18 +23109,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2054661089}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b18c6af9ae82db47a26be142cb6a172, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b564ce5bbb439141b8acc7fbbb00abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planeController: {fileID: 618443290}
-  dataPlaneManager: {fileID: 1130481450}
+  planeController: {fileID: 0}
+  dataManager: {fileID: 1130481453}
   planeManager: {fileID: 1909892231}
   joystick: {fileID: 1994429570}
   buttonArrow: {fileID: 604711600}
   firstUpdateJoystick: 0
   firstUpdateMoveFinger: 0
-  dataGameplayManager: {fileID: 1130481449}
-  stateStartGame: {fileID: 1130481448}
 --- !u!1 &2054990562
 GameObject:
   m_ObjectHideFlags: 0
@@ -23992,7 +23960,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2105207032}
   - component: {fileID: 2105207031}
-  - component: {fileID: 2105207033}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -24055,19 +24022,6 @@ Transform:
   - {fileID: 1800390283}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2105207033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105207030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6230668d6617a8543acd63cd032f2d85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 2105207031}
 --- !u!1 &2107493042
 GameObject:
   m_ObjectHideFlags: 0

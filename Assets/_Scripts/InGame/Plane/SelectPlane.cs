@@ -6,47 +6,45 @@ using UnityEngine;
 
 public class SelectPlane : MonoBehaviour
 {
-    public DataPlaneManager dataPlaneManager;
+    public DataManager dataManager;
     public PlaneManager planeManager;
 
     public GameObject leftArrow;
     public GameObject rightArrow;
     public List<GameObject> skillPlane;
     public CinemachineVirtualCamera virtualCamera;
-    public int a;
 
     private void Update()
     {
-        a = dataPlaneManager.dataPlane.indexPlane;
-        if (dataPlaneManager.dataPlane.indexPlane == 0)
+        if (dataManager.data.indexPlane == 0)
         {
             leftArrow.SetActive(false);
         }
         else leftArrow.SetActive(true);
 
-        if (dataPlaneManager.dataPlane.indexPlane == planeManager.planes.Count - 1)
+        if (dataManager.data.indexPlane == planeManager.planes.Count - 1)
         {
             rightArrow.SetActive(false);
         }
         else rightArrow.SetActive(true);
-        //ShowSkillPlane();
+        ShowSkillPlane();
     }
 
     public void SelectLeftArrow()
     {
-        if (dataPlaneManager.dataPlane.indexPlane > 0)
+        if (dataManager.data.indexPlane > 0)
         {
-            virtualCamera.Follow = planeManager.planes[dataPlaneManager.dataPlane.indexPlane - 1].transform;
-            dataPlaneManager.dataPlane.indexPlane--;
+            virtualCamera.Follow = planeManager.planes[dataManager.data.indexPlane - 1].transform;
+            dataManager.data.indexPlane--;
         }
     }
 
     public void SelectRightArrow()
     {
-        if (dataPlaneManager.dataPlane.indexPlane < planeManager.planes.Count - 1)
+        if (dataManager.data.indexPlane < planeManager.planes.Count - 1)
         {
-            virtualCamera.Follow = planeManager.planes[dataPlaneManager.dataPlane.indexPlane + 1].transform;
-            dataPlaneManager.dataPlane.indexPlane++;
+            virtualCamera.Follow = planeManager.planes[dataManager.data.indexPlane + 1].transform;
+            dataManager.data.indexPlane++;
         }
     }
 
@@ -54,7 +52,7 @@ public class SelectPlane : MonoBehaviour
     {
         for (int i = 0; i < planeManager.planes.Count; i++)
         {
-            skillPlane[i].SetActive(i == dataPlaneManager.dataPlane.indexPlane);
+            skillPlane[i].SetActive(i == dataManager.data.indexPlane);
         }
     }
 }

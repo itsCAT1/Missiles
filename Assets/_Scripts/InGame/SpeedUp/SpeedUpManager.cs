@@ -7,7 +7,7 @@ public class SpeedUpManager : MonoBehaviour
     public Transform plane;
     Vector3 oldSpawnSpeedUpPos = Vector3.zero;
 
-    public DataPlaneManager dataPlaneManager;
+    public DataManager dataManager;
     public PlaneManager planeManager;
 
     public GameObject speedUp;
@@ -17,7 +17,7 @@ public class SpeedUpManager : MonoBehaviour
 
     private void Start()
     {
-        plane = planeManager.planes[dataPlaneManager.dataPlane.indexPlane].GetComponent<Transform>();
+        plane = planeManager.planes[dataManager.data.indexPlane].GetComponent<Transform>();
         StartCoroutine(RandomSpawnSpeedUp());
         cam = Camera.main;
     }

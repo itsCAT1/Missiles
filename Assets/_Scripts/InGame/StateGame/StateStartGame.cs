@@ -6,53 +6,30 @@ using UnityEngine.UI;
 
 public class StateStartGame : MonoBehaviour
 {
-    public DataPlaneManager dataPlaneManager;
+    public DataManager dataManager;
     public PlaneManager planeManager;
-    public DataGameplayManager dataGameplayManager;
     public Animator animatorPanelMenu;
     public GameObject panelMenu;
     public bool isStartGame = false;
+    public TimeCountBegin timeCountBegin;
 
-    public Text time;
-    public int minutes;
-    public int seconds;
-    public int timeCount;
-
-    IEnumerator StartTimeCount()
-    {
-
-        while (true)
-        {
-            if (!planeManager.planes[dataPlaneManager.dataPlane.indexPlane].activeSelf)
-            {
-                yield break;
-            }
-            timeCount++;
-            minutes = Mathf.FloorToInt(timeCount / 60);
-            seconds = Mathf.FloorToInt(timeCount % 60);
-
-            time.text = string.Format("{0}:{1:00}", minutes, seconds);
-
-            yield return new WaitForSecondsRealtime(1f);
-        }
-    }
 
     public void StartGame()
     {
         StartCoroutine(WaitClosePanel());
         StartCoroutine(WaitPlaneRotate());
-        StartCoroutine(StartTimeCount());
+        timeCountBegin.StartTimeGame();
         isStartGame = true;
         for (int i = 0; i < planeManager.planes.Count; i++)
         {
-            planeManager.planes[i].SetActive(i == dataPlaneManager.dataPlane.indexPlane);
+            planeManager.planes[i].SetActive(i == dataManager.data.indexPlane);
         }
 
-        if (dataGameplayManager.dataGameplay.indexGameMode == 0)
+        if (dataManager.data.indexGameMode == 0)
         {
             Time.timeScale = 1f;
         }
-        else if (dataGameplayManager.dataGameplay.indexGameMode == 1)
+        else if (dataManager.data.indexGameMode == 1)
         {
             Time.timeScale = 1.4f;
         }
@@ -61,7 +38,7 @@ public class StateStartGame : MonoBehaviour
 
     IEnumerator WaitPlaneRotate()
     {
-        var planeTemp = planeManager.planes[dataPlaneManager.dataPlane.indexPlane].GetComponent<PlaneController>();
+        var planeTemp = planeManager.planes[dataManager.data.indexPlane].GetComponent<PlaneController>();
         planeTemp.rigid2D.angularVelocity = 185;
         yield return new WaitForSeconds(1);
         planeTemp.rigid2D.angularVelocity = 0;

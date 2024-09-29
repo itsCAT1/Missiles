@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class UICircleSelectionMode : MonoBehaviour
 {
-    public DataGameplayManager dataGameplayManager;
+    public DataManager dataManager;
     public Transform normalMode;
     public Transform fastMode;
-    public int a;
     void Start()
     {
-        a = dataGameplayManager.dataGameplay.indexGameMode;
-        if (dataGameplayManager.dataGameplay.indexGameMode == 0)
+        if (dataManager.data.indexGameMode == 0)
         {
             this.transform.position = normalMode.position;
         }
-        else if (dataGameplayManager.dataGameplay.indexGameMode == 1)
+        else if (dataManager.data.indexGameMode == 1)
         {
             this.transform.position = fastMode.position;
         }

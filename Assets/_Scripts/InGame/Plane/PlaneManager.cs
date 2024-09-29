@@ -8,16 +8,10 @@ using UnityEngine.UIElements;
 public class PlaneManager : MonoBehaviour
 {
     public List<GameObject> planes;
-    public DataPlaneManager dataPlaneManager;
+    public DataManager dataManager;
     public CinemachineVirtualCamera virtualCamera;
-    public GameObject leftArrow;
-    public GameObject rightArrow;
-    public List<GameObject> skillPlane;
     void Start()
     {
-        //ShowCurrentPlane();
-        virtualCamera.Follow = planes[dataPlaneManager.dataPlane.indexPlane].transform;
+        virtualCamera.Follow = planes[dataManager.data.indexPlane].transform;
     }
-
-    
 }

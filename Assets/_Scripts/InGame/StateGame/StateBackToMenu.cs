@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class StateBackToMenu : MonoBehaviour
 {
-    public DataGameplayManager dataGameplayManager;
+    public DataManager dataManager;
 
     public void BackToHome()
     {
-        dataGameplayManager.SaveDataGameplay();
+        dataManager.SaveData();
         SceneManager.LoadScene(0);
-        dataGameplayManager.LoadDataGameplay();
+        dataManager.LoadData();
         Time.timeScale = 1;
     }
 }

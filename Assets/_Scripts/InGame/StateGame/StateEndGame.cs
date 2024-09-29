@@ -6,7 +6,7 @@ using UnityEngine;
 public class StateEndGame : MonoBehaviour
 {
     public PlaneManager planeManager;
-    public DataPlaneManager dataPlaneManager;
+    public DataManager dataManager;
     Transform plane;
 
     public GameObject upBG;
@@ -14,7 +14,7 @@ public class StateEndGame : MonoBehaviour
     public GameObject uiGameControl;
     private void Update()
     {
-        if (!planeManager.planes[dataPlaneManager.dataPlane.indexPlane].gameObject.activeSelf)
+        if (!planeManager.planes[dataManager.data.indexPlane].gameObject.activeSelf)
         {
             endGamePanel.SetActive(true);
             uiGameControl.SetActive(false);

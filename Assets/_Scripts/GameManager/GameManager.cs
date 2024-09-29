@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject panelEndGame;
     public PlaneManager planeManager;
     public StateStartGame stateStartGame;
-
+    public TimeCountBegin timeCountBegin;
 
     private void Update()
     {
@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
         uiBonusCoin.text = bonusCoin.ToString();
         uiStarPointInGame.text = starPoint.ToString();
         uiStarPointEndGame.text = "+" + starPoint * 10;
-        uiTimePoint.text = "+" + stateStartGame.seconds.ToString();
-        totalPoint = starPoint * 10 + stateStartGame.seconds + bonusCoin;
+        uiTimePoint.text = "+" + timeCountBegin.seconds.ToString();
+        totalPoint = starPoint * 10 + timeCountBegin.seconds + bonusCoin;
         uiTotalPoint.text = totalPoint.ToString();
         uiYourScore.text = totalPoint.ToString();
     }

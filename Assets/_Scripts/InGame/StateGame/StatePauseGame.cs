@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StatePauseGame : MonoBehaviour
 {
-    public DataGameplayManager dataGameplayManager;
+    public DataManager dataManager;
     public GameObject uiGameControl;
     public void PauseGame()
     {
@@ -14,11 +14,11 @@ public class StatePauseGame : MonoBehaviour
 
     public void ResumeGame()
     {
-        if(dataGameplayManager.dataGameplay.indexGameMode == 0)
+        if(dataManager.data.indexGameMode == 0)
         {
             Time.timeScale = 1;
         }
-        else if (dataGameplayManager.dataGameplay.indexGameMode == 1)
+        else if (dataManager.data.indexGameMode == 1)
         {
             Time.timeScale = 1.4f;
         }

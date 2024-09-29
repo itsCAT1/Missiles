@@ -6,7 +6,7 @@ using UnityEngine;
 public class MissilesManager : MonoBehaviour
 {
     Transform plane;
-    public DataPlaneManager dataPlaneManager;
+    public DataManager dataManager;
     public PlaneManager planeManager;
     public GameObject missilesPrefab;
     public List<GameObject> missilePrefabList;
@@ -19,7 +19,7 @@ public class MissilesManager : MonoBehaviour
     Camera cam;
     void Start()
     {
-        plane = planeManager.planes[dataPlaneManager.dataPlane.indexPlane].GetComponent<Transform>();
+        plane = planeManager.planes[dataManager.data.indexPlane].GetComponent<Transform>();
         SetTimeSpawn();
         cam = Camera.main;
     }
