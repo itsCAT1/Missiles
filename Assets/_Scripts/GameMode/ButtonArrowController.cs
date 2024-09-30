@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ButtonArrowController : MonoBehaviour
 {
-    public int rotateAmount = 0;
+    public float rotateAmount = 0;
 
     public void SelectArrowLeft()
     {
-        rotateAmount = -1;
+        rotateAmount = -0.5f;
     }
 
     public void DeselectArrowLeft()
@@ -18,7 +18,7 @@ public class ButtonArrowController : MonoBehaviour
 
     public void SelectArrowRight()
     {
-        rotateAmount = 1;
+        rotateAmount = 0.5f;
     }
 
     public void DeselectArrowRight()
