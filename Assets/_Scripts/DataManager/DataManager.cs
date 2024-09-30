@@ -15,6 +15,7 @@ public class Data
     public int starPoint;
     public int shieldPoint;
     public int havePlane;
+    public bool audioMute;
 }
 
 public class DataManager : MonoBehaviour

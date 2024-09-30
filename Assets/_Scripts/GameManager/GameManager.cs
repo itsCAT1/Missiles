@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     public void SetValue()
     {
-        totalScore = starPoint * 10 + timeCountBegin.seconds + bonusCoin;
+        totalScore = starPoint * 10 + timeCountBegin.timeCount + bonusCoin;
         Debug.Log("total score: " + totalScore);
         Debug.Log("Total Point data: " + dataManager.data.coin);
         if (dataManager.data.indexGameMode == 0)
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
 
         uiBonusCoin.text = bonusCoin.ToString();
         uiStarPointEndGame.text = "+" + starPoint * 10;
-        uiTimePoint.text = "+" + timeCountBegin.seconds.ToString();
+        uiTimePoint.text = "+" + timeCountBegin.timeCount.ToString();
         uiTotalPoint.text = totalScore.ToString();
         uiYourScore.text = totalScore.ToString();
     }

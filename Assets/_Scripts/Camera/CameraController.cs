@@ -11,9 +11,4 @@ public class CameraController : MonoBehaviour
     {
         virtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_XDamping = 0;
     }
-
-    public void ExitGame()
-    {
-        virtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_XDamping = 1;
-    }
 }

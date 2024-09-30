@@ -30,13 +30,15 @@ public class ShieldManager : MonoBehaviour
             {
                 yield break;
             }
-            yield return new WaitForSeconds(Random.Range(30,40));
+            yield return new WaitForSeconds(Random.Range(3,4));
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
             Vector3 newSpawnShieldPos = cam.transform.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
             newSpawnShieldPos.z = 0;
-
-            GameObject newShield = Instantiate(shieldPrefab, newSpawnShieldPos, Quaternion.identity);
-            shieldList.Add(newShield);
+            if (!plane.transform.GetChild(1).gameObject.activeSelf)
+            {
+                GameObject newShield = Instantiate(shieldPrefab, newSpawnShieldPos, Quaternion.identity);
+                shieldList.Add(newShield);
+            }
         }
     }
 

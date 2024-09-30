@@ -14,7 +14,6 @@ public class PlaneController : MonoBehaviour
     Animator animator;
 
     public GameObject shieldReceive;
-    bool haveShield;
     bool haveSpeedUp;
 
     public GameObject explosionPrefab;
@@ -137,11 +136,13 @@ public class PlaneController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        bool haveShield = false;
         if (collision.gameObject.CompareTag("shield") && !haveShield)
         {
             Destroy(collision.gameObject);
-            shieldReceive.SetActive(true);
+            Debug.Log("have shield");
             haveShield = true;
+            shieldReceive.SetActive(true);
         }
         else if (collision.gameObject.CompareTag("missile"))
         {
@@ -149,8 +150,8 @@ public class PlaneController : MonoBehaviour
             {
                 GameObject explosionTemp = Instantiate(explosionMissilePrefab, this.transform.position, Quaternion.identity);
                 Destroy(collision.gameObject);
-                shieldReceive.SetActive(false);
                 haveShield = false;
+                shieldReceive.SetActive(false);
             }
             else
             {
