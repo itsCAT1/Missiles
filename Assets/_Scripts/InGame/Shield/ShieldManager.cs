@@ -33,6 +33,7 @@ public class ShieldManager : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(30,40));
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
             Vector3 newSpawnShieldPos = cam.transform.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
+            newSpawnShieldPos.z = 0;
 
             GameObject newShield = Instantiate(shieldPrefab, newSpawnShieldPos, Quaternion.identity);
             shieldList.Add(newShield);
@@ -66,7 +67,7 @@ public class ShieldManager : MonoBehaviour
                     indicator.SetActive(true);
                 }
 
-                Vector3 direction = (shieldList[i].transform.position - cam.transform.position).normalized;
+                Vector3 direction = (shieldList[i].transform.position - plane.transform.position).normalized;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + angleOffset;
                 indicator.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 

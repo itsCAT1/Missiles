@@ -10,6 +10,11 @@ public class Data
     public int indexGameMode;
     public int indexGameControl;
     public int coin;
+    public int bestScoreNormalMode;
+    public int bestScoreFastMode;
+    public int starPoint;
+    public int shieldPoint;
+    public int havePlane;
 }
 
 public class DataManager : MonoBehaviour

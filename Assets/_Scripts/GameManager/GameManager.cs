@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static int bonusCoin;
     public static int starPoint;
-    int totalPoint;
+    public int totalScore;
     public Text uiBonusCoin;
     public Text uiStarPointInGame;
     public Text uiStarPointEndGame;
@@ -17,32 +17,82 @@ public class GameManager : MonoBehaviour
 
     public GameObject panelEndGame;
     public PlaneManager planeManager;
-    public StateStartGame stateStartGame;
     public TimeCountBegin timeCountBegin;
+    public DataManager dataManager;
+
+    public GameObject uiScore;
+    public GameObject uiBestScore;
+
+    public bool isScoreUpdated = false;
+    public bool isDoubleScore = false;
 
     private void Update()
     {
-        if (panelEndGame)
+        uiStarPointInGame.text = starPoint.ToString();
+        
+        if (!planeManager.planes[dataManager.data.indexPlane].gameObject.activeSelf && !isScoreUpdated)
         {
             UpdateUIValue();
+            isScoreUpdated = true;
         }
+    }
+
+    public void SetValue()
+    {
+        totalScore = starPoint * 10 + timeCountBegin.seconds + bonusCoin;
+        Debug.Log("total score: " + totalScore);
+        Debug.Log("Total Point data: " + dataManager.data.coin);
+        if (dataManager.data.indexGameMode == 0)
+        {
+            if (totalScore > dataManager.data.bestScoreNormalMode)
+            {
+                Debug.Log("BestScoreNormal");
+                dataManager.data.bestScoreNormalMode = totalScore;
+                uiScore.gameObject.SetActive(false);
+                uiBestScore.gameObject.SetActive(true);
+            }
+            else
+            {
+                uiScore.gameObject.SetActive(true);
+                uiBestScore.gameObject.SetActive(false);
+            }
+        }
+        else if (dataManager.data.indexGameMode == 1)
+        {
+            if (totalScore > dataManager.data.bestScoreFastMode)
+            {
+                Debug.Log("BestScoreFast");
+                dataManager.data.bestScoreFastMode = totalScore;
+                uiScore.gameObject.SetActive(false);
+                uiBestScore.gameObject.SetActive(true);
+            }
+            else
+            {
+                uiScore.gameObject.SetActive(true);
+                uiBestScore.gameObject.SetActive(false);
+            }
+        }
+
+        dataManager.data.coin += totalScore;
+        dataManager.SaveData();
     }
 
     public void UpdateUIValue()
     {
+        SetValue();  
+
         uiBonusCoin.text = bonusCoin.ToString();
-        uiStarPointInGame.text = starPoint.ToString();
         uiStarPointEndGame.text = "+" + starPoint * 10;
         uiTimePoint.text = "+" + timeCountBegin.seconds.ToString();
-        totalPoint = starPoint * 10 + timeCountBegin.seconds + bonusCoin;
-        uiTotalPoint.text = totalPoint.ToString();
-        uiYourScore.text = totalPoint.ToString();
+        uiTotalPoint.text = totalScore.ToString();
+        uiYourScore.text = totalScore.ToString();
     }
 
 
     public void PressButtonDouble()
     {
-        totalPoint *= 2;
-        //Update();
+        totalScore *= 2;
+        uiTotalPoint.text = totalScore.ToString();
+        dataManager.data.coin += totalScore/2;
     }
 }

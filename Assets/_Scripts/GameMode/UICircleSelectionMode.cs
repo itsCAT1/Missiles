@@ -7,6 +7,7 @@ public class UICircleSelectionMode : MonoBehaviour
     public DataManager dataManager;
     public Transform normalMode;
     public Transform fastMode;
+
     void Start()
     {
         if (dataManager.data.indexGameMode == 0)

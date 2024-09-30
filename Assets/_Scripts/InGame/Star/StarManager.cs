@@ -34,9 +34,10 @@ public class StarManager : MonoBehaviour
             {
                 yield break;
             }
-            yield return new WaitForSeconds(Random.Range(10, 20));
+            yield return new WaitForSeconds(Random.Range(10,20));
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
             Vector3 newSpawnStarPos = cam.transform.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
+            newSpawnStarPos.z = 0;
 
             GameObject newStar = Instantiate(starPrefab, newSpawnStarPos, Quaternion.identity);
             starList.Add(newStar);
@@ -70,7 +71,7 @@ public class StarManager : MonoBehaviour
                     indicator.SetActive(true);
                 }
 
-                Vector3 direction = (starList[i].transform.position - cam.transform.position).normalized;
+                Vector3 direction = (starList[i].transform.position - plane.transform.position).normalized;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + angleOffset;
                 indicator.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
