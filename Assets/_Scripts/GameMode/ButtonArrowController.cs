@@ -8,7 +8,7 @@ public class ButtonArrowController : MonoBehaviour
 
     public void SelectArrowLeft()
     {
-        rotateAmount = -0.5f;
+        rotateAmount = -1f;
     }
 
     public void DeselectArrowLeft()
@@ -18,7 +18,7 @@ public class ButtonArrowController : MonoBehaviour
 
     public void SelectArrowRight()
     {
-        rotateAmount = 0.5f;
+        rotateAmount = 1f;
     }
 
     public void DeselectArrowRight()

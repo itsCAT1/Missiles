@@ -53,7 +53,7 @@ public class PlaneController : MonoBehaviour
         float targetAngle = this.transform.eulerAngles.z;
         
         targetAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
-        //Debug.Log($"targetAngle: {targetAngle}");
+        
         Quaternion rotate = this.transform.rotation;
         
         float currentAngle = Mathf.LerpAngle(rotate.eulerAngles.z, targetAngle, speedRotate * Time.deltaTime);
@@ -117,7 +117,7 @@ public class PlaneController : MonoBehaviour
         
         Quaternion rotate = this.transform.rotation;
         float currentAngle = Mathf.LerpAngle(rotate.eulerAngles.z, targetAngle, speedRotate * Time.deltaTime);
-        //Debug.Log($"currentAngle: {currentAngle}, targetAngle: {targetAngle}");
+        
         
         rotate = Quaternion.Euler(0, 0, currentAngle);
 

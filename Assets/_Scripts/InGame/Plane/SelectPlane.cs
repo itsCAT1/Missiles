@@ -14,6 +14,16 @@ public class SelectPlane : MonoBehaviour
     public List<GameObject> skillPlane;
     public CinemachineVirtualCamera virtualCamera;
 
+    public GameObject uiMode;
+    public bool isbuy;
+
+    private void Start()
+    {
+        Debug.Log("start");
+        
+        ShowSkillPlane();
+    }
+
     private void Update()
     {
         if (dataManager.data.indexPlane == 0)
@@ -27,7 +37,6 @@ public class SelectPlane : MonoBehaviour
             rightArrow.SetActive(false);
         }
         else rightArrow.SetActive(true);
-        ShowSkillPlane();
     }
 
     public void SelectLeftArrow()
@@ -37,6 +46,7 @@ public class SelectPlane : MonoBehaviour
             virtualCamera.Follow = planeManager.planes[dataManager.data.indexPlane - 1].transform;
             dataManager.data.indexPlane--;
         }
+        ShowSkillPlane();
     }
 
     public void SelectRightArrow()
@@ -46,6 +56,7 @@ public class SelectPlane : MonoBehaviour
             virtualCamera.Follow = planeManager.planes[dataManager.data.indexPlane + 1].transform;
             dataManager.data.indexPlane++;
         }
+        ShowSkillPlane();
     }
 
     public void ShowSkillPlane()
@@ -55,4 +66,5 @@ public class SelectPlane : MonoBehaviour
             skillPlane[i].SetActive(i == dataManager.data.indexPlane);
         }
     }
+
 }

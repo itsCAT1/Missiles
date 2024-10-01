@@ -199,7 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMoving: 3
   speedRotate: 2.5
-  rigid2D: {fileID: 2743096}
+  rigid2D: {fileID: 0}
   shieldReceive: {fileID: 524819973}
   haveShield: 0
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
@@ -841,7 +841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMoving: 2.5
   speedRotate: 3
-  rigid2D: {fileID: 47808524}
+  rigid2D: {fileID: 0}
   shieldReceive: {fileID: 85991166}
   haveShield: 0
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
@@ -7819,7 +7819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMoving: 2
   speedRotate: 2
-  rigid2D: {fileID: 618443289}
+  rigid2D: {fileID: 0}
   shieldReceive: {fileID: 1029877793}
   haveShield: 0
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
@@ -13696,6 +13696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
+    id: 0
     indexPlane: 0
     indexGameMode: 0
     indexGameControl: 0
@@ -13706,6 +13707,11 @@ MonoBehaviour:
     shieldPoint: 0
     havePlane: 0
     audioMute: 0
+  dailyQuestDataHandle: {fileID: 0}
+  listQuestProgress:
+    listDataProgress: []
+  listDataQuest: {fileID: 0}
+  rootUI: {fileID: 0}
 --- !u!1 &1134146247
 GameObject:
   m_ObjectHideFlags: 0
@@ -14077,7 +14083,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMoving: 3
   speedRotate: 3.5
-  rigid2D: {fileID: 1173801012}
+  rigid2D: {fileID: 0}
   shieldReceive: {fileID: 2064726547}
   haveShield: 0
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
@@ -15965,7 +15971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMoving: 2.5
   speedRotate: 2.5
-  rigid2D: {fileID: 1273817928}
+  rigid2D: {fileID: 0}
   shieldReceive: {fileID: 100397603}
   haveShield: 0
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
@@ -17772,7 +17778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMoving: 2
   speedRotate: 3.5
-  rigid2D: {fileID: 1454975204}
+  rigid2D: {fileID: 0}
   shieldReceive: {fileID: 1822302790}
   haveShield: 0
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
@@ -17940,7 +17946,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataManager: {fileID: 1130481453}
   planeManager: {fileID: 1909892231}
-  missilesPrefab: {fileID: 1967220899907536651, guid: b10e7ea12ecfdb746996119a35dfbff0, type: 3}
   missilePrefabList:
   - {fileID: 1967220899907536651, guid: b10e7ea12ecfdb746996119a35dfbff0, type: 3}
   - {fileID: 1967220899907536651, guid: 2aeae0746567ef842a9ebb59285fd31a, type: 3}
@@ -18263,7 +18268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMoving: 2.5
   speedRotate: 2
-  rigid2D: {fileID: 1513485782}
+  rigid2D: {fileID: 0}
   shieldReceive: {fileID: 336292872}
   haveShield: 0
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
@@ -21781,7 +21786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMoving: 2
   speedRotate: 2.5
-  rigid2D: {fileID: 1862461511}
+  rigid2D: {fileID: 0}
   shieldReceive: {fileID: 388271487}
   haveShield: 0
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
@@ -23342,7 +23347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d8a02340f575046996a4776e77b93b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystickInterPos: {fileID: 172686622}
+  joystickHandle: {fileID: 0}
   direction: {x: 0, y: 0}
   joystickRadius: 0.82
 --- !u!1 &2011627609
@@ -23775,7 +23780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMoving: 3.5
   speedRotate: 2
-  rigid2D: {fileID: 2030034994}
+  rigid2D: {fileID: 0}
   shieldReceive: {fileID: 188423741}
   haveShield: 0
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}
@@ -23858,7 +23863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMoving: 3
   speedRotate: 3
-  rigid2D: {fileID: 2038981311}
+  rigid2D: {fileID: 0}
   shieldReceive: {fileID: 158572737}
   haveShield: 0
   explosionPrefab: {fileID: 5355006515104347058, guid: 976a83f242571a94e927a98eab84eafe, type: 3}

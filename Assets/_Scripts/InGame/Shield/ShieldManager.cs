@@ -30,7 +30,7 @@ public class ShieldManager : MonoBehaviour
             {
                 yield break;
             }
-            yield return new WaitForSecondsRealtime(Random.Range(3,4));
+            yield return new WaitForSecondsRealtime(Random.Range(15,30));
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
             Vector3 newSpawnShieldPos = cam.transform.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
             newSpawnShieldPos.z = 0;

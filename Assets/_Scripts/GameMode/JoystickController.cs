@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JoystickController : MonoBehaviour
 {
-    public RectTransform joystickInterPos;
+    public RectTransform joystickHandle;
     public Vector2 direction;
     public float joystickRadius;
 
@@ -12,7 +12,7 @@ public class JoystickController : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            joystickInterPos.localPosition = Vector2.zero;
+            joystickHandle.localPosition = Vector2.zero;
         }
 
         if (!Input.GetMouseButton(0))
@@ -26,7 +26,7 @@ public class JoystickController : MonoBehaviour
 
         if (direction.magnitude <= joystickRadius)
         {
-            joystickInterPos.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            joystickHandle.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
             return;
         }
 
@@ -35,6 +35,6 @@ public class JoystickController : MonoBehaviour
         Vector2 pos;
         pos.x = Mathf.Cos(angle) * joystickRadius;
         pos.y = Mathf.Sin(angle) * joystickRadius;
-        joystickInterPos.localPosition = pos;
+        joystickHandle.localPosition = pos;
     }
 }
