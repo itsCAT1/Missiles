@@ -7104,7 +7104,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 264695701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f62f28a37ea3ab43a2b0510bc3e0acb, type: 3}
+  m_Script: {fileID: 11500000, guid: 6230668d6617a8543acd63cd032f2d85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 2105207031}
@@ -23842,14 +23842,237 @@ MonoBehaviour:
     coin: 0
     bestScoreNormalMode: 0
     bestScoreFastMode: 0
-    starPoint: 0
-    shieldPoint: 0
+    totalPoint: 0
+    totalStar: 0
+    totalShield: 0
     havePlane: 0
     audioMute: 0
+    totalDay: 0
   dailyQuestDataHandle: {fileID: 3121768813835324315, guid: fbcc67451fcda3040be318629534d266, type: 3}
   listQuestProgress:
-    listDataProgress: []
-  listDataQuest: {fileID: 11400000, guid: 665e6219cad4eff4280ad57e84439b56, type: 2}
+    listDataProgress:
+    - id: 0
+      indexPlane: 0
+      indexGameMode: 0
+      indexGameControl: 0
+      coin: 0
+      bestScoreNormalMode: 0
+      bestScoreFastMode: 0
+      totalPoint: 0
+      totalStar: 0
+      totalShield: 0
+      havePlane: 0
+      audioMute: 0
+      totalDay: 0
+    - id: 0
+      indexPlane: 0
+      indexGameMode: 0
+      indexGameControl: 0
+      coin: 0
+      bestScoreNormalMode: 0
+      bestScoreFastMode: 0
+      totalPoint: 0
+      totalStar: 0
+      totalShield: 0
+      havePlane: 0
+      audioMute: 0
+      totalDay: 0
+    - id: 0
+      indexPlane: 0
+      indexGameMode: 0
+      indexGameControl: 0
+      coin: 0
+      bestScoreNormalMode: 0
+      bestScoreFastMode: 0
+      totalPoint: 0
+      totalStar: 0
+      totalShield: 0
+      havePlane: 0
+      audioMute: 0
+      totalDay: 0
+    - id: 0
+      indexPlane: 0
+      indexGameMode: 0
+      indexGameControl: 0
+      coin: 0
+      bestScoreNormalMode: 0
+      bestScoreFastMode: 0
+      totalPoint: 0
+      totalStar: 0
+      totalShield: 0
+      havePlane: 0
+      audioMute: 0
+      totalDay: 0
+    - id: 0
+      indexPlane: 0
+      indexGameMode: 0
+      indexGameControl: 0
+      coin: 0
+      bestScoreNormalMode: 0
+      bestScoreFastMode: 0
+      totalPoint: 0
+      totalStar: 0
+      totalShield: 0
+      havePlane: 0
+      audioMute: 0
+      totalDay: 0
+    - id: 0
+      indexPlane: 0
+      indexGameMode: 0
+      indexGameControl: 0
+      coin: 0
+      bestScoreNormalMode: 0
+      bestScoreFastMode: 0
+      totalPoint: 0
+      totalStar: 0
+      totalShield: 0
+      havePlane: 0
+      audioMute: 0
+      totalDay: 0
+    - id: 0
+      indexPlane: 0
+      indexGameMode: 0
+      indexGameControl: 0
+      coin: 0
+      bestScoreNormalMode: 0
+      bestScoreFastMode: 0
+      totalPoint: 0
+      totalStar: 0
+      totalShield: 0
+      havePlane: 0
+      audioMute: 0
+      totalDay: 0
+    - id: 0
+      indexPlane: 0
+      indexGameMode: 0
+      indexGameControl: 0
+      coin: 0
+      bestScoreNormalMode: 0
+      bestScoreFastMode: 0
+      totalPoint: 0
+      totalStar: 0
+      totalShield: 0
+      havePlane: 0
+      audioMute: 0
+      totalDay: 0
+    - id: 0
+      indexPlane: 0
+      indexGameMode: 0
+      indexGameControl: 0
+      coin: 0
+      bestScoreNormalMode: 0
+      bestScoreFastMode: 0
+      totalPoint: 0
+      totalStar: 0
+      totalShield: 0
+      havePlane: 0
+      audioMute: 0
+      totalDay: 0
+    - id: 0
+      indexPlane: 0
+      indexGameMode: 0
+      indexGameControl: 0
+      coin: 0
+      bestScoreNormalMode: 0
+      bestScoreFastMode: 0
+      totalPoint: 0
+      totalStar: 0
+      totalShield: 0
+      havePlane: 0
+      audioMute: 0
+      totalDay: 0
+    - id: 0
+      indexPlane: 0
+      indexGameMode: 0
+      indexGameControl: 0
+      coin: 0
+      bestScoreNormalMode: 0
+      bestScoreFastMode: 0
+      totalPoint: 0
+      totalStar: 0
+      totalShield: 0
+      havePlane: 0
+      audioMute: 0
+      totalDay: 0
+    - id: 0
+      indexPlane: 0
+      indexGameMode: 0
+      indexGameControl: 0
+      coin: 0
+      bestScoreNormalMode: 0
+      bestScoreFastMode: 0
+      totalPoint: 0
+      totalStar: 0
+      totalShield: 0
+      havePlane: 0
+      audioMute: 0
+      totalDay: 0
+    - id: 0
+      indexPlane: 0
+      indexGameMode: 0
+      indexGameControl: 0
+      coin: 0
+      bestScoreNormalMode: 0
+      bestScoreFastMode: 0
+      totalPoint: 0
+      totalStar: 0
+      totalShield: 0
+      havePlane: 0
+      audioMute: 0
+      totalDay: 0
+    - id: 0
+      indexPlane: 0
+      indexGameMode: 0
+      indexGameControl: 0
+      coin: 0
+      bestScoreNormalMode: 0
+      bestScoreFastMode: 0
+      totalPoint: 0
+      totalStar: 0
+      totalShield: 0
+      havePlane: 0
+      audioMute: 0
+      totalDay: 0
+    - id: 0
+      indexPlane: 0
+      indexGameMode: 0
+      indexGameControl: 0
+      coin: 0
+      bestScoreNormalMode: 0
+      bestScoreFastMode: 0
+      totalPoint: 0
+      totalStar: 0
+      totalShield: 0
+      havePlane: 0
+      audioMute: 0
+      totalDay: 0
+    - id: 0
+      indexPlane: 0
+      indexGameMode: 0
+      indexGameControl: 0
+      coin: 0
+      bestScoreNormalMode: 0
+      bestScoreFastMode: 0
+      totalPoint: 0
+      totalStar: 0
+      totalShield: 0
+      havePlane: 0
+      audioMute: 0
+      totalDay: 0
+    - id: 0
+      indexPlane: 0
+      indexGameMode: 0
+      indexGameControl: 0
+      coin: 0
+      bestScoreNormalMode: 0
+      bestScoreFastMode: 0
+      totalPoint: 0
+      totalStar: 0
+      totalShield: 0
+      havePlane: 0
+      audioMute: 0
+      totalDay: 0
+  listDataQuest: {fileID: 0}
   rootUI: {fileID: 233112061}
 --- !u!114 &1130481453
 MonoBehaviour:
@@ -31602,7 +31825,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataManager: {fileID: 1130481452}
   planeManager: {fileID: 1909892231}
-  missilesPrefab: {fileID: 1967220899907536651, guid: b10e7ea12ecfdb746996119a35dfbff0, type: 3}
   missilePrefabList:
   - {fileID: 1967220899907536651, guid: b10e7ea12ecfdb746996119a35dfbff0, type: 3}
   - {fileID: 1967220899907536651, guid: 2aeae0746567ef842a9ebb59285fd31a, type: 3}
@@ -31613,9 +31835,6 @@ MonoBehaviour:
   - {fileID: 1967220899907536651, guid: c0f1af5aa0d47fb41bd4ee07b33655b7, type: 3}
   - {fileID: 2416361502259023748, guid: d1ef4eee3f950de42a40474fd99a246a, type: 3}
   missileList: []
-  minSpawnDistance: 5
-  maxSpawnDistance: 8
-  angleOffset: -90
 --- !u!1 &1507148412
 GameObject:
   m_ObjectHideFlags: 0
@@ -34955,7 +35174,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1672772594}
-  - component: {fileID: 1672772592}
   m_Layer: 0
   m_Name: DataQuest
   m_TagString: Untagged
@@ -34963,43 +35181,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1672772592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672772591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c77c9471b6e569845aebb90ab3cc0e03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dailyQuestData:
-    id: 0
-    icon: {fileID: 0}
-    title: 
-    description: 
-    progress: 
-  dataProgress:
-    id: 0
-    indexPlane: 0
-    indexGameMode: 0
-    indexGameControl: 0
-    coin: 0
-    bestScoreNormalMode: 0
-    bestScoreFastMode: 0
-    starPoint: 0
-    shieldPoint: 0
-    havePlane: 0
-    audioMute: 0
-  icon: {fileID: 0}
-  title: {fileID: 0}
-  description: {fileID: 0}
-  score: {fileID: 0}
-  process: {fileID: 0}
-  scrollbar: {fileID: 0}
-  scoreBar: {fileID: 0}
 --- !u!4 &1672772594
 Transform:
   m_ObjectHideFlags: 0
@@ -41984,7 +42165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d8a02340f575046996a4776e77b93b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystickInterPos: {fileID: 172686622}
+  joystickHandle: {fileID: 172686622}
   direction: {x: 0, y: 0}
   joystickRadius: 0.82
 --- !u!1 &2000439244
@@ -43020,7 +43201,7 @@ GameObject:
   - component: {fileID: 2054661093}
   - component: {fileID: 2054661092}
   - component: {fileID: 2054661091}
-  - component: {fileID: 2054661090}
+  - component: {fileID: 2054661098}
   - component: {fileID: 2054661096}
   - component: {fileID: 2054661097}
   m_Layer: 5
@@ -43030,20 +43211,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2054661090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2054661089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1923ff3986a3bb4486dc7fbf794efd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 264695702}
-  canvas: {fileID: 2054661094}
 --- !u!222 &2054661091
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -43169,6 +43336,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataManager: {fileID: 1130481452}
   animatorSelectionCircle: {fileID: 1291270748}
+--- !u!114 &2054661098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054661089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1923ff3986a3bb4486dc7fbf794efd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 264695702}
+  canvas: {fileID: 2054661094}
 --- !u!1 &2054990562
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,10 +13,12 @@ public class DataProgress
     public int coin;
     public int bestScoreNormalMode;
     public int bestScoreFastMode;
-    public int starPoint;
-    public int shieldPoint;
+    public int totalPoint;
+    public int totalStar;
+    public int totalShield;
     public int havePlane;
     public bool audioMute;
+    public int totalDay;
 }
 
 [Serializable]

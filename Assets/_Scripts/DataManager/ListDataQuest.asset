@@ -17,89 +17,79 @@ MonoBehaviour:
     icon: {fileID: 0}
     title: Habit
     description: Play 100 games
-    progress: 
+    valueTarget: 100
   - id: 1
     icon: {fileID: 0}
     title: Small Change
-    description: Collect 100 stars overall.
-    progress: 
+    description: Collect 100 stars overall
+    valueTarget: 100
   - id: 2
     icon: {fileID: 0}
     title: Star
     description: Collect 10 stars in one game.
-    progress: 
+    valueTarget: 10
   - id: 3
     icon: {fileID: 0}
     title: Apprentice
-    description: Get 100 points in one game.
-    progress: 
+    description: Get 100 points in one games.
+    valueTarget: 100
   - id: 4
     icon: {fileID: 0}
     title: Trial
     description: Play 10 games.
-    progress: 
+    valueTarget: 10
   - id: 5
     icon: {fileID: 0}
     title: Addiction
     description: Play 500 games.
-    progress: 
+    valueTarget: 500
   - id: 6
     icon: {fileID: 0}
     title: Savings
-    description: Collect 1000 stars overall.
-    progress: 
+    description: Collect 1000 stars overall
+    valueTarget: 1000
   - id: 7
     icon: {fileID: 0}
     title: Shield
-    description: Get 100 shield power-ups.
-    progress: 
+    description: Get 100 shield power-up.
+    valueTarget: 100
   - id: 8
     icon: {fileID: 0}
     title: Speed
-    description: Get 100 speed-boost power-ups.
-    progress: 
+    description: Get 100 speed-boost power-up.
+    valueTarget: 100
   - id: 9
     icon: {fileID: 0}
     title: Fortune
     description: Collect 10000 stars overall.
-    progress: 
+    valueTarget: 10000
   - id: 10
     icon: {fileID: 0}
     title: Collector
-    description: Unlock 5 planes.
-    progress: 
+    description: Unlock 5 planes
+    valueTarget: 5
   - id: 11
     icon: {fileID: 0}
     title: Constellation
     description: Collect 20 stars in one game.
-    progress: 
+    valueTarget: 20
   - id: 12
     icon: {fileID: 0}
     title: Galaxy
     description: Collect 40 stars in one game.
-    progress: 
+    valueTarget: 0
   - id: 13
     icon: {fileID: 0}
     title: Pro
     description: Get 400 points in one game.
-    progress: 
+    valueTarget: 400
   - id: 14
     icon: {fileID: 0}
     title: Master
     description: Get 800 points in one game.
-    progress: 
+    valueTarget: 800
   - id: 15
     icon: {fileID: 0}
     title: Boss
-    description: Get 800 points in one game in fast mode.
-    progress: 
-  - id: 16
-    icon: {fileID: 0}
-    title: Patience
-    description: Play 3 days in row.
-    progress: 
-  - id: 17
-    icon: {fileID: 0}
-    title: Persistence
-    description: Play 10 days in row.
-    progress: 
+    description: Get 800 points in one game in .
+    valueTarget: 800

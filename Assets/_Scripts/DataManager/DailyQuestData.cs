@@ -10,5 +10,5 @@ public class DailyQuestData
     public Sprite icon;
     public string title;
     public string description;
-    public string progress;
+    public int valueTarget;
 }

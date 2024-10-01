@@ -17956,9 +17956,6 @@ MonoBehaviour:
   - {fileID: 1967220899907536651, guid: c0f1af5aa0d47fb41bd4ee07b33655b7, type: 3}
   - {fileID: 2416361502259023748, guid: d1ef4eee3f950de42a40474fd99a246a, type: 3}
   missileList: []
-  minSpawnDistance: 5
-  maxSpawnDistance: 8
-  angleOffset: -90
 --- !u!1 &1507148412
 GameObject:
   m_ObjectHideFlags: 0
@@ -23347,7 +23344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d8a02340f575046996a4776e77b93b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joystickHandle: {fileID: 0}
+  joystickHandle: {fileID: 172686622}
   direction: {x: 0, y: 0}
   joystickRadius: 0.82
 --- !u!1 &2011627609

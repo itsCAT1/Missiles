@@ -40,13 +40,11 @@ public class GameManager : MonoBehaviour
     public void SetValue()
     {
         totalScore = starPoint * 10 + timeCountBegin.timeCount + bonusCoin;
-        Debug.Log("total score: " + totalScore);
-        Debug.Log("Total Point data: " + dataManager.data.coin);
+        
         if (dataManager.data.indexGameMode == 0)
         {
             if (totalScore > dataManager.data.bestScoreNormalMode)
             {
-                Debug.Log("BestScoreNormal");
                 dataManager.data.bestScoreNormalMode = totalScore;
                 uiScore.gameObject.SetActive(false);
                 uiBestScore.gameObject.SetActive(true);

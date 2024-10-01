@@ -10,10 +10,10 @@ public class DailyQuestDataHandle : MonoBehaviour
     public Image icon;
     public Text title;
     public Text description;
-    public Text score;
+    public Text value;
     public Text process;
     public Image scrollbar;
-    public Text scoreBar;
+    public Text valueBar;
 
 
     public void SetData(DailyQuestData dailyQuestData, DataProgress dataBase)
@@ -28,11 +28,12 @@ public class DailyQuestDataHandle : MonoBehaviour
         this.icon.sprite = dailyQuestData.icon;
         this.title.text = dailyQuestData.title;
         this.description.text = dailyQuestData.description;
+        this.value.text = "Total Point: " + dataProgress.totalPoint.ToString();
     }
 
-    /*public void SetProgess()
+    public void SetProgess()
     {
-        if (questProgress.score < dailyQuestData.maxScore)
+        if (dataProgress.totalPoint < dailyQuestData.valueTarget)
         {
             this.process.text = "Process: Fail";
         }
@@ -40,5 +41,5 @@ public class DailyQuestDataHandle : MonoBehaviour
         {
             this.process.text = "Process: Complete";
         }
-    }*/
+    }
 }
