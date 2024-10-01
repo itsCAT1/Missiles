@@ -32,7 +32,7 @@ public class TimeCountBegin : MonoBehaviour
 
             time.text = string.Format("{0}:{1:00}", minutes, seconds);
 
-            yield return new WaitForSecondsRealtime(1f);
+            yield return new WaitForSeconds(1f);
         }
     }
 }

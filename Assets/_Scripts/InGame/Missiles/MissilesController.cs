@@ -12,12 +12,20 @@ public class MissilesController : MonoBehaviour
     public GameObject explosionPrefab;
     public float speedRotate;
     public float speedMoving;
+
+    AudioSource audioMissileExplosionClose;
+    AudioSource audioMissileExplosionMid;
+    AudioSource audioMissileExplosionFar;
+
     private void Start()
     {
         rigid2D = this.GetComponent<Rigidbody2D>();
         dataManager = GameObject.Find("GameManager").GetComponent<DataManager>();
         planeManager = GameObject.Find("PlaneManager").GetComponent<PlaneManager>();
         planePos = planeManager.planes[dataManager.data.indexPlane].GetComponent<Transform>();
+        audioMissileExplosionClose = GameObject.Find("MissileExplosionClose").GetComponent<AudioSource>();
+        audioMissileExplosionMid = GameObject.Find("MissileExplosionMid").GetComponent<AudioSource>();
+        audioMissileExplosionFar = GameObject.Find("MissileExplosionFar").GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -46,6 +54,23 @@ public class MissilesController : MonoBehaviour
         {
             GameManager.bonusCoin += 5;
             Debug.Log("bonusCoin");
+            if(Vector2.Distance(this.transform.position, planePos.position) < 1)
+            {
+                audioMissileExplosionClose.Play();
+                Debug.Log("Explosion close");
+            }
+            else if ((Vector2.Distance(this.transform.position, planePos.position) >= 2) &&
+                    (Vector2.Distance(this.transform.position, planePos.position) < 3))
+            {
+                audioMissileExplosionMid.Play();
+                Debug.Log("Explosion mid");
+            }
+            else if (Vector2.Distance(this.transform.position, planePos.position) >= 3)
+            {
+                audioMissileExplosionFar.Play();
+                Debug.Log("Explosion far");
+            }
+
             GameObject explosionTemp = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
@@ -53,9 +78,9 @@ public class MissilesController : MonoBehaviour
 
     IEnumerator TimeOutChasePlane()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSecondsRealtime(10);
         speedRotate = 0;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSecondsRealtime(3);
         if(Vector2.Distance(Camera.main.transform.position, this.transform.position) > 5)
         {
             Destroy(this.gameObject);
@@ -65,7 +90,7 @@ public class MissilesController : MonoBehaviour
     IEnumerator PlaneExplosion()
     {
         speedRotate = 0;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSecondsRealtime(3);
         if (Vector2.Distance(Camera.main.transform.position, this.transform.position) > 5)
         {
             Destroy(this.gameObject);

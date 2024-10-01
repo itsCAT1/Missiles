@@ -39,7 +39,7 @@ public class CloudManager : MonoBehaviour
                 newCloud.transform.SetParent(this.transform);
             }
             oldSpawnCloudPos = newSpawnCloudPos;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSecondsRealtime(0.5f);
 
         }
     }

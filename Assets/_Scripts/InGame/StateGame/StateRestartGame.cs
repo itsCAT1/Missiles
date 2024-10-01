@@ -23,7 +23,7 @@ public class StateRestartGame : MonoBehaviour
         }
         else if (dataManager.data.indexGameMode == 1)
         {
-            Time.timeScale = 1.4f;
+            Time.timeScale = 1.3f;
         }
         dataManager.SaveData();
         SceneManager.LoadScene(1);
@@ -38,7 +38,7 @@ public class StateRestartGame : MonoBehaviour
     IEnumerator WaitAnimationEndGame()
     {
         animatorPanelEndGame.SetBool("Open", false);
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSecondsRealtime(0.4f);
         dataManager.SaveData();
         SceneManager.LoadScene(1);
         dataManager.LoadData();

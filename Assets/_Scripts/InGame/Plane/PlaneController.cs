@@ -9,7 +9,7 @@ public class PlaneController : MonoBehaviour
 {
     public float speedMoving;
     public float speedRotate;
-
+    
     public Rigidbody2D rigid2D;
     Animator animator;
 
@@ -20,17 +20,25 @@ public class PlaneController : MonoBehaviour
     public GameObject explosionMissilePrefab;
 
     public JoystickController joystickController;
-    
     public ButtonArrowController buttonArrowController;
 
     float previousAngle = 0f;
     Vector3 directionNormalized;
-    public float rotate;
+
+    AudioSource audioPlaneExplosion;
+    AudioSource audioMissileExplosionClose;
+    AudioSource audioReceiveShield;
+    AudioSource audioReceiveStar;
+
     void Awake()
     {
         rigid2D = this.GetComponent<Rigidbody2D>();
         animator = this.gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
         previousAngle = this.transform.eulerAngles.z;
+        audioPlaneExplosion = GameObject.Find("PlaneExplosion").GetComponent<AudioSource>();
+        audioMissileExplosionClose = GameObject.Find("MissileExplosionClose").GetComponent<AudioSource>();
+        audioReceiveShield = GameObject.Find("ReceiveShield").GetComponent<AudioSource>();
+        audioReceiveStar = GameObject.Find("ReceiveStar").GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -140,8 +148,8 @@ public class PlaneController : MonoBehaviour
         if (collision.gameObject.CompareTag("shield") && !haveShield)
         {
             haveShield = true;
+            audioReceiveShield.Play();
             Destroy(collision.gameObject);
-            Debug.Log("have shield");
             shieldReceive.SetActive(true);
         }
         else if (collision.gameObject.CompareTag("missile"))
@@ -149,18 +157,18 @@ public class PlaneController : MonoBehaviour
             if (haveShield)
             {
                 haveShield = false;
-                Debug.Log("Explosion have shield");
+                audioMissileExplosionClose.Play();
                 GameObject explosionTemp = Instantiate(explosionMissilePrefab, this.transform.position, Quaternion.identity);
                 Destroy(collision.gameObject);
                 shieldReceive.SetActive(false);
             }
             else
             {
-                Debug.Log("Explosion!");
                 this.gameObject.SetActive(false);
                 speedMoving = 0;
                 speedRotate = 0;
-                
+
+                audioPlaneExplosion.Play();
                 GameObject explosionTemp = Instantiate(explosionPrefab, this.transform.position, Quaternion.identity);
                 Destroy(collision.gameObject);
             }
@@ -168,18 +176,25 @@ public class PlaneController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("speedup") && !haveSpeedUp)
         {
-            Debug.Log("speedup");
             Destroy(collision.gameObject);
             StartCoroutine(StateSpeedUp());
+        }
+
+        if (collision.gameObject.CompareTag("star"))
+        {
+            audioReceiveStar.Play();
+            GameManager.starPoint += 1;
+            Destroy(collision.gameObject);
         }
     }
 
     IEnumerator StateSpeedUp()
     {
         haveSpeedUp = true;
+        audioReceiveStar.Play();
         float oldSpeed = speedMoving;
         speedMoving = oldSpeed * 2;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSecondsRealtime(5);
         speedMoving = oldSpeed;
         haveSpeedUp = false;
     }

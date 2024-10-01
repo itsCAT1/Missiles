@@ -20,7 +20,7 @@ public class StatePauseGame : MonoBehaviour
         }
         else if (dataManager.data.indexGameMode == 1)
         {
-            Time.timeScale = 1.4f;
+            Time.timeScale = 1.3f;
         }
         uiGameControl.SetActive(true);
     }
