@@ -7,22 +7,12 @@ using UnityEngine;
 public class DataProgress
 {
     public int id;
-    public int indexPlane;
-    public int indexGameMode;
-    public int indexGameControl;
-    public int coin;
-    public int bestScoreNormalMode;
-    public int bestScoreFastMode;
-    public int totalPoint;
-    public int totalStar;
-    public int totalShield;
-    public int havePlane;
-    public bool audioMute;
-    public int totalDay;
+    public int currentValue;
+    public string process;
 }
 
 [Serializable]
 public class ListDataProgress
 {
-    public List<DataProgress> listDataProgress;
+    public List<DataProgress> dataProgresses;
 }

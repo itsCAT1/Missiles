@@ -22,7 +22,7 @@ public class TimeCountBegin : MonoBehaviour
 
         while (true)
         {
-            if (!planeManager.planes[dataManager.data.indexPlane].activeSelf)
+            if (!planeManager.planes[dataManager.dataBase.indexPlane].activeSelf)
             {
                 yield break;
             }

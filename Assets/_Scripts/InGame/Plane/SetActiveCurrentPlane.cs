@@ -16,7 +16,7 @@ public class SetActiveCurrentPlane : MonoBehaviour
     {
         for (int i = 0; i < planeManager.planes.Count; i++)
         {
-            planeManager.planes[i].SetActive(i == dataManager.data.indexPlane);
+            planeManager.planes[i].SetActive(i == dataManager.dataBase.indexPlane);
         }
     }
 }

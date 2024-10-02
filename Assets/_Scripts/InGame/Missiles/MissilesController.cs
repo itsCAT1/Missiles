@@ -22,7 +22,7 @@ public class MissilesController : MonoBehaviour
         rigid2D = this.GetComponent<Rigidbody2D>();
         dataManager = GameObject.Find("GameManager").GetComponent<DataManager>();
         planeManager = GameObject.Find("PlaneManager").GetComponent<PlaneManager>();
-        planePos = planeManager.planes[dataManager.data.indexPlane].GetComponent<Transform>();
+        planePos = planeManager.planes[dataManager.dataBase.indexPlane].GetComponent<Transform>();
         audioMissileExplosionClose = GameObject.Find("MissileExplosionClose").GetComponent<AudioSource>();
         audioMissileExplosionMid = GameObject.Find("MissileExplosionMid").GetComponent<AudioSource>();
         audioMissileExplosionFar = GameObject.Find("MissileExplosionFar").GetComponent<AudioSource>();

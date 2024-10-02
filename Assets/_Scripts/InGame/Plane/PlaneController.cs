@@ -157,6 +157,7 @@ public class PlaneController : MonoBehaviour
             if (haveShield)
             {
                 haveShield = false;
+                GameManager.shieldPoint += 1;
                 audioMissileExplosionClose.Play();
                 GameObject explosionTemp = Instantiate(explosionMissilePrefab, this.transform.position, Quaternion.identity);
                 Destroy(collision.gameObject);
@@ -177,6 +178,7 @@ public class PlaneController : MonoBehaviour
         if (collision.gameObject.CompareTag("speedup") && !haveSpeedUp)
         {
             Destroy(collision.gameObject);
+            GameManager.speedUpPoint += 1;
             StartCoroutine(StateSpeedUp());
         }
 

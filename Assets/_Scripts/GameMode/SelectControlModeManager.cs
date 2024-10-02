@@ -19,7 +19,7 @@ public class SelectControlModeManager : MonoBehaviour
     public StateStartGame stateStartGame;
     void Update()
     {
-        var planeInGame = planeManager.planes[dataManager.data.indexPlane].GetComponent<PlaneController>();
+        var planeInGame = planeManager.planes[dataManager.dataBase.indexPlane].GetComponent<PlaneController>();
         if (!stateStartGame.isStartGame)
         {
             foreach (var plane in planeManager.planes)
@@ -38,8 +38,8 @@ public class SelectControlModeManager : MonoBehaviour
 
     public void SetControlMode()
     {
-        var planeInGame = planeManager.planes[dataManager.data.indexPlane].GetComponent<PlaneController>();
-        if (dataManager.data.indexGameControl == 0)
+        var planeInGame = planeManager.planes[dataManager.dataBase.indexPlane].GetComponent<PlaneController>();
+        if (dataManager.dataBase.indexGameControl == 0)
         {
             firstUpdateMoveFinger = false;
             if (Input.GetMouseButton(0) && !firstUpdateJoystick)
@@ -56,14 +56,14 @@ public class SelectControlModeManager : MonoBehaviour
             joystick.gameObject.SetActive(true);
         }
 
-        else if (dataManager.data.indexGameControl == 1)
+        else if (dataManager.dataBase.indexGameControl == 1)
         {
             planeInGame.MovingInputButtonArrow();
             buttonArrow.gameObject.SetActive(true);
             joystick.gameObject.SetActive(false);
         }
 
-        else if (dataManager.data.indexGameControl == 2)
+        else if (dataManager.dataBase.indexGameControl == 2)
         {
             firstUpdateJoystick = false;
             if (Input.GetMouseButton(0) && !firstUpdateMoveFinger)
@@ -83,8 +83,8 @@ public class SelectControlModeManager : MonoBehaviour
 
     public void SetValuePlane()
     {
-        var planeInGame = planeManager.planes[dataManager.data.indexPlane].GetComponent<PlaneController>();
-        switch (dataManager.data.indexPlane)
+        var planeInGame = planeManager.planes[dataManager.dataBase.indexPlane].GetComponent<PlaneController>();
+        switch (dataManager.dataBase.indexPlane)
         {
             case 0:
                 planeInGame.speedMoving = 2;
@@ -132,10 +132,10 @@ public class SelectControlModeManager : MonoBehaviour
 
     public void SelectMode()
     {
-        dataManager.data.indexGameControl++;
-        if (dataManager.data.indexGameControl > 2)
+        dataManager.dataBase.indexGameControl++;
+        if (dataManager.dataBase.indexGameControl > 2)
         {
-            dataManager.data.indexGameControl = 0;
+            dataManager.dataBase.indexGameControl = 0;
         }
     }
 }

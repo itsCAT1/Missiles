@@ -21,7 +21,7 @@ public class CloudManager : MonoBehaviour
     {
         while (true)
         {
-            plane = planeManager.planes[dataManager.data.indexPlane].GetComponent<Transform>();
+            plane = planeManager.planes[dataManager.dataBase.indexPlane].GetComponent<Transform>();
             if (!plane.gameObject.activeSelf)
             {
                 yield break;

@@ -17,7 +17,7 @@ public class ShieldManager : MonoBehaviour
 
     private void Start()
     {
-        plane = planeManager.planes[dataManager.data.indexPlane].GetComponent<Transform>();
+        plane = planeManager.planes[dataManager.dataBase.indexPlane].GetComponent<Transform>();
         StartCoroutine(RandomSpawnShield());
         cam = Camera.main;
     }
@@ -30,13 +30,14 @@ public class ShieldManager : MonoBehaviour
             {
                 yield break;
             }
-            yield return new WaitForSecondsRealtime(Random.Range(15,30));
+            yield return new WaitForSecondsRealtime(Random.Range(3,5));
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
             Vector3 newSpawnShieldPos = cam.transform.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
             newSpawnShieldPos.z = 0;
             if (!plane.transform.GetChild(1).gameObject.activeSelf)
             {
                 GameObject newShield = Instantiate(shieldPrefab, newSpawnShieldPos, Quaternion.identity);
+                newShield.transform.SetParent(this.transform);
                 shieldList.Add(newShield);
             }
         }

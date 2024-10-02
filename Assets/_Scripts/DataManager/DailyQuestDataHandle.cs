@@ -7,39 +7,46 @@ public class DailyQuestDataHandle : MonoBehaviour
 {
     public DailyQuestData dailyQuestData;
     public DataProgress dataProgress;
-    public Image icon;
-    public Text title;
-    public Text description;
-    public Text value;
-    public Text process;
-    public Image scrollbar;
-    public Text valueBar;
+    public Image iconUI;
+    public Text titleUI;
+    public Text descriptionUI;
+    public Text processUI;
+    public Image scrollbarUI;
+    public Text valueBarUI;
 
 
-    public void SetData(DailyQuestData dailyQuestData, DataProgress dataBase)
+    public void SetData(DailyQuestData dailyQuestData, DataProgress dataProgress)
     {
         this.dailyQuestData = dailyQuestData;
-        this.dataProgress = dataBase;
+        this.dataProgress = dataProgress;
+        UIQuest();
+    }
+
+    public void UpdateProgress(DataProgress dataProgress)
+    {
+        this.dataProgress = dataProgress;
         UIQuest();
     }
 
     public void UIQuest()
     {
-        this.icon.sprite = dailyQuestData.icon;
-        this.title.text = dailyQuestData.title;
-        this.description.text = dailyQuestData.description;
-        this.value.text = "Total Point: " + dataProgress.totalPoint.ToString();
+        SetProgress();
+        this.iconUI.sprite = dailyQuestData.icon;
+        this.titleUI.text = dailyQuestData.title;
+        this.descriptionUI.text = dailyQuestData.description;
+        this.valueBarUI.text = dataProgress.currentValue.ToString() + " / " + dailyQuestData.valueTarget.ToString();
+        this.scrollbarUI.fillAmount = (float)dataProgress.currentValue / (float)dailyQuestData.valueTarget;
     }
 
-    public void SetProgess()
+    public void SetProgress()
     {
-        if (dataProgress.totalPoint < dailyQuestData.valueTarget)
+        if (dataProgress.currentValue < dailyQuestData.valueTarget)
         {
-            this.process.text = "Process: Fail";
+            this.processUI.text = "Process: Fail";
         }
         else
         {
-            this.process.text = "Process: Complete";
+            this.processUI.text = "Process: Complete";
         }
     }
 }

@@ -10,11 +10,11 @@ public class UICircleSelectionMode : MonoBehaviour
 
     void Start()
     {
-        if (dataManager.data.indexGameMode == 0)
+        if (dataManager.dataBase.indexGameMode == 0)
         {
             this.transform.position = normalMode.position;
         }
-        else if (dataManager.data.indexGameMode == 1)
+        else if (dataManager.dataBase.indexGameMode == 1)
         {
             this.transform.position = fastMode.position;
         }

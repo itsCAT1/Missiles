@@ -10,7 +10,7 @@ public class UpdateUIAudio : MonoBehaviour
 
     public void OnEnable()
     {
-        if (dataManager.data.audioMute)
+        if (dataManager.dataBase.audioMute)
         {
             AudioListener.pause = true;
             buttonVolumeOn.SetActive(false);
@@ -25,14 +25,14 @@ public class UpdateUIAudio : MonoBehaviour
     }
     public void PressButtonAudio()
     {
-        if (!dataManager.data.audioMute)
+        if (!dataManager.dataBase.audioMute)
         {
-            dataManager.data.audioMute = true;
+            dataManager.dataBase.audioMute = true;
             AudioListener.pause = true;
         }
         else
         {
-            dataManager.data.audioMute = false;
+            dataManager.dataBase.audioMute = false;
             AudioListener.pause = false;
         }
     }

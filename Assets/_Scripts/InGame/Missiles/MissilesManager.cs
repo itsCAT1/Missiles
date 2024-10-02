@@ -15,7 +15,7 @@ public class MissilesManager : MonoBehaviour
     Camera cam;
     void Start()
     {
-        plane = planeManager.planes[dataManager.data.indexPlane].GetComponent<Transform>();
+        plane = planeManager.planes[dataManager.dataBase.indexPlane].GetComponent<Transform>();
         SetTimeSpawn();
         cam = Camera.main;
     }

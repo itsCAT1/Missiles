@@ -14,7 +14,7 @@ public class StateEndGame : MonoBehaviour
     public GameObject uiGameControl;
     private void Update()
     {
-        if (!planeManager.planes[dataManager.data.indexPlane].gameObject.activeSelf)
+        if (!planeManager.planes[dataManager.dataBase.indexPlane].gameObject.activeSelf)
         {
             endGamePanel.SetActive(true);
             uiGameControl.SetActive(false);

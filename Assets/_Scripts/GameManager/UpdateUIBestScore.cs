@@ -11,7 +11,7 @@ public class UpdateUIBestScore : MonoBehaviour
 
     void Update()
     {
-        bestNormalScore.text = dataManager.data.bestScoreNormalMode.ToString();
-        bestFastScore.text = dataManager.data.bestScoreFastMode.ToString();
+        bestNormalScore.text = dataManager.dataBase.bestScoreNormalMode.ToString();
+        bestFastScore.text = dataManager.dataBase.bestScoreFastMode.ToString();
     }
 }

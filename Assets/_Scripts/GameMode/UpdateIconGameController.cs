@@ -9,15 +9,15 @@ public class UpdateIconGameController : MonoBehaviour
 
     private void OnEnable()
     {
-        if(dataManager.data.indexGameControl == 0)
+        if(dataManager.dataBase.indexGameControl == 0)
         {
             iconGameController[0].SetActive(true);
         }
-        else if (dataManager.data.indexGameControl == 1)
+        else if (dataManager.dataBase.indexGameControl == 1)
         {
             iconGameController[1].SetActive(true);
         }
-        else if (dataManager.data.indexGameControl == 2)
+        else if (dataManager.dataBase.indexGameControl == 2)
         {
             iconGameController[2].SetActive(true);
         }

@@ -14,11 +14,11 @@ public class StatePauseGame : MonoBehaviour
 
     public void ResumeGame()
     {
-        if(dataManager.data.indexGameMode == 0)
+        if(dataManager.dataBase.indexGameMode == 0)
         {
             Time.timeScale = 1;
         }
-        else if (dataManager.data.indexGameMode == 1)
+        else if (dataManager.dataBase.indexGameMode == 1)
         {
             Time.timeScale = 1.3f;
         }

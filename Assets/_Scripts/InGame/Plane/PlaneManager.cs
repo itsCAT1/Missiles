@@ -12,10 +12,9 @@ public class PlaneManager : MonoBehaviour
     public DataManager dataManager;
     public CinemachineVirtualCamera virtualCamera;
     
-
     void Start()
     {
-        virtualCamera.Follow = planes[dataManager.data.indexPlane].transform;
+        virtualCamera.Follow = planes[dataManager.dataBase.indexPlane].transform;
         
     }
 
@@ -23,7 +22,7 @@ public class PlaneManager : MonoBehaviour
     {
         for (int i = 0; i < planes.Count; i++)
         {
-            audioSources[i].SetActive(i == dataManager.data.indexPlane);
+            audioSources[i].SetActive(i == dataManager.dataBase.indexPlane);
         }
     }
 }

@@ -19,20 +19,18 @@ public class SelectPlane : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("start");
-        
         ShowSkillPlane();
     }
 
     private void Update()
     {
-        if (dataManager.data.indexPlane == 0)
+        if (dataManager.dataBase.indexPlane == 0)
         {
             leftArrow.SetActive(false);
         }
         else leftArrow.SetActive(true);
 
-        if (dataManager.data.indexPlane == planeManager.planes.Count - 1)
+        if (dataManager.dataBase.indexPlane == planeManager.planes.Count - 1)
         {
             rightArrow.SetActive(false);
         }
@@ -41,20 +39,20 @@ public class SelectPlane : MonoBehaviour
 
     public void SelectLeftArrow()
     {
-        if (dataManager.data.indexPlane > 0)
+        if (dataManager.dataBase.indexPlane > 0)
         {
-            virtualCamera.Follow = planeManager.planes[dataManager.data.indexPlane - 1].transform;
-            dataManager.data.indexPlane--;
+            virtualCamera.Follow = planeManager.planes[dataManager.dataBase.indexPlane - 1].transform;
+            dataManager.dataBase.indexPlane--;
         }
         ShowSkillPlane();
     }
 
     public void SelectRightArrow()
     {
-        if (dataManager.data.indexPlane < planeManager.planes.Count - 1)
+        if (dataManager.dataBase.indexPlane < planeManager.planes.Count - 1)
         {
-            virtualCamera.Follow = planeManager.planes[dataManager.data.indexPlane + 1].transform;
-            dataManager.data.indexPlane++;
+            virtualCamera.Follow = planeManager.planes[dataManager.dataBase.indexPlane + 1].transform;
+            dataManager.dataBase.indexPlane++;
         }
         ShowSkillPlane();
     }
@@ -63,7 +61,7 @@ public class SelectPlane : MonoBehaviour
     {
         for (int i = 0; i < planeManager.planes.Count; i++)
         {
-            skillPlane[i].SetActive(i == dataManager.data.indexPlane);
+            skillPlane[i].SetActive(i == dataManager.dataBase.indexPlane);
         }
     }
 

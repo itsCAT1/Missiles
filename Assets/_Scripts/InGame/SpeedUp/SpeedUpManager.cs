@@ -17,7 +17,7 @@ public class SpeedUpManager : MonoBehaviour
 
     private void Start()
     {
-        plane = planeManager.planes[dataManager.data.indexPlane].GetComponent<Transform>();
+        plane = planeManager.planes[dataManager.dataBase.indexPlane].GetComponent<Transform>();
         StartCoroutine(RandomSpawnSpeedUp());
         cam = Camera.main;
     }
@@ -35,7 +35,9 @@ public class SpeedUpManager : MonoBehaviour
             Vector3 newSpawnSpeedUpPos = cam.transform.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
             newSpawnSpeedUpPos.z = 0;
 
-            Instantiate(speedUp, newSpawnSpeedUpPos, Quaternion.identity);
+            GameObject newSpeedUp = Instantiate(speedUp, newSpawnSpeedUpPos, Quaternion.identity);
+            newSpeedUp.transform.SetParent(this.transform);
+
             oldSpawnSpeedUpPos = newSpawnSpeedUpPos;
         }
     }

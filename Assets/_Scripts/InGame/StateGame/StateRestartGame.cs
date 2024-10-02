@@ -17,17 +17,17 @@ public class StateRestartGame : MonoBehaviour
     {
         animatorPanelPauseGame.SetBool("Open", false);
         yield return new WaitForSecondsRealtime(0.4f);
-        if (dataManager.data.indexGameMode == 0)
+        if (dataManager.dataBase.indexGameMode == 0)
         {
             Time.timeScale = 1;
         }
-        else if (dataManager.data.indexGameMode == 1)
+        else if (dataManager.dataBase.indexGameMode == 1)
         {
             Time.timeScale = 1.3f;
         }
-        dataManager.SaveData();
+        dataManager.SaveDataBase();
         SceneManager.LoadScene(1);
-        dataManager.LoadData();
+        dataManager.LoadDataBase();
     }
 
     public void RestartGameEndGame()
@@ -39,8 +39,8 @@ public class StateRestartGame : MonoBehaviour
     {
         animatorPanelEndGame.SetBool("Open", false);
         yield return new WaitForSecondsRealtime(0.4f);
-        dataManager.SaveData();
+        dataManager.SaveDataBase();
         SceneManager.LoadScene(1);
-        dataManager.LoadData();
+        dataManager.LoadDataBase();
     }
 }

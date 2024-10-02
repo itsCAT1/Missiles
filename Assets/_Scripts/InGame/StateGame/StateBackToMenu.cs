@@ -8,9 +8,9 @@ public class StateBackToMenu : MonoBehaviour
 
     public void BackToHome()
     {
-        dataManager.SaveData();
+        dataManager.SaveDataBase();
         SceneManager.LoadScene(0);
-        dataManager.LoadData();
+        dataManager.LoadDataBase();
         Time.timeScale = 1;
     }
 }

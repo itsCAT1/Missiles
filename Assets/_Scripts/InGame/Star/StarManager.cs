@@ -21,7 +21,7 @@ public class StarManager : MonoBehaviour
 
     private void Start()
     {
-        plane = planeManager.planes[dataManager.data.indexPlane].GetComponent<Transform>();
+        plane = planeManager.planes[dataManager.dataBase.indexPlane].GetComponent<Transform>();
         StartCoroutine(RandomSpawnStar());
         cam = Camera.main;
     }
@@ -34,12 +34,13 @@ public class StarManager : MonoBehaviour
             {
                 yield break;
             }
-            yield return new WaitForSecondsRealtime(Random.Range(10,20));
+            yield return new WaitForSecondsRealtime(Random.Range(3,5));
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
             Vector3 newSpawnStarPos = cam.transform.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
             newSpawnStarPos.z = 0;
 
             GameObject newStar = Instantiate(starPrefab, newSpawnStarPos, Quaternion.identity);
+            newStar.transform.SetParent(this.transform);
             starList.Add(newStar);
         }
     }

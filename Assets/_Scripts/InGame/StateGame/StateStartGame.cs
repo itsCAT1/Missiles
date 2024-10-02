@@ -23,14 +23,14 @@ public class StateStartGame : MonoBehaviour
         isStartGame = true;
         for (int i = 0; i < planeManager.planes.Count; i++)
         {
-            planeManager.planes[i].SetActive(i == dataManager.data.indexPlane);
+            planeManager.planes[i].SetActive(i == dataManager.dataBase.indexPlane);
         }
 
-        if (dataManager.data.indexGameMode == 0)
+        if (dataManager.dataBase.indexGameMode == 0)
         {
             Time.timeScale = 1f;
         }
-        else if (dataManager.data.indexGameMode == 1)
+        else if (dataManager.dataBase.indexGameMode == 1)
         {
             Time.timeScale = 1.3f;
         }
@@ -38,7 +38,7 @@ public class StateStartGame : MonoBehaviour
 
     IEnumerator WaitPlaneRotate()
     {
-        var plane = planeManager.planes[dataManager.data.indexPlane].GetComponent<PlaneController>();
+        var plane = planeManager.planes[dataManager.dataBase.indexPlane].GetComponent<PlaneController>();
         float duration = 1f; 
         float timeCount = 0f;
         Quaternion rotate = plane.transform.rotation; 
