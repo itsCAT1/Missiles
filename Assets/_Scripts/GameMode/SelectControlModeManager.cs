@@ -82,7 +82,8 @@ public class SelectControlModeManager : MonoBehaviour
 
     public void SetValuePlane()
     {
-        var planeInGame = planeManager.planes[dataManager.dataBase.indexPlane].GetComponent<PlaneController>();
+        var planeInGame = planeManager.planes[dataManager.dataBase.indexPlane].
+            GetComponent<PlaneController>();
         switch (dataManager.dataBase.indexPlane)
         {
             case 0:
