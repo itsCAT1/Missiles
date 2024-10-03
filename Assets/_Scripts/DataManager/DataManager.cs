@@ -11,7 +11,7 @@ public class DataManager : MonoBehaviour
     public ListDataProgress listDataProgress;
     public ListDataQuest listDataQuest;
     public Transform rootUI;
-    private Dictionary<int, DailyQuestDataHandle> uiHandlerDict;
+    public Dictionary<int, DailyQuestDataHandle> uiHandlerDict;
 
     private void Start()
     {
@@ -39,11 +39,13 @@ public class DataManager : MonoBehaviour
         uiHandlerDict.Add(dataProgress.id, quest);
     }
 
-    public void UpdateValue(DataProgress dataProgress)
+    public void UpdateValue()
     {
-        var progressIndex = listDataProgress.dataProgresses.FindIndex(progress => progress.id == dataProgress.id);
-        listDataProgress.dataProgresses[progressIndex] = dataProgress;
-        uiHandlerDict[dataProgress.id].UpdateProgress(dataProgress);
+        UpdateValueDataProgress();
+        foreach (var dataProgress in listDataProgress.dataProgresses)
+        {
+            uiHandlerDict[dataProgress.id].UpdateProgress(dataProgress);
+        }
     }
 
 

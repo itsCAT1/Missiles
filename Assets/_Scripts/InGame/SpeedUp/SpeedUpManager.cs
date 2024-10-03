@@ -30,7 +30,7 @@ public class SpeedUpManager : MonoBehaviour
             {
                 yield break;
             }
-            yield return new WaitForSecondsRealtime(Random.Range(20,30));
+            yield return new WaitForSeconds(Random.Range(20,30));
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
             Vector3 newSpawnSpeedUpPos = cam.transform.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
             newSpawnSpeedUpPos.z = 0;

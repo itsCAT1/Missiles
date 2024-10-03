@@ -1,4 +1,6 @@
 using Cinemachine;
+using GooglePlayGames.BasicApi;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
@@ -11,18 +13,43 @@ public class SelectPlane : MonoBehaviour
 
     public GameObject leftArrow;
     public GameObject rightArrow;
-    public List<GameObject> skillPlane;
     public CinemachineVirtualCamera virtualCamera;
+    public ListSkillBase listSkillBase;
+    public SelectSkill selectSkill;
 
-    public GameObject uiMode;
-    public bool isbuy;
-
-    private void Start()
+    public void Start()
     {
-        ShowSkillPlane();
+        UpdateArrow();
+        LoadSkill();
+        //UpdateSkill();
     }
 
-    private void Update()
+    public void SelectLeftArrow()
+    {
+        if (dataManager.dataBase.indexPlane > 0)
+        {
+            virtualCamera.Follow = planeManager.planes[dataManager.dataBase.indexPlane - 1].transform;
+            dataManager.dataBase.indexPlane--;
+            UpdateArrow();
+            LoadSkill();
+            //UpdateSkill();
+        }
+    }
+
+    public void SelectRightArrow()
+    {
+        
+        if (dataManager.dataBase.indexPlane < planeManager.planes.Count - 1)
+        {
+            virtualCamera.Follow = planeManager.planes[dataManager.dataBase.indexPlane + 1].transform;
+            dataManager.dataBase.indexPlane++;
+            UpdateArrow();
+            LoadSkill();
+            //UpdateSkill();
+            
+        }
+    }
+    private void UpdateArrow()
     {
         if (dataManager.dataBase.indexPlane == 0)
         {
@@ -37,32 +64,26 @@ public class SelectPlane : MonoBehaviour
         else rightArrow.SetActive(true);
     }
 
-    public void SelectLeftArrow()
-    {
-        if (dataManager.dataBase.indexPlane > 0)
-        {
-            virtualCamera.Follow = planeManager.planes[dataManager.dataBase.indexPlane - 1].transform;
-            dataManager.dataBase.indexPlane--;
-        }
-        ShowSkillPlane();
-    }
-
-    public void SelectRightArrow()
-    {
-        if (dataManager.dataBase.indexPlane < planeManager.planes.Count - 1)
-        {
-            virtualCamera.Follow = planeManager.planes[dataManager.dataBase.indexPlane + 1].transform;
-            dataManager.dataBase.indexPlane++;
-        }
-        ShowSkillPlane();
-    }
-
-    public void ShowSkillPlane()
+    public void LoadSkill()
     {
         for (int i = 0; i < planeManager.planes.Count; i++)
         {
-            skillPlane[i].SetActive(i == dataManager.dataBase.indexPlane);
+            selectSkill.uiGameMode[i].SetActive(i == dataManager.dataBase.indexPlane);
         }
     }
 
+
+    public void UpdateSkill()
+    {
+        for (int i = 0; i < listSkillBase.listSkillBase.Count; i++)
+        {
+            string itemKey = "skillOwned" + i;
+
+            if (selectSkill.CheckItem(itemKey))
+            {
+                selectSkill.uiGameMode[i].SetActive(false);
+            }
+            else selectSkill.uiGameMode[i].SetActive(true);
+        }
+    }
 }

@@ -15,7 +15,6 @@ public class PlaneManager : MonoBehaviour
     void Start()
     {
         virtualCamera.Follow = planes[dataManager.dataBase.indexPlane].transform;
-        
     }
 
     private void Update()

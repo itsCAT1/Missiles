@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     public bool isScoreUpdated = false;
     public bool isDoubleScore = false;
+    
 
     private void Update()
     {
@@ -74,9 +75,9 @@ public class GameManager : MonoBehaviour
                 uiBestScore.gameObject.SetActive(false);
             }
         }
-        
+
+        dataManager.UpdateValue();
         PlayerPrefs.Save();
-        dataManager.LoadDataBase();
     }
 
     public void SetValueDataBase()

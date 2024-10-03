@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class SelectControlModeManager : MonoBehaviour
 {
-    public PlaneController planeController;
     public DataManager dataManager;
     public PlaneManager planeManager;
 
@@ -17,7 +16,7 @@ public class SelectControlModeManager : MonoBehaviour
     public bool firstUpdateMoveFinger = false;
 
     public StateStartGame stateStartGame;
-    void Update()
+    void FixedUpdate()
     {
         var planeInGame = planeManager.planes[dataManager.dataBase.indexPlane].GetComponent<PlaneController>();
         if (!stateStartGame.isStartGame)
@@ -35,7 +34,7 @@ public class SelectControlModeManager : MonoBehaviour
             SetControlMode();
         }
     }
-
+    
     public void SetControlMode()
     {
         var planeInGame = planeManager.planes[dataManager.dataBase.indexPlane].GetComponent<PlaneController>();
