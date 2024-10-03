@@ -35,7 +35,8 @@ public class StarManager : MonoBehaviour
             }
             yield return new WaitForSeconds(Random.Range(10,20));
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
-            Vector3 newSpawnStarPos = cam.transform.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
+            Vector3 newSpawnStarPos = cam.transform.position + randomDirection * 
+                Random.Range(minSpawnDistance, maxSpawnDistance);
             newSpawnStarPos.z = 0;
 
             GameObject newStar = Instantiate(starPrefab, newSpawnStarPos, Quaternion.identity);
