@@ -9,7 +9,7 @@ public class UpdateUIBestScore : MonoBehaviour
     public Text bestFastScore;
     public DataManager dataManager;
 
-    void Update()
+    void Start()
     {
         bestNormalScore.text = dataManager.dataBase.bestScoreNormalMode.ToString();
         bestFastScore.text = dataManager.dataBase.bestScoreFastMode.ToString();

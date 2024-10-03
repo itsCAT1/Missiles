@@ -28,7 +28,8 @@ public class CloudManager : MonoBehaviour
             }
 
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
-            Vector3 newSpawnCloudPos = Camera.main.transform.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
+            Vector3 newSpawnCloudPos = Camera.main.transform.position + randomDirection * 
+                Random.Range(minSpawnDistance, maxSpawnDistance);
             newSpawnCloudPos.z = 0;
 
             GameObject cloudPrefab = clouds[Random.Range(0, clouds.Count)];

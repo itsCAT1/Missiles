@@ -86,44 +86,44 @@ public class SelectControlModeManager : MonoBehaviour
         switch (dataManager.dataBase.indexPlane)
         {
             case 0:
-                planeInGame.speedMoving = 2;
-                planeInGame.speedRotate = 2;
+                planeInGame.speedMoving = 1;
+                planeInGame.speedRotate = 1;
                 break;
             case 1:
-                planeInGame.speedMoving = 2;
-                planeInGame.speedRotate = 2.5f;
+                planeInGame.speedMoving = 1;
+                planeInGame.speedRotate = 1.2f;
                 break;
             case 2:
-                planeInGame.speedMoving = 2.5f;
-                planeInGame.speedRotate = 2;
+                planeInGame.speedMoving = 1.5f;
+                planeInGame.speedRotate = 1;
                 break;
             case 3:
-                planeInGame.speedMoving = 2.5f;
-                planeInGame.speedRotate = 2.5f;
+                planeInGame.speedMoving = 1.5f;
+                planeInGame.speedRotate = 1.2f;
                 break;
             case 4:
-                planeInGame.speedMoving = 3;
-                planeInGame.speedRotate = 2.5f;
+                planeInGame.speedMoving = 2;
+                planeInGame.speedRotate = 1.2f;
                 break;
             case 5:
-                planeInGame.speedMoving = 2.5f;
-                planeInGame.speedRotate = 3;
+                planeInGame.speedMoving = 1.5f;
+                planeInGame.speedRotate = 1.4f;
                 break;
             case 6:
-                planeInGame.speedMoving = 2;
-                planeInGame.speedRotate = 3.5f;
+                planeInGame.speedMoving = 1;
+                planeInGame.speedRotate = 1.6f;
                 break;
             case 7:
-                planeInGame.speedMoving = 3.5f;
-                planeInGame.speedRotate = 2;
+                planeInGame.speedMoving = 2.5f;
+                planeInGame.speedRotate = 1;
                 break;
             case 8:
-                planeInGame.speedMoving = 3;
-                planeInGame.speedRotate = 3;
+                planeInGame.speedMoving = 2;
+                planeInGame.speedRotate = 1.4f;
                 break;
             case 9:
-                planeInGame.speedMoving = 3;
-                planeInGame.speedRotate = 3.5f;
+                planeInGame.speedMoving = 2;
+                planeInGame.speedRotate = 1.6f;
                 break;
         }
         

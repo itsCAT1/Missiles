@@ -6,13 +6,15 @@ public class ShieldManager : MonoBehaviour
 {
     public Transform plane;
     public GameObject shieldPrefab;
+
     public List<GameObject> shieldList;
+
     public DataManager dataManager;
     public PlaneManager planeManager;
+
     public float minSpawnDistance;
     public float maxSpawnDistance;
 
-    public float angleOffset;
     private Camera cam;
 
     private void Start()
@@ -71,7 +73,7 @@ public class ShieldManager : MonoBehaviour
                 }
 
                 Vector3 direction = (shieldList[i].transform.position - plane.transform.position).normalized;
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + angleOffset;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
                 indicator.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
                 Vector2 posIndicator = shieldList[i].transform.position;
