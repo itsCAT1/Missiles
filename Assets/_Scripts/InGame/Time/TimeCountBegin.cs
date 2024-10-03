@@ -19,7 +19,6 @@ public class TimeCountBegin : MonoBehaviour
 
     IEnumerator TimeCount()
     {
-
         while (true)
         {
             if (!planeManager.planes[dataManager.dataBase.indexPlane].activeSelf)

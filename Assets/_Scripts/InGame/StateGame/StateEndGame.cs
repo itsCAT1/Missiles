@@ -12,6 +12,7 @@ public class StateEndGame : MonoBehaviour
     public GameObject upBG;
     public GameObject endGamePanel;
     public GameObject uiGameControl;
+
     private void Update()
     {
         if (!planeManager.planes[dataManager.dataBase.indexPlane].gameObject.activeSelf)

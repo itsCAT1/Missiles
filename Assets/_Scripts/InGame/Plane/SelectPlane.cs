@@ -21,7 +21,6 @@ public class SelectPlane : MonoBehaviour
     {
         UpdateArrow();
         LoadSkill();
-        //UpdateSkill();
     }
 
     public void SelectLeftArrow()
@@ -32,7 +31,6 @@ public class SelectPlane : MonoBehaviour
             dataManager.dataBase.indexPlane--;
             UpdateArrow();
             LoadSkill();
-            //UpdateSkill();
         }
     }
 
@@ -45,8 +43,6 @@ public class SelectPlane : MonoBehaviour
             dataManager.dataBase.indexPlane++;
             UpdateArrow();
             LoadSkill();
-            //UpdateSkill();
-            
         }
     }
     private void UpdateArrow()

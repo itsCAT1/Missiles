@@ -20,7 +20,8 @@ public class DataManager : MonoBehaviour
         uiHandlerDict = new Dictionary<int, DailyQuestDataHandle>();
         foreach (var quest in listDataQuest.questData)
         {
-            DataProgress dataProgress = listDataProgress.dataProgresses.Find(questProrgess => questProrgess.id == quest.id);
+            DataProgress dataProgress = listDataProgress.dataProgresses.
+                Find(questProrgess => questProrgess.id == quest.id);
             CreateQuest(quest, dataProgress);
         }
     }
