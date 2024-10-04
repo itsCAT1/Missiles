@@ -10,26 +10,6 @@ public class UpdateQuestHandle : MonoBehaviour
     public InputField idInput;
     public DataManager dataManager;
 
-    private void Start()
-    {
-        // Khởi tạo Google Play Games
-        PlayGamesPlatform.DebugLogEnabled = true;
-        PlayGamesPlatform.Activate();
-
-        // Đăng nhập vào Google Play Games
-        Social.localUser.Authenticate((bool success) =>
-        {
-            if (success)
-            {
-                Debug.Log("Đăng nhập thành công!");
-            }
-            else
-            {
-                Debug.Log("Đăng nhập thất bại.");
-            }
-        });
-    }
-
     public void UpdateQuest()
     {
         var idUpdate = int.Parse(idInput.text);
@@ -41,7 +21,7 @@ public class UpdateQuestHandle : MonoBehaviour
         {
             case 0:
                 dataManager.dataBase.pointInOneGame = valueUpdate;
-                UnlockAchievement("CgkI99L9iJYPEAIQBA"); // Thay "CgkIxxxxxxxxxxxA0" bằng Achievement ID từ Google Play Console
+                UnlockAchievement("CgkI99L9iJYPEAIQBA"); 
                 break;
             case 1:
                 dataManager.dataBase.pointInOneGame = valueUpdate;
@@ -54,7 +34,7 @@ public class UpdateQuestHandle : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    // Hàm để unlock achievement
+    
     public void UnlockAchievement(string achievementID)
     {
         Social.ReportProgress(achievementID, 100.0f, (bool success) =>

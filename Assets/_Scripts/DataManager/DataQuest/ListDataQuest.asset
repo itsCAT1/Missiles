@@ -21,8 +21,8 @@ MonoBehaviour:
   - id: 1
     icon: {fileID: 0}
     title: Pro
-    description: Get 200 point in one game.
-    valueTarget: 200
+    description: Get 400 point in one game.
+    valueTarget: 400
   - id: 2
     icon: {fileID: 0}
     title: Master
