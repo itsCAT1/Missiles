@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class PlaneManager : MonoBehaviour
 {
     public List<GameObject> planes;
-    public List<GameObject> audioSources;
+    
     public DataManager dataManager;
     public CinemachineVirtualCamera virtualCamera;
     
@@ -17,11 +17,8 @@ public class PlaneManager : MonoBehaviour
         virtualCamera.Follow = planes[dataManager.dataBase.indexPlane].transform;
     }
 
-    private void Update()
+    public void StartGame()
     {
-        for (int i = 0; i < planes.Count; i++)
-        {
-            audioSources[i].SetActive(i == dataManager.dataBase.indexPlane);
-        }
+        virtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_XDamping = 0;
     }
 }

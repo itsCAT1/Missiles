@@ -6938,7 +6938,6 @@ GameObject:
   - component: {fileID: 264695702}
   - component: {fileID: 264695703}
   - component: {fileID: 264695705}
-  - component: {fileID: 264695706}
   m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7054,19 +7053,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &264695706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264695701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f62f28a37ea3ab43a2b0510bc3e0acb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 2105207031}
 --- !u!1 &268593104
 GameObject:
   m_ObjectHideFlags: 0
@@ -8377,7 +8363,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 320926882}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6737599648375391531}
+        m_TargetAssemblyTypeName: LeaderboadHandler, Assembly-CSharp
+        m_MethodName: ShowLeaderboardWithMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &320926882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17086,8 +17084,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 264695706}
-        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+      - m_Target: {fileID: 1909892231}
+        m_TargetAssemblyTypeName: PlaneManager, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -23552,6 +23550,8 @@ MonoBehaviour:
   uiBestScore: {fileID: 1854581227}
   isScoreUpdated: 0
   isDoubleScore: 0
+  achievementHandler: {fileID: 5987424847148337939}
+  leaderboadHandler: {fileID: 6737599648375391531}
 --- !u!4 &1130481443
 Transform:
   m_ObjectHideFlags: 0
@@ -23725,6 +23725,24 @@ MonoBehaviour:
       currentValue: 0
       process: 
     - id: 9
+      currentValue: 0
+      process: 
+    - id: 10
+      currentValue: 0
+      process: 
+    - id: 11
+      currentValue: 0
+      process: 
+    - id: 12
+      currentValue: 0
+      process: 
+    - id: 13
+      currentValue: 0
+      process: 
+    - id: 14
+      currentValue: 0
+      process: 
+    - id: 15
       currentValue: 0
       process: 
   listDataQuest: {fileID: 11400000, guid: 665e6219cad4eff4280ad57e84439b56, type: 2}
@@ -29676,7 +29694,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1396893298}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6737599648375391531}
+        m_TargetAssemblyTypeName: LeaderboadHandler, Assembly-CSharp
+        m_MethodName: ShowLeaderboardUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1396893298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32482,19 +32512,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2034316559}
-        m_TargetAssemblyTypeName: AchievementHandler, Assembly-CSharp
-        m_MethodName: ShowProgressAchievement
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2034316559}
+      - m_Target: {fileID: 5987424847148337939}
         m_TargetAssemblyTypeName: AchievementHandler, Assembly-CSharp
         m_MethodName: ShowAchievementsUI
         m_Mode: 1
@@ -39932,17 +39950,6 @@ MonoBehaviour:
   - {fileID: 2030034992}
   - {fileID: 2038981309}
   - {fileID: 1173801010}
-  audioSources:
-  - {fileID: 740238250651196295}
-  - {fileID: 5396804850391056699}
-  - {fileID: 559371465952528321}
-  - {fileID: 7026037860198831021}
-  - {fileID: 7343518743063856363}
-  - {fileID: 966749164083015714}
-  - {fileID: 6673340134836928101}
-  - {fileID: 2349885422746544163}
-  - {fileID: 5762128786822107519}
-  - {fileID: 2878396125388875666}
   dataManager: {fileID: 1130481452}
   virtualCamera: {fileID: 2105207031}
 --- !u!114 &1909892232
@@ -39959,6 +39966,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataManager: {fileID: 1130481452}
   planeManager: {fileID: 1909892231}
+  audioSources:
+  - {fileID: 740238250651196295}
+  - {fileID: 5396804850391056699}
+  - {fileID: 559371465952528321}
+  - {fileID: 7026037860198831021}
+  - {fileID: 7343518743063856363}
+  - {fileID: 966749164083015714}
+  - {fileID: 6673340134836928101}
+  - {fileID: 2349885422746544163}
+  - {fileID: 5762128786822107519}
+  - {fileID: 2878396125388875666}
   leftArrow: {fileID: 255059517}
   rightArrow: {fileID: 1964302316}
   virtualCamera: {fileID: 2105207031}
@@ -42706,79 +42724,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 255}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &2034316555
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2034316556}
-  - component: {fileID: 2034316557}
-  - component: {fileID: 2034316558}
-  - component: {fileID: 2034316559}
-  m_Layer: 0
-  m_Name: Google
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2034316556
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034316555}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2034316557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034316555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b882f3c04aef8754a8ca8fc3f110f9cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GooglePlayToken: 
-  GooglePlayError: 
---- !u!114 &2034316558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034316555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08935e79d6206274586c311c07f67b38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2034316559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034316555}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63ba742bffe126847aad9432fa20f84b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dataManager: {fileID: 1130481452}
 --- !u!1 &2036756401
 GameObject:
   m_ObjectHideFlags: 0
@@ -44329,6 +44274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2105207032}
   - component: {fileID: 2105207031}
+  - component: {fileID: 2105207033}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -44391,6 +44337,18 @@ Transform:
   - {fileID: 1800390283}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2105207033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105207030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706055888c354554a972e1111b6004dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2106578280
 GameObject:
   m_ObjectHideFlags: 0
@@ -46211,7 +46169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2289569737230664933
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46673,6 +46631,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2738439827929317857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7464825062227662409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b882f3c04aef8754a8ca8fc3f110f9cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GooglePlayToken: 
+  GooglePlayError: 
 --- !u!224 &2770334765745192633
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46865,6 +46837,21 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_ShouldActivateOnSelect: 1
+--- !u!4 &2980139614711455470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7464825062227662409}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &3077655294715391020
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -48299,6 +48286,19 @@ RectTransform:
   m_AnchoredPosition: {x: 395, y: 755}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5987424847148337939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7464825062227662409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ba742bffe126847aad9432fa20f84b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataManager: {fileID: 1130481452}
 --- !u!114 &6249240625264879429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48475,6 +48475,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &6737599648375391531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7464825062227662409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd817f1297f5814aa27964470d377eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataManager: {fileID: 1130481452}
 --- !u!82 &6820031789639081932
 AudioSource:
   m_ObjectHideFlags: 0
@@ -48622,6 +48635,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &7123976068298083155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7464825062227662409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08935e79d6206274586c311c07f67b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7198250745466508982
 Transform:
   m_ObjectHideFlags: 0
@@ -48782,7 +48807,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 160
+  m_Spacing: 120
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
@@ -48811,6 +48836,26 @@ RectTransform:
   m_AnchoredPosition: {x: 783, y: 529}
   m_SizeDelta: {x: 250, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &7464825062227662409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2980139614711455470}
+  - component: {fileID: 2738439827929317857}
+  - component: {fileID: 7123976068298083155}
+  - component: {fileID: 5987424847148337939}
+  - component: {fileID: 6737599648375391531}
+  m_Layer: 0
+  m_Name: Google
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!82 &7486381182408181228
 AudioSource:
   m_ObjectHideFlags: 0
@@ -49206,7 +49251,7 @@ MonoBehaviour:
   valueInput: {fileID: 2970618402737992105}
   idInput: {fileID: 2916402851217764491}
   dataManager: {fileID: 1130481452}
-  achievementHandler: {fileID: 2034316559}
+  achievementHandler: {fileID: 5987424847148337939}
 --- !u!82 &8329797684878156216
 AudioSource:
   m_ObjectHideFlags: 0
@@ -49578,5 +49623,5 @@ SceneRoots:
   - {fileID: 2054661095}
   - {fileID: 2014345113}
   - {fileID: 2105207032}
-  - {fileID: 2034316556}
+  - {fileID: 2980139614711455470}
   - {fileID: 9102858999955605654}

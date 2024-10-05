@@ -24,18 +24,24 @@
 
 public static class GPGSIds
 {
-        public const string achievement_addiction = "CgkI99L9iJYPEAIQCg"; // <GPGSID>
-        public const string achievement_trial = "CgkI99L9iJYPEAIQDA"; // <GPGSID>
-        public const string achievement_small_change = "CgkI99L9iJYPEAIQCA"; // <GPGSID>
         public const string achievement_galaxy = "CgkI99L9iJYPEAIQBw"; // <GPGSID>
-        public const string leaderboard_normal_best_score = "CgkI99L9iJYPEAIQAg"; // <GPGSID>
-        public const string achievement_shield = "CgkI99L9iJYPEAIQCQ"; // <GPGSID>
-        public const string achievement_star = "CgkI99L9iJYPEAIQBQ"; // <GPGSID>
-        public const string achievement_constellation = "CgkI99L9iJYPEAIQBg"; // <GPGSID>
+        public const string achievement_fortune = "CgkI99L9iJYPEAIQEg"; // <GPGSID>
+        public const string achievement_speed = "CgkI99L9iJYPEAIQCg"; // <GPGSID>
+        public const string achievement_pro = "CgkI99L9iJYPEAIQDg"; // <GPGSID>
         public const string achievement_habit = "CgkI99L9iJYPEAIQDQ"; // <GPGSID>
-        public const string achievement_apprentice = "CgkI99L9iJYPEAIQBA"; // <GPGSID>
+        public const string achievement_star = "CgkI99L9iJYPEAIQBQ"; // <GPGSID>
+        public const string achievement_savings = "CgkI99L9iJYPEAIQEQ"; // <GPGSID>
         public const string achievement_collector = "CgkI99L9iJYPEAIQCw"; // <GPGSID>
+        public const string achievement_constellation = "CgkI99L9iJYPEAIQBg"; // <GPGSID>
+        public const string achievement_small_change = "CgkI99L9iJYPEAIQCA"; // <GPGSID>
+        public const string achievement_addiction = "CgkI99L9iJYPEAIQEw"; // <GPGSID>
+        public const string achievement_master = "CgkI99L9iJYPEAIQEA"; // <GPGSID>
+        public const string achievement_apprentice = "CgkI99L9iJYPEAIQBA"; // <GPGSID>
         public const string leaderboard_fast_best_scores = "CgkI99L9iJYPEAIQAw"; // <GPGSID>
+        public const string achievement_boss = "CgkI99L9iJYPEAIQDw"; // <GPGSID>
+        public const string achievement_trial = "CgkI99L9iJYPEAIQDA"; // <GPGSID>
+        public const string achievement_shield = "CgkI99L9iJYPEAIQCQ"; // <GPGSID>
+        public const string leaderboard_normal_best_score = "CgkI99L9iJYPEAIQAg"; // <GPGSID>
 
 }
 

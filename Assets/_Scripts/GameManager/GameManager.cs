@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public bool isDoubleScore = false;
 
     public AchievementHandler achievementHandler;
+    public LeaderboadHandler leaderboadHandler; 
 
     private void Update()
     {
@@ -39,12 +40,9 @@ public class GameManager : MonoBehaviour
         {
             isScoreUpdated = true;
             UpdateUIValue();
-            for (int i = 0; i < dataManager.listDataProgress.dataProgresses.Count; i++)
-            {
-                float currentProgress = (float)dataManager.listDataProgress.dataProgresses[i].currentValue /
-                dataManager.listDataQuest.questData[i].valueTarget;
-                
-            }
+            achievementHandler.ShowAchievementProgress();
+            leaderboadHandler.ReportScoreToLeaderboard(dataManager.dataBase.bestScoreNormalMode, "CgkI99L9iJYPEAIQAg");
+            leaderboadHandler.ReportScoreToLeaderboard(dataManager.dataBase.bestScoreFastMode, "CgkI99L9iJYPEAIQAw");
         }
     }
 
@@ -52,7 +50,7 @@ public class GameManager : MonoBehaviour
     {
         totalScore = starPoint * 10 + timeCountBegin.timeCount + bonusCoin;
         SetValueDataBase();
-        Debug.Log("end");
+        
         if (dataManager.dataBase.indexGameMode == 0)
         {
             if (totalScore > dataManager.dataBase.bestScoreNormalMode)

@@ -14,11 +14,11 @@ public class LoginGoogle : MonoBehaviour
         {
             if (success)
             {
-                Debug.Log("Đăng nhập thành công!");
+                Debug.Log("Login success");
             }
             else
             {
-                Debug.Log("Đăng nhập thất bại.");
+                Debug.Log("Login fail");
             }
         });
     }

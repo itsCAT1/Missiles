@@ -10,17 +10,22 @@ public class SelectPlane : MonoBehaviour
 {
     public DataManager dataManager;
     public PlaneManager planeManager;
+    public List<GameObject> audioSources;
 
     public GameObject leftArrow;
     public GameObject rightArrow;
+
     public CinemachineVirtualCamera virtualCamera;
+
     public ListSkillBase listSkillBase;
     public SelectSkill selectSkill;
+
 
     public void Start()
     {
         UpdateArrow();
         LoadSkill();
+        LoadAudio();
     }
 
     public void SelectLeftArrow()
@@ -31,6 +36,7 @@ public class SelectPlane : MonoBehaviour
             dataManager.dataBase.indexPlane--;
             UpdateArrow();
             LoadSkill();
+            LoadAudio();
         }
     }
 
@@ -43,6 +49,7 @@ public class SelectPlane : MonoBehaviour
             dataManager.dataBase.indexPlane++;
             UpdateArrow();
             LoadSkill();
+            LoadAudio();
         }
     }
     private void UpdateArrow()
@@ -58,6 +65,14 @@ public class SelectPlane : MonoBehaviour
             rightArrow.SetActive(false);
         }
         else rightArrow.SetActive(true);
+    }
+
+    public void LoadAudio()
+    {
+        for (int i = 0; i < planeManager.planes.Count; i++)
+        {
+            audioSources[i].SetActive(i == dataManager.dataBase.indexPlane);
+        }
     }
 
     public void LoadSkill()
