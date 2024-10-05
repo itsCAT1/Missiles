@@ -45,7 +45,7 @@ public class DataManager : MonoBehaviour
         UpdateValueDataProgress();
         foreach (var dataProgress in listDataProgress.dataProgresses)
         {
-            uiHandlerDict[dataProgress.id].UpdateProgress(dataProgress);
+            uiHandlerDict[dataProgress.id].SetDataProgress(dataProgress);
         }
     }
 

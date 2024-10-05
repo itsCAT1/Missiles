@@ -22,7 +22,7 @@ public class DailyQuestDataHandle : MonoBehaviour
         UIQuest();
     }
 
-    public void UpdateProgress(DataProgress dataProgress)
+    public void SetDataProgress(DataProgress dataProgress)
     {
         this.dataProgress = dataProgress;
         UIQuest();
