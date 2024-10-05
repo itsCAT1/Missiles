@@ -16,8 +16,6 @@ public class UpdateQuestHandle : MonoBehaviour
         var idUpdate = int.Parse(idInput.text);
         var valueUpdate = int.Parse(valueInput.text);
 
-        var questProgress = dataManager.listDataProgress.dataProgresses.Find(questProgress => questProgress.id == idUpdate);
-
         float currentProgress = (float)dataManager.listDataProgress.dataProgresses[idUpdate].currentValue /
                 dataManager.listDataQuest.questData[idUpdate].valueTarget;
         switch (idUpdate)
