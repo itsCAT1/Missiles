@@ -23684,6 +23684,8 @@ MonoBehaviour:
     indexGameControl: 0
     coin: 0
     audioMute: 0
+    oldBestScoreNormalMode: 0
+    oldBestScoreFastMode: 0
     bestScoreNormalMode: 0
     bestScoreFastMode: 0
     pointInOneGame: 0
@@ -39982,6 +39984,9 @@ MonoBehaviour:
   virtualCamera: {fileID: 2105207031}
   listSkillBase: {fileID: 11400000, guid: 4bab7cd8d2a544e4b883ba45d263253a, type: 2}
   selectSkill: {fileID: 1909892233}
+  listSkillOwned:
+    listSkillOwned: []
+  modeUI: {fileID: 408560830}
 --- !u!114 &1909892233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39997,9 +40002,9 @@ MonoBehaviour:
   dataManager: {fileID: 1130481452}
   listSkillBase: {fileID: 11400000, guid: 4bab7cd8d2a544e4b883ba45d263253a, type: 2}
   listUISkill: {fileID: 1898009072}
-  listItemOwned:
+  listSkillOwned:
     listSkillOwned: []
-  uiGameMode:
+  uiSkill:
   - {fileID: 458571727}
   - {fileID: 1859350689}
   - {fileID: 619143508}

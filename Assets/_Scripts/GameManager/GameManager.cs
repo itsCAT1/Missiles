@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
             achievementHandler.ShowAchievementProgress();
             leaderboadHandler.ReportScoreToLeaderboard(dataManager.dataBase.bestScoreNormalMode, "CgkI99L9iJYPEAIQAg");
             leaderboadHandler.ReportScoreToLeaderboard(dataManager.dataBase.bestScoreFastMode, "CgkI99L9iJYPEAIQAw");
+            leaderboadHandler.ReportScoreToLeaderboard(dataManager.dataBase.oldBestScoreNormalMode, "CgkI99L9iJYPEAIQFA");
+            leaderboadHandler.ReportScoreToLeaderboard(dataManager.dataBase.oldBestScoreFastMode, "CgkI99L9iJYPEAIQFQ");
         }
     }
 
@@ -55,6 +57,7 @@ public class GameManager : MonoBehaviour
         {
             if (totalScore > dataManager.dataBase.bestScoreNormalMode)
             {
+                dataManager.dataBase.oldBestScoreNormalMode = dataManager.dataBase.bestScoreNormalMode;
                 dataManager.dataBase.bestScoreNormalMode = totalScore;
                 uiScore.gameObject.SetActive(false);
                 uiBestScore.gameObject.SetActive(true);
@@ -69,6 +72,7 @@ public class GameManager : MonoBehaviour
         {
             if (totalScore > dataManager.dataBase.bestScoreFastMode)
             {
+                dataManager.dataBase.oldBestScoreFastMode = dataManager.dataBase.bestScoreFastMode;
                 dataManager.dataBase.bestScoreFastMode = totalScore;
                 uiScore.gameObject.SetActive(false);
                 uiBestScore.gameObject.SetActive(true);

@@ -12,6 +12,8 @@ public class DataBase
     public int coin;
     public bool audioMute;
 
+    public int oldBestScoreNormalMode;
+    public int oldBestScoreFastMode;
     public int bestScoreNormalMode;
     public int bestScoreFastMode;
     public int pointInOneGame;

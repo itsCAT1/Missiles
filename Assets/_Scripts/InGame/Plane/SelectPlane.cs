@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using System.Reflection;
 using UnityEngine;
 
 public class SelectPlane : MonoBehaviour
@@ -19,6 +20,8 @@ public class SelectPlane : MonoBehaviour
 
     public ListSkillBase listSkillBase;
     public SelectSkill selectSkill;
+    public ListSkillOwned listSkillOwned;
+    public GameObject modeUI;
 
 
     public void Start()
@@ -77,24 +80,13 @@ public class SelectPlane : MonoBehaviour
 
     public void LoadSkill()
     {
-        for (int i = 0; i < planeManager.planes.Count; i++)
+        int indexPlane = dataManager.dataBase.indexPlane;
+        Debug.Log(listSkillOwned.listSkillOwned[indexPlane]);
+        string itemKey = "skillOwned" + indexPlane;
+        if (!selectSkill.CheckItem(itemKey))
         {
-            selectSkill.uiGameMode[i].SetActive(i == dataManager.dataBase.indexPlane);
-        }
-    }
+            selectSkill.uiSkill[indexPlane].SetActive(false);
 
-
-    public void UpdateSkill()
-    {
-        for (int i = 0; i < listSkillBase.listSkillBase.Count; i++)
-        {
-            string itemKey = "skillOwned" + i;
-
-            if (selectSkill.CheckItem(itemKey))
-            {
-                selectSkill.uiGameMode[i].SetActive(false);
-            }
-            else selectSkill.uiGameMode[i].SetActive(true);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,14 +25,14 @@ public class SelectSkill : MonoBehaviour
     public ListSkillBase listSkillBase;
     public ListUISkill listUISkill;
 
-    public ListSkillOwned listItemOwned; 
-    public List<GameObject> uiGameMode;
+    public ListSkillOwned listSkillOwned; 
+    public List<GameObject> uiSkill;
     public PlaneManager planeManager;
 
     void Start()
     {
-        LoadSkillOwned(); 
-        LoadPanel();
+        LoadSkillOwned();
+        SetPriceSkill();
     }
 
     public void PurchaseSkill(int index)
@@ -43,20 +44,20 @@ public class SelectSkill : MonoBehaviour
             dataManager.dataBase.coin -= listSkillBase.listSkillBase[index].priceSkill;
 
             var itemOwned = new SkillOwned { skillOwned = itemKey };
-            listItemOwned.listSkillOwned.Add(itemOwned);
+            listSkillOwned.listSkillOwned.Add(itemOwned);
 
             Debug.Log(itemOwned);
             SaveSkillOwned();
-            uiGameMode[index].SetActive(false);
+            uiSkill[index].SetActive(false);
         }
     }
 
     public bool CheckItem(string itemKey)
     {
-        var item = listItemOwned.listSkillOwned.Find(item => item.skillOwned == itemKey);
-        return listItemOwned.listSkillOwned.Contains(item);
+        var item = listSkillOwned.listSkillOwned.Find(item => item.skillOwned == itemKey);
+        return listSkillOwned.listSkillOwned.Contains(item);
     }
-    public void LoadPanel()
+    public void SetPriceSkill()
     {
         for (int i = 0; i < listSkillBase.listSkillBase.Count; i++)
         {
@@ -66,15 +67,15 @@ public class SelectSkill : MonoBehaviour
 
     private void SaveSkillOwned()
     {
-        var value = JsonUtility.ToJson(listItemOwned);
+        var value = JsonUtility.ToJson(listSkillOwned);
         PlayerPrefs.SetString(nameof(ListSkillOwned), value);
         PlayerPrefs.Save();
     }
 
     private void LoadSkillOwned()
     {
-        var value = JsonUtility.ToJson(listItemOwned);
+        var value = JsonUtility.ToJson(listSkillOwned);
         var valueString = PlayerPrefs.GetString(nameof(ListSkillOwned), value);
-        listItemOwned = JsonUtility.FromJson<ListSkillOwned>(valueString);
+        listSkillOwned = JsonUtility.FromJson<ListSkillOwned>(valueString);
     }
 }
