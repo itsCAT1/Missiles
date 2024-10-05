@@ -24,9 +24,17 @@
 
 public static class GPGSIds
 {
-        public const string achievement_pro = "CgkI99L9iJYPEAIQBQ"; // <GPGSID>
-        public const string achievement_apprentice = "CgkI99L9iJYPEAIQBA"; // <GPGSID>
+        public const string achievement_addiction = "CgkI99L9iJYPEAIQCg"; // <GPGSID>
+        public const string achievement_trial = "CgkI99L9iJYPEAIQDA"; // <GPGSID>
+        public const string achievement_small_change = "CgkI99L9iJYPEAIQCA"; // <GPGSID>
+        public const string achievement_galaxy = "CgkI99L9iJYPEAIQBw"; // <GPGSID>
         public const string leaderboard_normal_best_score = "CgkI99L9iJYPEAIQAg"; // <GPGSID>
+        public const string achievement_shield = "CgkI99L9iJYPEAIQCQ"; // <GPGSID>
+        public const string achievement_star = "CgkI99L9iJYPEAIQBQ"; // <GPGSID>
+        public const string achievement_constellation = "CgkI99L9iJYPEAIQBg"; // <GPGSID>
+        public const string achievement_habit = "CgkI99L9iJYPEAIQDQ"; // <GPGSID>
+        public const string achievement_apprentice = "CgkI99L9iJYPEAIQBA"; // <GPGSID>
+        public const string achievement_collector = "CgkI99L9iJYPEAIQCw"; // <GPGSID>
         public const string leaderboard_fast_best_scores = "CgkI99L9iJYPEAIQAw"; // <GPGSID>
 
 }

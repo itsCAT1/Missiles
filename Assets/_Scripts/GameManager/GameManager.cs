@@ -29,16 +29,22 @@ public class GameManager : MonoBehaviour
 
     public bool isScoreUpdated = false;
     public bool isDoubleScore = false;
-    
+
+    public AchievementHandler achievementHandler;
 
     private void Update()
     {
         uiStarPointInGame.text = starPoint.ToString();
-        
         if (!planeManager.planes[dataManager.dataBase.indexPlane].gameObject.activeSelf && !isScoreUpdated)
         {
-            UpdateUIValue();
             isScoreUpdated = true;
+            UpdateUIValue();
+            for (int i = 0; i < dataManager.listDataProgress.dataProgresses.Count; i++)
+            {
+                float currentProgress = (float)dataManager.listDataProgress.dataProgresses[i].currentValue /
+                dataManager.listDataQuest.questData[i].valueTarget;
+                
+            }
         }
     }
 
@@ -46,7 +52,7 @@ public class GameManager : MonoBehaviour
     {
         totalScore = starPoint * 10 + timeCountBegin.timeCount + bonusCoin;
         SetValueDataBase();
-        
+        Debug.Log("end");
         if (dataManager.dataBase.indexGameMode == 0)
         {
             if (totalScore > dataManager.dataBase.bestScoreNormalMode)

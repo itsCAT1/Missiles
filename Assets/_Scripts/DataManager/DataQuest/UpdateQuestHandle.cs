@@ -9,6 +9,7 @@ public class UpdateQuestHandle : MonoBehaviour
     public InputField valueInput;
     public InputField idInput;
     public DataManager dataManager;
+    public AchievementHandler achievementHandler;
 
     public void UpdateQuest()
     {
@@ -17,43 +18,56 @@ public class UpdateQuestHandle : MonoBehaviour
 
         var questProgress = dataManager.listDataProgress.dataProgresses.Find(questProgress => questProgress.id == idUpdate);
 
+        float currentProgress = (float)dataManager.listDataProgress.dataProgresses[idUpdate].currentValue /
+                dataManager.listDataQuest.questData[idUpdate].valueTarget;
         switch (idUpdate)
         {
             case 0:
                 dataManager.dataBase.pointInOneGame = valueUpdate;
-                UnlockAchievement("CgkI99L9iJYPEAIQBA"); 
+                achievementHandler.UpdateAchievementProgress("CgkI99L9iJYPEAIQBA", currentProgress);
                 break;
             case 1:
-                dataManager.dataBase.pointInOneGame = valueUpdate;
-                UnlockAchievement("CgkI99L9iJYPEAIQBQ");
+                dataManager.dataBase.starInOneGame = valueUpdate;
+                achievementHandler.UpdateAchievementProgress("CgkI99L9iJYPEAIQBQ", currentProgress);
                 break;
-                
+            case 2:
+                dataManager.dataBase.starInOneGame = valueUpdate;
+                achievementHandler.UpdateAchievementProgress("CgkI99L9iJYPEAIQBg", currentProgress);
+                break;
+            case 3:
+                dataManager.dataBase.starInOneGame = valueUpdate;
+                achievementHandler.UpdateAchievementProgress("CgkI99L9iJYPEAIQBw", currentProgress);
+                break;
+            case 4:
+                dataManager.dataBase.totalStar = valueUpdate;
+                achievementHandler.UpdateAchievementProgress("CgkI99L9iJYPEAIQCA", currentProgress);
+                break;
+            case 5:
+                dataManager.dataBase.totalShield = valueUpdate;
+                achievementHandler.UpdateAchievementProgress("CgkI99L9iJYPEAIQCQ", currentProgress);
+                break;
+            case 6:
+                dataManager.dataBase.totalSpeedUp = valueUpdate;
+                achievementHandler.UpdateAchievementProgress("CgkI99L9iJYPEAIQCg", currentProgress);
+                break;
+            case 7:
+                dataManager.dataBase.totalPlane = valueUpdate;
+                achievementHandler.UpdateAchievementProgress("CgkI99L9iJYPEAIQCw", currentProgress);
+                break;
+            case 8:
+                dataManager.dataBase.totalGame = valueUpdate;
+                achievementHandler.UpdateAchievementProgress("CgkI99L9iJYPEAIQDA", currentProgress);
+                break;
+            case 9:
+                dataManager.dataBase.totalGame = valueUpdate;
+                achievementHandler.UpdateAchievementProgress("CgkI99L9iJYPEAIQDQ", currentProgress);
+                break;
         }
 
         dataManager.UpdateValue();
         PlayerPrefs.Save();
     }
 
-    
-    public void UnlockAchievement(string achievementID)
-    {
-        Social.ReportProgress(achievementID, 100.0f, (bool success) =>
-        {
-            if (success)
-            {
-                Debug.Log("Achievement unlocked!");
-            }
-            else
-            {
-                Debug.Log("Failed to unlock achievement.");
-            }
-        });
-    }
-
-    public void ShowAchievementsUI()
-    {
-        PlayGamesPlatform.Instance.ShowAchievementsUI();
-    }
 
     public void Reset()
     {
@@ -64,5 +78,6 @@ public class UpdateQuestHandle : MonoBehaviour
 
         dataManager.SaveDataBase();
         dataManager.SaveDataProgress();
+
     }
 }

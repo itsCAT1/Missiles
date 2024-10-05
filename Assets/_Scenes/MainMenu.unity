@@ -7063,7 +7063,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 264695701}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6230668d6617a8543acd63cd032f2d85, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f62f28a37ea3ab43a2b0510bc3e0acb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 2105207031}
@@ -23518,7 +23518,6 @@ GameObject:
   - component: {fileID: 1130481447}
   - component: {fileID: 1130481451}
   - component: {fileID: 1130481453}
-  - component: {fileID: 1130481454}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -23728,24 +23727,6 @@ MonoBehaviour:
     - id: 9
       currentValue: 0
       process: 
-    - id: 10
-      currentValue: 0
-      process: 
-    - id: 11
-      currentValue: 0
-      process: 
-    - id: 12
-      currentValue: 0
-      process: 
-    - id: 13
-      currentValue: 0
-      process: 
-    - id: 14
-      currentValue: 0
-      process: 
-    - id: 15
-      currentValue: 0
-      process: 
   listDataQuest: {fileID: 11400000, guid: 665e6219cad4eff4280ad57e84439b56, type: 2}
   rootUI: {fileID: 230692367778161966}
 --- !u!114 &1130481453
@@ -23762,18 +23743,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinText: {fileID: 908872217}
   dataManager: {fileID: 1130481452}
---- !u!114 &1130481454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1130481441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08935e79d6206274586c311c07f67b38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1134146247
 GameObject:
   m_ObjectHideFlags: 0
@@ -32513,8 +32482,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8317388382497113408}
-        m_TargetAssemblyTypeName: UpdateQuestHandle, Assembly-CSharp
+      - m_Target: {fileID: 2034316559}
+        m_TargetAssemblyTypeName: AchievementHandler, Assembly-CSharp
+        m_MethodName: ShowProgressAchievement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2034316559}
+        m_TargetAssemblyTypeName: AchievementHandler, Assembly-CSharp
         m_MethodName: ShowAchievementsUI
         m_Mode: 1
         m_Arguments:
@@ -42735,6 +42716,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2034316556}
   - component: {fileID: 2034316557}
+  - component: {fileID: 2034316558}
+  - component: {fileID: 2034316559}
   m_Layer: 0
   m_Name: Google
   m_TagString: Untagged
@@ -42771,6 +42754,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GooglePlayToken: 
   GooglePlayError: 
+--- !u!114 &2034316558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034316555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08935e79d6206274586c311c07f67b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2034316559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2034316555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ba742bffe126847aad9432fa20f84b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataManager: {fileID: 1130481452}
 --- !u!1 &2036756401
 GameObject:
   m_ObjectHideFlags: 0
@@ -48774,7 +48782,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 120
+  m_Spacing: 160
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
@@ -49198,6 +49206,7 @@ MonoBehaviour:
   valueInput: {fileID: 2970618402737992105}
   idInput: {fileID: 2916402851217764491}
   dataManager: {fileID: 1130481452}
+  achievementHandler: {fileID: 2034316559}
 --- !u!82 &8329797684878156216
 AudioSource:
   m_ObjectHideFlags: 0

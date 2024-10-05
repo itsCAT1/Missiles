@@ -87,20 +87,14 @@ public class DataManager : MonoBehaviour
     public void UpdateValueDataProgress()
     {
         listDataProgress.dataProgresses[0].currentValue = dataBase.pointInOneGame;
-        listDataProgress.dataProgresses[1].currentValue = dataBase.pointInOneGame;
-        listDataProgress.dataProgresses[2].currentValue = dataBase.pointInOneGame;
-        listDataProgress.dataProgresses[3].currentValue = dataBase.bestScoreFastMode;
-        listDataProgress.dataProgresses[4].currentValue = dataBase.starInOneGame;
-        listDataProgress.dataProgresses[5].currentValue = dataBase.starInOneGame;
-        listDataProgress.dataProgresses[6].currentValue = dataBase.starInOneGame;
-        listDataProgress.dataProgresses[7].currentValue = dataBase.totalStar;
-        listDataProgress.dataProgresses[8].currentValue = dataBase.totalStar;
-        listDataProgress.dataProgresses[9].currentValue = dataBase.totalStar;
-        listDataProgress.dataProgresses[10].currentValue = dataBase.totalShield;
-        listDataProgress.dataProgresses[11].currentValue = dataBase.totalSpeedUp;
-        listDataProgress.dataProgresses[12].currentValue = dataBase.totalPlane;
-        listDataProgress.dataProgresses[13].currentValue = dataBase.totalGame;
-        listDataProgress.dataProgresses[14].currentValue = dataBase.totalGame;
-        listDataProgress.dataProgresses[15].currentValue = dataBase.totalGame;
+        listDataProgress.dataProgresses[1].currentValue = dataBase.starInOneGame;
+        listDataProgress.dataProgresses[2].currentValue = dataBase.starInOneGame;
+        listDataProgress.dataProgresses[3].currentValue = dataBase.starInOneGame;
+        listDataProgress.dataProgresses[4].currentValue = dataBase.totalStar;
+        listDataProgress.dataProgresses[5].currentValue = dataBase.totalShield;
+        listDataProgress.dataProgresses[6].currentValue = dataBase.totalSpeedUp;
+        listDataProgress.dataProgresses[7].currentValue = dataBase.totalPlane;
+        listDataProgress.dataProgresses[8].currentValue = dataBase.totalGame;
+        listDataProgress.dataProgresses[9].currentValue = dataBase.totalGame;
     }
 }
