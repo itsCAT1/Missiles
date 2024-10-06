@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fb916066b850834f8ad81509b4a32bc, type: 3}
-  m_Name: ListSkillBase
+  m_Script: {fileID: 11500000, guid: f26f158f5b710a74cb0c72417e9bbbdc, type: 3}
+  m_Name: ListPriceSkill
   m_EditorClassIdentifier: 
-  listSkillBase:
+  listPriceSkill:
   - priceSkill: 0
   - priceSkill: 1000
   - priceSkill: 2000

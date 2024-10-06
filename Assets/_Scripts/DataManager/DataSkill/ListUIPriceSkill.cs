@@ -11,7 +11,7 @@ public class UISkill
     public Text priceText;
 }
 
-public class ListUISkill : MonoBehaviour
+public class ListUIPriceSkill : MonoBehaviour
 {
-    public List<UISkill> listUISkill;
+    public List<UISkill> listUIPriceSkill;
 }

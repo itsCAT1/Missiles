@@ -18,16 +18,14 @@ public class SelectPlane : MonoBehaviour
 
     public CinemachineVirtualCamera virtualCamera;
 
-    public ListSkillBase listSkillBase;
     public SelectSkill selectSkill;
-    public ListSkillOwned listSkillOwned;
-    public GameObject modeUI;
+    
 
 
     public void Start()
     {
         UpdateArrow();
-        LoadSkill();
+        selectSkill.LoadSkill();
         LoadAudio();
     }
 
@@ -38,7 +36,7 @@ public class SelectPlane : MonoBehaviour
             virtualCamera.Follow = planeManager.planes[dataManager.dataBase.indexPlane - 1].transform;
             dataManager.dataBase.indexPlane--;
             UpdateArrow();
-            LoadSkill();
+            selectSkill.LoadSkill();
             LoadAudio();
         }
     }
@@ -51,7 +49,7 @@ public class SelectPlane : MonoBehaviour
             virtualCamera.Follow = planeManager.planes[dataManager.dataBase.indexPlane + 1].transform;
             dataManager.dataBase.indexPlane++;
             UpdateArrow();
-            LoadSkill();
+            selectSkill.LoadSkill();
             LoadAudio();
         }
     }
@@ -75,18 +73,6 @@ public class SelectPlane : MonoBehaviour
         for (int i = 0; i < planeManager.planes.Count; i++)
         {
             audioSources[i].SetActive(i == dataManager.dataBase.indexPlane);
-        }
-    }
-
-    public void LoadSkill()
-    {
-        int indexPlane = dataManager.dataBase.indexPlane;
-        Debug.Log(listSkillOwned.listSkillOwned[indexPlane]);
-        string itemKey = "skillOwned" + indexPlane;
-        if (!selectSkill.CheckItem(itemKey))
-        {
-            selectSkill.uiSkill[indexPlane].SetActive(false);
-
         }
     }
 }
