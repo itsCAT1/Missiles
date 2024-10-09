@@ -3,7 +3,7 @@ using UnityEngine.Purchasing;
 
 public class IAPManager : MonoBehaviour
 {
-    private string removeAds = "com.game2d.missiles.removeads";
+    private string removeAds = "com.game2d.missiles.removead";
     private string add25000Coin = "com.game2d.missiles.add25000coin";
     private string add80000Coin = "com.game2d.missiles.add80000coin";
     private string add150000Coin = "com.game2d.missiles.add150000coin";
@@ -26,5 +26,10 @@ public class IAPManager : MonoBehaviour
         {
             Debug.Log("Add 150000 coin");
         }
+    }
+
+    public void OnPurchaseFailure(Product product, PurchaseFailureReason reason)
+    {
+        Debug.Log("Your purchase failed because: " + reason);
     }
 }

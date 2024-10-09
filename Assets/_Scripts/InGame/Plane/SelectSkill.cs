@@ -30,6 +30,8 @@ public class SelectSkill : MonoBehaviour
     public PlaneManager planeManager;
     public GameObject modeUI;
 
+    public DataCoinManager dataCoinManager;
+
     void Start()
     {
         LoadSkillOwned();
@@ -52,7 +54,7 @@ public class SelectSkill : MonoBehaviour
             var itemOwned = new SkillOwned { skillOwned = itemKey };
             listSkillOwned.listSkillOwned.Add(itemOwned);
 
-            Debug.Log(itemOwned);
+            dataCoinManager.UpdateUICoin();
             SaveSkillOwned();
             uiSkill[index].SetActive(false);
             modeUI.SetActive(true);
@@ -75,7 +77,7 @@ public class SelectSkill : MonoBehaviour
             if (!CheckItem(itemKey))
             {
                 // Nếu chưa được mua, hiển thị UI skill và tắt UI mode
-                for (int i = 1; i < planeManager.planes.Count; i++)
+                for (int i = 0; i < planeManager.planes.Count; i++)
                 {
                     // Hiển thị UI skill của máy bay hiện tại
                     uiSkill[i].SetActive(i == indexPlane);
@@ -85,7 +87,7 @@ public class SelectSkill : MonoBehaviour
             else
             {
                 // Nếu skill đã được mua, tắt UI skill và bật UI mode
-                for (int i = 1; i < planeManager.planes.Count; i++)
+                for (int i = 0; i < planeManager.planes.Count; i++)
                 {
                     uiSkill[i].SetActive(false);  // Tắt UI skill cho tất cả các máy bay
                 }
@@ -94,6 +96,10 @@ public class SelectSkill : MonoBehaviour
         }
         else
         {
+            for (int i = 0; i < planeManager.planes.Count; i++)
+            {
+                uiSkill[i].SetActive(false);
+            }
             modeUI.SetActive(true); 
         }
     }
