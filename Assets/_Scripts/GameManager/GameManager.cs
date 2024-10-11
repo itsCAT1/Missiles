@@ -33,8 +33,6 @@ public class GameManager : MonoBehaviour
     public AchievementHandler achievementHandler;
     public LeaderboadHandler leaderboadHandler; 
 
-    public AdManager adManager;
-
     private void Update()
     {
         uiStarPointInGame.text = starPoint.ToString();
@@ -47,8 +45,6 @@ public class GameManager : MonoBehaviour
             leaderboadHandler.ReportScoreToLeaderboard(dataManager.dataBase.bestScoreFastMode, "CgkI99L9iJYPEAIQAw");
             leaderboadHandler.ReportScoreToLeaderboard(dataManager.dataBase.oldBestScoreNormalMode, "CgkI99L9iJYPEAIQFA");
             leaderboadHandler.ReportScoreToLeaderboard(dataManager.dataBase.oldBestScoreFastMode, "CgkI99L9iJYPEAIQFQ");
-            adManager.LoadInterstitialAd();
-            adManager.ShowInterstitialAd();
         }
     }
 

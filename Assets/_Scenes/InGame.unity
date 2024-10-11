@@ -13666,9 +13666,8 @@ MonoBehaviour:
   uiBestScore: {fileID: 1854581227}
   isScoreUpdated: 0
   isDoubleScore: 0
-  achievementHandler: {fileID: 5032828381289085676}
-  leaderboadHandler: {fileID: 5426673437187044564}
-  adManager: {fileID: 8363989276666903213}
+  achievementHandler: {fileID: 0}
+  leaderboadHandler: {fileID: 0}
 --- !u!4 &1130481443
 Transform:
   m_ObjectHideFlags: 0
@@ -13796,8 +13795,6 @@ MonoBehaviour:
     indexGameControl: 0
     coin: 0
     audioMute: 0
-    oldBestScoreNormalMode: 0
-    oldBestScoreFastMode: 0
     bestScoreNormalMode: 0
     bestScoreFastMode: 0
     pointInOneGame: 0
@@ -18859,30 +18856,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8363989276666903213}
-        m_TargetAssemblyTypeName: AdManager, Assembly-CSharp
-        m_MethodName: LoadRewardedAd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8363989276666903213}
-        m_TargetAssemblyTypeName: AdManager, Assembly-CSharp
-        m_MethodName: ShowRewardedAdInGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1557725605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22395,6 +22368,17 @@ MonoBehaviour:
   - {fileID: 2030034992}
   - {fileID: 2038981309}
   - {fileID: 1173801010}
+  audioSources:
+  - {fileID: 819856997056845511}
+  - {fileID: 5925086876932059082}
+  - {fileID: 5487916996097608257}
+  - {fileID: 312597375934407914}
+  - {fileID: 7371842134673145282}
+  - {fileID: 4116895078341195190}
+  - {fileID: 458024053684312646}
+  - {fileID: 6060005271783982127}
+  - {fileID: 4054981154766322750}
+  - {fileID: 1896355368877976555}
   dataManager: {fileID: 1130481453}
   virtualCamera: {fileID: 2105207031}
 --- !u!114 &1909892232
@@ -27879,6 +27863,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3517114565804486686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8167219974778251190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b882f3c04aef8754a8ca8fc3f110f9cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GooglePlayToken: 
+  GooglePlayError: 
 --- !u!1 &3591994925385859428
 GameObject:
   m_ObjectHideFlags: 0
@@ -29653,9 +29651,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4581353392731893521}
+  - component: {fileID: 3517114565804486686}
+  - component: {fileID: 8363989276666903212}
   - component: {fileID: 5032828381289085676}
   - component: {fileID: 5426673437187044564}
-  - component: {fileID: 8363989276666903213}
   m_Layer: 0
   m_Name: Google
   m_TagString: Untagged
@@ -29731,7 +29730,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Reset
---- !u!114 &8363989276666903213
+--- !u!114 &8363989276666903212
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29740,11 +29739,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8167219974778251190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5866bb3ec2e615f43b7382600e2f61e1, type: 3}
+  m_Script: {fileID: 11500000, guid: 08935e79d6206274586c311c07f67b38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dataManager: {fileID: 1130481453}
-  dataCoinManager: {fileID: 0}
 --- !u!222 &8442547049172177771
 CanvasRenderer:
   m_ObjectHideFlags: 0

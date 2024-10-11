@@ -10,7 +10,7 @@ public class PlaneController : MonoBehaviour
     public float speedMoving;
     public float speedRotate;
     
-    Rigidbody2D rigid2D;
+    public Rigidbody2D rigid2D;
     Animator animator;
 
     public GameObject shieldReceive;
