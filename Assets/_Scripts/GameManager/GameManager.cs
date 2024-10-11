@@ -31,7 +31,9 @@ public class GameManager : MonoBehaviour
     public bool isDoubleScore = false;
 
     public AchievementHandler achievementHandler;
-    public LeaderboadHandler leaderboadHandler; 
+    public LeaderboadHandler leaderboadHandler;
+    
+    public InterstitialAds interstitialAds;
 
     private void Update()
     {
@@ -45,6 +47,7 @@ public class GameManager : MonoBehaviour
             leaderboadHandler.ReportScoreToLeaderboard(dataManager.dataBase.bestScoreFastMode, "CgkI99L9iJYPEAIQAw");
             leaderboadHandler.ReportScoreToLeaderboard(dataManager.dataBase.oldBestScoreNormalMode, "CgkI99L9iJYPEAIQFA");
             leaderboadHandler.ReportScoreToLeaderboard(dataManager.dataBase.oldBestScoreFastMode, "CgkI99L9iJYPEAIQFQ");
+            interstitialAds.ShowAd();
         }
     }
 
