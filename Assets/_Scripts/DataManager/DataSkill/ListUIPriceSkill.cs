@@ -8,10 +8,10 @@ using UnityEngine.UI;
 [Serializable]
 public class UISkill
 {
-    public Text priceText;
+    public Text priceUI;
 }
 
 public class ListUIPriceSkill : MonoBehaviour
 {
-    public List<UISkill> listUIPriceSkill;
+    public List<UISkill> UISkills;
 }

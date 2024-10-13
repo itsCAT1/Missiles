@@ -4181,7 +4181,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1909892233}
         m_TargetAssemblyTypeName: SelectSkill, Assembly-CSharp
-        m_MethodName: PurchaseSkill
+        m_MethodName: PurchasePlane
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29314,7 +29314,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1909892233}
         m_TargetAssemblyTypeName: SelectSkill, Assembly-CSharp
-        m_MethodName: PurchaseSkill
+        m_MethodName: PurchasePlane
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29459,7 +29459,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1909892233}
         m_TargetAssemblyTypeName: SelectSkill, Assembly-CSharp
-        m_MethodName: PurchaseSkill
+        m_MethodName: PurchasePlane
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -32827,7 +32827,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1909892233}
         m_TargetAssemblyTypeName: SelectSkill, Assembly-CSharp
-        m_MethodName: PurchaseSkill
+        m_MethodName: PurchasePlane
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -33494,7 +33494,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1909892233}
         m_TargetAssemblyTypeName: SelectSkill, Assembly-CSharp
-        m_MethodName: PurchaseSkill
+        m_MethodName: PurchasePlane
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -35187,7 +35187,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1909892233}
         m_TargetAssemblyTypeName: SelectSkill, Assembly-CSharp
-        m_MethodName: PurchaseSkill
+        m_MethodName: PurchasePlane
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -35332,7 +35332,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1909892233}
         m_TargetAssemblyTypeName: SelectSkill, Assembly-CSharp
-        m_MethodName: PurchaseSkill
+        m_MethodName: PurchasePlane
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -36042,7 +36042,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1909892233}
         m_TargetAssemblyTypeName: SelectSkill, Assembly-CSharp
-        m_MethodName: PurchaseSkill
+        m_MethodName: PurchasePlane
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -36490,7 +36490,7 @@ GameObject:
   - component: {fileID: 1760310832}
   - component: {fileID: 1760310831}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37160,7 +37160,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1909892233}
         m_TargetAssemblyTypeName: SelectSkill, Assembly-CSharp
-        m_MethodName: PurchaseSkill
+        m_MethodName: PurchasePlane
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -39915,17 +39915,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e74fca0a22aa1248af03a8ae0ec1375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listUIPriceSkill:
-  - priceText: {fileID: 1760310831}
-  - priceText: {fileID: 2014497986}
-  - priceText: {fileID: 1285301810}
-  - priceText: {fileID: 1146925220}
-  - priceText: {fileID: 1582321257}
-  - priceText: {fileID: 1936056352}
-  - priceText: {fileID: 203491517}
-  - priceText: {fileID: 69703218}
-  - priceText: {fileID: 817694325}
-  - priceText: {fileID: 1628837895}
+  UISkills:
+  - priceUI: {fileID: 1760310831}
+  - priceUI: {fileID: 2014497986}
+  - priceUI: {fileID: 1285301810}
+  - priceUI: {fileID: 1146925220}
+  - priceUI: {fileID: 1582321257}
+  - priceUI: {fileID: 1936056352}
+  - priceUI: {fileID: 203491517}
+  - priceUI: {fileID: 69703218}
+  - priceUI: {fileID: 817694325}
+  - priceUI: {fileID: 1628837895}
 --- !u!1 &1901039161
 GameObject:
   m_ObjectHideFlags: 0
@@ -40218,7 +40218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataManager: {fileID: 1130481452}
-  listPriceSkill: {fileID: 11400000, guid: 95a276f07f97b1a48843fc65b3518d42, type: 2}
+  listSkillBase: {fileID: 11400000, guid: 95a276f07f97b1a48843fc65b3518d42, type: 2}
   listUIPriceSkill: {fileID: 1898009072}
   listSkillOwned:
     listSkillOwned: []

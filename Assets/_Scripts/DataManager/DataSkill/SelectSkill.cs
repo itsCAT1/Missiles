@@ -9,7 +9,8 @@ using UnityEngine.UI;
 [Serializable]
 public class SkillOwned
 {
-    public string skillOwned; 
+    public int id;
+    public bool havePlane;
 }
 
 [Serializable]
@@ -22,7 +23,7 @@ public class SelectSkill : MonoBehaviour
 {
 
     public DataManager dataManager;
-    public ListPriceSkill listPriceSkill;
+    public ListSkillBase listSkillBase;
     public ListUIPriceSkill listUIPriceSkill;
 
     public ListSkillOwned listSkillOwned; 
@@ -32,66 +33,72 @@ public class SelectSkill : MonoBehaviour
 
     public DataCoinManager dataCoinManager;
 
-    void Start()
+    private void Update()
     {
         LoadSkillOwned();
-        
         for (int i = 0; i < planeManager.planes.Count; i++)
         {
-            listUIPriceSkill.listUIPriceSkill[i].priceText.text =
-                    listPriceSkill.listPriceSkill[i].priceSkill.ToString();
+            listUIPriceSkill.UISkills[i].priceUI.text =
+                    listSkillBase.skillBases[i].price.ToString();
         }
     }
 
-    public void PurchaseSkill(int index)
+    private void OnApplicationQuit()
     {
-        string itemKey = "skillOwned" + index; 
+        SaveSkillOwned();
+    }
 
-        if (dataManager.dataBase.coin >= listPriceSkill.listPriceSkill[index].priceSkill && !CheckItem(itemKey))
+    public bool CheckPlane(int id)
+    {
+        foreach (var skillOwned in listSkillOwned.listSkillOwned)
         {
-            dataManager.dataBase.coin -= listPriceSkill.listPriceSkill[index].priceSkill;
+            if (skillOwned.id == id && skillOwned.havePlane)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
-            var itemOwned = new SkillOwned { skillOwned = itemKey };
+    public void PurchasePlane(int id)
+    {
+        if (dataManager.dataBase.coin >= listSkillBase.skillBases[id].price && !CheckPlane(id))
+        {
+            dataManager.dataBase.coin -= listSkillBase.skillBases[id].price;
+            var itemOwned = new SkillOwned
+            {
+                id = id,
+                havePlane = true,
+            };
             listSkillOwned.listSkillOwned.Add(itemOwned);
 
             dataCoinManager.UpdateUICoin();
             SaveSkillOwned();
-            uiSkill[index].SetActive(false);
+            uiSkill[id].SetActive(false);
             modeUI.SetActive(true);
         }
     }
 
-    public bool CheckItem(string itemKey)
-    {
-        var item = listSkillOwned.listSkillOwned.Find(item => item.skillOwned == itemKey);
-        return listSkillOwned.listSkillOwned.Contains(item);
-    }
     public void LoadSkill()
     {
-        int indexPlane = dataManager.dataBase.indexPlane;  // Lấy chỉ số máy bay hiện tại
-        string itemKey = "skillOwned" + indexPlane;  
-
-        if (indexPlane > 0)
+        int id = dataManager.dataBase.indexPlane;
+        if (id > 0)
         {
-            // Kiểm tra xem skill của máy bay này đã được mua chưa
-            if (!CheckItem(itemKey))
+            if (!CheckPlane(id))
             {
-                // Nếu chưa được mua, hiển thị UI skill và tắt UI mode
                 for (int i = 0; i < planeManager.planes.Count; i++)
                 {
-                    // Hiển thị UI skill của máy bay hiện tại
-                    uiSkill[i].SetActive(i == indexPlane);
+                    uiSkill[i].SetActive(i == id);
                 }
-                modeUI.SetActive(false);  // Tắt UI mode khi chưa mua skill
+                modeUI.SetActive(false);  
             }
             else
             {
-                // Nếu skill đã được mua, tắt UI skill và bật UI mode
                 for (int i = 0; i < planeManager.planes.Count; i++)
                 {
-                    uiSkill[i].SetActive(false);  // Tắt UI skill cho tất cả các máy bay
+                    uiSkill[i].SetActive(false);  
                 }
-                modeUI.SetActive(true);  // Bật UI mode khi skill đã mua
+                modeUI.SetActive(true);  
             }
         }
         else
@@ -100,10 +107,10 @@ public class SelectSkill : MonoBehaviour
             {
                 uiSkill[i].SetActive(false);
             }
-            modeUI.SetActive(true); 
+            modeUI.SetActive(true);
         }
     }
-
+   
 
     private void SaveSkillOwned()
     {
@@ -119,3 +126,4 @@ public class SelectSkill : MonoBehaviour
         listSkillOwned = JsonUtility.FromJson<ListSkillOwned>(valueString);
     }
 }
+
