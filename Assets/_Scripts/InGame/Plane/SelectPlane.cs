@@ -18,14 +18,11 @@ public class SelectPlane : MonoBehaviour
 
     public CinemachineVirtualCamera virtualCamera;
 
-    public SelectSkill selectSkill;
+    public SkillManager selectSkill;
     
-
-
     public void Start()
     {
         UpdateArrow();
-        selectSkill.LoadSkill();
         LoadAudio();
     }
 

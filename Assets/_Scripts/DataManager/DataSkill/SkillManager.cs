@@ -19,7 +19,7 @@ public class ListSkillOwned
     public List<SkillOwned> listSkillOwned; 
 }
 
-public class SelectSkill : MonoBehaviour
+public class SkillManager : MonoBehaviour
 {
 
     public DataManager dataManager;
@@ -33,12 +33,13 @@ public class SelectSkill : MonoBehaviour
 
     public DataCoinManager dataCoinManager;
 
-    private void Update()
+    private void Start()
     {
         LoadSkillOwned();
+        LoadSkill();
         for (int i = 0; i < planeManager.planes.Count; i++)
         {
-            listUIPriceSkill.UISkills[i].priceUI.text =
+            listUIPriceSkill.UIPriceSkills[i].priceUI.text =
                     listSkillBase.skillBases[i].price.ToString();
         }
     }
@@ -50,15 +51,16 @@ public class SelectSkill : MonoBehaviour
 
     public bool CheckPlane(int id)
     {
-        foreach (var skillOwned in listSkillOwned.listSkillOwned)
+        var skillIndex = listSkillOwned.listSkillOwned.FindIndex(skill => skill.id == id);
+        
+        if (skillIndex == -1)
         {
-            if (skillOwned.id == id && skillOwned.havePlane)
-            {
-                return true;
-            }
+            return false; 
         }
-        return false;
+
+        return listSkillOwned.listSkillOwned[skillIndex].havePlane;
     }
+
 
     public void PurchasePlane(int id)
     {
@@ -82,6 +84,7 @@ public class SelectSkill : MonoBehaviour
     public void LoadSkill()
     {
         int id = dataManager.dataBase.indexPlane;
+
         if (id > 0)
         {
             if (!CheckPlane(id))

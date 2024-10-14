@@ -39915,7 +39915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e74fca0a22aa1248af03a8ae0ec1375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UISkills:
+  UIPriceSkills:
   - priceUI: {fileID: 1760310831}
   - priceUI: {fileID: 2014497986}
   - priceUI: {fileID: 1285301810}
@@ -46406,7 +46406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2289569737230664933
 RectTransform:
   m_ObjectHideFlags: 0

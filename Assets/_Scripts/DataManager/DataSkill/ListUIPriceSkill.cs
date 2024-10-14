@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 
 [Serializable]
-public class UISkill
+public class UIPriceSkill
 {
     public Text priceUI;
 }
 
 public class ListUIPriceSkill : MonoBehaviour
 {
-    public List<UISkill> UISkills;
+    public List<UIPriceSkill> UIPriceSkills;
 }
