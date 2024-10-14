@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26f158f5b710a74cb0c72417e9bbbdc, type: 3}
   m_Name: ListPriceSkill
   m_EditorClassIdentifier: 
-  listPriceSkill:
-  - priceSkill: 0
-  - priceSkill: 1000
-  - priceSkill: 2000
-  - priceSkill: 5000
-  - priceSkill: 20000
-  - priceSkill: 35000
-  - priceSkill: 50000
-  - priceSkill: 80000
-  - priceSkill: 90000
-  - priceSkill: 120000
+  priceSkills:
+  - price: 0
+  - price: 1000
+  - price: 2000
+  - price: 5000
+  - price: 20000
+  - price: 35000
+  - price: 50000
+  - price: 80000
+  - price: 90000
+  - price: 120000

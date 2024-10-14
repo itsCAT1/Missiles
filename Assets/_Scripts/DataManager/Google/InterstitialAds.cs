@@ -17,7 +17,7 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
 
     private void Start()
     {
-        InvokeRepeating("ShowAd", 5, 10);
+        //InvokeRepeating("ShowAd", 5, 10);
     }
 
     // Load content to the Ad Unit:

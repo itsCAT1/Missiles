@@ -38,8 +38,8 @@ public class SelectSkill : MonoBehaviour
         
         for (int i = 0; i < planeManager.planes.Count; i++)
         {
-            listUIPriceSkill.listUIPriceSkill[i].priceText.text =
-                    listPriceSkill.listPriceSkill[i].priceSkill.ToString();
+            listUIPriceSkill.UIPriceSkills[i].priceUI.text =
+                    listPriceSkill.priceSkills[i].price.ToString();
         }
     }
 
@@ -47,9 +47,9 @@ public class SelectSkill : MonoBehaviour
     {
         string itemKey = "skillOwned" + index; 
 
-        if (dataManager.dataBase.coin >= listPriceSkill.listPriceSkill[index].priceSkill && !CheckItem(itemKey))
+        if (dataManager.dataBase.coin >= listPriceSkill.priceSkills[index].price && !CheckItem(itemKey))
         {
-            dataManager.dataBase.coin -= listPriceSkill.listPriceSkill[index].priceSkill;
+            dataManager.dataBase.coin -= listPriceSkill.priceSkills[index].price;
 
             var itemOwned = new SkillOwned { skillOwned = itemKey };
             listSkillOwned.listSkillOwned.Add(itemOwned);
