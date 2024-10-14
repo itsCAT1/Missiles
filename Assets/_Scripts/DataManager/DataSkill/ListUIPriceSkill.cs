@@ -13,5 +13,5 @@ public class UISkill
 
 public class ListUIPriceSkill : MonoBehaviour
 {
-    public List<UISkill> UIPriceSkills;
+    public List<UISkill> UISkills;
 }

@@ -1706,7 +1706,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 80000
 --- !u!222 &69703219
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4181,7 +4181,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1909892233}
         m_TargetAssemblyTypeName: SelectSkill, Assembly-CSharp
-        m_MethodName: PurchaseSkill
+        m_MethodName: PurchasePlane
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5683,7 +5683,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 50000
 --- !u!222 &203491518
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -18042,7 +18042,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 90000
 --- !u!222 &817694326
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23933,7 +23933,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 5000
 --- !u!222 &1146925221
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27279,7 +27279,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 2000
 --- !u!222 &1285301811
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29314,7 +29314,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1909892233}
         m_TargetAssemblyTypeName: SelectSkill, Assembly-CSharp
-        m_MethodName: PurchaseSkill
+        m_MethodName: PurchasePlane
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29459,7 +29459,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1909892233}
         m_TargetAssemblyTypeName: SelectSkill, Assembly-CSharp
-        m_MethodName: PurchaseSkill
+        m_MethodName: PurchasePlane
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -32827,7 +32827,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1909892233}
         m_TargetAssemblyTypeName: SelectSkill, Assembly-CSharp
-        m_MethodName: PurchaseSkill
+        m_MethodName: PurchasePlane
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -33494,7 +33494,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1909892233}
         m_TargetAssemblyTypeName: SelectSkill, Assembly-CSharp
-        m_MethodName: PurchaseSkill
+        m_MethodName: PurchasePlane
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -33702,7 +33702,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 20000
 --- !u!222 &1582321258
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -34833,7 +34833,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 120000
 --- !u!222 &1628837896
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -35187,7 +35187,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1909892233}
         m_TargetAssemblyTypeName: SelectSkill, Assembly-CSharp
-        m_MethodName: PurchaseSkill
+        m_MethodName: PurchasePlane
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -35332,7 +35332,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1909892233}
         m_TargetAssemblyTypeName: SelectSkill, Assembly-CSharp
-        m_MethodName: PurchaseSkill
+        m_MethodName: PurchasePlane
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -36042,7 +36042,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1909892233}
         m_TargetAssemblyTypeName: SelectSkill, Assembly-CSharp
-        m_MethodName: PurchaseSkill
+        m_MethodName: PurchasePlane
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -36529,7 +36529,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: New Text
 --- !u!222 &1760310832
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -37160,7 +37160,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1909892233}
         m_TargetAssemblyTypeName: SelectSkill, Assembly-CSharp
-        m_MethodName: PurchaseSkill
+        m_MethodName: PurchasePlane
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -39915,7 +39915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e74fca0a22aa1248af03a8ae0ec1375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIPriceSkills:
+  UISkills:
   - priceUI: {fileID: 1760310831}
   - priceUI: {fileID: 2014497986}
   - priceUI: {fileID: 1285301810}
@@ -40218,7 +40218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataManager: {fileID: 1130481452}
-  listPriceSkill: {fileID: 11400000, guid: 95a276f07f97b1a48843fc65b3518d42, type: 2}
+  listSkillBase: {fileID: 11400000, guid: 95a276f07f97b1a48843fc65b3518d42, type: 2}
   listUIPriceSkill: {fileID: 1898009072}
   listSkillOwned:
     listSkillOwned: []
@@ -40916,7 +40916,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 35000
 --- !u!222 &1936056353
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -42757,7 +42757,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 1000
 --- !u!222 &2014497987
 CanvasRenderer:
   m_ObjectHideFlags: 0
