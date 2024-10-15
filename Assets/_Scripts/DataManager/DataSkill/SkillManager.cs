@@ -97,18 +97,18 @@ public class SkillManager : MonoBehaviour
             }
             else
             {
-                for (int i = 0; i < planeManager.planes.Count; i++)
+                foreach(var skill in uiSkill)
                 {
-                    uiSkill[i].SetActive(false);  
+                    skill.SetActive(false);  
                 }
                 modeUI.SetActive(true);  
             }
         }
         else
         {
-            for (int i = 0; i < planeManager.planes.Count; i++)
+            foreach (var skill in uiSkill)
             {
-                uiSkill[i].SetActive(false);
+                skill.SetActive(false);
             }
             modeUI.SetActive(true);
         }
