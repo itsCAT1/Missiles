@@ -8,7 +8,8 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     [SerializeField] bool testMode = true;
     private string gameId;
 
-    public RewardAds rewardAds;
+    public RewardWatchAds rewardWatchAds;
+    public RewardDouble rewardDouble;
     public InterstitialAds interstitialAds;
  
     void Awake()
@@ -35,7 +36,8 @@ public class AdsInitializer : MonoBehaviour, IUnityAdsInitializationListener
     public void OnInitializationComplete()
     {
         Debug.Log("Unity Ads initialization complete.");
-        rewardAds.LoadAd();
+        rewardWatchAds.LoadAd();
+        rewardDouble.LoadAd();
         interstitialAds.LoadAd();
     }
  

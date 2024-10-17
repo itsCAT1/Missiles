@@ -30669,10 +30669,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7464825062227662413}
-        m_TargetAssemblyTypeName: RewardAds, Assembly-CSharp
-        m_MethodName: OnUnityAdsShowClick
-        m_Mode: 5
+      - m_Target: {fileID: 7464825062227662414}
+        m_TargetAssemblyTypeName: RewardWatchAds, Assembly-CSharp
+        m_MethodName: ShowAd
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -32962,6 +32962,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1130481442}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: PressButtonDouble
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7464825062227662413}
+        m_TargetAssemblyTypeName: RewardDouble, Assembly-CSharp
+        m_MethodName: ShowAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -49088,6 +49100,7 @@ GameObject:
   - component: {fileID: 6737599648375391531}
   - component: {fileID: 7464825062227662410}
   - component: {fileID: 7464825062227662412}
+  - component: {fileID: 7464825062227662414}
   - component: {fileID: 7464825062227662413}
   m_Layer: 0
   m_Name: Google
@@ -49111,7 +49124,8 @@ MonoBehaviour:
   androidGameId: 5711250
   iOSGameId: 5711251
   testMode: 1
-  rewardAds: {fileID: 7464825062227662413}
+  rewardWatchAds: {fileID: 7464825062227662414}
+  rewardDouble: {fileID: 7464825062227662413}
   interstitialAds: {fileID: 7464825062227662412}
 --- !u!114 &7464825062227662412
 MonoBehaviour:
@@ -49136,12 +49150,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 7464825062227662409}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dc43918e7dac7143825754c50d48948, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cac8c51823ed564393e14b8d029b630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showAdButton: {fileID: 1459781872}
-  _androidAdUnitId: Rewarded_Android
-  _iOSAdUnitId: Rewarded_iOS
+  showAdButton: {fileID: 1557725604}
+  androidAdUnitId: Rewarded_Android
+  dataManager: {fileID: 1130481452}
+  dataCoinManager: {fileID: 1130481453}
+--- !u!114 &7464825062227662414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7464825062227662409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb78c4661554caa45937c10d0a39725d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showAdButton: {fileID: 1459781872}
+  androidAdUnitId: Rewarded_Android
   dataManager: {fileID: 1130481452}
   dataCoinManager: {fileID: 1130481453}
 --- !u!82 &7486381182408181228

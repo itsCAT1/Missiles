@@ -166,8 +166,10 @@ public class MissilesManager : MonoBehaviour
             newPos.y = Random.Range(planePos.y, planePos.y + 5.5f);
         }
         while ((newPos.x > (planePos.x - 4) && newPos.x < (planePos.x + 4)) && (newPos.y > planePos.y && newPos.y < (planePos.y + 5)));
-        GameObject newMissile1 = Instantiate(missilePrefabList[0], newPos, Quaternion.identity);
-        missileList.Add(newMissile1);
+        var dir = planePos - newPos;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+
+        GameObject newMissile1 = Instantiate(missilePrefabList[0], newPos, Quaternion.Euler(0, 0, angle));
         newMissile1.transform.SetParent(this.transform);
     }
 
@@ -181,7 +183,10 @@ public class MissilesManager : MonoBehaviour
             newPos.y = Random.Range(planePos.y, planePos.y + 5.5f);
         }
         while ((newPos.x > (planePos.x - 4) && newPos.x < (planePos.x + 4)) && (newPos.y > planePos.y && newPos.y < (planePos.y + 5)));
-        GameObject newMissile2 = Instantiate(missilePrefabList[1], newPos, Quaternion.identity);
+        var dir = planePos - newPos;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+
+        GameObject newMissile2 = Instantiate(missilePrefabList[1], newPos, Quaternion.Euler(0,0,angle));
         missileList.Add(newMissile2);
         newMissile2.transform.SetParent(this.transform);
     }
@@ -196,7 +201,11 @@ public class MissilesManager : MonoBehaviour
             newPos.y = Random.Range(planePos.y, planePos.y + 5.5f);
         }
         while ((newPos.x > (planePos.x - 4) && newPos.x < (planePos.x + 4)) && (newPos.y > planePos.y && newPos.y < (planePos.y + 5)));
-        GameObject newMissile3 = Instantiate(missilePrefabList[2], newPos, Quaternion.identity);
+        
+        var dir = planePos - newPos;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+
+        GameObject newMissile3 = Instantiate(missilePrefabList[2], newPos, Quaternion.Euler(0, 0, angle));
         missileList.Add(newMissile3);
         newMissile3.transform.SetParent(this.transform);
     }
@@ -211,7 +220,10 @@ public class MissilesManager : MonoBehaviour
             newPos.y = Random.Range(planePos.y, planePos.y + 5.5f);
         }
         while ((newPos.x > (planePos.x - 4) && newPos.x < (planePos.x + 4)) && (newPos.y > planePos.y && newPos.y < (planePos.y + 5)));
-        GameObject newMissile4 = Instantiate(missilePrefabList[3], newPos, Quaternion.identity);
+        var dir = planePos - newPos;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+
+        GameObject newMissile4 = Instantiate(missilePrefabList[3], newPos, Quaternion.Euler(0, 0, angle));
         missileList.Add(newMissile4);
         newMissile4.transform.SetParent(this.transform);
     }
@@ -226,7 +238,10 @@ public class MissilesManager : MonoBehaviour
             newPos.y = Random.Range(planePos.y, planePos.y + 5.5f);
         }
         while ((newPos.x > (planePos.x - 4) && newPos.x < (planePos.x + 4)) && (newPos.y > planePos.y && newPos.y < (planePos.y + 5)));
-        GameObject newMissile5 = Instantiate(missilePrefabList[4], newPos, Quaternion.identity);
+        var dir = planePos - newPos;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+
+        GameObject newMissile5 = Instantiate(missilePrefabList[4], newPos, Quaternion.Euler(0, 0, angle));
         missileList.Add(newMissile5);
         newMissile5.transform.SetParent(this.transform);
     }
@@ -241,7 +256,10 @@ public class MissilesManager : MonoBehaviour
             newPos.y = Random.Range(planePos.y, planePos.y + 5.5f);
         }
         while ((newPos.x > (planePos.x - 4) && newPos.x < (planePos.x + 4)) && (newPos.y > planePos.y && newPos.y < (planePos.y + 5)));
-        GameObject newMissile6 = Instantiate(missilePrefabList[5], newPos, Quaternion.identity);
+        var dir = planePos - newPos;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+
+        GameObject newMissile6 = Instantiate(missilePrefabList[5], newPos, Quaternion.Euler(0, 0, angle));
         missileList.Add(newMissile6);
         newMissile6.transform.SetParent(this.transform);
     }
@@ -256,7 +274,10 @@ public class MissilesManager : MonoBehaviour
             newPos.y = Random.Range(planePos.y, planePos.y + 5.5f);
         }
         while ((newPos.x > (planePos.x - 4) && newPos.x < (planePos.x + 4)) && (newPos.y > planePos.y && newPos.y < (planePos.y + 5)));
-        GameObject newMissile7 = Instantiate(missilePrefabList[6], newPos, Quaternion.identity);
+        var dir = planePos - newPos;
+        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+
+        GameObject newMissile7 = Instantiate(missilePrefabList[6], newPos, Quaternion.Euler(0, 0, angle));
         missileList.Add(newMissile7);
         newMissile7.transform.SetParent(this.transform);
     }
