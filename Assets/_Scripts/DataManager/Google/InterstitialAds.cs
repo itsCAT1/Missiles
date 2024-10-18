@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Advertisements;
- 
+using UnityEngine.Purchasing;
+
 public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
     [SerializeField] string androidAdUnitId = "Interstitial_Android";
@@ -26,6 +27,11 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
     // Show the loaded content in the Ad Unit:
     public void ShowAd()
     {
+        if (PlayerPrefs.GetInt("NoAds", 0) == 1)
+        {
+            Debug.Log("Ads have been removed, not load");
+            return;
+        }
         // Note that if the ad content wasn't previously loaded, this method will fail
         Debug.Log("Showing Ad: " + adUnitId);
         Advertisement.Show(adUnitId, this);
@@ -54,5 +60,11 @@ public class InterstitialAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSh
     public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState)
     {
         LoadAd();
+    }
+
+    public void RemoveAds()
+    {
+        PlayerPrefs.SetInt("NoAds", 1);
+        Debug.Log("RemoveAds");
     }
 }
