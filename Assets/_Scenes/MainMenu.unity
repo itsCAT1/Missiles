@@ -18317,7 +18317,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 823889440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b79b5624d944058bd39aad2b90fb275, type: 3}
+  m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   productId: com.game2d.missiles.add25000coin
@@ -18356,9 +18356,9 @@ MonoBehaviour:
   onPurchaseFailed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 823889445}
-        m_TargetAssemblyTypeName: UnityEngine.Purchasing.CodelessIAPButton, UnityEngine.Purchasing.Codeless
-        m_MethodName: OnPurchaseFailed
+      - m_Target: {fileID: 1921519592}
+        m_TargetAssemblyTypeName: IAPManager, Assembly-CSharp
+        m_MethodName: OnPurchaseFailure
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18368,10 +18368,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onProductFetched:
-    m_PersistentCalls:
-      m_Calls: []
-  button: {fileID: 823889442}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  priceText: {fileID: 0}
 --- !u!1 &831993104
 GameObject:
   m_ObjectHideFlags: 0
@@ -29822,7 +29821,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1398864002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b79b5624d944058bd39aad2b90fb275, type: 3}
+  m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   productId: com.game2d.missiles.add150000coin
@@ -29861,9 +29860,9 @@ MonoBehaviour:
   onPurchaseFailed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1398864007}
-        m_TargetAssemblyTypeName: UnityEngine.Purchasing.CodelessIAPButton, UnityEngine.Purchasing.Codeless
-        m_MethodName: OnPurchaseFailed
+      - m_Target: {fileID: 1921519592}
+        m_TargetAssemblyTypeName: IAPManager, Assembly-CSharp
+        m_MethodName: OnPurchaseFailure
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29873,10 +29872,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onProductFetched:
-    m_PersistentCalls:
-      m_Calls: []
-  button: {fileID: 1398864004}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  priceText: {fileID: 0}
 --- !u!1 &1403039304
 GameObject:
   m_ObjectHideFlags: 0
@@ -31325,7 +31323,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1491412703}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b79b5624d944058bd39aad2b90fb275, type: 3}
+  m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   productId: com.game2d.missiles.removead
@@ -31364,9 +31362,9 @@ MonoBehaviour:
   onPurchaseFailed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1491412708}
-        m_TargetAssemblyTypeName: UnityEngine.Purchasing.CodelessIAPButton, UnityEngine.Purchasing.Codeless
-        m_MethodName: OnPurchaseFailed
+      - m_Target: {fileID: 1921519592}
+        m_TargetAssemblyTypeName: IAPManager, Assembly-CSharp
+        m_MethodName: OnPurchaseFailure
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31376,10 +31374,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onProductFetched:
-    m_PersistentCalls:
-      m_Calls: []
-  button: {fileID: 1491412705}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  priceText: {fileID: 0}
 --- !u!1 &1492820472
 GameObject:
   m_ObjectHideFlags: 0
@@ -37754,7 +37751,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1798248917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b79b5624d944058bd39aad2b90fb275, type: 3}
+  m_Script: {fileID: 11500000, guid: 36a5f511b0d8142cba0aeb92d0b264c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   productId: com.game2d.missiles.add80000coin
@@ -37793,9 +37790,9 @@ MonoBehaviour:
   onPurchaseFailed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1798248922}
-        m_TargetAssemblyTypeName: UnityEngine.Purchasing.CodelessIAPButton, UnityEngine.Purchasing.Codeless
-        m_MethodName: OnPurchaseFailed
+      - m_Target: {fileID: 1921519592}
+        m_TargetAssemblyTypeName: IAPManager, Assembly-CSharp
+        m_MethodName: OnPurchaseFailure
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -37805,10 +37802,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onProductFetched:
-    m_PersistentCalls:
-      m_Calls: []
-  button: {fileID: 1798248919}
+  titleText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  priceText: {fileID: 0}
 --- !u!1 &1798828195
 GameObject:
   m_ObjectHideFlags: 0
