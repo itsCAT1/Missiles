@@ -78,6 +78,8 @@ public class SkillManager : MonoBehaviour
             SaveSkillOwned();
             uiSkill[id].SetActive(false);
             modeUI.SetActive(true);
+
+            dataManager.dataBase.totalPlane = listSkillOwned.listSkillOwned.Count;
         }
     }
 
@@ -97,18 +99,18 @@ public class SkillManager : MonoBehaviour
             }
             else
             {
-                foreach(var skill in uiSkill)
+                for (int i = 0; i < planeManager.planes.Count; i++)
                 {
-                    skill.SetActive(false);  
+                    uiSkill[i].SetActive(false);
                 }
                 modeUI.SetActive(true);  
             }
         }
         else
         {
-            foreach (var skill in uiSkill)
+            for (int i = 0; i < planeManager.planes.Count; i++)
             {
-                skill.SetActive(false);
+                uiSkill[i].SetActive(false);
             }
             modeUI.SetActive(true);
         }
