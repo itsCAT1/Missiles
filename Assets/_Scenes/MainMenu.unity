@@ -22781,8 +22781,8 @@ MonoBehaviour:
   planeManager: {fileID: 1909892231}
   speedUpList: []
   speedUpPrefab: {fileID: 6219171016274274270, guid: f634d7f141c1ec940b54336c925ca8b9, type: 3}
-  minSpawnDistance: 5
-  maxSpawnDistance: 7
+  minSpawnDistance: 6
+  maxSpawnDistance: 8
 --- !u!4 &1073668628
 Transform:
   m_ObjectHideFlags: 0
@@ -27542,7 +27542,7 @@ MonoBehaviour:
   shieldList: []
   dataManager: {fileID: 1130481452}
   planeManager: {fileID: 1909892231}
-  minSpawnDistance: 5
+  minSpawnDistance: 6
   maxSpawnDistance: 8
 --- !u!1 &1316845198
 GameObject:
@@ -40201,6 +40201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1f06c5e1f38314782ed5b37f15c844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataManager: {fileID: 1130481452}
+  virtualCamera: {fileID: 2105207031}
   planes:
   - {fileID: 618443286}
   - {fileID: 1862461509}
@@ -40212,8 +40214,17 @@ MonoBehaviour:
   - {fileID: 2030034992}
   - {fileID: 2038981309}
   - {fileID: 1173801010}
-  dataManager: {fileID: 1130481452}
-  virtualCamera: {fileID: 2105207031}
+  audioSources:
+  - {fileID: 740238250651196295}
+  - {fileID: 5396804850391056699}
+  - {fileID: 559371465952528321}
+  - {fileID: 7026037860198831021}
+  - {fileID: 7343518743063856363}
+  - {fileID: 966749164083015714}
+  - {fileID: 6673340134836928101}
+  - {fileID: 2349885422746544163}
+  - {fileID: 5762128786822107519}
+  - {fileID: 2878396125388875666}
 --- !u!114 &1909892232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40228,17 +40239,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataManager: {fileID: 1130481452}
   planeManager: {fileID: 1909892231}
-  audioSources:
-  - {fileID: 740238250651196295}
-  - {fileID: 5396804850391056699}
-  - {fileID: 559371465952528321}
-  - {fileID: 7026037860198831021}
-  - {fileID: 7343518743063856363}
-  - {fileID: 966749164083015714}
-  - {fileID: 6673340134836928101}
-  - {fileID: 2349885422746544163}
-  - {fileID: 5762128786822107519}
-  - {fileID: 2878396125388875666}
   leftArrow: {fileID: 255059517}
   rightArrow: {fileID: 1964302316}
   virtualCamera: {fileID: 2105207031}
@@ -49182,7 +49182,6 @@ MonoBehaviour:
   showAdButton: {fileID: 1557725604}
   androidAdUnitId: Rewarded_Android
   dataManager: {fileID: 1130481452}
-  dataCoinManager: {fileID: 1130481453}
 --- !u!114 &7464825062227662414
 MonoBehaviour:
   m_ObjectHideFlags: 0

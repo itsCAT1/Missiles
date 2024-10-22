@@ -13171,9 +13171,9 @@ MonoBehaviour:
   dataManager: {fileID: 1130481453}
   planeManager: {fileID: 1909892231}
   speedUpList: []
-  speedUpPrefab: {fileID: 0}
-  minSpawnDistance: 5
-  maxSpawnDistance: 7
+  speedUpPrefab: {fileID: 6219171016274274270, guid: f634d7f141c1ec940b54336c925ca8b9, type: 3}
+  minSpawnDistance: 6
+  maxSpawnDistance: 8
 --- !u!4 &1073668628
 Transform:
   m_ObjectHideFlags: 0
@@ -13553,6 +13553,7 @@ GameObject:
   - component: {fileID: 1130481447}
   - component: {fileID: 1130481451}
   - component: {fileID: 1130481452}
+  - component: {fileID: 1130481454}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -13782,6 +13783,19 @@ MonoBehaviour:
       process: 
   listDataQuest: {fileID: 11400000, guid: 665e6219cad4eff4280ad57e84439b56, type: 2}
   rootUI: {fileID: 966309266369170895}
+--- !u!114 &1130481454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130481441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bb9fdd427f5eb044aac36f03b32a01c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetFrameRate: 60
 --- !u!1 &1134146247
 GameObject:
   m_ObjectHideFlags: 0
@@ -16275,7 +16289,7 @@ MonoBehaviour:
   shieldList: []
   dataManager: {fileID: 1130481453}
   planeManager: {fileID: 1909892231}
-  minSpawnDistance: 5
+  minSpawnDistance: 6
   maxSpawnDistance: 8
 --- !u!1 &1339703713
 GameObject:
@@ -18771,6 +18785,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1130481442}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: PressButtonDouble
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8363989276666903214}
+        m_TargetAssemblyTypeName: RewardDouble, Assembly-CSharp
+        m_MethodName: ShowAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22281,6 +22307,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1f06c5e1f38314782ed5b37f15c844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dataManager: {fileID: 1130481453}
+  virtualCamera: {fileID: 2105207031}
   planes:
   - {fileID: 618443286}
   - {fileID: 1862461509}
@@ -22292,8 +22320,17 @@ MonoBehaviour:
   - {fileID: 2030034992}
   - {fileID: 2038981309}
   - {fileID: 1173801010}
-  dataManager: {fileID: 1130481453}
-  virtualCamera: {fileID: 2105207031}
+  audioSources:
+  - {fileID: 819856997056845511}
+  - {fileID: 5925086876932059082}
+  - {fileID: 5487916996097608257}
+  - {fileID: 312597375934407914}
+  - {fileID: 7371842134673145282}
+  - {fileID: 4116895078341195190}
+  - {fileID: 458024053684312646}
+  - {fileID: 6060005271783982127}
+  - {fileID: 4054981154766322750}
+  - {fileID: 1896355368877976555}
 --- !u!114 &1909892232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24063,7 +24100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b564ce5bbb439141b8acc7fbbb00abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planeController: {fileID: 0}
   dataManager: {fileID: 1130481453}
   planeManager: {fileID: 1909892231}
   joystick: {fileID: 1994429570}
@@ -29533,14 +29569,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8167219974778251190}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dc43918e7dac7143825754c50d48948, type: 3}
+  m_Script: {fileID: 11500000, guid: 6cac8c51823ed564393e14b8d029b630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showAdButton: {fileID: 0}
-  _androidAdUnitId: Rewarded_Android
-  _iOSAdUnitId: Rewarded_iOS
+  showAdButton: {fileID: 1557725604}
+  androidAdUnitId: Rewarded_Android
   dataManager: {fileID: 1130481453}
-  dataCoinManager: {fileID: 0}
 --- !u!114 &8363989276666903215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29556,7 +29590,8 @@ MonoBehaviour:
   androidGameId: 5711250
   iOSGameId: 5711251
   testMode: 1
-  rewardAds: {fileID: 8363989276666903214}
+  rewardWatchAds: {fileID: 0}
+  rewardDouble: {fileID: 8363989276666903214}
   interstitialAds: {fileID: 8363989276666903213}
 --- !u!222 &8442547049172177771
 CanvasRenderer:

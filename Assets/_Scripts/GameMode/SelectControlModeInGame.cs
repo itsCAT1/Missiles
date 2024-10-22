@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SelectControlModeInGame : MonoBehaviour
 {
-    public PlaneController planeController;
     public DataManager dataManager;
     public PlaneManager planeManager;
 

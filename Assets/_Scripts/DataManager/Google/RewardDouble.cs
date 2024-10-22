@@ -9,7 +9,6 @@ public class RewardDouble : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowL
     string adUnitId = null; // This will remain null for unsupported platforms
 
     public DataManager dataManager;
-    public DataCoinManager dataCoinManager;
     void Awake()
     {
 #if UNITY_ANDROID
@@ -17,7 +16,6 @@ public class RewardDouble : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowL
 #endif
 
         // Disable the button until the ad is ready to show:
-        showAdButton.interactable = false;
     }
 
     // Call this public method when you want to get an ad ready to show.
@@ -38,7 +36,6 @@ public class RewardDouble : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowL
             // Configure the button to call the ShowAd() method when clicked:
             showAdButton.onClick.AddListener(ShowAd);
             // Enable the button for users to click:
-            showAdButton.interactable = true;
         }
     }
 
@@ -46,7 +43,6 @@ public class RewardDouble : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowL
     public void ShowAd()
     {
         // Disable the button:
-        showAdButton.interactable = false;
         // Then show the ad:
         Advertisement.Show(adUnitId, this);
     }

@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class MissilesController : MonoBehaviour
 {
     Rigidbody2D rigid2D;
-    public DataManager dataManager;
+    DataManager dataManager;
     public Transform planePos;
-    public PlaneManager planeManager;
+    PlaneManager planeManager;
     public GameObject explosionPrefab;
     public float speedRotate;
     public float speedMoving;
@@ -54,18 +54,20 @@ public class MissilesController : MonoBehaviour
         {
             GameManager.bonusCoin += 5;
             Debug.Log("bonusCoin");
-            if(Vector2.Distance(this.transform.position, planePos.position) < 1)
+
+            float distance = Vector2.Distance(this.transform.position, planePos.position);
+
+            if (distance < 1)
             {
                 audioMissileExplosionClose.Play();
                 Debug.Log("Explosion close");
             }
-            else if ((Vector2.Distance(this.transform.position, planePos.position) >= 2) &&
-                    (Vector2.Distance(this.transform.position, planePos.position) < 3))
+            else if ((distance >= 1) && (distance < 2))
             {
                 audioMissileExplosionMid.Play();
                 Debug.Log("Explosion mid");
             }
-            else if (Vector2.Distance(this.transform.position, planePos.position) >= 3)
+            else if (distance >= 2)
             {
                 audioMissileExplosionFar.Play();
                 Debug.Log("Explosion far");
