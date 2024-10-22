@@ -56,7 +56,6 @@ public class MissilesController : MonoBehaviour
             Debug.Log("bonusCoin");
 
             float distance = Vector2.Distance(this.transform.position, planePos.position);
-
             if (distance < 1)
             {
                 audioMissileExplosionClose.Play();
