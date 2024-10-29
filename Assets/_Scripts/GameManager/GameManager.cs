@@ -117,11 +117,19 @@ public class GameManager : MonoBehaviour
         uiYourScore.text = totalScore.ToString();
     }
 
-
     public void PressButtonDouble()
     {
         totalScore *= 2;
         uiTotalPoint.text = totalScore.ToString();
         dataManager.dataBase.coin += totalScore/2;
     }
+
+    public void RestartGame()
+    {
+        starPoint = 0;
+        bonusCoin = 0;
+        shieldPoint = 0;
+        speedUpPoint = 0;
+    }
+
 }
