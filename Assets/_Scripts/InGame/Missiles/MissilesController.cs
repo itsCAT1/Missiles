@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,7 +39,9 @@ public class MissilesController : MonoBehaviour
         Vector2 direction = (Vector2)planePos.position - (Vector2)this.transform.position;
         float rotateAmount = Vector3.Cross(direction.normalized, transform.up).z;
 
-        rigid2D.angularVelocity = -speedRotate * rotateAmount;
+        float angle = Vector2.Angle(direction.normalized, transform.up);
+
+        rigid2D.angularVelocity = -speedRotate * rotateAmount * angle;
         rigid2D.velocity = transform.up * speedMoving;
         StartCoroutine(TimeOutChasePlane());
         if (!planePos.gameObject.activeSelf)
