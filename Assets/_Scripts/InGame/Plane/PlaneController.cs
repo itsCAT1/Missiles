@@ -14,7 +14,7 @@ public class PlaneController : MonoBehaviour
     Animator animator;
 
     public GameObject shieldReceive;
-    bool haveSpeedUp;
+    public bool haveSpeedUp;
     public bool haveShield;
     public GameObject explosionPrefab;
     public GameObject explosionMissilePrefab;
@@ -193,9 +193,10 @@ public class PlaneController : MonoBehaviour
     IEnumerator StateSpeedUp()
     {
         haveSpeedUp = true;
-        audioReceiveStar.Play();
+        
+        audioReceiveShield.Play();
         float oldSpeed = speedMoving;
-        speedMoving = oldSpeed * 2;
+        speedMoving = oldSpeed * 1.5f;
         yield return new WaitForSecondsRealtime(5);
         speedMoving = oldSpeed;
         haveSpeedUp = false;

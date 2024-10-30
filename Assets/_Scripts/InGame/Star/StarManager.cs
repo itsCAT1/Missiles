@@ -84,6 +84,8 @@ public class StarManager : MonoBehaviour
                 continue;
             }
 
+            
+
             Vector3 viewportPos = cam.WorldToViewportPoint(starList[i].transform.position);
 
             if ((viewportPos.x < 0 || viewportPos.x > 1 || viewportPos.y < 0 || viewportPos.y > 1))
@@ -93,6 +95,11 @@ public class StarManager : MonoBehaviour
                 if (!indicator.activeSelf)
                 {
                     indicator.SetActive(true);
+                }
+
+                if (!plane.gameObject.activeSelf)
+                {
+                    indicator.SetActive(false);
                 }
 
                 Vector3 direction = (starList[i].transform.position - plane.transform.position).normalized;

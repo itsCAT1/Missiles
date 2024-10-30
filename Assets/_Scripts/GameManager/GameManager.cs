@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         {
             isScoreUpdated = true;
             UpdateUIValue();
-            achievementHandler.ShowAchievementProgress();
+            achievementHandler.SetAchievementProgress();
             leaderboadHandler.ReportScoreToLeaderboard(dataManager.dataBase.bestScoreNormalMode, "CgkI99L9iJYPEAIQAg");
             leaderboadHandler.ReportScoreToLeaderboard(dataManager.dataBase.bestScoreFastMode, "CgkI99L9iJYPEAIQAw");
             leaderboadHandler.ReportScoreToLeaderboard(dataManager.dataBase.oldBestScoreNormalMode, "CgkI99L9iJYPEAIQFA");

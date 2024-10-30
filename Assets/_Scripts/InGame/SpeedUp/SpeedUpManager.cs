@@ -37,8 +37,6 @@ public class SpeedUpManager : MonoBehaviour
             Vector3 newSpawnSpeedUpPos = cam.transform.position + randomDirection * Random.Range(minSpawnDistance, maxSpawnDistance);
             newSpawnSpeedUpPos.z = 0;
 
-            
-
             if (!plane.transform.GetChild(1).gameObject.activeSelf)
             {
                 GameObject newSpeedUp = Instantiate(speedUpPrefab, newSpawnSpeedUpPos, Quaternion.identity);
@@ -73,6 +71,11 @@ public class SpeedUpManager : MonoBehaviour
                 if (!indicator.activeSelf)
                 {
                     indicator.SetActive(true);
+                }
+
+                if (!plane.gameObject.activeSelf)
+                {
+                    indicator.SetActive(false);
                 }
 
                 Vector3 direction = (speedUpList[i].transform.position - plane.transform.position).normalized;

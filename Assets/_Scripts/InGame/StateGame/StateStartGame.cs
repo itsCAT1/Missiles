@@ -51,6 +51,7 @@ public class StateStartGame : MonoBehaviour
             timeCount += Time.deltaTime; 
             yield return null; 
         }
+        plane.transform.rotation = Quaternion.Euler(0, 0, 180);
     }
 
     IEnumerator WaitClosePanel()

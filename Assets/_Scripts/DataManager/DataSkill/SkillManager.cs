@@ -32,7 +32,7 @@ public class SkillManager : MonoBehaviour
     public GameObject modeUI;
 
     public DataCoinManager dataCoinManager;
-
+    public AchievementHandler achievementHandler;
     private void Start()
     {
         LoadSkillOwned();
@@ -86,7 +86,10 @@ public class SkillManager : MonoBehaviour
             dataManager.dataBase.totalPlane = listSkillOwned.listSkillOwned.Count;
 
             dataManager.UpdateValue();
+            dataManager.SaveDataProgress();
             dataManager.SaveDataBase();
+
+            achievementHandler.SetAchievementProgress();
         }
     }
 

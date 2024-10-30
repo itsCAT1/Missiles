@@ -10,7 +10,6 @@ public class AchievementHandler : MonoBehaviour
 
     public void UnlockAchievement(string achievementID, float progressPercentage)
     {
-        // Báo cáo phần trăm hoàn thành của achievement
         Social.ReportProgress(achievementID, progressPercentage * 100, (bool success) =>
         {
             if (success)
@@ -29,7 +28,7 @@ public class AchievementHandler : MonoBehaviour
         PlayGamesPlatform.Instance.ShowAchievementsUI();
     }
 
-    public void ShowAchievementProgress()
+    public void SetAchievementProgress()
     {
         string[] achievementIDs = {
         "CgkI99L9iJYPEAIQBA",

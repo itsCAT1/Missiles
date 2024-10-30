@@ -30,7 +30,6 @@ public class SelectControlModeManager : MonoBehaviour
 
         else
         {
-            SetValuePlane();
             SetControlMode();
         }
     }
@@ -78,56 +77,6 @@ public class SelectControlModeManager : MonoBehaviour
             buttonArrow.gameObject.SetActive(false);
             joystick.gameObject.SetActive(false);
         }
-    }
-
-    public void SetValuePlane()
-    {
-        var planeInGame = planeManager.planes[dataManager.dataBase.indexPlane].
-            GetComponent<PlaneController>();
-        switch (dataManager.dataBase.indexPlane)
-        {
-            case 0:
-                planeInGame.speedMoving = 2;
-                planeInGame.speedRotate = 2;
-                break;
-            case 1:
-                planeInGame.speedMoving = 2;
-                planeInGame.speedRotate = 2.3f;
-                break;
-            case 2:
-                planeInGame.speedMoving = 2.3f;
-                planeInGame.speedRotate = 2;
-                break;
-            case 3:
-                planeInGame.speedMoving = 2.3f;
-                planeInGame.speedRotate = 2.3f;
-                break;
-            case 4:
-                planeInGame.speedMoving = 2.6f;
-                planeInGame.speedRotate = 2.3f;
-                break;
-            case 5:
-                planeInGame.speedMoving = 2.3f;
-                planeInGame.speedRotate = 2.6f;
-                break;
-            case 6:
-                planeInGame.speedMoving = 2;
-                planeInGame.speedRotate = 2.9f;
-                break;
-            case 7:
-                planeInGame.speedMoving = 2.9f;
-                planeInGame.speedRotate = 2;
-                break;
-            case 8:
-                planeInGame.speedMoving = 2.6f;
-                planeInGame.speedRotate = 2.6f;
-                break;
-            case 9:
-                planeInGame.speedMoving = 2.6f;
-                planeInGame.speedRotate = 2.9f;
-                break;
-        }
-        
     }
 
     public void SelectMode()

@@ -29,7 +29,6 @@ public class DataManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        Debug.Log("save");
         SaveDataBase();
         SaveDataProgress();
     }

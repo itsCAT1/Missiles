@@ -332,6 +332,11 @@ public class MissilesManager : MonoBehaviour
                     indicator.SetActive(true);
                 }
 
+                if (!plane.gameObject.activeSelf)
+                {
+                    indicator.SetActive(false);
+                }
+
                 Vector3 direction = (missileList[i].transform.position - plane.transform.position).normalized;
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
                 indicator.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
