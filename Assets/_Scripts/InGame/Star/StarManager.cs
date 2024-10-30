@@ -8,6 +8,7 @@ public class StarManager : MonoBehaviour
 {
     public Transform plane;
     public GameObject starPrefab;
+    public List<GameObject> groupPrefabStar;
     public List<GameObject> starList;
 
     public DataManager dataManager;
@@ -22,6 +23,7 @@ public class StarManager : MonoBehaviour
     {
         plane = planeManager.planes[dataManager.dataBase.indexPlane].GetComponent<Transform>();
         StartCoroutine(RandomSpawnStar());
+        StartCoroutine(RandomSpawnGroupStar());
         cam = Camera.main;
     }
 
@@ -35,13 +37,34 @@ public class StarManager : MonoBehaviour
             }
             yield return new WaitForSeconds(Random.Range(10,20));
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
-            Vector3 newSpawnStarPos = cam.transform.position + randomDirection * 
+            Vector3 starPos = cam.transform.position + randomDirection * 
                 Random.Range(minSpawnDistance, maxSpawnDistance);
-            newSpawnStarPos.z = 0;
+            starPos.z = 0;
 
-            GameObject newStar = Instantiate(starPrefab, newSpawnStarPos, Quaternion.identity);
+            GameObject newStar = Instantiate(starPrefab, starPos, Quaternion.identity);
             newStar.transform.SetParent(this.transform);
             starList.Add(newStar);
+        }
+    }
+
+    IEnumerator RandomSpawnGroupStar()
+    {
+        while (true)
+        {
+            if (!plane.gameObject.activeSelf)
+            {
+                yield break;
+            }
+            yield return new WaitForSeconds(Random.Range(30, 50));
+            Vector3 randomDirection = Random.insideUnitCircle.normalized;
+            Vector3 groupStarPos = cam.transform.position + randomDirection *
+                Random.Range(10, 15);
+            groupStarPos.z = 0;
+
+            GameObject newGroupStar = Instantiate(groupPrefabStar[Random.Range(0, groupPrefabStar.Count-1)], groupStarPos, Quaternion.identity);
+            Debug.Log(newGroupStar);
+            newGroupStar.transform.SetParent(this.transform);
+            starList.Add(newGroupStar);
         }
     }
 

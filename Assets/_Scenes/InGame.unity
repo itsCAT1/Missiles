@@ -13796,52 +13796,36 @@ MonoBehaviour:
     dataProgresses:
     - id: 0
       currentValue: 0
-      process: 
     - id: 1
       currentValue: 0
-      process: 
     - id: 2
       currentValue: 0
-      process: 
     - id: 3
       currentValue: 0
-      process: 
     - id: 4
       currentValue: 0
-      process: 
     - id: 5
       currentValue: 0
-      process: 
     - id: 6
       currentValue: 0
-      process: 
     - id: 7
       currentValue: 0
-      process: 
     - id: 8
       currentValue: 0
-      process: 
     - id: 9
       currentValue: 0
-      process: 
     - id: 10
       currentValue: 0
-      process: 
     - id: 11
       currentValue: 0
-      process: 
     - id: 12
       currentValue: 0
-      process: 
     - id: 13
       currentValue: 0
-      process: 
     - id: 14
       currentValue: 0
-      process: 
     - id: 15
       currentValue: 0
-      process: 
   listDataQuest: {fileID: 11400000, guid: 665e6219cad4eff4280ad57e84439b56, type: 2}
   rootUI: {fileID: 966309266369170895}
 --- !u!114 &1130481454
@@ -18324,6 +18308,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plane: {fileID: 0}
   starPrefab: {fileID: 4843400192569355719, guid: b9ad83c3642198e47b689b701e2be7d2, type: 3}
+  groupPrefabStar:
+  - {fileID: 3610014478997419688, guid: 9616a225103d3fc48b5745570173f29f, type: 3}
+  - {fileID: 3610014478997419688, guid: f2a57de3196669246b48c702d27fe929, type: 3}
+  - {fileID: 3610014478997419688, guid: f2a57de3196669246b48c702d27fe929, type: 3}
   starList: []
   dataManager: {fileID: 1130481453}
   planeManager: {fileID: 1909892231}

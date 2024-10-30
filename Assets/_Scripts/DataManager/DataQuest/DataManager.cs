@@ -17,7 +17,7 @@ public class DataManager : MonoBehaviour
     {
         LoadDataProgress();
         LoadDataBase();
-
+        
         uiHandlerDict = new Dictionary<int, DailyQuestDataHandle>();
         foreach (var quest in listDataQuest.questData)
         {
@@ -29,8 +29,18 @@ public class DataManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        Debug.Log("save");
         SaveDataBase();
         SaveDataProgress();
+    }
+
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause)
+        {
+            SaveDataBase();
+            SaveDataProgress();
+        }
     }
 
     void CreateQuest(DailyQuestData dailyQuestData, DataProgress dataProgress)

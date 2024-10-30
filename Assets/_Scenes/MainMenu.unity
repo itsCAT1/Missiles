@@ -14001,52 +14001,36 @@ MonoBehaviour:
     dataProgresses:
     - id: 0
       currentValue: 0
-      process: 
     - id: 1
       currentValue: 0
-      process: 
     - id: 2
       currentValue: 0
-      process: 
     - id: 3
       currentValue: 0
-      process: 
     - id: 4
       currentValue: 0
-      process: 
     - id: 5
       currentValue: 0
-      process: 
     - id: 6
       currentValue: 0
-      process: 
     - id: 7
       currentValue: 0
-      process: 
     - id: 8
       currentValue: 0
-      process: 
     - id: 9
       currentValue: 0
-      process: 
     - id: 10
       currentValue: 0
-      process: 
     - id: 11
       currentValue: 0
-      process: 
     - id: 12
       currentValue: 0
-      process: 
     - id: 13
       currentValue: 0
-      process: 
     - id: 14
       currentValue: 0
-      process: 
     - id: 15
       currentValue: 0
-      process: 
   listDataQuest: {fileID: 11400000, guid: 665e6219cad4eff4280ad57e84439b56, type: 2}
   rootUI: {fileID: 230692367778161966}
 --- !u!114 &1130481453
@@ -18402,6 +18386,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plane: {fileID: 0}
   starPrefab: {fileID: 4843400192569355719, guid: b9ad83c3642198e47b689b701e2be7d2, type: 3}
+  groupPrefabStar:
+  - {fileID: 3610014478997419688, guid: 9616a225103d3fc48b5745570173f29f, type: 3}
+  - {fileID: 3610014478997419688, guid: f2a57de3196669246b48c702d27fe929, type: 3}
+  - {fileID: 3610014478997419688, guid: f2a57de3196669246b48c702d27fe929, type: 3}
   starList: []
   dataManager: {fileID: 1130481452}
   planeManager: {fileID: 1909892231}
@@ -26475,8 +26463,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1080, y: 1920}
+  m_AnchoredPosition: {x: 0, y: 80.11}
+  m_SizeDelta: {x: 1080, y: 2080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &463781235709831999
 RectTransform:
@@ -26642,7 +26630,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1080, y: 1920}
+  m_SizeDelta: {x: 1080, y: 2080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &506960978132233347
 RectTransform:
@@ -46659,7 +46647,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1080, y: 1920}
+  m_SizeDelta: {x: 1080, y: 2080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &8099350834885378331
 RectTransform:

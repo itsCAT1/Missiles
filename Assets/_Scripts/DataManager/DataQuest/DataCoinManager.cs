@@ -11,7 +11,6 @@ public class DataCoinManager : MonoBehaviour
     public DataManager dataManager;
     private void Start()
     {
-        dataManager.LoadDataBase();
         UpdateUICoin(); 
     }
 

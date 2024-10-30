@@ -10,7 +10,6 @@ public class StateBackToMenu : MonoBehaviour
     {
         dataManager.SaveDataBase();
         SceneManager.LoadScene(0);
-        dataManager.LoadDataBase();
         Time.timeScale = 1;
     }
 }

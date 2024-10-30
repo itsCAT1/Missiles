@@ -28,7 +28,6 @@ public class MissilesController : MonoBehaviour
         audioMissileExplosionMid = GameObject.Find("MissileExplosionMid").GetComponent<AudioSource>();
         audioMissileExplosionFar = GameObject.Find("MissileExplosionFar").GetComponent<AudioSource>();
     }
-
     private void FixedUpdate()
     {
         Moving();
@@ -38,17 +37,19 @@ public class MissilesController : MonoBehaviour
     {
         Vector2 direction = (Vector2)planePos.position - (Vector2)this.transform.position;
         float rotateAmount = Vector3.Cross(direction.normalized, transform.up).z;
-
         float angle = Vector2.Angle(direction.normalized, transform.up);
 
         rigid2D.angularVelocity = -speedRotate * rotateAmount * angle;
+
         rigid2D.velocity = transform.up * speedMoving;
+
         StartCoroutine(TimeOutChasePlane());
         if (!planePos.gameObject.activeSelf)
         {
             StartCoroutine(PlaneExplosion());
         }
     }
+
 
 
     private void OnTriggerEnter2D(Collider2D collision)

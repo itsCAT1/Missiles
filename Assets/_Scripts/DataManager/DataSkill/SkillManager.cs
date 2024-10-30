@@ -44,10 +44,14 @@ public class SkillManager : MonoBehaviour
         }
     }
 
-    private void OnApplicationQuit()
+    private void OnApplicationPause(bool pause)
     {
-        SaveSkillOwned();
+        if (pause)
+        {
+            SaveSkillOwned();
+        }
     }
+
 
     public bool CheckPlane(int id)
     {
@@ -80,6 +84,9 @@ public class SkillManager : MonoBehaviour
             modeUI.SetActive(true);
 
             dataManager.dataBase.totalPlane = listSkillOwned.listSkillOwned.Count;
+
+            dataManager.UpdateValue();
+            dataManager.SaveDataBase();
         }
     }
 

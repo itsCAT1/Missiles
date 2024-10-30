@@ -12,7 +12,7 @@ public class FollowCamera : MonoBehaviour
         mainCamera = Camera.main;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         Vector3 pos = mainCamera.transform.position;
         pos.z = 0;
