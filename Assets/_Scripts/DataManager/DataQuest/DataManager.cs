@@ -13,10 +13,11 @@ public class DataManager : MonoBehaviour
     public Transform rootUI;
     public Dictionary<int, DailyQuestDataHandle> uiHandlerDict;
 
-    private void Start()
+    private void Awake()
     {
         LoadDataProgress();
         LoadDataBase();
+
         uiHandlerDict = new Dictionary<int, DailyQuestDataHandle>();
         foreach (var quest in listDataQuest.questData)
         {

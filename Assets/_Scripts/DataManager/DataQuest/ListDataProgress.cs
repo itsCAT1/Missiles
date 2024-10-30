@@ -8,7 +8,6 @@ public class DataProgress
 {
     public int id;
     public int currentValue;
-    public string process;
 }
 
 [Serializable]
