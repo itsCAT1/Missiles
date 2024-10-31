@@ -18,23 +18,28 @@ public class JoystickController : MonoBehaviour
         if (!Input.GetMouseButton(0))
             return;
 
-        Vector2 mouPos = Vector2.zero;
-        mouPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mouPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         Debug.DrawLine(this.transform.position, mouPos, Color.red);
         direction = mouPos - (Vector2)this.transform.position;
 
         if (direction.magnitude <= joystickRadius)
         {
-            joystickHandle.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            joystickHandle.position = mouPos;
             return;
         }
 
         float angle = Mathf.Atan2(direction.y, direction.x);
 
-        Vector2 pos;
-        pos.x = Mathf.Cos(angle) * joystickRadius;
-        pos.y = Mathf.Sin(angle) * joystickRadius;
-        joystickHandle.localPosition = pos;
+        Vector2 posLimited;
+        posLimited.x = Mathf.Cos(angle) * joystickRadius;
+        posLimited.y = Mathf.Sin(angle) * joystickRadius;
+        joystickHandle.localPosition = posLimited;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(this.transform.position, joystickRadius);
     }
 }

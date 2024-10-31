@@ -50,15 +50,15 @@ public class PlaneController : MonoBehaviour
     {
         Vector2 directionNormalized = joystickController.direction.normalized;
 
-        float targetAngle = this.transform.eulerAngles.z;
+        float currentAngle = this.transform.eulerAngles.z;
         
-        targetAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
+        currentAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
         
         Quaternion rotate = this.transform.rotation;
         
-        float currentAngle = Mathf.LerpAngle(rotate.eulerAngles.z, targetAngle, speedRotate * Time.deltaTime);
+        float tartgetAngle = Mathf.LerpAngle(rotate.eulerAngles.z, currentAngle, speedRotate * Time.deltaTime);
         
-        rotate = Quaternion.Euler(0, 0, currentAngle);
+        rotate = Quaternion.Euler(0, 0, tartgetAngle);
         this.transform.rotation = rotate;
         float rotateAmount = Vector3.Cross(directionNormalized, transform.up).z;
         if (rotateAmount > 0)
@@ -70,12 +70,12 @@ public class PlaneController : MonoBehaviour
             this.transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        if (previousAngle != (int)currentAngle)
+        if (previousAngle != (int)tartgetAngle)
         {
             animator.SetBool("Rotate", true);
         }
         else animator.SetBool("Rotate", false);
-        previousAngle = (int)currentAngle;
+        previousAngle = (int)tartgetAngle;
         
     }
 
@@ -106,20 +106,19 @@ public class PlaneController : MonoBehaviour
     {
         var mouPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        float targetAngle = this.transform.eulerAngles.z;
+        float currentAngle = this.transform.eulerAngles.z;
         if (Input.GetMouseButton(0))
         {
             directionNormalized = mouPos - this.transform.position;
         }
 
-        targetAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
+        currentAngle = Mathf.Atan2(directionNormalized.y, directionNormalized.x) * Mathf.Rad2Deg - 90;
         Debug.DrawLine(this.transform.position, mouPos, Color.red);
         
         Quaternion rotate = this.transform.rotation;
-        float currentAngle = Mathf.LerpAngle(rotate.eulerAngles.z, targetAngle, speedRotate * Time.deltaTime);
+        float targetAngle = Mathf.LerpAngle(rotate.eulerAngles.z, currentAngle, speedRotate * Time.deltaTime);
         
-        
-        rotate = Quaternion.Euler(0, 0, currentAngle);
+        rotate = Quaternion.Euler(0, 0, targetAngle);
 
         float rotateAmount = Vector3.Cross(directionNormalized, transform.up).z;
 
@@ -132,12 +131,12 @@ public class PlaneController : MonoBehaviour
             this.transform.localScale = new Vector3(-1, 1, 1);
         }
 
-        if ((int)previousAngle != (int)currentAngle)
+        if ((int)previousAngle != (int)targetAngle)
         {
             animator.SetBool("Rotate", true);
         }
         else animator.SetBool("Rotate", false);
-        previousAngle = currentAngle;
+        previousAngle = targetAngle;
 
         this.transform.rotation = rotate;
     }
