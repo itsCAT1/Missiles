@@ -174,18 +174,18 @@ public class PlaneController : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.CompareTag("speedup") && !haveSpeedUp)
-        {
-            Destroy(collision.gameObject);
-            GameManager.speedUpPoint += 1;
-            StartCoroutine(StateSpeedUp());
-        }
-
         if (collision.gameObject.CompareTag("star"))
         {
             audioReceiveStar.Play();
             GameManager.starPoint += 1;
             Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("speedup") && !haveSpeedUp)
+        {
+            Destroy(collision.gameObject);
+            GameManager.speedUpPoint += 1;
+            StartCoroutine(StateSpeedUp());
         }
     }
 

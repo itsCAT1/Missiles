@@ -13,14 +13,11 @@ public class StateStartGame : MonoBehaviour
     public bool isStartGame = false;
     public TimeCountBegin timeCountBegin;
 
-
     public void StartGame()
     {
         StartCoroutine(WaitClosePanel());
         StartCoroutine(WaitPlaneRotate());
 
-        timeCountBegin.StartTimeGame();
-        isStartGame = true;
         for (int i = 0; i < planeManager.planes.Count; i++)
         {
             planeManager.planes[i].SetActive(i == dataManager.dataBase.indexPlane);
@@ -52,6 +49,8 @@ public class StateStartGame : MonoBehaviour
             yield return null; 
         }
         plane.transform.rotation = Quaternion.Euler(0, 0, 180);
+        isStartGame = true;
+        timeCountBegin.StartTimeGame();
     }
 
     IEnumerator WaitClosePanel()
