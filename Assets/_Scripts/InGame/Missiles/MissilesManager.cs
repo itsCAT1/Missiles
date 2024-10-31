@@ -20,7 +20,6 @@ public class MissilesManager : MonoBehaviour
         cam = Camera.main;
     }
 
-
     void SetTimeSpawn()
     {
         StartCoroutine(TimeInitMissile1());
@@ -30,7 +29,7 @@ public class MissilesManager : MonoBehaviour
         StartCoroutine(TimeInitMissile5());
         StartCoroutine(TimeInitMissile6());
         StartCoroutine(TimeInitMissile7());
-        StartCoroutine(TimeRandomSpawnMissile());
+        StartCoroutine(TimeInitGroupMissile());
     }
 
     IEnumerator TimeInitMissile1()
@@ -38,6 +37,7 @@ public class MissilesManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         SpawnMissiles1();
     }
+
     IEnumerator TimeInitMissile2()
     {
         while (isSpawning)
@@ -58,7 +58,7 @@ public class MissilesManager : MonoBehaviour
     {
         while (isSpawning)
         {
-            yield return new WaitForSeconds(30);
+            yield return new WaitForSeconds(Random.Range(20,30));
             if (plane.gameObject.activeSelf)
             {
                 SpawnMissiles3();
@@ -74,7 +74,7 @@ public class MissilesManager : MonoBehaviour
     {
         while (isSpawning)
         {
-            yield return new WaitForSeconds(60);
+            yield return new WaitForSeconds(Random.Range(30, 40));
             if (plane.gameObject.activeSelf)
             {
                 SpawnMissiles4();
@@ -90,7 +90,7 @@ public class MissilesManager : MonoBehaviour
     {
         while (isSpawning)
         {
-            yield return new WaitForSeconds(90);
+            yield return new WaitForSeconds(Random.Range(40, 50));
             if (plane.gameObject.activeSelf)
             {
                 SpawnMissiles5();
@@ -106,7 +106,7 @@ public class MissilesManager : MonoBehaviour
     {
         while (isSpawning)
         {
-            yield return new WaitForSeconds(120);
+            yield return new WaitForSeconds(Random.Range(50, 60));
             if (plane.gameObject.activeSelf)
             {
                 SpawnMissiles6();
@@ -122,7 +122,7 @@ public class MissilesManager : MonoBehaviour
     {
         while (isSpawning)
         {
-            yield return new WaitForSeconds(150);
+            yield return new WaitForSeconds(Random.Range(60, 70));
             if (plane.gameObject.activeSelf)
             {
                 SpawnMissiles7();
@@ -135,17 +135,17 @@ public class MissilesManager : MonoBehaviour
         }
     }
 
-    IEnumerator TimeRandomSpawnMissile()
+    IEnumerator TimeInitGroupMissile()
     {
         while (isSpawning)
         {
-            yield return new WaitForSeconds(40);
+            yield return new WaitForSeconds(Random.Range(30, 40));
             int randomTime = Random.Range(1, 4);
             if (plane.gameObject.activeSelf)
             {
                 for (int i = 1; i <= randomTime; i++)
                 {
-                    RandomSpawnMissile();
+                    RandomSpawnGroupMissile();
                 }
             }
             else
@@ -282,7 +282,7 @@ public class MissilesManager : MonoBehaviour
         newMissile7.transform.SetParent(this.transform);
     }
 
-    void RandomSpawnMissile()
+    void RandomSpawnGroupMissile()
     {
         Vector2 oldPos = Vector2.zero;
         Vector2 planePos = plane.transform.position;
