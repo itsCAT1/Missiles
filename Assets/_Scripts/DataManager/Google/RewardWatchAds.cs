@@ -17,7 +17,6 @@ public class RewardWatchAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSho
     #endif
 
         // Disable the button until the ad is ready to show:
-        showAdButton.interactable = false;
     }
 
     // Call this public method when you want to get an ad ready to show.
@@ -38,7 +37,6 @@ public class RewardWatchAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSho
             // Configure the button to call the ShowAd() method when clicked:
             showAdButton.onClick.AddListener(ShowAd);
             // Enable the button for users to click:
-            showAdButton.interactable = true;
         }
     }
 
@@ -46,7 +44,6 @@ public class RewardWatchAds : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSho
     public void ShowAd()
     {
         // Disable the button:
-        showAdButton.interactable = false;
         // Then show the ad:
         Advertisement.Show(adUnitId, this);
     }

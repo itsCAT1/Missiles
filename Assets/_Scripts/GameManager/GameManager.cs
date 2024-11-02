@@ -88,7 +88,8 @@ public class GameManager : MonoBehaviour
         }
 
         dataManager.UpdateValue();
-        PlayerPrefs.Save();
+        dataManager.SaveDataBase();
+        dataManager.SaveDataProgress();
     }
 
     public void SetValueDataBase()

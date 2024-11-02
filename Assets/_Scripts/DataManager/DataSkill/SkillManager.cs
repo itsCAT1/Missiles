@@ -86,8 +86,9 @@ public class SkillManager : MonoBehaviour
             dataManager.dataBase.totalPlane = listSkillOwned.listSkillOwned.Count;
 
             dataManager.UpdateValue();
-            dataManager.SaveDataProgress();
+            
             dataManager.SaveDataBase();
+            dataManager.SaveDataProgress();
 
             achievementHandler.SetAchievementProgress();
         }
