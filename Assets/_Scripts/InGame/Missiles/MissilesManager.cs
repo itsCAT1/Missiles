@@ -337,13 +337,13 @@ public class MissilesManager : MonoBehaviour
                     indicator.SetActive(false);
                 }
 
-                Vector3 direction = (missileList[i].transform.position - plane.transform.position).normalized;
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-                indicator.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
                 Vector2 posIndicator = missileList[i].transform.position;
                 posIndicator.x = Mathf.Clamp(posIndicator.x, cam.transform.position.x - 2.67f, cam.transform.position.x + 2.67f);
                 posIndicator.y = Mathf.Clamp(posIndicator.y, cam.transform.position.y - 4.87f, cam.transform.position.y + 4.87f);
+
+                Vector2 direction = ((Vector2)missileList[i].transform.position - posIndicator).normalized;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+                indicator.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
                 indicator.transform.position = posIndicator;
             }
